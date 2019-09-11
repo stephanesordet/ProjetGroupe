@@ -103,6 +103,26 @@ namespace Gestionnaire_de_stock_version_1._0.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Mescommandes {
+            get {
+                object obj = ResourceManager.GetObject("Mescommandes", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap nouvellecommande {
+            get {
+                object obj = ResourceManager.GetObject("nouvellecommande", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Produits {
             get {
                 object obj = ResourceManager.GetObject("Produits", resourceCulture);
