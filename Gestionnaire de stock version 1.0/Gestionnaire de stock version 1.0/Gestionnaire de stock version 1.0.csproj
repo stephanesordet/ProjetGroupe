@@ -76,6 +76,12 @@
     <Compile Include="Form_Stock.Designer.cs">
       <DependentUpon>Form_Stock.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form_Utilisateur.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Utilisateur.Designer.cs">
+      <DependentUpon>Form_Utilisateur.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">

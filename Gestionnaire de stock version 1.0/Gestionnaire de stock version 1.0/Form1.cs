@@ -15,6 +15,14 @@ namespace Gestionnaire_de_stock_version_1._0
         public FrmMenu()
         {
             InitializeComponent();
+            Inicialisation();
+
+
+        }
+
+        public void Inicialisation()
+        {
+            pnlmenuper.Visible = false;
         }
 
         private void picCommander_Click(object sender, EventArgs e)
@@ -49,6 +57,26 @@ namespace Gestionnaire_de_stock_version_1._0
 
         private void FrmMenu_Load(object sender, EventArgs e)
         {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+            Form_Utilisateur form_utilisateur = new Form_Utilisateur();
+            form_utilisateur.Show();
+            this.Hide();
+        }
+
+        private void picconfig_Click(object sender, EventArgs e)
+        {
+            if (pnlmenuper.Visible == false)
+            {
+                pnlmenuper.Visible = true;
+            }
+            else
+            {
+                pnlmenuper.Visible = false;
+            }
 
         }
     }
