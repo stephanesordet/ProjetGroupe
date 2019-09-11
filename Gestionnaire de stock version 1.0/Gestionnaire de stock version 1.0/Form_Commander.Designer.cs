@@ -28,9 +28,34 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.picmescommandes = new System.Windows.Forms.PictureBox();
             this.pic_returnemenu = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picmescommandes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_returnemenu)).BeginInit();
             this.SuspendLayout();
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Gestionnaire_de_stock_version_1._0.Properties.Resources.nouvellecommande;
+            this.pictureBox1.Location = new System.Drawing.Point(44, 188);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(300, 104);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
+            // picmescommandes
+            // 
+            this.picmescommandes.Image = global::Gestionnaire_de_stock_version_1._0.Properties.Resources.Mescommandes;
+            this.picmescommandes.Location = new System.Drawing.Point(44, 66);
+            this.picmescommandes.Name = "picmescommandes";
+            this.picmescommandes.Size = new System.Drawing.Size(300, 100);
+            this.picmescommandes.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.picmescommandes.TabIndex = 1;
+            this.picmescommandes.TabStop = false;
             // 
             // pic_returnemenu
             // 
@@ -46,10 +71,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(415, 336);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.picmescommandes);
             this.Controls.Add(this.pic_returnemenu);
             this.Name = "Form_Commander";
             this.Text = "Commander";
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picmescommandes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_returnemenu)).EndInit();
             this.ResumeLayout(false);
 
@@ -58,5 +87,7 @@
         #endregion
 
         private System.Windows.Forms.PictureBox pic_returnemenu;
+        private System.Windows.Forms.PictureBox picmescommandes;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

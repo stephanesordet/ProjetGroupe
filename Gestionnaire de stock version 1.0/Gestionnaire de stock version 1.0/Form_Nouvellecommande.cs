@@ -10,23 +10,18 @@ using System.Windows.Forms;
 
 namespace Gestionnaire_de_stock_version_1._0
 {
-    public partial class Form_Utilisateur : Form
+    public partial class Form_Nouvellecommande : Form
     {
-        public Form_Utilisateur()
+        public Form_Nouvellecommande()
         {
             InitializeComponent();
         }
 
-        private void picreturnemenu_Click(object sender, EventArgs e)
+        private void picretourcommander_Click(object sender, EventArgs e)
         {
-            FrmMenu form1 = new FrmMenu();
-            form1.Show();
+            Form_Commander forme_commander = new Form_Commander();
+            forme_commander.Show();
             this.Hide();
-        }
-
-        private void cmdvalider_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

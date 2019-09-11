@@ -23,5 +23,12 @@ namespace Gestionnaire_de_stock_version_1._0
             form1.Show();
             this.Hide();
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            Form_Nouvellecommande form_nouvellecommande = new Form_Nouvellecommande();
+            form_nouvellecommande.Show();
+            this.Hide();
+        }
     }
 }

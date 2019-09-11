@@ -64,6 +64,12 @@
     <Compile Include="Form_Fournisseur.Designer.cs">
       <DependentUpon>Form_Fournisseur.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form_Nouvellecommande.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Nouvellecommande.Designer.cs">
+      <DependentUpon>Form_Nouvellecommande.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form_Produits.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -92,6 +98,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form_Fournisseur.resx">
       <DependentUpon>Form_Fournisseur.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_Nouvellecommande.resx">
+      <DependentUpon>Form_Nouvellecommande.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_Utilisateur.resx">
+      <DependentUpon>Form_Utilisateur.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -133,6 +145,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\left-arrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Mescommandes.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\nouvellecommande.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
