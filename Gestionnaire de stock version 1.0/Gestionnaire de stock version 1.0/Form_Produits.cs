@@ -10,18 +10,11 @@ using System.Windows.Forms;
 
 namespace Gestionnaire_de_stock_version_1._0
 {
-    public partial class Form_Commander : Form
+    public partial class Form_Produits : Form
     {
-        public Form_Commander()
+        public Form_Produits()
         {
             InitializeComponent();
-        }
-
-        private void pic_returnemenu_Click(object sender, EventArgs e)
-        {
-            FrmMenu form1 = new FrmMenu();
-            form1.Show();
-            this.Hide();
         }
     }
 }

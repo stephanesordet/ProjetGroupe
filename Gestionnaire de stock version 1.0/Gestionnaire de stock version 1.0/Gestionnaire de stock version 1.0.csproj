@@ -58,10 +58,34 @@
     <Compile Include="Form_Commander.Designer.cs">
       <DependentUpon>Form_Commander.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form_Fournisseur.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Fournisseur.Designer.cs">
+      <DependentUpon>Form_Fournisseur.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Produits.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Produits.Designer.cs">
+      <DependentUpon>Form_Produits.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Stock.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Stock.Designer.cs">
+      <DependentUpon>Form_Stock.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_Commander.resx">
+      <DependentUpon>Form_Commander.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_Fournisseur.resx">
+      <DependentUpon>Form_Fournisseur.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -100,6 +124,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icons8-services-26.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\left-arrow.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

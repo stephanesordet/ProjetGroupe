@@ -45,7 +45,7 @@
             // 
             this.lblNomappli.AutoSize = true;
             this.lblNomappli.Font = new System.Drawing.Font("Microsoft Sans Serif", 40F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNomappli.Location = new System.Drawing.Point(225, 18);
+            this.lblNomappli.Location = new System.Drawing.Point(242, 9);
             this.lblNomappli.Name = "lblNomappli";
             this.lblNomappli.Size = new System.Drawing.Size(271, 63);
             this.lblNomappli.TabIndex = 4;
@@ -64,39 +64,42 @@
             // picProduits
             // 
             this.picProduits.Image = global::Gestionnaire_de_stock_version_1._0.Properties.Resources.Produits;
-            this.picProduits.Location = new System.Drawing.Point(415, 263);
+            this.picProduits.Location = new System.Drawing.Point(411, 230);
             this.picProduits.Name = "picProduits";
-            this.picProduits.Size = new System.Drawing.Size(192, 99);
+            this.picProduits.Size = new System.Drawing.Size(192, 68);
             this.picProduits.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.picProduits.TabIndex = 3;
             this.picProduits.TabStop = false;
+            this.picProduits.Click += new System.EventHandler(this.picProduits_Click);
             // 
             // picFournisseur
             // 
             this.picFournisseur.Image = global::Gestionnaire_de_stock_version_1._0.Properties.Resources.Fournisseurs;
-            this.picFournisseur.Location = new System.Drawing.Point(144, 263);
+            this.picFournisseur.Location = new System.Drawing.Point(411, 302);
             this.picFournisseur.Name = "picFournisseur";
             this.picFournisseur.Size = new System.Drawing.Size(192, 99);
             this.picFournisseur.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.picFournisseur.TabIndex = 2;
             this.picFournisseur.TabStop = false;
+            this.picFournisseur.Click += new System.EventHandler(this.picFournisseur_Click);
             // 
             // picStock
             // 
             this.picStock.Image = global::Gestionnaire_de_stock_version_1._0.Properties.Resources.Stock;
-            this.picStock.Location = new System.Drawing.Point(415, 140);
+            this.picStock.Location = new System.Drawing.Point(411, 94);
             this.picStock.Name = "picStock";
-            this.picStock.Size = new System.Drawing.Size(192, 99);
+            this.picStock.Size = new System.Drawing.Size(192, 130);
             this.picStock.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.picStock.TabIndex = 1;
             this.picStock.TabStop = false;
+            this.picStock.Click += new System.EventHandler(this.picStock_Click);
             // 
             // picCommander
             // 
             this.picCommander.Image = global::Gestionnaire_de_stock_version_1._0.Properties.Resources.Commander;
-            this.picCommander.Location = new System.Drawing.Point(144, 140);
+            this.picCommander.Location = new System.Drawing.Point(130, 94);
             this.picCommander.Name = "picCommander";
-            this.picCommander.Size = new System.Drawing.Size(192, 99);
+            this.picCommander.Size = new System.Drawing.Size(275, 204);
             this.picCommander.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.picCommander.TabIndex = 0;
             this.picCommander.TabStop = false;
@@ -115,6 +118,7 @@
             this.Controls.Add(this.picCommander);
             this.Name = "FrmMenu";
             this.Text = "MENU";
+            this.Load += new System.EventHandler(this.FrmMenu_Load);
             ((System.ComponentModel.ISupportInitialize)(this.picconfig)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picProduits)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picFournisseur)).EndInit();
