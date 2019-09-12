@@ -56,6 +56,7 @@
             this.picmescommandes.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.picmescommandes.TabIndex = 1;
             this.picmescommandes.TabStop = false;
+            this.picmescommandes.Click += new System.EventHandler(this.picmescommandes_Click);
             // 
             // pic_returnemenu
             // 

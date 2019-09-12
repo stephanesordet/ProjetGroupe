@@ -30,5 +30,12 @@ namespace Gestionnaire_de_stock_version_1._0
             form_nouvellecommande.Show();
             this.Hide();
         }
+
+        private void picmescommandes_Click(object sender, EventArgs e)
+        {
+            Form_Mescommandes form_Mescommandes = new Form_Mescommandes();
+            form_Mescommandes.Show();
+            this.Hide();
+        }
     }
 }

@@ -10,17 +10,17 @@ using System.Windows.Forms;
 
 namespace Gestionnaire_de_stock_version_1._0
 {
-    public partial class Form_Stock : Form
+    public partial class Form_Mescommandes : Form
     {
-        public Form_Stock()
+        public Form_Mescommandes()
         {
             InitializeComponent();
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
+        private void picretournemenu_Click(object sender, EventArgs e)
         {
-            FrmMenu form1 = new FrmMenu();
-            form1.Show();
+            Form_Commander form_commander = new Form_Commander();
+            form_commander.Show();
             this.Hide();
         }
     }

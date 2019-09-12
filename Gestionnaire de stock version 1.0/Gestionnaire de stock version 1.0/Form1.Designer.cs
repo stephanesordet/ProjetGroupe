@@ -58,7 +58,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(4, 13);
+            this.label1.Location = new System.Drawing.Point(3, 13);
             this.label1.Name = "label1";
             this.label1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.label1.Size = new System.Drawing.Size(148, 13);
@@ -78,7 +78,7 @@
             // picconfig
             // 
             this.picconfig.Image = global::Gestionnaire_de_stock_version_1._0.Properties.Resources.icons8_services_26;
-            this.picconfig.Location = new System.Drawing.Point(708, 24);
+            this.picconfig.Location = new System.Drawing.Point(721, 22);
             this.picconfig.Name = "picconfig";
             this.picconfig.Size = new System.Drawing.Size(53, 37);
             this.picconfig.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;

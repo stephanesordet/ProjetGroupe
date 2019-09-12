@@ -16,5 +16,12 @@ namespace Gestionnaire_de_stock_version_1._0
         {
             InitializeComponent();
         }
+
+        private void Picretournemenu_Click(object sender, EventArgs e)
+        {
+            FrmMenu form1 = new FrmMenu();
+            form1.Show();
+            this.Hide();
+        }
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace Gestionnaire_de_stock_version_1._0
 {
-    partial class Form_Stock
+    partial class Form_Mescommandes
     {
         /// <summary>
         /// Required designer variable.
@@ -28,40 +28,40 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblstock = new System.Windows.Forms.Label();
             this.picretournemenu = new System.Windows.Forms.PictureBox();
+            this.lblcommandes = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.picretournemenu)).BeginInit();
             this.SuspendLayout();
-            // 
-            // lblstock
-            // 
-            this.lblstock.AutoSize = true;
-            this.lblstock.Font = new System.Drawing.Font("Microsoft Sans Serif", 26F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblstock.Location = new System.Drawing.Point(327, 9);
-            this.lblstock.Name = "lblstock";
-            this.lblstock.Size = new System.Drawing.Size(105, 39);
-            this.lblstock.TabIndex = 0;
-            this.lblstock.Text = "Stock";
             // 
             // picretournemenu
             // 
             this.picretournemenu.Image = global::Gestionnaire_de_stock_version_1._0.Properties.Resources.left_arrow;
-            this.picretournemenu.Location = new System.Drawing.Point(13, 9);
+            this.picretournemenu.Location = new System.Drawing.Point(13, 13);
             this.picretournemenu.Name = "picretournemenu";
-            this.picretournemenu.Size = new System.Drawing.Size(35, 27);
-            this.picretournemenu.TabIndex = 1;
+            this.picretournemenu.Size = new System.Drawing.Size(42, 27);
+            this.picretournemenu.TabIndex = 0;
             this.picretournemenu.TabStop = false;
-            this.picretournemenu.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.picretournemenu.Click += new System.EventHandler(this.picretournemenu_Click);
             // 
-            // Form_Stock
+            // lblcommandes
+            // 
+            this.lblcommandes.AutoSize = true;
+            this.lblcommandes.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblcommandes.Location = new System.Drawing.Point(243, 9);
+            this.lblcommandes.Name = "lblcommandes";
+            this.lblcommandes.Size = new System.Drawing.Size(335, 46);
+            this.lblcommandes.TabIndex = 1;
+            this.lblcommandes.Text = "Mes commandes ";
+            // 
+            // Form_Mescommandes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.lblcommandes);
             this.Controls.Add(this.picretournemenu);
-            this.Controls.Add(this.lblstock);
-            this.Name = "Form_Stock";
-            this.Text = "Form_Stock";
+            this.Name = "Form_Mescommandes";
+            this.Text = "Form_Mescommandes";
             ((System.ComponentModel.ISupportInitialize)(this.picretournemenu)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -70,7 +70,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Label lblstock;
         private System.Windows.Forms.PictureBox picretournemenu;
+        private System.Windows.Forms.Label lblcommandes;
     }
 }

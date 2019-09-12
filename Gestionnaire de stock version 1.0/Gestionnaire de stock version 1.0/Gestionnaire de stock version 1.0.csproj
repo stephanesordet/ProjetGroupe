@@ -64,6 +64,12 @@
     <Compile Include="Form_Fournisseur.Designer.cs">
       <DependentUpon>Form_Fournisseur.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form_Mescommandes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Mescommandes.Designer.cs">
+      <DependentUpon>Form_Mescommandes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form_Nouvellecommande.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -99,8 +105,17 @@
     <EmbeddedResource Include="Form_Fournisseur.resx">
       <DependentUpon>Form_Fournisseur.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Form_Mescommandes.resx">
+      <DependentUpon>Form_Mescommandes.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form_Nouvellecommande.resx">
       <DependentUpon>Form_Nouvellecommande.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_Produits.resx">
+      <DependentUpon>Form_Produits.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_Stock.resx">
+      <DependentUpon>Form_Stock.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form_Utilisateur.resx">
       <DependentUpon>Form_Utilisateur.cs</DependentUpon>
