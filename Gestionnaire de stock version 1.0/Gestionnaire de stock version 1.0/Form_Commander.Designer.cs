@@ -1,6 +1,6 @@
 ﻿namespace Gestionnaire_de_stock_version_1._0
 {
-    partial class Form_Commander
+    partial class FrmCommander
     {
         /// <summary>
         /// Required designer variable.
@@ -68,7 +68,7 @@
             this.pic_returnemenu.TabStop = false;
             this.pic_returnemenu.Click += new System.EventHandler(this.pic_returnemenu_Click);
             // 
-            // Form_Commander
+            // FrmCommander
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -76,7 +76,7 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.picmescommandes);
             this.Controls.Add(this.pic_returnemenu);
-            this.Name = "Form_Commander";
+            this.Name = "FrmCommander";
             this.Text = "Commander";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picmescommandes)).EndInit();

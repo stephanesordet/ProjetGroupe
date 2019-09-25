@@ -1,6 +1,6 @@
 ﻿namespace Gestionnaire_de_stock_version_1._0
 {
-    partial class Form_Mescommandes
+    partial class FrmMescommandes
     {
         /// <summary>
         /// Required designer variable.
@@ -53,15 +53,15 @@
             this.lblcommandes.TabIndex = 1;
             this.lblcommandes.Text = "Mes commandes ";
             // 
-            // Form_Mescommandes
+            // FrmMescommandes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.lblcommandes);
             this.Controls.Add(this.picretournemenu);
-            this.Name = "Form_Mescommandes";
-            this.Text = "Form_Mescommandes";
+            this.Name = "FrmMescommandes";
+            this.Text = "Mes commandes";
             ((System.ComponentModel.ISupportInitialize)(this.picretournemenu)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

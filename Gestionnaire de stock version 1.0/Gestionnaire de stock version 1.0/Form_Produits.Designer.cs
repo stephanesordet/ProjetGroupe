@@ -1,6 +1,6 @@
 ﻿namespace Gestionnaire_de_stock_version_1._0
 {
-    partial class Form_Produits
+    partial class FrmProduits
     {
         /// <summary>
         /// Required designer variable.
@@ -59,7 +59,6 @@
             this.label1.Size = new System.Drawing.Size(234, 31);
             this.label1.TabIndex = 1;
             this.label1.Text = "Ajouter un produit ";
-            
             // 
             // txtnom
             // 
@@ -125,7 +124,7 @@
             this.lblfournisseur.TabIndex = 8;
             this.lblfournisseur.Text = "Fournisseur";
             // 
-            // Form_Produits
+            // FrmProduits
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -139,8 +138,8 @@
             this.Controls.Add(this.txtnom);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Picretournemenu);
-            this.Name = "Form_Produits";
-            this.Text = "Form_Produits";
+            this.Name = "FrmProduits";
+            this.Text = "Produits";
             ((System.ComponentModel.ISupportInitialize)(this.Picretournemenu)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

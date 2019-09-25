@@ -1,6 +1,6 @@
 ﻿namespace Gestionnaire_de_stock_version_1._0
 {
-    partial class Form_Nouvellecommande
+    partial class FrmNouvellecommande
     {
         /// <summary>
         /// Required designer variable.
@@ -142,7 +142,7 @@
             this.cmdvalider.Text = "Valider";
             this.cmdvalider.UseVisualStyleBackColor = true;
             // 
-            // Form_Nouvellecommande
+            // FrmNouvellecommande
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -158,8 +158,8 @@
             this.Controls.Add(this.txtproduit);
             this.Controls.Add(this.picretourcommander);
             this.Controls.Add(this.lblcommande);
-            this.Name = "Form_Nouvellecommande";
-            this.Text = "Form_Nouvellecommande";
+            this.Name = "FrmNouvellecommande";
+            this.Text = "Nouvellecommande";
             ((System.ComponentModel.ISupportInitialize)(this.picretourcommander)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

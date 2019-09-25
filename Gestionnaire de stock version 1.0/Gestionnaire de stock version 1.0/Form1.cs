@@ -28,7 +28,7 @@ namespace Gestionnaire_de_stock_version_1._0
         private void picCommander_Click(object sender, EventArgs e)
         {
           
-            Form_Commander form_Commander = new Form_Commander();
+            FrmCommander form_Commander = new FrmCommander();
             form_Commander.Show();
             this.Hide();
 
@@ -36,21 +36,21 @@ namespace Gestionnaire_de_stock_version_1._0
 
         private void picStock_Click(object sender, EventArgs e)
         {
-            Form_Stock form_stock = new Form_Stock();
+            FrmStock form_stock = new FrmStock();
             form_stock.Show();
             this.Hide();
         }
 
         private void picProduits_Click(object sender, EventArgs e)
         {
-            Form_Produits form_produits = new Form_Produits();
+            FrmProduits form_produits = new FrmProduits();
             form_produits.Show();
             this.Hide();
         }
 
         private void picFournisseur_Click(object sender, EventArgs e)
         {
-            Form_Fournisseur form_fournisseur = new Form_Fournisseur();
+            FrmFournisseur form_fournisseur = new FrmFournisseur();
             form_fournisseur.Show();
             this.Hide();
         }
@@ -62,7 +62,7 @@ namespace Gestionnaire_de_stock_version_1._0
 
         private void label1_Click(object sender, EventArgs e)
         {
-            Form_Utilisateur form_utilisateur = new Form_Utilisateur();
+            FrmUtilisateur form_utilisateur = new FrmUtilisateur();
             form_utilisateur.Show();
             this.Hide();
         }

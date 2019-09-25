@@ -1,6 +1,6 @@
 ﻿namespace Gestionnaire_de_stock_version_1._0
 {
-    partial class Form_Fournisseur
+    partial class FrmFournisseur
     {
         /// <summary>
         /// Required designer variable.
@@ -228,7 +228,7 @@
             this.chkMme.Text = "Madame ";
             this.chkMme.UseVisualStyleBackColor = true;
             // 
-            // Form_Fournisseur
+            // FrmFournisseur
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -252,8 +252,8 @@
             this.Controls.Add(this.txtnom);
             this.Controls.Add(this.lbljouterfornisseur);
             this.Controls.Add(this.pic_returnemenu);
-            this.Name = "Form_Fournisseur";
-            this.Text = "Form_Fournisseur";
+            this.Name = "FrmFournisseur";
+            this.Text = "Fournisseur";
             ((System.ComponentModel.ISupportInitialize)(this.pic_returnemenu)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

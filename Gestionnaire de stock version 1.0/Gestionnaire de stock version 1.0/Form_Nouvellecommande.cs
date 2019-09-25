@@ -10,16 +10,16 @@ using System.Windows.Forms;
 
 namespace Gestionnaire_de_stock_version_1._0
 {
-    public partial class Form_Nouvellecommande : Form
+    public partial class FrmNouvellecommande : Form
     {
-        public Form_Nouvellecommande()
+        public FrmNouvellecommande()
         {
             InitializeComponent();
         }
 
         private void picretourcommander_Click(object sender, EventArgs e)
         {
-            Form_Commander forme_commander = new Form_Commander();
+            FrmCommander forme_commander = new FrmCommander();
             forme_commander.Show();
             this.Hide();
         }

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Gestionnaire_de_stock_version_1._0
 {
-    public partial class Form_Commander : Form
+    public partial class FrmCommander : Form
     {
-        public Form_Commander()
+        public FrmCommander()
         {
             InitializeComponent();
         }
@@ -26,14 +26,14 @@ namespace Gestionnaire_de_stock_version_1._0
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            Form_Nouvellecommande form_nouvellecommande = new Form_Nouvellecommande();
+            FrmNouvellecommande form_nouvellecommande = new FrmNouvellecommande();
             form_nouvellecommande.Show();
             this.Hide();
         }
 
         private void picmescommandes_Click(object sender, EventArgs e)
         {
-            Form_Mescommandes form_Mescommandes = new Form_Mescommandes();
+            FrmMescommandes form_Mescommandes = new FrmMescommandes();
             form_Mescommandes.Show();
             this.Hide();
         }

@@ -1,6 +1,6 @@
 ﻿namespace Gestionnaire_de_stock_version_1._0
 {
-    partial class Form_Stock
+    partial class FrmStock
     {
         /// <summary>
         /// Required designer variable.
@@ -53,15 +53,15 @@
             this.picretournemenu.TabStop = false;
             this.picretournemenu.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
-            // Form_Stock
+            // FrmStock
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.picretournemenu);
             this.Controls.Add(this.lblstock);
-            this.Name = "Form_Stock";
-            this.Text = "Form_Stock";
+            this.Name = "FrmStock";
+            this.Text = "Stock";
             ((System.ComponentModel.ISupportInitialize)(this.picretournemenu)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

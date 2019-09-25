@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Gestionnaire_de_stock_version_1._0
 {
-    public partial class Form_Produits : Form
+    public partial class FrmProduits : Form
     {
-        public Form_Produits()
+        public FrmProduits()
         {
             InitializeComponent();
         }

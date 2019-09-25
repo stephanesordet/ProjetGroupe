@@ -1,6 +1,6 @@
 ﻿namespace Gestionnaire_de_stock_version_1._0
 {
-    partial class Form_Utilisateur
+    partial class FrmUtilisateur
     {
         /// <summary>
         /// Required designer variable.
@@ -205,7 +205,7 @@
             this.lblemail.TabIndex = 16;
             this.lblemail.Text = "Email";
             // 
-            // Form_Utilisateur
+            // FrmUtilisateur
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -227,8 +227,8 @@
             this.Controls.Add(this.txtnom);
             this.Controls.Add(this.lblinfoperso);
             this.Controls.Add(this.picreturnemenu);
-            this.Name = "Form_Utilisateur";
-            this.Text = "Form_Utilisateur";
+            this.Name = "FrmUtilisateur";
+            this.Text = "Informations personelles";
             ((System.ComponentModel.ISupportInitialize)(this.picreturnemenu)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
