@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -14,9 +15,15 @@ namespace Gestionnaire_de_stock_version_1._0
         [STAThread]
         static void Main()
         {
+            ConnectionDB bdd = new ConnectionDB();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new FrmMenu());
+
         }
+
+
+
+
     }
 }
