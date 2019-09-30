@@ -35,8 +35,8 @@
             this.lblnom = new System.Windows.Forms.Label();
             this.lblcategorie = new System.Windows.Forms.Label();
             this.lblfournisseur = new System.Windows.Forms.Label();
-            this.cboNom = new System.Windows.Forms.ComboBox();
-            this.cboCategorie = new System.Windows.Forms.ComboBox();
+            this.txtNom = new System.Windows.Forms.TextBox();
+            this.txtCategorie = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.Picretournemenu)).BeginInit();
             this.SuspendLayout();
             // 
@@ -108,29 +108,27 @@
             this.lblfournisseur.TabIndex = 8;
             this.lblfournisseur.Text = "Fournisseur";
             // 
-            // cboNom
+            // txtNom
             // 
-            this.cboNom.FormattingEnabled = true;
-            this.cboNom.Location = new System.Drawing.Point(146, 77);
-            this.cboNom.Name = "cboNom";
-            this.cboNom.Size = new System.Drawing.Size(121, 21);
-            this.cboNom.TabIndex = 9;
+            this.txtNom.Location = new System.Drawing.Point(146, 77);
+            this.txtNom.Name = "txtNom";
+            this.txtNom.Size = new System.Drawing.Size(100, 20);
+            this.txtNom.TabIndex = 9;
             // 
-            // cboCategorie
+            // txtCategorie
             // 
-            this.cboCategorie.FormattingEnabled = true;
-            this.cboCategorie.Location = new System.Drawing.Point(146, 125);
-            this.cboCategorie.Name = "cboCategorie";
-            this.cboCategorie.Size = new System.Drawing.Size(121, 21);
-            this.cboCategorie.TabIndex = 9;
+            this.txtCategorie.Location = new System.Drawing.Point(146, 125);
+            this.txtCategorie.Name = "txtCategorie";
+            this.txtCategorie.Size = new System.Drawing.Size(100, 20);
+            this.txtCategorie.TabIndex = 9;
             // 
             // FrmProduits
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(331, 450);
-            this.Controls.Add(this.cboCategorie);
-            this.Controls.Add(this.cboNom);
+            this.Controls.Add(this.txtCategorie);
+            this.Controls.Add(this.txtNom);
             this.Controls.Add(this.lblfournisseur);
             this.Controls.Add(this.lblcategorie);
             this.Controls.Add(this.lblnom);
@@ -155,7 +153,7 @@
         private System.Windows.Forms.Label lblnom;
         private System.Windows.Forms.Label lblcategorie;
         private System.Windows.Forms.Label lblfournisseur;
-        private System.Windows.Forms.ComboBox cboNom;
-        private System.Windows.Forms.ComboBox cboCategorie;
+        private System.Windows.Forms.TextBox txtNom;
+        private System.Windows.Forms.TextBox txtCategorie;
     }
 }

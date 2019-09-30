@@ -30,16 +30,16 @@
         {
             this.lblcommande = new System.Windows.Forms.Label();
             this.picretourcommander = new System.Windows.Forms.PictureBox();
-            this.txtProduit = new System.Windows.Forms.TextBox();
-            this.cboFournisseur = new System.Windows.Forms.ComboBox();
-            this.txtUnite = new System.Windows.Forms.TextBox();
-            this.txtQuantite = new System.Windows.Forms.TextBox();
+            this.cboFournisseurComm = new System.Windows.Forms.ComboBox();
             this.lblproduit = new System.Windows.Forms.Label();
             this.lblunite = new System.Windows.Forms.Label();
             this.lblquantite = new System.Windows.Forms.Label();
             this.lblfournisseur = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.cmdValider = new System.Windows.Forms.Button();
+            this.cboProduitComm = new System.Windows.Forms.ComboBox();
+            this.cboUnitéComm = new System.Windows.Forms.ComboBox();
+            this.txtQuantitéComm = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.picretourcommander)).BeginInit();
             this.SuspendLayout();
             // 
@@ -63,34 +63,13 @@
             this.picretourcommander.TabStop = false;
             this.picretourcommander.Click += new System.EventHandler(this.picretourcommander_Click);
             // 
-            // txtProduit
+            // cboFournisseurComm
             // 
-            this.txtProduit.Location = new System.Drawing.Point(454, 102);
-            this.txtProduit.Name = "txtProduit";
-            this.txtProduit.Size = new System.Drawing.Size(148, 20);
-            this.txtProduit.TabIndex = 2;
-            // 
-            // cboFournisseur
-            // 
-            this.cboFournisseur.FormattingEnabled = true;
-            this.cboFournisseur.Location = new System.Drawing.Point(170, 101);
-            this.cboFournisseur.Name = "cboFournisseur";
-            this.cboFournisseur.Size = new System.Drawing.Size(121, 21);
-            this.cboFournisseur.TabIndex = 3;
-            // 
-            // txtUnite
-            // 
-            this.txtUnite.Location = new System.Drawing.Point(454, 138);
-            this.txtUnite.Name = "txtUnite";
-            this.txtUnite.Size = new System.Drawing.Size(148, 20);
-            this.txtUnite.TabIndex = 4;
-            // 
-            // txtQuantite
-            // 
-            this.txtQuantite.Location = new System.Drawing.Point(170, 138);
-            this.txtQuantite.Name = "txtQuantite";
-            this.txtQuantite.Size = new System.Drawing.Size(121, 20);
-            this.txtQuantite.TabIndex = 5;
+            this.cboFournisseurComm.FormattingEnabled = true;
+            this.cboFournisseurComm.Location = new System.Drawing.Point(170, 101);
+            this.cboFournisseurComm.Name = "cboFournisseurComm";
+            this.cboFournisseurComm.Size = new System.Drawing.Size(121, 21);
+            this.cboFournisseurComm.TabIndex = 3;
             // 
             // lblproduit
             // 
@@ -142,20 +121,43 @@
             this.cmdValider.Text = "Valider";
             this.cmdValider.UseVisualStyleBackColor = true;
             // 
+            // cboProduitComm
+            // 
+            this.cboProduitComm.FormattingEnabled = true;
+            this.cboProduitComm.Location = new System.Drawing.Point(455, 100);
+            this.cboProduitComm.Name = "cboProduitComm";
+            this.cboProduitComm.Size = new System.Drawing.Size(121, 21);
+            this.cboProduitComm.TabIndex = 3;
+            // 
+            // cboUnitéComm
+            // 
+            this.cboUnitéComm.FormattingEnabled = true;
+            this.cboUnitéComm.Location = new System.Drawing.Point(455, 140);
+            this.cboUnitéComm.Name = "cboUnitéComm";
+            this.cboUnitéComm.Size = new System.Drawing.Size(121, 21);
+            this.cboUnitéComm.TabIndex = 3;
+            // 
+            // txtQuantitéComm
+            // 
+            this.txtQuantitéComm.Location = new System.Drawing.Point(170, 140);
+            this.txtQuantitéComm.Name = "txtQuantitéComm";
+            this.txtQuantitéComm.Size = new System.Drawing.Size(121, 20);
+            this.txtQuantitéComm.TabIndex = 11;
+            // 
             // FrmNouvellecommande
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(678, 450);
+            this.Controls.Add(this.txtQuantitéComm);
             this.Controls.Add(this.cmdValider);
             this.Controls.Add(this.lblfournisseur);
             this.Controls.Add(this.lblquantite);
             this.Controls.Add(this.lblunite);
             this.Controls.Add(this.lblproduit);
-            this.Controls.Add(this.txtQuantite);
-            this.Controls.Add(this.txtUnite);
-            this.Controls.Add(this.cboFournisseur);
-            this.Controls.Add(this.txtProduit);
+            this.Controls.Add(this.cboUnitéComm);
+            this.Controls.Add(this.cboProduitComm);
+            this.Controls.Add(this.cboFournisseurComm);
             this.Controls.Add(this.picretourcommander);
             this.Controls.Add(this.lblcommande);
             this.Name = "FrmNouvellecommande";
@@ -170,15 +172,15 @@
 
         private System.Windows.Forms.Label lblcommande;
         private System.Windows.Forms.PictureBox picretourcommander;
-        private System.Windows.Forms.TextBox txtProduit;
-        private System.Windows.Forms.ComboBox cboFournisseur;
-        private System.Windows.Forms.TextBox txtUnite;
-        private System.Windows.Forms.TextBox txtQuantite;
+        private System.Windows.Forms.ComboBox cboFournisseurComm;
         private System.Windows.Forms.Label lblproduit;
         private System.Windows.Forms.Label lblunite;
         private System.Windows.Forms.Label lblquantite;
         private System.Windows.Forms.Label lblfournisseur;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.Button cmdValider;
+        private System.Windows.Forms.ComboBox cboProduitComm;
+        private System.Windows.Forms.ComboBox cboUnitéComm;
+        private System.Windows.Forms.TextBox txtQuantitéComm;
     }
 }
