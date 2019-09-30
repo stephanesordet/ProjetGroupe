@@ -144,7 +144,6 @@
             this.Controls.Add(this.picCommander);
             this.Name = "FrmMenu";
             this.Text = "MENU";
-            this.Load += new System.EventHandler(this.FrmMenu_Load);
             this.pnlmenuper.ResumeLayout(false);
             this.pnlmenuper.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picconfig)).EndInit();

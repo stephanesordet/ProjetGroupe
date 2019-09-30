@@ -30,14 +30,14 @@
         {
             this.picreturnemenu = new System.Windows.Forms.PictureBox();
             this.lblinfoperso = new System.Windows.Forms.Label();
-            this.txtnom = new System.Windows.Forms.TextBox();
-            this.txtprenom = new System.Windows.Forms.TextBox();
-            this.txtentre = new System.Windows.Forms.TextBox();
-            this.txtville = new System.Windows.Forms.TextBox();
-            this.txtnpa = new System.Windows.Forms.TextBox();
-            this.txtrue = new System.Windows.Forms.TextBox();
-            this.txtemail = new System.Windows.Forms.TextBox();
-            this.cmdvalider = new System.Windows.Forms.Button();
+            this.txtNom = new System.Windows.Forms.TextBox();
+            this.txtPrenom = new System.Windows.Forms.TextBox();
+            this.txtEntreprise = new System.Windows.Forms.TextBox();
+            this.txtVille = new System.Windows.Forms.TextBox();
+            this.txtNPA = new System.Windows.Forms.TextBox();
+            this.txtRue = new System.Windows.Forms.TextBox();
+            this.txtEmail = new System.Windows.Forms.TextBox();
+            this.cmdValider = new System.Windows.Forms.Button();
             this.lblnom = new System.Windows.Forms.Label();
             this.lblprenom = new System.Windows.Forms.Label();
             this.lblentreprise = new System.Windows.Forms.Label();
@@ -68,72 +68,72 @@
             this.lblinfoperso.TabIndex = 1;
             this.lblinfoperso.Text = "Informations personelles ";
             // 
-            // txtnom
+            // txtNom
             // 
-            this.txtnom.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtnom.Location = new System.Drawing.Point(137, 83);
-            this.txtnom.Name = "txtnom";
-            this.txtnom.Size = new System.Drawing.Size(156, 27);
-            this.txtnom.TabIndex = 2;
+            this.txtNom.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNom.Location = new System.Drawing.Point(137, 83);
+            this.txtNom.Name = "txtNom";
+            this.txtNom.Size = new System.Drawing.Size(156, 27);
+            this.txtNom.TabIndex = 2;
             // 
-            // txtprenom
+            // txtPrenom
             // 
-            this.txtprenom.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtprenom.Location = new System.Drawing.Point(137, 125);
-            this.txtprenom.Name = "txtprenom";
-            this.txtprenom.Size = new System.Drawing.Size(156, 27);
-            this.txtprenom.TabIndex = 3;
+            this.txtPrenom.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPrenom.Location = new System.Drawing.Point(137, 125);
+            this.txtPrenom.Name = "txtPrenom";
+            this.txtPrenom.Size = new System.Drawing.Size(156, 27);
+            this.txtPrenom.TabIndex = 3;
             // 
-            // txtentre
+            // txtEntreprise
             // 
-            this.txtentre.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtentre.Location = new System.Drawing.Point(137, 169);
-            this.txtentre.Name = "txtentre";
-            this.txtentre.Size = new System.Drawing.Size(156, 27);
-            this.txtentre.TabIndex = 4;
+            this.txtEntreprise.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEntreprise.Location = new System.Drawing.Point(137, 169);
+            this.txtEntreprise.Name = "txtEntreprise";
+            this.txtEntreprise.Size = new System.Drawing.Size(156, 27);
+            this.txtEntreprise.TabIndex = 4;
             // 
-            // txtville
+            // txtVille
             // 
-            this.txtville.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtville.Location = new System.Drawing.Point(137, 215);
-            this.txtville.Name = "txtville";
-            this.txtville.Size = new System.Drawing.Size(156, 27);
-            this.txtville.TabIndex = 5;
+            this.txtVille.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtVille.Location = new System.Drawing.Point(137, 215);
+            this.txtVille.Name = "txtVille";
+            this.txtVille.Size = new System.Drawing.Size(156, 27);
+            this.txtVille.TabIndex = 5;
             // 
-            // txtnpa
+            // txtNPA
             // 
-            this.txtnpa.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtnpa.Location = new System.Drawing.Point(137, 262);
-            this.txtnpa.Name = "txtnpa";
-            this.txtnpa.Size = new System.Drawing.Size(156, 27);
-            this.txtnpa.TabIndex = 6;
+            this.txtNPA.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNPA.Location = new System.Drawing.Point(137, 262);
+            this.txtNPA.Name = "txtNPA";
+            this.txtNPA.Size = new System.Drawing.Size(156, 27);
+            this.txtNPA.TabIndex = 6;
             // 
-            // txtrue
+            // txtRue
             // 
-            this.txtrue.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtrue.Location = new System.Drawing.Point(137, 309);
-            this.txtrue.Name = "txtrue";
-            this.txtrue.Size = new System.Drawing.Size(156, 27);
-            this.txtrue.TabIndex = 7;
+            this.txtRue.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtRue.Location = new System.Drawing.Point(137, 309);
+            this.txtRue.Name = "txtRue";
+            this.txtRue.Size = new System.Drawing.Size(156, 27);
+            this.txtRue.TabIndex = 7;
             // 
-            // txtemail
+            // txtEmail
             // 
-            this.txtemail.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtemail.Location = new System.Drawing.Point(137, 358);
-            this.txtemail.Name = "txtemail";
-            this.txtemail.Size = new System.Drawing.Size(156, 27);
-            this.txtemail.TabIndex = 8;
+            this.txtEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEmail.Location = new System.Drawing.Point(137, 358);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(156, 27);
+            this.txtEmail.TabIndex = 8;
             // 
-            // cmdvalider
+            // cmdValider
             // 
-            this.cmdvalider.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdvalider.Location = new System.Drawing.Point(86, 423);
-            this.cmdvalider.Name = "cmdvalider";
-            this.cmdvalider.Size = new System.Drawing.Size(159, 41);
-            this.cmdvalider.TabIndex = 9;
-            this.cmdvalider.Text = "Valider";
-            this.cmdvalider.UseVisualStyleBackColor = true;
-            this.cmdvalider.Click += new System.EventHandler(this.cmdvalider_Click);
+            this.cmdValider.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdValider.Location = new System.Drawing.Point(86, 423);
+            this.cmdValider.Name = "cmdValider";
+            this.cmdValider.Size = new System.Drawing.Size(159, 41);
+            this.cmdValider.TabIndex = 9;
+            this.cmdValider.Text = "Valider";
+            this.cmdValider.UseVisualStyleBackColor = true;
+            this.cmdValider.Click += new System.EventHandler(this.cmdvalider_Click);
             // 
             // lblnom
             // 
@@ -217,14 +217,14 @@
             this.Controls.Add(this.lblentreprise);
             this.Controls.Add(this.lblprenom);
             this.Controls.Add(this.lblnom);
-            this.Controls.Add(this.cmdvalider);
-            this.Controls.Add(this.txtemail);
-            this.Controls.Add(this.txtrue);
-            this.Controls.Add(this.txtnpa);
-            this.Controls.Add(this.txtville);
-            this.Controls.Add(this.txtentre);
-            this.Controls.Add(this.txtprenom);
-            this.Controls.Add(this.txtnom);
+            this.Controls.Add(this.cmdValider);
+            this.Controls.Add(this.txtEmail);
+            this.Controls.Add(this.txtRue);
+            this.Controls.Add(this.txtNPA);
+            this.Controls.Add(this.txtVille);
+            this.Controls.Add(this.txtEntreprise);
+            this.Controls.Add(this.txtPrenom);
+            this.Controls.Add(this.txtNom);
             this.Controls.Add(this.lblinfoperso);
             this.Controls.Add(this.picreturnemenu);
             this.Name = "FrmUtilisateur";
@@ -239,14 +239,14 @@
 
         private System.Windows.Forms.PictureBox picreturnemenu;
         private System.Windows.Forms.Label lblinfoperso;
-        private System.Windows.Forms.TextBox txtnom;
-        private System.Windows.Forms.TextBox txtprenom;
-        private System.Windows.Forms.TextBox txtentre;
-        private System.Windows.Forms.TextBox txtville;
-        private System.Windows.Forms.TextBox txtnpa;
-        private System.Windows.Forms.TextBox txtrue;
-        private System.Windows.Forms.TextBox txtemail;
-        private System.Windows.Forms.Button cmdvalider;
+        private System.Windows.Forms.TextBox txtNom;
+        private System.Windows.Forms.TextBox txtPrenom;
+        private System.Windows.Forms.TextBox txtEntreprise;
+        private System.Windows.Forms.TextBox txtVille;
+        private System.Windows.Forms.TextBox txtNPA;
+        private System.Windows.Forms.TextBox txtRue;
+        private System.Windows.Forms.TextBox txtEmail;
+        private System.Windows.Forms.Button cmdValider;
         private System.Windows.Forms.Label lblnom;
         private System.Windows.Forms.Label lblprenom;
         private System.Windows.Forms.Label lblentreprise;
