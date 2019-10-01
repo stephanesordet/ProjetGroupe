@@ -66,6 +66,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConnectionDB.cs" />
+    <Compile Include="DBReaddata.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -187,6 +188,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\nouvellecommande.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ajouterunproduit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Gererlestock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\worker-loading-boxes.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gererlestock2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

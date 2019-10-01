@@ -16,10 +16,13 @@ namespace Gestionnaire_de_stock_version_1._0
         static void Main()
         {
             //tes
-            ConnectionDB bdd = new ConnectionDB();
+
+            ConnectionDB MysqlConn = new ConnectionDB();
+            MysqlConn.CloseDB();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new FrmMenu());
+            
 
         }
 

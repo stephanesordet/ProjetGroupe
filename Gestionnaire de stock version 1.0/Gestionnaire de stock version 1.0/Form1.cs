@@ -11,7 +11,9 @@ using System.Windows.Forms;
 namespace Gestionnaire_de_stock_version_1._0
 {
     public partial class FrmMenu : Form
+
     {
+        ConnectionDB MysqlConn = new ConnectionDB();
         public FrmMenu()
         {
             InitializeComponent();
@@ -57,7 +59,7 @@ namespace Gestionnaire_de_stock_version_1._0
 
         private void FrmMenu_Load(object sender, EventArgs e)
         {
-
+           
         }
 
         private void label1_Click(object sender, EventArgs e)

@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.Picretournemenu = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtnom = new System.Windows.Forms.TextBox();
             this.txtcategorie = new System.Windows.Forms.TextBox();
@@ -37,18 +36,9 @@
             this.lblnom = new System.Windows.Forms.Label();
             this.lblcategorie = new System.Windows.Forms.Label();
             this.lblfournisseur = new System.Windows.Forms.Label();
+            this.Picretournemenu = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.Picretournemenu)).BeginInit();
             this.SuspendLayout();
-            // 
-            // Picretournemenu
-            // 
-            this.Picretournemenu.Image = global::Gestionnaire_de_stock_version_1._0.Properties.Resources.left_arrow;
-            this.Picretournemenu.Location = new System.Drawing.Point(2, 4);
-            this.Picretournemenu.Name = "Picretournemenu";
-            this.Picretournemenu.Size = new System.Drawing.Size(29, 28);
-            this.Picretournemenu.TabIndex = 0;
-            this.Picretournemenu.TabStop = false;
-            this.Picretournemenu.Click += new System.EventHandler(this.Picretournemenu_Click);
             // 
             // label1
             // 
@@ -59,6 +49,7 @@
             this.label1.Size = new System.Drawing.Size(234, 31);
             this.label1.TabIndex = 1;
             this.label1.Text = "Ajouter un produit ";
+           
             // 
             // txtnom
             // 
@@ -83,6 +74,7 @@
             this.lstfournisseur.Name = "lstfournisseur";
             this.lstfournisseur.Size = new System.Drawing.Size(150, 173);
             this.lstfournisseur.TabIndex = 4;
+          
             // 
             // cmdvalider
             // 
@@ -93,6 +85,7 @@
             this.cmdvalider.TabIndex = 5;
             this.cmdvalider.Text = "valider";
             this.cmdvalider.UseVisualStyleBackColor = true;
+            this.cmdvalider.Click += new System.EventHandler(this.cmdvalider_Click);
             // 
             // lblnom
             // 
@@ -124,6 +117,16 @@
             this.lblfournisseur.TabIndex = 8;
             this.lblfournisseur.Text = "Fournisseur";
             // 
+            // Picretournemenu
+            // 
+            this.Picretournemenu.Image = global::Gestionnaire_de_stock_version_1._0.Properties.Resources.left_arrow;
+            this.Picretournemenu.Location = new System.Drawing.Point(2, 4);
+            this.Picretournemenu.Name = "Picretournemenu";
+            this.Picretournemenu.Size = new System.Drawing.Size(29, 28);
+            this.Picretournemenu.TabIndex = 0;
+            this.Picretournemenu.TabStop = false;
+            this.Picretournemenu.Click += new System.EventHandler(this.Picretournemenu_Click);
+            // 
             // FrmProduits
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -140,6 +143,7 @@
             this.Controls.Add(this.Picretournemenu);
             this.Name = "FrmProduits";
             this.Text = "Produits";
+            this.Load += new System.EventHandler(this.FrmProduits_Load);
             ((System.ComponentModel.ISupportInitialize)(this.Picretournemenu)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
