@@ -30,13 +30,13 @@
         {
             this.Picretournemenu = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtnom = new System.Windows.Forms.TextBox();
-            this.txtcategorie = new System.Windows.Forms.TextBox();
-            this.lstfournisseur = new System.Windows.Forms.ListBox();
-            this.cmdvalider = new System.Windows.Forms.Button();
-            this.lblnom = new System.Windows.Forms.Label();
-            this.lblcategorie = new System.Windows.Forms.Label();
-            this.lblfournisseur = new System.Windows.Forms.Label();
+            this.txtNom = new System.Windows.Forms.TextBox();
+            this.txtCategorie = new System.Windows.Forms.TextBox();
+            this.lstFournisseur = new System.Windows.Forms.ListBox();
+            this.cmdValider = new System.Windows.Forms.Button();
+            this.lblNom = new System.Windows.Forms.Label();
+            this.lblCategorie = new System.Windows.Forms.Label();
+            this.lblFournisseur = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.Picretournemenu)).BeginInit();
             this.SuspendLayout();
             // 
@@ -60,82 +60,83 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Ajouter un produit ";
             // 
-            // txtnom
+            // txtNom
             // 
-            this.txtnom.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtnom.Location = new System.Drawing.Point(146, 77);
-            this.txtnom.Name = "txtnom";
-            this.txtnom.Size = new System.Drawing.Size(150, 27);
-            this.txtnom.TabIndex = 2;
+            this.txtNom.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNom.Location = new System.Drawing.Point(146, 77);
+            this.txtNom.Name = "txtNom";
+            this.txtNom.Size = new System.Drawing.Size(150, 27);
+            this.txtNom.TabIndex = 2;
             // 
-            // txtcategorie
+            // txtCategorie
             // 
-            this.txtcategorie.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtcategorie.Location = new System.Drawing.Point(146, 125);
-            this.txtcategorie.Name = "txtcategorie";
-            this.txtcategorie.Size = new System.Drawing.Size(150, 27);
-            this.txtcategorie.TabIndex = 3;
+            this.txtCategorie.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCategorie.Location = new System.Drawing.Point(146, 125);
+            this.txtCategorie.Name = "txtCategorie";
+            this.txtCategorie.Size = new System.Drawing.Size(150, 27);
+            this.txtCategorie.TabIndex = 3;
             // 
-            // lstfournisseur
+            // lstFournisseur
             // 
-            this.lstfournisseur.FormattingEnabled = true;
-            this.lstfournisseur.Location = new System.Drawing.Point(146, 175);
-            this.lstfournisseur.Name = "lstfournisseur";
-            this.lstfournisseur.Size = new System.Drawing.Size(150, 173);
-            this.lstfournisseur.TabIndex = 4;
+            this.lstFournisseur.FormattingEnabled = true;
+            this.lstFournisseur.Location = new System.Drawing.Point(146, 175);
+            this.lstFournisseur.Name = "lstFournisseur";
+            this.lstFournisseur.Size = new System.Drawing.Size(150, 173);
+            this.lstFournisseur.TabIndex = 4;
             // 
-            // cmdvalider
+            // cmdValider
             // 
-            this.cmdvalider.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdvalider.Location = new System.Drawing.Point(86, 378);
-            this.cmdvalider.Name = "cmdvalider";
-            this.cmdvalider.Size = new System.Drawing.Size(160, 35);
-            this.cmdvalider.TabIndex = 5;
-            this.cmdvalider.Text = "valider";
-            this.cmdvalider.UseVisualStyleBackColor = true;
+            this.cmdValider.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdValider.Location = new System.Drawing.Point(86, 378);
+            this.cmdValider.Name = "cmdValider";
+            this.cmdValider.Size = new System.Drawing.Size(160, 35);
+            this.cmdValider.TabIndex = 5;
+            this.cmdValider.Text = "valider";
+            this.cmdValider.UseVisualStyleBackColor = true;
+            this.cmdValider.Click += new System.EventHandler(this.cmdvalider_Click);
             // 
-            // lblnom
+            // lblNom
             // 
-            this.lblnom.AutoSize = true;
-            this.lblnom.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblnom.Location = new System.Drawing.Point(24, 77);
-            this.lblnom.Name = "lblnom";
-            this.lblnom.Size = new System.Drawing.Size(47, 22);
-            this.lblnom.TabIndex = 6;
-            this.lblnom.Text = "Nom";
+            this.lblNom.AutoSize = true;
+            this.lblNom.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNom.Location = new System.Drawing.Point(24, 77);
+            this.lblNom.Name = "lblNom";
+            this.lblNom.Size = new System.Drawing.Size(47, 22);
+            this.lblNom.TabIndex = 6;
+            this.lblNom.Text = "Nom";
             // 
-            // lblcategorie
+            // lblCategorie
             // 
-            this.lblcategorie.AutoSize = true;
-            this.lblcategorie.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblcategorie.Location = new System.Drawing.Point(24, 125);
-            this.lblcategorie.Name = "lblcategorie";
-            this.lblcategorie.Size = new System.Drawing.Size(88, 22);
-            this.lblcategorie.TabIndex = 7;
-            this.lblcategorie.Text = "Catégorie";
+            this.lblCategorie.AutoSize = true;
+            this.lblCategorie.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCategorie.Location = new System.Drawing.Point(24, 125);
+            this.lblCategorie.Name = "lblCategorie";
+            this.lblCategorie.Size = new System.Drawing.Size(88, 22);
+            this.lblCategorie.TabIndex = 7;
+            this.lblCategorie.Text = "Catégorie";
             // 
-            // lblfournisseur
+            // lblFournisseur
             // 
-            this.lblfournisseur.AutoSize = true;
-            this.lblfournisseur.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblfournisseur.Location = new System.Drawing.Point(24, 175);
-            this.lblfournisseur.Name = "lblfournisseur";
-            this.lblfournisseur.Size = new System.Drawing.Size(105, 22);
-            this.lblfournisseur.TabIndex = 8;
-            this.lblfournisseur.Text = "Fournisseur";
+            this.lblFournisseur.AutoSize = true;
+            this.lblFournisseur.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFournisseur.Location = new System.Drawing.Point(24, 175);
+            this.lblFournisseur.Name = "lblFournisseur";
+            this.lblFournisseur.Size = new System.Drawing.Size(105, 22);
+            this.lblFournisseur.TabIndex = 8;
+            this.lblFournisseur.Text = "Fournisseur";
             // 
             // FrmProduits
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(331, 450);
-            this.Controls.Add(this.lblfournisseur);
-            this.Controls.Add(this.lblcategorie);
-            this.Controls.Add(this.lblnom);
-            this.Controls.Add(this.cmdvalider);
-            this.Controls.Add(this.lstfournisseur);
-            this.Controls.Add(this.txtcategorie);
-            this.Controls.Add(this.txtnom);
+            this.Controls.Add(this.lblFournisseur);
+            this.Controls.Add(this.lblCategorie);
+            this.Controls.Add(this.lblNom);
+            this.Controls.Add(this.cmdValider);
+            this.Controls.Add(this.lstFournisseur);
+            this.Controls.Add(this.txtCategorie);
+            this.Controls.Add(this.txtNom);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Picretournemenu);
             this.Name = "FrmProduits";
@@ -150,12 +151,12 @@
 
         private System.Windows.Forms.PictureBox Picretournemenu;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtnom;
-        private System.Windows.Forms.TextBox txtcategorie;
-        private System.Windows.Forms.ListBox lstfournisseur;
-        private System.Windows.Forms.Button cmdvalider;
-        private System.Windows.Forms.Label lblnom;
-        private System.Windows.Forms.Label lblcategorie;
-        private System.Windows.Forms.Label lblfournisseur;
+        private System.Windows.Forms.TextBox txtNom;
+        private System.Windows.Forms.TextBox txtCategorie;
+        private System.Windows.Forms.ListBox lstFournisseur;
+        private System.Windows.Forms.Button cmdValider;
+        private System.Windows.Forms.Label lblNom;
+        private System.Windows.Forms.Label lblCategorie;
+        private System.Windows.Forms.Label lblFournisseur;
     }
 }

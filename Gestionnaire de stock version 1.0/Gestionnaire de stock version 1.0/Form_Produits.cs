@@ -23,5 +23,10 @@ namespace Gestionnaire_de_stock_version_1._0
             form1.Show();
             this.Hide();
         }
+
+        private void cmdvalider_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -16,7 +16,6 @@ namespace Gestionnaire_de_stock_version_1._0
         static void Main()
         {
             //tes
-            ConnectionDB bdd = new ConnectionDB();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new FrmMenu());

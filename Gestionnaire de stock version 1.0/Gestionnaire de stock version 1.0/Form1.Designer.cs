@@ -29,15 +29,15 @@
         private void InitializeComponent()
         {
             this.lblNomappli = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.pnlmenuper = new System.Windows.Forms.Panel();
-            this.picconfig = new System.Windows.Forms.PictureBox();
+            this.lblInfo = new System.Windows.Forms.Label();
+            this.pnlMenuper = new System.Windows.Forms.Panel();
+            this.picConfig = new System.Windows.Forms.PictureBox();
             this.picProduits = new System.Windows.Forms.PictureBox();
             this.picFournisseur = new System.Windows.Forms.PictureBox();
             this.picStock = new System.Windows.Forms.PictureBox();
             this.picCommander = new System.Windows.Forms.PictureBox();
-            this.pnlmenuper.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picconfig)).BeginInit();
+            this.pnlMenuper.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picConfig)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picProduits)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picFournisseur)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picStock)).BeginInit();
@@ -54,37 +54,37 @@
             this.lblNomappli.TabIndex = 4;
             this.lblNomappli.Text = "Nom appli";
             // 
-            // label1
+            // lblInfo
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(3, 13);
-            this.label1.Name = "label1";
-            this.label1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label1.Size = new System.Drawing.Size(148, 13);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "Informations personelles ";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            this.lblInfo.AutoSize = true;
+            this.lblInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInfo.Location = new System.Drawing.Point(3, 13);
+            this.lblInfo.Name = "lblInfo";
+            this.lblInfo.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.lblInfo.Size = new System.Drawing.Size(148, 13);
+            this.lblInfo.TabIndex = 6;
+            this.lblInfo.Text = "Informations personelles ";
+            this.lblInfo.Click += new System.EventHandler(this.label1_Click);
             // 
-            // pnlmenuper
+            // pnlMenuper
             // 
-            this.pnlmenuper.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.pnlmenuper.Controls.Add(this.label1);
-            this.pnlmenuper.Location = new System.Drawing.Point(645, 79);
-            this.pnlmenuper.Name = "pnlmenuper";
-            this.pnlmenuper.Size = new System.Drawing.Size(152, 46);
-            this.pnlmenuper.TabIndex = 7;
+            this.pnlMenuper.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.pnlMenuper.Controls.Add(this.lblInfo);
+            this.pnlMenuper.Location = new System.Drawing.Point(645, 79);
+            this.pnlMenuper.Name = "pnlMenuper";
+            this.pnlMenuper.Size = new System.Drawing.Size(152, 46);
+            this.pnlMenuper.TabIndex = 7;
             // 
-            // picconfig
+            // picConfig
             // 
-            this.picconfig.Image = global::Gestionnaire_de_stock_version_1._0.Properties.Resources.icons8_services_26;
-            this.picconfig.Location = new System.Drawing.Point(721, 22);
-            this.picconfig.Name = "picconfig";
-            this.picconfig.Size = new System.Drawing.Size(53, 37);
-            this.picconfig.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picconfig.TabIndex = 5;
-            this.picconfig.TabStop = false;
-            this.picconfig.Click += new System.EventHandler(this.picconfig_Click);
+            this.picConfig.Image = global::Gestionnaire_de_stock_version_1._0.Properties.Resources.icons8_services_26;
+            this.picConfig.Location = new System.Drawing.Point(721, 22);
+            this.picConfig.Name = "picConfig";
+            this.picConfig.Size = new System.Drawing.Size(53, 37);
+            this.picConfig.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picConfig.TabIndex = 5;
+            this.picConfig.TabStop = false;
+            this.picConfig.Click += new System.EventHandler(this.picconfig_Click);
             // 
             // picProduits
             // 
@@ -135,8 +135,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.pnlmenuper);
-            this.Controls.Add(this.picconfig);
+            this.Controls.Add(this.pnlMenuper);
+            this.Controls.Add(this.picConfig);
             this.Controls.Add(this.lblNomappli);
             this.Controls.Add(this.picProduits);
             this.Controls.Add(this.picFournisseur);
@@ -145,9 +145,9 @@
             this.Name = "FrmMenu";
             this.Text = "MENU";
             this.Load += new System.EventHandler(this.FrmMenu_Load);
-            this.pnlmenuper.ResumeLayout(false);
-            this.pnlmenuper.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picconfig)).EndInit();
+            this.pnlMenuper.ResumeLayout(false);
+            this.pnlMenuper.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picConfig)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picProduits)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picFournisseur)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picStock)).EndInit();
@@ -164,9 +164,9 @@
         private System.Windows.Forms.PictureBox picFournisseur;
         private System.Windows.Forms.PictureBox picProduits;
         private System.Windows.Forms.Label lblNomappli;
-        private System.Windows.Forms.PictureBox picconfig;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Panel pnlmenuper;
+        private System.Windows.Forms.PictureBox picConfig;
+        private System.Windows.Forms.Label lblInfo;
+        private System.Windows.Forms.Panel pnlMenuper;
     }
 }
 

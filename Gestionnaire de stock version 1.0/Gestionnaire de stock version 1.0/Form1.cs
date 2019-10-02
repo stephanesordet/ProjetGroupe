@@ -22,7 +22,7 @@ namespace Gestionnaire_de_stock_version_1._0
 
         public void Inicialisation()
         {
-            pnlmenuper.Visible = false;
+            pnlMenuper.Visible = false;
         }
 
         private void picCommander_Click(object sender, EventArgs e)
@@ -69,13 +69,13 @@ namespace Gestionnaire_de_stock_version_1._0
 
         private void picconfig_Click(object sender, EventArgs e)
         {
-            if (pnlmenuper.Visible == false)
+            if (pnlMenuper.Visible == false)
             {
-                pnlmenuper.Visible = true;
+                pnlMenuper.Visible = true;
             }
             else
             {
-                pnlmenuper.Visible = false;
+                pnlMenuper.Visible = false;
             }
 
         }

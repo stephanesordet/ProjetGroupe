@@ -7,11 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
+using System.Text.RegularExpressions;
 
 namespace Gestionnaire_de_stock_version_1._0
 {
     public partial class FrmFournisseur : Form
     {
+        
         public FrmFournisseur()
         {
             InitializeComponent();
@@ -24,6 +27,68 @@ namespace Gestionnaire_de_stock_version_1._0
             this.Hide();
         }
 
-        
+        private void cmdvalider_Click(object sender, EventArgs e)
+        {
+            
+            ConnectionDB addSupp = new ConnectionDB();
+
+            int npa = 0;
+            string sexe = "";
+            
+
+            //Déclaration de supplier
+            Supplier supplier;
+
+            //Si Email OK
+            if (IsValidEmail(txtEmail.Text))
+            {
+                try
+                {
+                    //Conversion de NPA en int
+                    int.TryParse(txtNpa.Text, out npa);
+
+                    //Contrôle que le NPA peut être converti 
+                    if (chkM.Checked == true)
+                    {
+                        sexe = "Monsieur";
+                    }
+                    else
+                    {
+                        sexe = "Madame";
+                    }
+
+
+                }
+                catch
+                {
+                    MessageBox.Show("NPA non valide");
+                }
+
+                supplier = new Supplier(sexe, txtNom.Text, txtPrenom.Text, txtEntreprise.Text, npa, txtVille.Text, txtRue.Text, txtEmail.Text);
+
+                addSupp.AddSupplier(supplier);
+            }
+            else
+            {
+                MessageBox.Show("coucou fdp");
+            }
+
+            
+        }
+        //Fonction contrôle de l'Email
+        bool IsValidEmail(string email)
+        {
+            try
+            {
+                var addr = new System.Net.Mail.MailAddress(email);
+                return addr.Address == email;
+            }
+            catch
+            {
+                return false;
+            }
+        }
     }
+
+
 }
