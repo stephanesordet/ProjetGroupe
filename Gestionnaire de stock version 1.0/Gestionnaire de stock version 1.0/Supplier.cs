@@ -9,9 +9,10 @@ namespace Gestionnaire_de_stock_version_1._0
     class Supplier
     {
 
+        public int id;
         public string gender;
         public string firstName;
-        public  string lastName;
+        public string lastName;
         public string company;
         public string city;
         public int npa;
@@ -29,6 +30,19 @@ namespace Gestionnaire_de_stock_version_1._0
             street = streetC;
             email = emailC;
            
+        }
+        public Supplier(int idC, string firstNameC, string lastNameC)
+        {
+            id = idC;
+            firstName = firstNameC;
+            lastName = lastNameC;
+            
+     
+
+        }
+        public override string ToString()
+        {
+            return firstName+" "+lastName;
         }
     }
 }

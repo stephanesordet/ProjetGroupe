@@ -70,7 +70,8 @@ namespace Gestionnaire_de_stock_version_1._0
             }
             else
             {
-                MessageBox.Show("coucou fdp");
+                MessageBox.Show("Email invalide");
+                
             }
 
             
