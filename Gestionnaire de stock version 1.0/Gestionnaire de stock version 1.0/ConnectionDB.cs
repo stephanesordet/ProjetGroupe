@@ -37,12 +37,17 @@ namespace Gestionnaire_de_stock_version_1._0
             connection.Close();
         }
 
-        //methode pour add des produits
-        public long InsertProduit(string name)
+       /// <summary>
+       /// 
+       /// </summary>
+       /// <param name="name"></param>
+       /// <param name="categorie"></param>
+       /// <returns></returns>
+        public long InsertProduit(string name, int categorie)
         {
-            string categorie = "INSERT INTO products(Name) VALUES('" + name + "');";
+            string produit = "INSERT INTO products(Name,Categories_id) VALUES('"+name+"',"+ categorie + ");";
             // Création d'une commande MySQL en fonction de l'objet connection
-            MySqlCommand cmd = new MySqlCommand(categorie, connection);
+            MySqlCommand cmd = new MySqlCommand(produit, connection);
             cmd.ExecuteNonQuery();
             return cmd.LastInsertedId;
 
@@ -55,6 +60,14 @@ namespace Gestionnaire_de_stock_version_1._0
         {
 
         }
+        public void InsertProductsSuppliers(long idproducts, long idsuppliers)
+        {
+            string commande= "INSERT INTO Products_has_Suppliers(Products_id,Suppliers_id) VALUES(" + idproducts + "," + idsuppliers + ");";
+            MySqlCommand cmd = new MySqlCommand(commande, connection);
+            cmd.ExecuteNonQuery();
+        }
+        
+        
         /// <summary>
         /// 
         /// </summary>
@@ -68,21 +81,39 @@ namespace Gestionnaire_de_stock_version_1._0
         /// <summary>
         /// Methode lire la table caregories
         /// </summary>
-        public void Readcategories()
+        public List<string> Readcategories()
         {
+            MySqlCommand cmd = connection.CreateCommand();
+            cmd.CommandText = "SELECT id,Name FROM categories";
+            List<string> list = new List<string>();
+            MySqlDataReader dataReader1 = cmd.ExecuteReader();
+            while (dataReader1.Read())
+            {
 
+                string myReader = dataReader1["id"].ToString();
+                string myReader1 = dataReader1["Name"].ToString();
+                list.Add(myReader +"."+ " " + myReader1);
+            }
+            return list;
 
         }
-
+        public long Idfournissuer(string Firstanme, string Lastname, string Email)
+        {
+            string commande = "SELECT id FROM suppliers Where Firstname ='" + Firstanme + "' AND Lastname='" + Lastname + "'AND Email='"+Email+"';";
+            MySqlCommand cmd = new MySqlCommand(commande, connection);
+            long id = cmd.ExecuteNonQuery();
+           
+            return id;
+        }
         /// <summary>
         /// Methode lire le nom et le prenom des fornisseur 
         /// </summary>
         /// <returns>Liste avec tout les fornisseur</returns>
-        public List<string> ReadFournisseur()
+        public List<> ReadFournisseur()
         {
             //Le problème que vous rencontrez est que vous démarrez une seconde MySqlCommandtout en lisant les données avec le DataReader. Le connecteur MySQL n'autorise qu'une requête simultanée. Vous devez lire les données dans une structure, puis fermer le lecteur, puis traiter les données. Malheureusement, vous ne pouvez pas traiter les données telles qu'elles sont lues si votre traitement implique d'autres requêtes SQL.
             MySqlCommand cmd = connection.CreateCommand();
-            cmd.CommandText = "SELECT Firstname,Lastname FROM suppliers";
+            cmd.CommandText = "SELECT Firstname,Lastname,id FROM suppliers";
             List<string> list = new List<string>();
             MySqlDataReader dataReader1 = cmd.ExecuteReader();
             while (dataReader1.Read())
@@ -90,13 +121,29 @@ namespace Gestionnaire_de_stock_version_1._0
               
                 string myReader = dataReader1["Firstname"].ToString();
                 string myReader1 = dataReader1["Lastname"].ToString();
-                list.Add(myReader+ " " + myReader1);
+                string myReader2 = dataReader1["id"].ToString();
+                list.Add(myReader2 + "."+ myReader + " " + myReader1);
             }
             return list;
          
             
         }
 
+        public List<string> Readcategoriesid(string nom)
+        {
+            MySqlCommand cmd = connection.CreateCommand();
+            cmd.CommandText = "SELECT id,Name FROM categories Where Name='" + nom + "';";
+            List<string> list = new List<string>();
+            MySqlDataReader dataReader1 = cmd.ExecuteReader();
+            while (dataReader1.Read())
+            {
+
+                string myReader = dataReader1["id"].ToString();
+                list.Add(myReader);
+            }
+            return list;
+
+        }
 
         // Méthode pour ajouter un contact
         /*public void AddContact(Contact contact)
@@ -132,4 +179,5 @@ namespace Gestionnaire_de_stock_version_1._0
             }
         }*/
     }
+ 
 }
