@@ -40,7 +40,7 @@
             this.cmdValider = new System.Windows.Forms.Button();
             this.lblNom = new System.Windows.Forms.Label();
             this.lblPrenom = new System.Windows.Forms.Label();
-            this.lblEntreprise = new System.Windows.Forms.Label();
+            this.lblRestaurant = new System.Windows.Forms.Label();
             this.lblVille = new System.Windows.Forms.Label();
             this.lblNpa = new System.Windows.Forms.Label();
             this.lblRue = new System.Windows.Forms.Label();
@@ -64,9 +64,9 @@
             this.lblinfoperso.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblinfoperso.Location = new System.Drawing.Point(65, 13);
             this.lblinfoperso.Name = "lblinfoperso";
-            this.lblinfoperso.Size = new System.Drawing.Size(228, 25);
+            this.lblinfoperso.Size = new System.Drawing.Size(239, 25);
             this.lblinfoperso.TabIndex = 1;
-            this.lblinfoperso.Text = "Informations personelles ";
+            this.lblinfoperso.Text = "Informations personnelles ";
             // 
             // txtNom
             // 
@@ -155,15 +155,15 @@
             this.lblPrenom.TabIndex = 11;
             this.lblPrenom.Text = "Prenom";
             // 
-            // lblEntreprise
+            // lblRestaurant
             // 
-            this.lblEntreprise.AutoSize = true;
-            this.lblEntreprise.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEntreprise.Location = new System.Drawing.Point(39, 169);
-            this.lblEntreprise.Name = "lblEntreprise";
-            this.lblEntreprise.Size = new System.Drawing.Size(92, 22);
-            this.lblEntreprise.TabIndex = 12;
-            this.lblEntreprise.Text = "Entreprise";
+            this.lblRestaurant.AutoSize = true;
+            this.lblRestaurant.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRestaurant.Location = new System.Drawing.Point(39, 169);
+            this.lblRestaurant.Name = "lblRestaurant";
+            this.lblRestaurant.Size = new System.Drawing.Size(98, 22);
+            this.lblRestaurant.TabIndex = 12;
+            this.lblRestaurant.Text = "Restaurant";
             // 
             // lblVille
             // 
@@ -214,7 +214,7 @@
             this.Controls.Add(this.lblRue);
             this.Controls.Add(this.lblNpa);
             this.Controls.Add(this.lblVille);
-            this.Controls.Add(this.lblEntreprise);
+            this.Controls.Add(this.lblRestaurant);
             this.Controls.Add(this.lblPrenom);
             this.Controls.Add(this.lblNom);
             this.Controls.Add(this.cmdValider);
@@ -249,7 +249,7 @@
         private System.Windows.Forms.Button cmdValider;
         private System.Windows.Forms.Label lblNom;
         private System.Windows.Forms.Label lblPrenom;
-        private System.Windows.Forms.Label lblEntreprise;
+        private System.Windows.Forms.Label lblRestaurant;
         private System.Windows.Forms.Label lblVille;
         private System.Windows.Forms.Label lblNpa;
         private System.Windows.Forms.Label lblRue;
