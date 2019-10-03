@@ -30,7 +30,9 @@
         {
             this.picretournemenu = new System.Windows.Forms.PictureBox();
             this.lblcommandes = new System.Windows.Forms.Label();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.picretournemenu)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // picretournemenu
@@ -53,16 +55,26 @@
             this.lblcommandes.TabIndex = 1;
             this.lblcommandes.Text = "Mes commandes ";
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(67, 96);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(661, 288);
+            this.dataGridView1.TabIndex = 2;
+            // 
             // FrmMescommandes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.lblcommandes);
             this.Controls.Add(this.picretournemenu);
             this.Name = "FrmMescommandes";
             this.Text = "Mes commandes";
             ((System.ComponentModel.ISupportInitialize)(this.picretournemenu)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -72,5 +84,6 @@
 
         private System.Windows.Forms.PictureBox picretournemenu;
         private System.Windows.Forms.Label lblcommandes;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }

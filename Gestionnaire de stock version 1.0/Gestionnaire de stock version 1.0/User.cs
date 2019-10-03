@@ -8,13 +8,13 @@ namespace Gestionnaire_de_stock_version_1._0
 {
     class User
     {
-        public string firstName;
-        public string lastName;
-        public string nameRestaurant;
-        public string city;
-        public int npa;
-        public string street;
-        public string email;
+        private string firstName;
+        private string lastName;
+        private string nameRestaurant;
+        private string city;
+        private int npa;
+        private string street;
+        private string email;
 
         public User(string firstNameC, string lastNameC, string nameRestaurantC, int npaC, string cityC, string streetC, string emailC)
         {
