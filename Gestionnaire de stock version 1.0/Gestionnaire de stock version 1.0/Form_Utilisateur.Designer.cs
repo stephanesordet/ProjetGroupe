@@ -32,7 +32,7 @@
             this.lblinfoperso = new System.Windows.Forms.Label();
             this.txtNom = new System.Windows.Forms.TextBox();
             this.txtPrenom = new System.Windows.Forms.TextBox();
-            this.txtEntreprise = new System.Windows.Forms.TextBox();
+            this.txtRestaurant = new System.Windows.Forms.TextBox();
             this.txtVille = new System.Windows.Forms.TextBox();
             this.txtNpa = new System.Windows.Forms.TextBox();
             this.txtRue = new System.Windows.Forms.TextBox();
@@ -84,13 +84,13 @@
             this.txtPrenom.Size = new System.Drawing.Size(156, 27);
             this.txtPrenom.TabIndex = 3;
             // 
-            // txtEntreprise
+            // txtRestaurant
             // 
-            this.txtEntreprise.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEntreprise.Location = new System.Drawing.Point(137, 169);
-            this.txtEntreprise.Name = "txtEntreprise";
-            this.txtEntreprise.Size = new System.Drawing.Size(156, 27);
-            this.txtEntreprise.TabIndex = 4;
+            this.txtRestaurant.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtRestaurant.Location = new System.Drawing.Point(137, 169);
+            this.txtRestaurant.Name = "txtRestaurant";
+            this.txtRestaurant.Size = new System.Drawing.Size(156, 27);
+            this.txtRestaurant.TabIndex = 4;
             // 
             // txtVille
             // 
@@ -222,7 +222,7 @@
             this.Controls.Add(this.txtRue);
             this.Controls.Add(this.txtNpa);
             this.Controls.Add(this.txtVille);
-            this.Controls.Add(this.txtEntreprise);
+            this.Controls.Add(this.txtRestaurant);
             this.Controls.Add(this.txtPrenom);
             this.Controls.Add(this.txtNom);
             this.Controls.Add(this.lblinfoperso);
@@ -241,7 +241,7 @@
         private System.Windows.Forms.Label lblinfoperso;
         private System.Windows.Forms.TextBox txtNom;
         private System.Windows.Forms.TextBox txtPrenom;
-        private System.Windows.Forms.TextBox txtEntreprise;
+        private System.Windows.Forms.TextBox txtRestaurant;
         private System.Windows.Forms.TextBox txtVille;
         private System.Windows.Forms.TextBox txtNpa;
         private System.Windows.Forms.TextBox txtRue;

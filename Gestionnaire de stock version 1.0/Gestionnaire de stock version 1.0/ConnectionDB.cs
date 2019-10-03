@@ -66,6 +66,43 @@ namespace Gestionnaire_de_stock_version_1._0
             }
         }
 
-        
+        public void AddUser(User user)
+        {
+            try
+            {
+                // Ouverture de la connexion SQL
+                connection.Open();
+
+                // Création d'une commande SQL en fonction de l'objet connection
+                MySqlCommand cmd = connection.CreateCommand();
+
+                // Requête SQL
+                cmd.CommandText = "INSERT INTO restaurants (Firstname, Lastname, NameRest, City, NPA, Street, Email) VALUES (@Firstname, @Lastname, @NameRest, @City, @NPA, @Street, @Email)";
+
+                // utilisation de l'objet contact passé en paramètre
+
+                cmd.Parameters.AddWithValue("@Firstname", user.firstName);
+                cmd.Parameters.AddWithValue("@Lastname", user.lastName);
+                cmd.Parameters.AddWithValue("@NameRest", user.nameRestaurant);
+                cmd.Parameters.AddWithValue("@City", user.city);
+                cmd.Parameters.AddWithValue("@NPA", user.npa);
+                cmd.Parameters.AddWithValue("@Street", user.street);
+                cmd.Parameters.AddWithValue("@Email", user.email);
+
+                // Exécution de la commande SQL
+                cmd.ExecuteNonQuery();
+
+                // Fermeture de la connexion
+                connection.Close();
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.ToString());
+                // Gestion des erreurs :
+                // Possibilité de créer un Logger pour les exceptions SQL reçus
+                // Possibilité de créer une méthode avec un booléan en retour pour savoir si le contact à été ajouté correctement.
+            }
+        }
+    }
     }
 }
