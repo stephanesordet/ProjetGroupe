@@ -61,6 +61,7 @@
             this.Controls.Add(this.lblcommandes);
             this.Controls.Add(this.picretournemenu);
             this.Name = "FrmMescommandes";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Mes commandes";
             ((System.ComponentModel.ISupportInitialize)(this.picretournemenu)).EndInit();
             this.ResumeLayout(false);

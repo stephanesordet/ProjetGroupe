@@ -1,6 +1,6 @@
 ﻿namespace Gestionnaire_de_stock_version_1._0
 {
-    partial class FrmCommander
+    partial class FrmCommande
     {
         /// <summary>
         /// Required designer variable.
@@ -31,6 +31,7 @@
             this.picNouvelleCommande = new System.Windows.Forms.PictureBox();
             this.picMesCommandes = new System.Windows.Forms.PictureBox();
             this.pic_returnemenu = new System.Windows.Forms.PictureBox();
+            this.lblComande = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.picNouvelleCommande)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picMesCommandes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_returnemenu)).BeginInit();
@@ -39,7 +40,7 @@
             // picNouvelleCommande
             // 
             this.picNouvelleCommande.Image = global::Gestionnaire_de_stock_version_1._0.Properties.Resources.nouvellecommande;
-            this.picNouvelleCommande.Location = new System.Drawing.Point(44, 188);
+            this.picNouvelleCommande.Location = new System.Drawing.Point(142, 229);
             this.picNouvelleCommande.Name = "picNouvelleCommande";
             this.picNouvelleCommande.Size = new System.Drawing.Size(300, 104);
             this.picNouvelleCommande.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -50,7 +51,7 @@
             // picMesCommandes
             // 
             this.picMesCommandes.Image = global::Gestionnaire_de_stock_version_1._0.Properties.Resources.Mescommandes;
-            this.picMesCommandes.Location = new System.Drawing.Point(44, 66);
+            this.picMesCommandes.Location = new System.Drawing.Point(142, 100);
             this.picMesCommandes.Name = "picMesCommandes";
             this.picMesCommandes.Size = new System.Drawing.Size(300, 100);
             this.picMesCommandes.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -68,20 +69,33 @@
             this.pic_returnemenu.TabStop = false;
             this.pic_returnemenu.Click += new System.EventHandler(this.pic_returnemenu_Click);
             // 
-            // FrmCommander
+            // lblComande
+            // 
+            this.lblComande.AutoSize = true;
+            this.lblComande.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblComande.Location = new System.Drawing.Point(208, 13);
+            this.lblComande.Name = "lblComande";
+            this.lblComande.Size = new System.Drawing.Size(165, 39);
+            this.lblComande.TabIndex = 3;
+            this.lblComande.Text = "Comande";
+            // 
+            // FrmCommande
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(415, 336);
+            this.ClientSize = new System.Drawing.Size(569, 394);
+            this.Controls.Add(this.lblComande);
             this.Controls.Add(this.picNouvelleCommande);
             this.Controls.Add(this.picMesCommandes);
             this.Controls.Add(this.pic_returnemenu);
-            this.Name = "FrmCommander";
-            this.Text = "Commander";
+            this.Name = "FrmCommande";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Commande";
             ((System.ComponentModel.ISupportInitialize)(this.picNouvelleCommande)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picMesCommandes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_returnemenu)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -90,5 +104,6 @@
         private System.Windows.Forms.PictureBox pic_returnemenu;
         private System.Windows.Forms.PictureBox picMesCommandes;
         private System.Windows.Forms.PictureBox picNouvelleCommande;
+        private System.Windows.Forms.Label lblComande;
     }
 }

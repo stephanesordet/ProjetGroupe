@@ -63,6 +63,46 @@ namespace Gestionnaire_de_stock_version_1._0.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ajouteproduit2 {
+            get {
+                object obj = ResourceManager.GetObject("ajouteproduit2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ajouteproduit21 {
+            get {
+                object obj = ResourceManager.GetObject("ajouteproduit21", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ajouteproduit22 {
+            get {
+                object obj = ResourceManager.GetObject("ajouteproduit22", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Ajouterunproduit {
+            get {
+                object obj = ResourceManager.GetObject("Ajouterunproduit", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Commander {
             get {
                 object obj = ResourceManager.GetObject("Commander", resourceCulture);
@@ -76,6 +116,56 @@ namespace Gestionnaire_de_stock_version_1._0.Properties {
         internal static System.Drawing.Bitmap Fournisseurs {
             get {
                 object obj = ResourceManager.GetObject("Fournisseurs", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Gererlestock {
+            get {
+                object obj = ResourceManager.GetObject("Gererlestock", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap gererlestock2 {
+            get {
+                object obj = ResourceManager.GetObject("gererlestock2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap gererstock3 {
+            get {
+                object obj = ResourceManager.GetObject("gererstock3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap gererstock31 {
+            get {
+                object obj = ResourceManager.GetObject("gererstock31", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap gererstock32 {
+            get {
+                object obj = ResourceManager.GetObject("gererstock32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -136,6 +226,16 @@ namespace Gestionnaire_de_stock_version_1._0.Properties {
         internal static System.Drawing.Bitmap Stock {
             get {
                 object obj = ResourceManager.GetObject("Stock", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap worker_loading_boxes {
+            get {
+                object obj = ResourceManager.GetObject("worker-loading-boxes", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

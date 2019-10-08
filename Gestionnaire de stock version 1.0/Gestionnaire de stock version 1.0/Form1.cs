@@ -12,6 +12,7 @@ namespace Gestionnaire_de_stock_version_1._0
 {
     public partial class FrmMenu : Form
     {
+       
         public FrmMenu()
         {
             InitializeComponent();
@@ -20,15 +21,18 @@ namespace Gestionnaire_de_stock_version_1._0
 
         }
 
+    
+
         public void Inicialisation()
         {
             pnlMenuper.Visible = false;
         }
 
+        
         private void picCommander_Click(object sender, EventArgs e)
         {
           
-            FrmCommander form_Commander = new FrmCommander();
+            FrmCommande form_Commander = new FrmCommande();
             form_Commander.Show();
             this.Hide();
 
@@ -77,6 +81,17 @@ namespace Gestionnaire_de_stock_version_1._0
             {
                 pnlMenuper.Visible = false;
             }
+
+        }
+
+        private void lblAjoutcategorie_Click(object sender, EventArgs e)
+        {
+            frmCategorie form_categorie = new frmCategorie();
+            form_categorie.Show();
+        }
+
+        private void lblModifieFournisseur_Click(object sender, EventArgs e)
+        {
 
         }
     }

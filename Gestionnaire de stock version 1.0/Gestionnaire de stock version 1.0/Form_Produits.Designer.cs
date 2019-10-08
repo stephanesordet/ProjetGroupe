@@ -124,7 +124,6 @@
             this.cmbCategorie.Name = "cmbCategorie";
             this.cmbCategorie.Size = new System.Drawing.Size(150, 21);
             this.cmbCategorie.TabIndex = 9;
-
             // 
             // FrmProduits
             // 
@@ -141,6 +140,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Picretournemenu);
             this.Name = "FrmProduits";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Produits";
             this.Load += new System.EventHandler(this.FrmProduits_Load);
             ((System.ComponentModel.ISupportInitialize)(this.Picretournemenu)).EndInit();

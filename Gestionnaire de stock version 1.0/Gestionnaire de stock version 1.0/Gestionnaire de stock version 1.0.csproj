@@ -73,6 +73,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form_Categorie.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Categorie.Designer.cs">
+      <DependentUpon>Form_Categorie.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form_Commander.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -115,11 +121,16 @@
     <Compile Include="Form_Utilisateur.Designer.cs">
       <DependentUpon>Form_Utilisateur.cs</DependentUpon>
     </Compile>
+    <Compile Include="Products.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Supplier.cs" />
+    <Compile Include="Unities.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_Categorie.resx">
+      <DependentUpon>Form_Categorie.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form_Commander.resx">
       <DependentUpon>Form_Commander.cs</DependentUpon>
@@ -189,6 +200,36 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\nouvellecommande.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ajouterunproduit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gererlestock2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Gererlestock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\worker-loading-boxes.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gererstock3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ajouteproduit2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gererstock31.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gererstock32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ajouteproduit21.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ajouteproduit22.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

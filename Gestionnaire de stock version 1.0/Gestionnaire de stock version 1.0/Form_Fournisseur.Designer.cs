@@ -254,6 +254,7 @@
             this.Controls.Add(this.lbljouterfornisseur);
             this.Controls.Add(this.pic_returnemenu);
             this.Name = "FrmFournisseur";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Fournisseur";
             ((System.ComponentModel.ISupportInitialize)(this.pic_returnemenu)).EndInit();
             this.ResumeLayout(false);

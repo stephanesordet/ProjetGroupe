@@ -31,6 +31,9 @@
             this.lblNomappli = new System.Windows.Forms.Label();
             this.lblInfo = new System.Windows.Forms.Label();
             this.pnlMenuper = new System.Windows.Forms.Panel();
+            this.lblEditProduit = new System.Windows.Forms.Label();
+            this.lblEditFournisseur = new System.Windows.Forms.Label();
+            this.lblAjoutcategorie = new System.Windows.Forms.Label();
             this.picConfig = new System.Windows.Forms.PictureBox();
             this.picProduits = new System.Windows.Forms.PictureBox();
             this.picFournisseur = new System.Windows.Forms.PictureBox();
@@ -48,7 +51,7 @@
             // 
             this.lblNomappli.AutoSize = true;
             this.lblNomappli.Font = new System.Drawing.Font("Microsoft Sans Serif", 40F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNomappli.Location = new System.Drawing.Point(207, 9);
+            this.lblNomappli.Location = new System.Drawing.Point(230, 12);
             this.lblNomappli.Name = "lblNomappli";
             this.lblNomappli.Size = new System.Drawing.Size(271, 63);
             this.lblNomappli.TabIndex = 4;
@@ -57,28 +60,63 @@
             // lblInfo
             // 
             this.lblInfo.AutoSize = true;
-            this.lblInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblInfo.Location = new System.Drawing.Point(3, 13);
+            this.lblInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInfo.Location = new System.Drawing.Point(10, 14);
             this.lblInfo.Name = "lblInfo";
             this.lblInfo.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.lblInfo.Size = new System.Drawing.Size(148, 13);
+            this.lblInfo.Size = new System.Drawing.Size(170, 15);
             this.lblInfo.TabIndex = 6;
             this.lblInfo.Text = "Informations personelles ";
             this.lblInfo.Click += new System.EventHandler(this.label1_Click);
             // 
             // pnlMenuper
             // 
-            this.pnlMenuper.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.pnlMenuper.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.pnlMenuper.Controls.Add(this.lblEditProduit);
+            this.pnlMenuper.Controls.Add(this.lblEditFournisseur);
+            this.pnlMenuper.Controls.Add(this.lblAjoutcategorie);
             this.pnlMenuper.Controls.Add(this.lblInfo);
-            this.pnlMenuper.Location = new System.Drawing.Point(645, 79);
+            this.pnlMenuper.Location = new System.Drawing.Point(575, 55);
             this.pnlMenuper.Name = "pnlMenuper";
-            this.pnlMenuper.Size = new System.Drawing.Size(152, 46);
+            this.pnlMenuper.Size = new System.Drawing.Size(180, 189);
             this.pnlMenuper.TabIndex = 7;
+            // 
+            // lblEditProduit
+            // 
+            this.lblEditProduit.AutoSize = true;
+            this.lblEditProduit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEditProduit.Location = new System.Drawing.Point(10, 124);
+            this.lblEditProduit.Name = "lblEditProduit";
+            this.lblEditProduit.Size = new System.Drawing.Size(60, 15);
+            this.lblEditProduit.TabIndex = 9;
+            this.lblEditProduit.Text = "Produits";
+            // 
+            // lblEditFournisseur
+            // 
+            this.lblEditFournisseur.AutoSize = true;
+            this.lblEditFournisseur.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEditFournisseur.Location = new System.Drawing.Point(10, 85);
+            this.lblEditFournisseur.Name = "lblEditFournisseur";
+            this.lblEditFournisseur.Size = new System.Drawing.Size(90, 15);
+            this.lblEditFournisseur.TabIndex = 8;
+            this.lblEditFournisseur.Text = "Fournisseurs";
+            this.lblEditFournisseur.Click += new System.EventHandler(this.lblModifieFournisseur_Click);
+            // 
+            // lblAjoutcategorie
+            // 
+            this.lblAjoutcategorie.AutoSize = true;
+            this.lblAjoutcategorie.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAjoutcategorie.Location = new System.Drawing.Point(10, 48);
+            this.lblAjoutcategorie.Name = "lblAjoutcategorie";
+            this.lblAjoutcategorie.Size = new System.Drawing.Size(144, 15);
+            this.lblAjoutcategorie.TabIndex = 7;
+            this.lblAjoutcategorie.Text = "Ajouter une catégorie";
+            this.lblAjoutcategorie.Click += new System.EventHandler(this.lblAjoutcategorie_Click);
             // 
             // picConfig
             // 
             this.picConfig.Image = global::Gestionnaire_de_stock_version_1._0.Properties.Resources.icons8_services_26;
-            this.picConfig.Location = new System.Drawing.Point(721, 22);
+            this.picConfig.Location = new System.Drawing.Point(702, 12);
             this.picConfig.Name = "picConfig";
             this.picConfig.Size = new System.Drawing.Size(53, 37);
             this.picConfig.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -134,7 +172,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(765, 450);
             this.Controls.Add(this.pnlMenuper);
             this.Controls.Add(this.picConfig);
             this.Controls.Add(this.lblNomappli);
@@ -143,6 +181,7 @@
             this.Controls.Add(this.picStock);
             this.Controls.Add(this.picCommander);
             this.Name = "FrmMenu";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MENU";
             this.Load += new System.EventHandler(this.FrmMenu_Load);
             this.pnlMenuper.ResumeLayout(false);
@@ -167,6 +206,9 @@
         private System.Windows.Forms.PictureBox picConfig;
         private System.Windows.Forms.Label lblInfo;
         private System.Windows.Forms.Panel pnlMenuper;
+        private System.Windows.Forms.Label lblAjoutcategorie;
+        private System.Windows.Forms.Label lblEditProduit;
+        private System.Windows.Forms.Label lblEditFournisseur;
     }
 }
 
