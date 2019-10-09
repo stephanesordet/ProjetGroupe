@@ -31,12 +31,12 @@
             this.Picretournemenu = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtNom = new System.Windows.Forms.TextBox();
-            this.txtCategorie = new System.Windows.Forms.TextBox();
             this.lstFournisseur = new System.Windows.Forms.ListBox();
             this.cmdValider = new System.Windows.Forms.Button();
             this.lblNom = new System.Windows.Forms.Label();
             this.lblCategorie = new System.Windows.Forms.Label();
             this.lblFournisseur = new System.Windows.Forms.Label();
+            this.cmbCategorie = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.Picretournemenu)).BeginInit();
             this.SuspendLayout();
             // 
@@ -68,14 +68,6 @@
             this.txtNom.Size = new System.Drawing.Size(150, 27);
             this.txtNom.TabIndex = 2;
             // 
-            // txtCategorie
-            // 
-            this.txtCategorie.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCategorie.Location = new System.Drawing.Point(146, 125);
-            this.txtCategorie.Name = "txtCategorie";
-            this.txtCategorie.Size = new System.Drawing.Size(150, 27);
-            this.txtCategorie.TabIndex = 3;
-            // 
             // lstFournisseur
             // 
             this.lstFournisseur.FormattingEnabled = true;
@@ -93,7 +85,7 @@
             this.cmdValider.TabIndex = 5;
             this.cmdValider.Text = "valider";
             this.cmdValider.UseVisualStyleBackColor = true;
-            this.cmdValider.Click += new System.EventHandler(this.cmdvalider_Click);
+            this.cmdValider.Click += new System.EventHandler(this.cmdValider_Click);
             // 
             // lblNom
             // 
@@ -125,22 +117,32 @@
             this.lblFournisseur.TabIndex = 8;
             this.lblFournisseur.Text = "Fournisseur";
             // 
+            // cmbCategorie
+            // 
+            this.cmbCategorie.FormattingEnabled = true;
+            this.cmbCategorie.Location = new System.Drawing.Point(146, 125);
+            this.cmbCategorie.Name = "cmbCategorie";
+            this.cmbCategorie.Size = new System.Drawing.Size(150, 21);
+            this.cmbCategorie.TabIndex = 9;
+
+            // 
             // FrmProduits
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(331, 450);
+            this.Controls.Add(this.cmbCategorie);
             this.Controls.Add(this.lblFournisseur);
             this.Controls.Add(this.lblCategorie);
             this.Controls.Add(this.lblNom);
             this.Controls.Add(this.cmdValider);
             this.Controls.Add(this.lstFournisseur);
-            this.Controls.Add(this.txtCategorie);
             this.Controls.Add(this.txtNom);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Picretournemenu);
             this.Name = "FrmProduits";
             this.Text = "Produits";
+            this.Load += new System.EventHandler(this.FrmProduits_Load);
             ((System.ComponentModel.ISupportInitialize)(this.Picretournemenu)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -152,11 +154,11 @@
         private System.Windows.Forms.PictureBox Picretournemenu;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtNom;
-        private System.Windows.Forms.TextBox txtCategorie;
         private System.Windows.Forms.ListBox lstFournisseur;
         private System.Windows.Forms.Button cmdValider;
         private System.Windows.Forms.Label lblNom;
         private System.Windows.Forms.Label lblCategorie;
         private System.Windows.Forms.Label lblFournisseur;
+        private System.Windows.Forms.ComboBox cmbCategorie;
     }
 }
