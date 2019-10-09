@@ -28,6 +28,32 @@ namespace Gestionnaire_de_stock_version_1._0
 
         }
         //créer un objet fournisseur qui sera crée quand on appuye sur valider--> l'objet sera mis en parametre de Addsupplier
+        public void OpenDB()
+        {
+            connection.Open();
+        }
+        public void CloseDB()
+        {
+            connection.Close();
+        }
+
+        public long InsertProduit(string name, int categorie)
+        {
+            string produit = "INSERT INTO products(Name,Categories_id) VALUES('" + name + "'," + categorie + ");";
+            // Création d'une commande MySQL en fonction de l'objet connection
+            MySqlCommand cmd = new MySqlCommand(produit, connection);
+            cmd.ExecuteNonQuery();
+            return cmd.LastInsertedId;
+
+        }
+        public void InsertProductsSuppliers(long idproducts, long idsuppliers)
+        {
+            string commande = "INSERT INTO Products_has_Suppliers(Products_id,Suppliers_id) VALUES(" + idproducts + "," + idsuppliers + ");";
+            MySqlCommand cmd = new MySqlCommand(commande, connection);
+            cmd.ExecuteNonQuery();
+        }
+
+
         public void AddSupplier(Supplier supplier)
         {
             try
@@ -66,6 +92,44 @@ namespace Gestionnaire_de_stock_version_1._0
             }
         }
 
-        
+        public List<Supplier> ReadFournisseur()
+        {
+            //Le problème que vous rencontrez est que vous démarrez une seconde MySqlCommandtout en lisant les données avec le DataReader. Le connecteur MySQL n'autorise qu'une requête simultanée. Vous devez lire les données dans une structure, puis fermer le lecteur, puis traiter les données. Malheureusement, vous ne pouvez pas traiter les données telles qu'elles sont lues si votre traitement implique d'autres requêtes SQL.
+            MySqlCommand cmd = connection.CreateCommand();
+            cmd.CommandText = "SELECT Firstname,Lastname,id FROM suppliers";
+            List<Supplier> listData = new List<Supplier>();
+            MySqlDataReader dataReader1 = cmd.ExecuteReader();
+            while (dataReader1.Read())
+            {               
+                string dataFirstanme = dataReader1["Firstname"].ToString();
+                string dataLastnme = dataReader1["Lastname"].ToString();
+                int dataId = (int)dataReader1["id"];
+                Supplier fournisseurs = new Supplier(dataId, dataFirstanme, dataLastnme);
+                listData.Add(fournisseurs);
+            }
+
+            return listData;
+
+
+        }
+
+        public List<Categorie> ReadCategories()
+        {
+            MySqlCommand cmd = connection.CreateCommand();
+            cmd.CommandText = "SELECT id,Name FROM Categories";
+            List<Categorie> list = new List<Categorie>();
+            MySqlDataReader dataReader1 = cmd.ExecuteReader();
+            while (dataReader1.Read())
+            {
+                string dataName = dataReader1["Name"].ToString();
+                int dataId = (int)dataReader1["id"];
+                Categorie datacategorie = new Categorie(dataId, dataName);
+                list.Add(datacategorie);
+            }
+
+            return list;
+        }
+
+
     }
 }
