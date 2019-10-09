@@ -67,6 +67,7 @@ namespace Gestionnaire_de_stock_version_1._0
                 supplier = new Supplier(sexe, txtNom.Text, txtPrenom.Text, txtEntreprise.Text, npa, txtVille.Text, txtRue.Text, txtEmail.Text);
 
                 addSupp.AddSupplier(supplier);
+                MessageBox.Show("Fournisseur ajouté");
             }
             else
             {

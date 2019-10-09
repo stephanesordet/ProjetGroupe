@@ -53,6 +53,15 @@ namespace Gestionnaire_de_stock_version_1._0
 
         }
 
+        public long InsertProduitNonFourni(string name, int categorie)
+        {
+            string produit = "INSERT INTO products(Name,Categories_id) VALUES('" + name + "'," + categorie + ");";
+            // Création d'une commande MySQL en fonction de l'objet connection
+            MySqlCommand cmd = new MySqlCommand(produit, connection);
+            cmd.ExecuteNonQuery();
+            return cmd.LastInsertedId;
+        }
+
         /// <summary>
         /// Insert categories
         /// </summary>
