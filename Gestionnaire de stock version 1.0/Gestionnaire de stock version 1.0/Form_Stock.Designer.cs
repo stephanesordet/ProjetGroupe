@@ -30,7 +30,14 @@
         {
             this.lblstock = new System.Windows.Forms.Label();
             this.picretournemenu = new System.Windows.Forms.PictureBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Produit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Quantité = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Peremption = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Supprimer = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.mySqlDataAdapter1 = new MySql.Data.MySqlClient.MySqlDataAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.picretournemenu)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // lblstock
@@ -53,16 +60,63 @@
             this.picretournemenu.TabStop = false;
             this.picretournemenu.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Produit,
+            this.Quantité,
+            this.Peremption,
+            this.Supprimer});
+            this.dataGridView1.Location = new System.Drawing.Point(42, 87);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(716, 326);
+            this.dataGridView1.TabIndex = 2;
+            // 
+            // Produit
+            // 
+            this.Produit.HeaderText = "Produit";
+            this.Produit.Name = "Produit";
+            this.Produit.ReadOnly = true;
+            // 
+            // Quantité
+            // 
+            this.Quantité.HeaderText = "Quantité";
+            this.Quantité.Name = "Quantité";
+            this.Quantité.ReadOnly = true;
+            // 
+            // Peremption
+            // 
+            this.Peremption.HeaderText = "Peremption";
+            this.Peremption.Name = "Peremption";
+            this.Peremption.ReadOnly = true;
+            // 
+            // Supprimer
+            // 
+            this.Supprimer.HeaderText = "Supprimer";
+            this.Supprimer.Name = "Supprimer";
+            this.Supprimer.Text = "X";
+            // 
+            // mySqlDataAdapter1
+            // 
+            this.mySqlDataAdapter1.DeleteCommand = null;
+            this.mySqlDataAdapter1.InsertCommand = null;
+            this.mySqlDataAdapter1.SelectCommand = null;
+            this.mySqlDataAdapter1.UpdateCommand = null;
+            // 
             // FrmStock
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.picretournemenu);
             this.Controls.Add(this.lblstock);
             this.Name = "FrmStock";
             this.Text = "Stock";
+            this.Load += new System.EventHandler(this.FrmStock_Load);
             ((System.ComponentModel.ISupportInitialize)(this.picretournemenu)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -72,5 +126,11 @@
 
         private System.Windows.Forms.Label lblstock;
         private System.Windows.Forms.PictureBox picretournemenu;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Produit;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Quantité;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Peremption;
+        private System.Windows.Forms.DataGridViewButtonColumn Supprimer;
+        private MySql.Data.MySqlClient.MySqlDataAdapter mySqlDataAdapter1;
     }
 }

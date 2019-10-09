@@ -23,5 +23,11 @@ namespace Gestionnaire_de_stock_version_1._0
             form1.Show();
             this.Hide();
         }
+        
+        private void FrmStock_Load(object sender, EventArgs e)
+        {
+            
+            
+        }
     }
 }
