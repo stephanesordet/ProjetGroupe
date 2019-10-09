@@ -32,7 +32,7 @@ namespace Gestionnaire_de_stock_version_1._0
                 MysqlConn.OpenDB();
                 if (cmbCategorie.SelectedItem != null)
                 {
-                    if(lstFournisseur.SelectedIndex != null)
+                    if(lstFournisseur.SelectedItem != null)
                     {
                         Categorie categories = (Categorie)cmbCategorie.SelectedItem;
                         long idProduit = MysqlConn.InsertProduit(txtNom.Text, categories.id);
@@ -80,7 +80,8 @@ namespace Gestionnaire_de_stock_version_1._0
                 }
 
                 MysqlConn.CloseDB();
-         }
+
+        }
      }
 
 }

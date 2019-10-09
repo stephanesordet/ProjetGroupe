@@ -59,10 +59,6 @@ namespace Gestionnaire_de_stock_version_1._0
             this.Hide();
         }
 
-        private void FrmMenu_Load(object sender, EventArgs e)
-        {
-
-        }
 
         private void label1_Click(object sender, EventArgs e)
         {

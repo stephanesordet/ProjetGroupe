@@ -51,6 +51,7 @@
             // 
             this.lblNomappli.AutoSize = true;
             this.lblNomappli.Font = new System.Drawing.Font("Microsoft Sans Serif", 40F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNomappli.ForeColor = System.Drawing.SystemColors.ControlText;
             this.lblNomappli.Location = new System.Drawing.Point(230, 12);
             this.lblNomappli.Name = "lblNomappli";
             this.lblNomappli.Size = new System.Drawing.Size(271, 63);
@@ -71,7 +72,7 @@
             // 
             // pnlMenuper
             // 
-            this.pnlMenuper.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.pnlMenuper.BackColor = System.Drawing.SystemColors.Control;
             this.pnlMenuper.Controls.Add(this.lblEditProduit);
             this.pnlMenuper.Controls.Add(this.lblEditFournisseur);
             this.pnlMenuper.Controls.Add(this.lblAjoutcategorie);
@@ -172,6 +173,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(765, 450);
             this.Controls.Add(this.pnlMenuper);
             this.Controls.Add(this.picConfig);
@@ -183,7 +185,6 @@
             this.Name = "FrmMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MENU";
-            this.Load += new System.EventHandler(this.FrmMenu_Load);
             this.pnlMenuper.ResumeLayout(false);
             this.pnlMenuper.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picConfig)).EndInit();

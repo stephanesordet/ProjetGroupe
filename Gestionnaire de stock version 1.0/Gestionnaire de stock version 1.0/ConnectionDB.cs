@@ -37,6 +37,12 @@ namespace Gestionnaire_de_stock_version_1._0
             connection.Close();
         }
 
+        /// <summary>
+        /// Insertion des produits
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="categorie"></param>
+        /// <returns></returns>
         public long InsertProduit(string name, int categorie)
         {
             string produit = "INSERT INTO products(Name,Categories_id) VALUES('" + name + "'," + categorie + ");";
@@ -46,6 +52,23 @@ namespace Gestionnaire_de_stock_version_1._0
             return cmd.LastInsertedId;
 
         }
+
+        /// <summary>
+        /// Insert categories
+        /// </summary>
+        /// <param name="name"></param>
+        public void InsertCategorie(string name)
+        {
+            string commande = "INSERT INTO Categories(Name) VALUES('" + name + "');";
+            MySqlCommand cmd = new MySqlCommand(commande, connection);
+            cmd.ExecuteNonQuery();
+        }
+
+        /// <summary>
+        /// Insertions des fournisseurs
+        /// </summary>
+        /// <param name="idproducts"></param>
+        /// <param name="idsuppliers"></param>
         public void InsertProductsSuppliers(long idproducts, long idsuppliers)
         {
             string commande = "INSERT INTO Products_has_Suppliers(Products_id,Suppliers_id) VALUES(" + idproducts + "," + idsuppliers + ");";
@@ -53,7 +76,10 @@ namespace Gestionnaire_de_stock_version_1._0
             cmd.ExecuteNonQuery();
         }
 
-
+        /// <summary>
+        /// Insertion des fournisseur 
+        /// </summary>
+        /// <param name="supplier"></param>
         public void AddSupplier(Supplier supplier)
         {
             try
@@ -91,8 +117,9 @@ namespace Gestionnaire_de_stock_version_1._0
                 // Possibilité de créer une méthode avec un booléan en retour pour savoir si le contact à été ajouté correctement.
             }
         }
+       
         /// <summary>
-        /// 
+        /// Lire les Fournisseur
         /// </summary>
         /// <returns></returns>
         public List<Supplier> ReadFournisseur()
@@ -115,6 +142,12 @@ namespace Gestionnaire_de_stock_version_1._0
 
 
         }
+        
+        /// <summary>
+        /// Lire les produits d'un fournisseur 
+        /// </summary>
+        /// <param name="idsuppliers"></param>
+        /// <returns></returns>
         public List<Products> ReadProductsHasSuppliers(int idsuppliers)
         {
             MySqlCommand cmd = connection.CreateCommand();
@@ -131,6 +164,11 @@ namespace Gestionnaire_de_stock_version_1._0
 
             return list;
         }
+
+        /// <summary>
+        /// Lire les categories 
+        /// </summary>
+        /// <returns></returns>
         public List<Categorie> ReadCategories()
         {
             MySqlCommand cmd = connection.CreateCommand();
@@ -148,6 +186,10 @@ namespace Gestionnaire_de_stock_version_1._0
             return list;
         }
 
+        /// <summary>
+        /// Lire les Unités 
+        /// </summary>
+        /// <returns></returns>
         public List<Unities> ReadUnities()
         {
             MySqlCommand cmd = connection.CreateCommand();

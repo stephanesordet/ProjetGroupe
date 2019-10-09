@@ -73,6 +73,7 @@
             this.cmdVallider.TabIndex = 3;
             this.cmdVallider.Text = "Vallider ";
             this.cmdVallider.UseVisualStyleBackColor = true;
+            this.cmdVallider.Click += new System.EventHandler(this.cmdVallider_Click);
             // 
             // pictureBox1
             // 

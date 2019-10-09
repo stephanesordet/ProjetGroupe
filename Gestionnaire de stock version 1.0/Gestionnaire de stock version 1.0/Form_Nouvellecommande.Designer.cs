@@ -40,13 +40,15 @@
             this.cmdValider = new System.Windows.Forms.Button();
             this.cboProduit = new System.Windows.Forms.ComboBox();
             this.cboUnite = new System.Windows.Forms.ComboBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Produits = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Quantites = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Unites = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Supprimer = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cmdFinierCommande = new System.Windows.Forms.Button();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.mySqlCommand1 = new MySql.Data.MySqlClient.MySqlCommand();
+            this.backgroundWorker2 = new System.ComponentModel.BackgroundWorker();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Produit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Quantité = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Unité = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.button1 = new System.Windows.Forms.Button();
+            this.txtEmail = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.picretourcommander)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -154,41 +156,6 @@
             this.cboUnite.Size = new System.Drawing.Size(121, 21);
             this.cboUnite.TabIndex = 3;
             // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Produits,
-            this.Quantites,
-            this.Unites,
-            this.Supprimer});
-            this.dataGridView1.Location = new System.Drawing.Point(66, 256);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 50;
-            this.dataGridView1.Size = new System.Drawing.Size(447, 177);
-            this.dataGridView1.TabIndex = 11;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // Produits
-            // 
-            this.Produits.HeaderText = "Produit";
-            this.Produits.Name = "Produits";
-            // 
-            // Quantites
-            // 
-            this.Quantites.HeaderText = "Quantité";
-            this.Quantites.Name = "Quantites";
-            // 
-            // Unites
-            // 
-            this.Unites.HeaderText = "Unité";
-            this.Unites.Name = "Unites";
-            // 
-            // Supprimer
-            // 
-            this.Supprimer.HeaderText = "";
-            this.Supprimer.Name = "Supprimer";
-            // 
             // cmdFinierCommande
             // 
             this.cmdFinierCommande.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -198,23 +165,76 @@
             this.cmdFinierCommande.TabIndex = 13;
             this.cmdFinierCommande.Text = "Finir la commande et envoyer ";
             this.cmdFinierCommande.UseVisualStyleBackColor = true;
+            this.cmdFinierCommande.Click += new System.EventHandler(this.cmdFinierCommande_Click);
             // 
-            // listBox1
+            // mySqlCommand1
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(66, 457);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(447, 225);
-            this.listBox1.TabIndex = 14;
+            this.mySqlCommand1.CacheAge = 0;
+            this.mySqlCommand1.Connection = null;
+            this.mySqlCommand1.EnableCaching = false;
+            this.mySqlCommand1.Transaction = null;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Produit,
+            this.Quantité,
+            this.Unité});
+            this.dataGridView1.Location = new System.Drawing.Point(66, 274);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(447, 150);
+            this.dataGridView1.TabIndex = 15;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // Produit
+            // 
+            this.Produit.HeaderText = "Produit";
+            this.Produit.Name = "Produit";
+            this.Produit.ReadOnly = true;
+            this.Produit.Width = 120;
+            // 
+            // Quantité
+            // 
+            this.Quantité.HeaderText = "Quantié";
+            this.Quantité.Name = "Quantité";
+            this.Quantité.ReadOnly = true;
+            // 
+            // Unité
+            // 
+            this.Unité.HeaderText = "Unité";
+            this.Unité.Name = "Unité";
+            this.Unité.ReadOnly = true;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(66, 449);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(102, 23);
+            this.button1.TabIndex = 16;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // txtEmail
+            // 
+            this.txtEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEmail.Location = new System.Drawing.Point(66, 478);
+            this.txtEmail.Multiline = true;
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(447, 200);
+            this.txtEmail.TabIndex = 17;
             // 
             // FrmNouvellecommande
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(567, 766);
-            this.Controls.Add(this.listBox1);
-            this.Controls.Add(this.cmdFinierCommande);
+            this.Controls.Add(this.txtEmail);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.cmdFinierCommande);
             this.Controls.Add(this.cmdValider);
             this.Controls.Add(this.lblfournisseur);
             this.Controls.Add(this.lblquantite);
@@ -251,12 +271,14 @@
         private System.Windows.Forms.Button cmdValider;
         private System.Windows.Forms.ComboBox cboProduit;
         private System.Windows.Forms.ComboBox cboUnite;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Produits;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Quantites;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Unites;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Supprimer;
         private System.Windows.Forms.Button cmdFinierCommande;
-        private System.Windows.Forms.ListBox listBox1;
+        private MySql.Data.MySqlClient.MySqlCommand mySqlCommand1;
+        private System.ComponentModel.BackgroundWorker backgroundWorker2;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Produit;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Quantité;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Unité;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox txtEmail;
     }
 }
