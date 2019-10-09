@@ -228,6 +228,7 @@
             this.Controls.Add(this.lblinfoperso);
             this.Controls.Add(this.picreturnemenu);
             this.Name = "FrmUtilisateur";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Informations personelles";
             ((System.ComponentModel.ISupportInitialize)(this.picreturnemenu)).EndInit();
             this.ResumeLayout(false);

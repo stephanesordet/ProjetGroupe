@@ -37,6 +37,12 @@ namespace Gestionnaire_de_stock_version_1._0
             connection.Close();
         }
 
+        /// <summary>
+        /// Insertion des produits
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="categorie"></param>
+        /// <returns></returns>
         public long InsertProduit(string name, int categorie)
         {
             string produit = "INSERT INTO products(Name,Categories_id) VALUES('" + name + "'," + categorie + ");";
@@ -46,6 +52,23 @@ namespace Gestionnaire_de_stock_version_1._0
             return cmd.LastInsertedId;
 
         }
+
+        /// <summary>
+        /// Insert categories
+        /// </summary>
+        /// <param name="name"></param>
+        public void InsertCategorie(string name)
+        {
+            string commande = "INSERT INTO Categories(Name) VALUES('" + name + "');";
+            MySqlCommand cmd = new MySqlCommand(commande, connection);
+            cmd.ExecuteNonQuery();
+        }
+
+        /// <summary>
+        /// Insertions des fournisseurs
+        /// </summary>
+        /// <param name="idproducts"></param>
+        /// <param name="idsuppliers"></param>
         public void InsertProductsSuppliers(long idproducts, long idsuppliers)
         {
             string commande = "INSERT INTO Products_has_Suppliers(Products_id,Suppliers_id) VALUES(" + idproducts + "," + idsuppliers + ");";
@@ -53,7 +76,10 @@ namespace Gestionnaire_de_stock_version_1._0
             cmd.ExecuteNonQuery();
         }
 
-
+        /// <summary>
+        /// Insertion des fournisseur 
+        /// </summary>
+        /// <param name="supplier"></param>
         public void AddSupplier(Supplier supplier)
         {
             try
@@ -91,7 +117,11 @@ namespace Gestionnaire_de_stock_version_1._0
                 // Possibilité de créer une méthode avec un booléan en retour pour savoir si le contact à été ajouté correctement.
             }
         }
-
+       
+        /// <summary>
+        /// Lire les Fournisseur
+        /// </summary>
+        /// <returns></returns>
         public List<Supplier> ReadFournisseur()
         {
             //Le problème que vous rencontrez est que vous démarrez une seconde MySqlCommandtout en lisant les données avec le DataReader. Le connecteur MySQL n'autorise qu'une requête simultanée. Vous devez lire les données dans une structure, puis fermer le lecteur, puis traiter les données. Malheureusement, vous ne pouvez pas traiter les données telles qu'elles sont lues si votre traitement implique d'autres requêtes SQL.
@@ -112,17 +142,43 @@ namespace Gestionnaire_de_stock_version_1._0
 
 
         }
+        
+        /// <summary>
+        /// Lire les produits d'un fournisseur 
+        /// </summary>
+        /// <param name="idsuppliers"></param>
+        /// <returns></returns>
+        public List<Products> ReadProductsHasSuppliers(int idsuppliers)
+        {
+            MySqlCommand cmd = connection.CreateCommand();
+            cmd.CommandText = "SELECT products.id, products.Name FROM products_has_suppliers inner JOIN products ON Products_id = products.id inner JOIN suppliers ON Suppliers_id = suppliers.id  WHERE suppliers.id =" + idsuppliers + ";";
+            List<Products> list = new List<Products>();
+            MySqlDataReader dataReader = cmd.ExecuteReader();
+            while (dataReader.Read())
+            {
+                string dataName = dataReader["Name"].ToString();
+                int dataId = (int)dataReader["id"];
+                Products dataProducts = new Products(dataId, dataName);
+                list.Add(dataProducts);
+            }
 
+            return list;
+        }
+
+        /// <summary>
+        /// Lire les categories 
+        /// </summary>
+        /// <returns></returns>
         public List<Categorie> ReadCategories()
         {
             MySqlCommand cmd = connection.CreateCommand();
             cmd.CommandText = "SELECT id,Name FROM Categories";
             List<Categorie> list = new List<Categorie>();
-            MySqlDataReader dataReader1 = cmd.ExecuteReader();
-            while (dataReader1.Read())
+            MySqlDataReader dataReader = cmd.ExecuteReader();
+            while (dataReader.Read())
             {
-                string dataName = dataReader1["Name"].ToString();
-                int dataId = (int)dataReader1["id"];
+                string dataName = dataReader["Name"].ToString();
+                int dataId = (int)dataReader["id"];
                 Categorie datacategorie = new Categorie(dataId, dataName);
                 list.Add(datacategorie);
             }
@@ -130,6 +186,26 @@ namespace Gestionnaire_de_stock_version_1._0
             return list;
         }
 
+        /// <summary>
+        /// Lire les Unités 
+        /// </summary>
+        /// <returns></returns>
+        public List<Unities> ReadUnities()
+        {
+            MySqlCommand cmd = connection.CreateCommand();
+            cmd.CommandText = "SELECT id,Name FROM Unities";
+            List<Unities> list = new List<Unities>();
+            MySqlDataReader dataReader = cmd.ExecuteReader();
+            while (dataReader.Read())
+            {
+                string dataName = dataReader["Name"].ToString();
+                int dataId = (int)dataReader["id"];
+                Unities dataUnities = new Unities(dataId, dataName);
+                list.Add(dataUnities);
+            }
+
+            return list;
+        }
 
     }
 }

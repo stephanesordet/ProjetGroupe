@@ -10,18 +10,11 @@ using System.Windows.Forms;
 
 namespace Gestionnaire_de_stock_version_1._0
 {
-    public partial class FrmMescommandes : Form
+    public partial class frmEmail : Form
     {
-        public FrmMescommandes()
+        public frmEmail()
         {
             InitializeComponent();
-        }
-
-        private void picretournemenu_Click(object sender, EventArgs e)
-        {
-            FrmCommande form_commander = new FrmCommande();
-            form_commander.Show();
-            this.Hide();
         }
     }
 }
