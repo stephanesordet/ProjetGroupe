@@ -185,6 +185,7 @@
             this.Name = "FrmMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MENU";
+            this.Load += new System.EventHandler(this.FrmMenu_Load);
             this.pnlMenuper.ResumeLayout(false);
             this.pnlMenuper.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picConfig)).EndInit();

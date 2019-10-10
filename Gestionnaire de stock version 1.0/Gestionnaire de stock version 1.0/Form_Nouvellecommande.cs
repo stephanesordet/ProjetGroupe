@@ -134,19 +134,12 @@ namespace Gestionnaire_de_stock_version_1._0
 
         private void cmdFinierCommande_Click(object sender, EventArgs e)
         {
-          
+            Mail newMail;
+            newMail = new Mail("Stephane.sordet@cpnv.ch", "", "", txtEmail.Text);
+            MysqlConn.sendMail(newMail);
+
+
             
-            
-            /*SmtpClient client = new SmtpClient();
-            client.Port = 582;
-            client.EnableSsl = true;
-            client.Credentials = new NetworkCredential();
-            MailAddress from = new MailAddress("Luana.KIRCHNER-BANNWART@cpnv.ch");
-            MailAddress to = new MailAddress("luanabannwart@gmail.com");
-            MailMessage message = new MailMessage(from,to);
-            message.Body = "TEST";
-            message.Subject = "test";
-            message.Dispose();*/
 
 
         }

@@ -5,6 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Net;
+using System.Net.Mail;
 
 namespace Gestionnaire_de_stock_version_1._0
 {
@@ -214,6 +216,20 @@ namespace Gestionnaire_de_stock_version_1._0
             }
 
             return list;
+        }
+        public void sendMail(Mail mail)
+        {
+            SmtpClient test = new SmtpClient("mail.cpnv.ch", 25);
+
+            try
+            {
+                test.Send(mail.sender, mail.recipient, mail.subject, mail.body);
+                MessageBox.Show("Email ok");
+            }
+            catch (Exception c)
+            {
+                MessageBox.Show(c.Message);
+            }
         }
 
     }
