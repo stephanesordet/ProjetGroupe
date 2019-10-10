@@ -22,6 +22,8 @@ namespace Gestionnaire_de_stock_version_1._0
         List<Unities> listUnities;
         List<Supplier> listSupplier;
         Supplier supplier;
+        Unities unitie;
+        Products product;
         public FrmNouvellecommande()
         {
             InitializeComponent();
@@ -37,13 +39,15 @@ namespace Gestionnaire_de_stock_version_1._0
         private void FrmNouvellecommande_Load(object sender, EventArgs e)
         {
             MysqlConn.OpenDB();
+            //Lire les fournisseur 
             listSupplier = MysqlConn.ReadFournisseur();
             foreach (Supplier value in listSupplier)
             {
                 cboFournisseur.Items.Add(value);
             }
             MysqlConn.CloseDB();
-
+            
+            //Lire les unites
             MysqlConn.OpenDB();
             listUnities = MysqlConn.ReadUnities();
             foreach (Unities value in listUnities)
@@ -83,8 +87,8 @@ namespace Gestionnaire_de_stock_version_1._0
 
             if (cboFournisseur.SelectedItem != null && cboProduit.SelectedItem != null && cboUnite.SelectedItem != null && txtQuantite.Text != "")
             {
-                Unities unitie = (Unities)cboUnite.SelectedItem;
-                Products product = (Products)cboProduit.SelectedItem;
+                unitie = (Unities)cboUnite.SelectedItem;
+                product = (Products)cboProduit.SelectedItem;
                 string quantite = txtQuantite.Text;
 
                 dataGridView1.Rows.Add(product, quantite, unitie);
@@ -102,7 +106,9 @@ namespace Gestionnaire_de_stock_version_1._0
             {
                 if (dataGridView1.Rows[e.RowIndex].Cells[3].Selected)
                 {
-                    dataGridView1.Rows.RemoveAt(oneCell.RowIndex);
+                   
+                        dataGridView1.Rows.RemoveAt(oneCell.RowIndex);
+                    
                 }
                 if(dataGridView1.Rows.Count < 2)
                 {
@@ -119,14 +125,14 @@ namespace Gestionnaire_de_stock_version_1._0
             //txtEmail.Text += supplier.gender.ToString();
             txtEmail.Text += supplier.firstName.ToString() +" " + supplier.lastName.ToString();
             int ligne = 0;
-            for (int i=2; i<=dataGridView1.Rows.Count; i++)
+            for (int i=1; i<=dataGridView1.Rows.Count; i++)
             {
                 txtEmail.Text += "\r\n";
-                txtEmail.Text += dataGridView1.Rows[ligne].Cells[0].Value.ToString();
+                txtEmail.Text += dataGridView1.Rows[i-1].Cells[0].Value.ToString();
                 txtEmail.Text += " ";
-                txtEmail.Text += dataGridView1.Rows[ligne].Cells[1].Value.ToString();
+                txtEmail.Text += dataGridView1.Rows[i-1].Cells[1].Value.ToString();
                 txtEmail.Text += " ";
-                txtEmail.Text += dataGridView1.Rows[ligne].Cells[2].Value.ToString();
+                txtEmail.Text += dataGridView1.Rows[i-1].Cells[2].Value.ToString();
 
                 ligne++;
             }
@@ -134,9 +140,21 @@ namespace Gestionnaire_de_stock_version_1._0
 
         private void cmdFinierCommande_Click(object sender, EventArgs e)
         {
-          
-            
-            
+            int quantite = int.Parse(txtQuantite.Text);
+            MysqlConn.OpenDB();
+            int ligne = 0;
+            for (int i = 2; i <= dataGridView1.Rows.Count; i++)
+            {
+                Products produitdata = (Products)dataGridView1.Rows[ligne].Cells[0].Value;
+                string quantitedata =  dataGridView1.Rows[ligne].Cells[1].Value.ToString();
+                int quantiteint = int.Parse(quantitedata);
+                Unities unitesdata = (Unities)dataGridView1.Rows[ligne].Cells[2].Value;     
+                MysqlConn.InsertCommandeLine(quantiteint, (int)produitdata.id, (int)unitesdata.id, (int)supplier.id, 0);
+                ligne++;
+            }
+            MysqlConn.CloseDB();
+
+
             /*SmtpClient client = new SmtpClient();
             client.Port = 582;
             client.EnableSsl = true;

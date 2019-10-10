@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.Picretournemenu = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtNom = new System.Windows.Forms.TextBox();
             this.lstFournisseur = new System.Windows.Forms.ListBox();
@@ -37,18 +36,9 @@
             this.lblCategorie = new System.Windows.Forms.Label();
             this.lblFournisseur = new System.Windows.Forms.Label();
             this.cmbCategorie = new System.Windows.Forms.ComboBox();
+            this.Picretournemenu = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.Picretournemenu)).BeginInit();
             this.SuspendLayout();
-            // 
-            // Picretournemenu
-            // 
-            this.Picretournemenu.Image = global::Gestionnaire_de_stock_version_1._0.Properties.Resources.left_arrow;
-            this.Picretournemenu.Location = new System.Drawing.Point(2, 4);
-            this.Picretournemenu.Name = "Picretournemenu";
-            this.Picretournemenu.Size = new System.Drawing.Size(29, 28);
-            this.Picretournemenu.TabIndex = 0;
-            this.Picretournemenu.TabStop = false;
-            this.Picretournemenu.Click += new System.EventHandler(this.Picretournemenu_Click);
             // 
             // label1
             // 
@@ -124,6 +114,16 @@
             this.cmbCategorie.Name = "cmbCategorie";
             this.cmbCategorie.Size = new System.Drawing.Size(150, 21);
             this.cmbCategorie.TabIndex = 9;
+            // 
+            // Picretournemenu
+            // 
+            this.Picretournemenu.Image = global::Gestionnaire_de_stock_version_1._0.Properties.Resources.left_arrow;
+            this.Picretournemenu.Location = new System.Drawing.Point(2, 4);
+            this.Picretournemenu.Name = "Picretournemenu";
+            this.Picretournemenu.Size = new System.Drawing.Size(29, 28);
+            this.Picretournemenu.TabIndex = 0;
+            this.Picretournemenu.TabStop = false;
+            this.Picretournemenu.Click += new System.EventHandler(this.Picretournemenu_Click);
             // 
             // FrmProduits
             // 

@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.pic_returnemenu = new System.Windows.Forms.PictureBox();
             this.lbljouterfornisseur = new System.Windows.Forms.Label();
             this.txtNom = new System.Windows.Forms.TextBox();
             this.txtPrenom = new System.Windows.Forms.TextBox();
@@ -47,18 +46,9 @@
             this.lblEmail = new System.Windows.Forms.Label();
             this.chkM = new System.Windows.Forms.RadioButton();
             this.chkMme = new System.Windows.Forms.RadioButton();
+            this.pic_returnemenu = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pic_returnemenu)).BeginInit();
             this.SuspendLayout();
-            // 
-            // pic_returnemenu
-            // 
-            this.pic_returnemenu.Image = global::Gestionnaire_de_stock_version_1._0.Properties.Resources.left_arrow;
-            this.pic_returnemenu.Location = new System.Drawing.Point(4, 4);
-            this.pic_returnemenu.Name = "pic_returnemenu";
-            this.pic_returnemenu.Size = new System.Drawing.Size(27, 25);
-            this.pic_returnemenu.TabIndex = 0;
-            this.pic_returnemenu.TabStop = false;
-            this.pic_returnemenu.Click += new System.EventHandler(this.pic_returnemenu_Click);
             // 
             // lbljouterfornisseur
             // 
@@ -229,6 +219,16 @@
             this.chkMme.Text = "Madame ";
             this.chkMme.UseVisualStyleBackColor = true;
             // 
+            // pic_returnemenu
+            // 
+            this.pic_returnemenu.Image = global::Gestionnaire_de_stock_version_1._0.Properties.Resources.left_arrow;
+            this.pic_returnemenu.Location = new System.Drawing.Point(4, 4);
+            this.pic_returnemenu.Name = "pic_returnemenu";
+            this.pic_returnemenu.Size = new System.Drawing.Size(27, 25);
+            this.pic_returnemenu.TabIndex = 0;
+            this.pic_returnemenu.TabStop = false;
+            this.pic_returnemenu.Click += new System.EventHandler(this.pic_returnemenu_Click);
+            // 
             // FrmFournisseur
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -256,6 +256,7 @@
             this.Name = "FrmFournisseur";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Fournisseur";
+            this.Load += new System.EventHandler(this.FrmFournisseur_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pic_returnemenu)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

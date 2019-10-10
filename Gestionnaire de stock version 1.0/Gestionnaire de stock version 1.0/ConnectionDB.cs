@@ -207,5 +207,53 @@ namespace Gestionnaire_de_stock_version_1._0
             return list;
         }
 
+        public void InsertCommandeLine(int quantity, int productsid, int unitiesid, int suppliersid, int status )
+        {
+
+            string commande = "INSERT INTO commandelines(Quantity,Products_id,Unities_id,Suppliers_id,Status) VALUES("+quantity+","+productsid+","+unitiesid+","+suppliersid+","+status+");";
+            MySqlCommand cmd = new MySqlCommand(commande, connection);
+            cmd.ExecuteNonQuery();
+        }
+        public List<CommandeLines> ReadStock()
+        {
+            MySqlCommand cmd = connection.CreateCommand();
+            cmd.CommandText = "SELECT commandelines.id, products.name AS Produit, categories.name AS categorie, commandelines.Quantity, commandelines.Peremption FROM commandelines inner JOIN products ON commandelines.Products_id = products.id inner JOIN suppliers ON commandelines.Suppliers_id = suppliers.id INNER JOIN categories ON products.Categories_id = categories.id WHERE commandelines.Status = 1";
+            List<CommandeLines> list = new List<CommandeLines>();
+            MySqlDataReader dataReader = cmd.ExecuteReader();
+            while (dataReader.Read())
+            {
+                int id = (int)dataReader["id"];
+                string nameproduit = dataReader["Produit"].ToString();
+                string namecategorie = dataReader["categorie"].ToString();
+                int quantity = (int)dataReader["Quantity"];
+                string Peremption = dataReader["Peremption"].ToString();
+                CommandeLines dataUnities = new CommandeLines(id, nameproduit, namecategorie, quantity, Peremption);
+                list.Add(dataUnities);
+            }
+
+            return list;
+        }
+
+        public List<CommandeLines> ReadCommandes()
+        {
+            MySqlCommand cmd = connection.CreateCommand();
+            cmd.CommandText = "SELECT commandelines.id, products.name AS Produit, unities.Name AS Unitie, categories.name AS categorie, commandelines.Quantity, commandelines.Peremption FROM commandelines inner JOIN products ON commandelines.Products_id = products.id inner JOIN suppliers ON commandelines.Suppliers_id = suppliers.id INNER JOIN categories ON products.Categories_id = categories.id INNER JOIN unities ON commandelines.Unities_id = unities.id WHERE commandelines.Status = 0";
+            List<CommandeLines> list = new List<CommandeLines>();
+            MySqlDataReader dataReader = cmd.ExecuteReader();
+            while (dataReader.Read())
+            {
+                int id = (int)dataReader["id"];
+                string nameproduit = dataReader["Produit"].ToString();
+                string unities = dataReader["Unitie"].ToString();
+                int quantity = (int)dataReader["Quantity"];
+                string Peremption = dataReader["Peremption"].ToString();
+                DateTime thisDay = DateTime.Today;
+                CommandeLines dataUnities = new CommandeLines(id, nameproduit, unities, quantity, Peremption, thisDay.ToString());
+                list.Add(dataUnities);
+            }
+
+            return list;
+        }
+
     }
 }
