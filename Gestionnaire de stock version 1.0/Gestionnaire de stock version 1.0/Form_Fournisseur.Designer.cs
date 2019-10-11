@@ -54,6 +54,7 @@
             // 
             this.lbljouterfornisseur.AutoSize = true;
             this.lbljouterfornisseur.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbljouterfornisseur.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.lbljouterfornisseur.Location = new System.Drawing.Point(48, 9);
             this.lbljouterfornisseur.Name = "lbljouterfornisseur";
             this.lbljouterfornisseur.Size = new System.Drawing.Size(271, 31);
@@ -118,13 +119,15 @@
             // 
             // cmdValider
             // 
+            this.cmdValider.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.cmdValider.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdValider.Location = new System.Drawing.Point(84, 480);
+            this.cmdValider.ForeColor = System.Drawing.SystemColors.Control;
+            this.cmdValider.Location = new System.Drawing.Point(88, 481);
             this.cmdValider.Name = "cmdValider";
-            this.cmdValider.Size = new System.Drawing.Size(167, 47);
+            this.cmdValider.Size = new System.Drawing.Size(177, 47);
             this.cmdValider.TabIndex = 9;
             this.cmdValider.Text = "Valider";
-            this.cmdValider.UseVisualStyleBackColor = true;
+            this.cmdValider.UseVisualStyleBackColor = false;
             this.cmdValider.Click += new System.EventHandler(this.cmdvalider_Click);
             // 
             // lblNom

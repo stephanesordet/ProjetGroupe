@@ -104,6 +104,12 @@
     <Compile Include="Form_GererStock.Designer.cs">
       <DependentUpon>Form_GererStock.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form_LoupeProduitsStock.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_LoupeProduitsStock.Designer.cs">
+      <DependentUpon>Form_LoupeProduitsStock.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form_Mescommandes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -162,6 +168,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form_GererStock.resx">
       <DependentUpon>Form_GererStock.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_LoupeProduitsStock.resx">
+      <DependentUpon>Form_LoupeProduitsStock.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form_Mescommandes.resx">
       <DependentUpon>Form_Mescommandes.cs</DependentUpon>

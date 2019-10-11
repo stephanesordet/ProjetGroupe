@@ -18,21 +18,21 @@ namespace Gestionnaire_de_stock_version_1._0
         public int status;
 
         //Commander un produit 
-        public CommandeLines(int idC, string nameproduitC, string categorieC, int quantityC, string peremptionC)
+        public CommandeLines(int idC, string nameproduitC, string categorieC, int quantityC, string unitiesC, string peremptionC)
         {
             id = idC;
             nameproduit = nameproduitC;
             categorie = categorieC;
+            unities = unitiesC;
             quantity = quantityC;
             peremption = peremptionC;
         }
-        public CommandeLines(int idC, string nameproduitC, string unitiesC, int quantityC, string peremptionC, string orderDateC)
+        public CommandeLines(int idC, string nameproduitC, string unitiesC, int quantityC, string orderDateC)
         {
             id = idC;
             nameproduit = nameproduitC;
             unities = unitiesC;
             quantity = quantityC;
-            peremption = peremptionC;
             orderDate = orderDateC;
         }
 

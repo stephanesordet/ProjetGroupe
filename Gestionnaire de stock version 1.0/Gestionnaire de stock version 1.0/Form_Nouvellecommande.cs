@@ -61,7 +61,7 @@ namespace Gestionnaire_de_stock_version_1._0
             img.Image = imagedelet;
             img.Name = "Delet";
             //Add column header
-            dataGridView1.Columns.Add(img);
+            dgvcommande.Columns.Add(img);
             
 
 
@@ -91,7 +91,7 @@ namespace Gestionnaire_de_stock_version_1._0
                 product = (Products)cboProduit.SelectedItem;
                 string quantite = txtQuantite.Text;
 
-                dataGridView1.Rows.Add(product, quantite, unitie);
+                dgvcommande.Rows.Add(product, quantite, unitie);
                 cboFournisseur.Enabled = false;
             }
             else
@@ -100,17 +100,17 @@ namespace Gestionnaire_de_stock_version_1._0
             }
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvcommande_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            foreach (DataGridViewCell oneCell in dataGridView1.SelectedCells)
+            foreach (DataGridViewCell oneCell in dgvcommande.SelectedCells)
             {
-                if (dataGridView1.Rows[e.RowIndex].Cells[3].Selected)
+                if (dgvcommande.Rows[e.RowIndex].Cells[3].Selected)
                 {
                    
-                        dataGridView1.Rows.RemoveAt(oneCell.RowIndex);
+                        dgvcommande.Rows.RemoveAt(oneCell.RowIndex);
                     
                 }
-                if(dataGridView1.Rows.Count < 2)
+                if(dgvcommande.Rows.Count < 2)
                 {
                     cboFournisseur.Enabled = true;
                 }
@@ -125,14 +125,14 @@ namespace Gestionnaire_de_stock_version_1._0
             //txtEmail.Text += supplier.gender.ToString();
             txtEmail.Text += supplier.firstName.ToString() +" " + supplier.lastName.ToString();
             int ligne = 0;
-            for (int i=1; i<=dataGridView1.Rows.Count; i++)
+            for (int i=1; i<=dgvcommande.Rows.Count; i++)
             {
                 txtEmail.Text += "\r\n";
-                txtEmail.Text += dataGridView1.Rows[i-1].Cells[0].Value.ToString();
+                txtEmail.Text += dgvcommande.Rows[i-1].Cells[0].Value.ToString();
                 txtEmail.Text += " ";
-                txtEmail.Text += dataGridView1.Rows[i-1].Cells[1].Value.ToString();
+                txtEmail.Text += dgvcommande.Rows[i-1].Cells[1].Value.ToString();
                 txtEmail.Text += " ";
-                txtEmail.Text += dataGridView1.Rows[i-1].Cells[2].Value.ToString();
+                txtEmail.Text += dgvcommande.Rows[i-1].Cells[2].Value.ToString();
 
                 ligne++;
             }
@@ -143,28 +143,23 @@ namespace Gestionnaire_de_stock_version_1._0
             int quantite = int.Parse(txtQuantite.Text);
             MysqlConn.OpenDB();
             int ligne = 0;
-            for (int i = 2; i <= dataGridView1.Rows.Count; i++)
+            for (int i = 1; i <= dgvcommande.Rows.Count; i++)
             {
-                Products produitdata = (Products)dataGridView1.Rows[ligne].Cells[0].Value;
-                string quantitedata =  dataGridView1.Rows[ligne].Cells[1].Value.ToString();
+                Products produitdata = (Products)dgvcommande.Rows[i-1].Cells[0].Value;
+                string quantitedata =  dgvcommande.Rows[i-1].Cells[1].Value.ToString();
                 int quantiteint = int.Parse(quantitedata);
-                Unities unitesdata = (Unities)dataGridView1.Rows[ligne].Cells[2].Value;     
+                Unities unitesdata = (Unities)dgvcommande.Rows[i-1].Cells[2].Value;     
                 MysqlConn.InsertCommandeLine(quantiteint, (int)produitdata.id, (int)unitesdata.id, (int)supplier.id, 0);
                 ligne++;
             }
             MysqlConn.CloseDB();
 
+            MessageBox.Show("votre commande a bien été envoyée");
+            txtQuantite.Text = "";
+            dgvcommande.Rows.Clear();
+            txtEmail.Text = "";
+            cboFournisseur.Enabled = true;
 
-            /*SmtpClient client = new SmtpClient();
-            client.Port = 582;
-            client.EnableSsl = true;
-            client.Credentials = new NetworkCredential();
-            MailAddress from = new MailAddress("Luana.KIRCHNER-BANNWART@cpnv.ch");
-            MailAddress to = new MailAddress("luanabannwart@gmail.com");
-            MailMessage message = new MailMessage(from,to);
-            message.Body = "TEST";
-            message.Subject = "test";
-            message.Dispose();*/
 
 
         }

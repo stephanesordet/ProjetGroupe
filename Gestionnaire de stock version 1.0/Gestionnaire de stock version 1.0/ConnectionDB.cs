@@ -23,7 +23,8 @@ namespace Gestionnaire_de_stock_version_1._0
         {
             // Création de la chaîne de connexion
 
-            string connectionString = "SERVER=10.229.33.3; DATABASE=Gestionnaire; UID=Stephane; PASSWORD=Pa$$w0rd";
+            // string connectionString = "SERVER=10.229.33.3; DATABASE=Gestionnaire; UID=Stephane; PASSWORD=Pa$$w0rd";
+            string connectionString = "SERVER=127.0.0.1; DATABASE=Gestionnaire; UID=root; PASSWORD=root";
             connection = new MySqlConnection(connectionString);
 
         }
@@ -51,6 +52,13 @@ namespace Gestionnaire_de_stock_version_1._0
             cmd.ExecuteNonQuery();
             return cmd.LastInsertedId;
 
+        }
+
+        public void UpdateStatus(int id)
+        {
+            string updatestatus = "UPDATE CommandeLines SET Status = 1 WHERE id =" + id + ";";
+            MySqlCommand cmd = new MySqlCommand(updatestatus, connection);
+            cmd.ExecuteNonQuery();
         }
 
         /// <summary>
@@ -142,7 +150,61 @@ namespace Gestionnaire_de_stock_version_1._0
 
 
         }
-        
+
+        public List<Products> ReadProducts()
+        {
+            MySqlCommand cmd = connection.CreateCommand();
+            cmd.CommandText = "SELECT Name,id FROM Products";
+            List<Products> listData = new List<Products>();
+            MySqlDataReader dataReader1 = cmd.ExecuteReader();
+            while (dataReader1.Read())
+            {
+                string dataname = dataReader1["name"].ToString();
+                int dataId = (int)dataReader1["id"];
+                Products products = new Products(dataId, dataname);
+                listData.Add(products);
+            }
+
+            return listData;
+        }
+
+        public List<Products> ReadIdProductsForName(string name)
+        {
+            MySqlCommand cmd = connection.CreateCommand();
+            cmd.CommandText = "SELECT id, name FROM products WHERE name='" + name + "';";
+            List<Products> listData = new List<Products>();
+            MySqlDataReader dataReader1 = cmd.ExecuteReader();
+            while (dataReader1.Read())
+            {
+                string dataname = dataReader1["name"].ToString();
+                int dataIdproduct = (int)dataReader1["id"];
+                Products products = new Products(dataIdproduct, dataname);
+                listData.Add(products);
+            }
+
+            return listData;
+
+        }
+        public List<Products> ReadProductsForId(int id)
+        {
+            MySqlCommand cmd = connection.CreateCommand();
+            cmd.CommandText = "SELECT products.id AS idproducts, products.name AS porductname, categories.name AS categorie, categories.id AS idcategorie FROM products INNER JOIN categories ON products.Categories_id = categories.id WHERE products.id =" + id + ";";
+            List<Products> listData = new List<Products>();
+            MySqlDataReader dataReader1 = cmd.ExecuteReader();
+            while (dataReader1.Read())
+            {
+                string dataname = dataReader1["porductname"].ToString();
+                int dataIdproduct = (int)dataReader1["idproducts"];
+                int dataIdcategorie = (int)dataReader1["idcategorie"];
+                string dataCategorie = dataReader1["categorie"].ToString();
+                Products products = new Products(dataIdproduct, dataname, dataCategorie, dataIdcategorie);
+                listData.Add(products);
+            }
+
+            return listData;
+        }
+
+
         /// <summary>
         /// Lire les produits d'un fournisseur 
         /// </summary>
@@ -214,10 +276,16 @@ namespace Gestionnaire_de_stock_version_1._0
             MySqlCommand cmd = new MySqlCommand(commande, connection);
             cmd.ExecuteNonQuery();
         }
+        public void InsertProduisHasCommandeLine(int quantity, int productsid, int unitiesid, string peremption, int status)
+        {
+            string commande = "INSERT INTO commandelines(Quantity,Products_id,Unities_id,Peremption,Status) VALUES(" + quantity + "," + productsid + "," + unitiesid + "," + peremption + "," + status + ");";
+            MySqlCommand cmd = new MySqlCommand(commande, connection);
+            cmd.ExecuteNonQuery();
+        }
         public List<CommandeLines> ReadStock()
         {
             MySqlCommand cmd = connection.CreateCommand();
-            cmd.CommandText = "SELECT commandelines.id, products.name AS Produit, categories.name AS categorie, commandelines.Quantity, commandelines.Peremption FROM commandelines inner JOIN products ON commandelines.Products_id = products.id inner JOIN suppliers ON commandelines.Suppliers_id = suppliers.id INNER JOIN categories ON products.Categories_id = categories.id WHERE commandelines.Status = 1";
+            cmd.CommandText = "SELECT commandelines.id, products.name AS Produit, categories.name AS categorie, unities.Name AS Unitie, commandelines.Quantity, commandelines.Peremption FROM commandelines inner JOIN products ON commandelines.Products_id = products.id inner JOIN suppliers ON commandelines.Suppliers_id = suppliers.id INNER JOIN categories ON products.Categories_id = categories.id INNER JOIN unities ON commandelines.Unities_id = unities.id WHERE commandelines.Status = 1";
             List<CommandeLines> list = new List<CommandeLines>();
             MySqlDataReader dataReader = cmd.ExecuteReader();
             while (dataReader.Read())
@@ -225,9 +293,10 @@ namespace Gestionnaire_de_stock_version_1._0
                 int id = (int)dataReader["id"];
                 string nameproduit = dataReader["Produit"].ToString();
                 string namecategorie = dataReader["categorie"].ToString();
+                string unities = dataReader["Unitie"].ToString();
                 int quantity = (int)dataReader["Quantity"];
                 string Peremption = dataReader["Peremption"].ToString();
-                CommandeLines dataUnities = new CommandeLines(id, nameproduit, namecategorie, quantity, Peremption);
+                CommandeLines dataUnities = new CommandeLines(id, nameproduit, namecategorie, quantity, unities, Peremption);
                 list.Add(dataUnities);
             }
 
@@ -246,14 +315,15 @@ namespace Gestionnaire_de_stock_version_1._0
                 string nameproduit = dataReader["Produit"].ToString();
                 string unities = dataReader["Unitie"].ToString();
                 int quantity = (int)dataReader["Quantity"];
-                string Peremption = dataReader["Peremption"].ToString();
                 DateTime thisDay = DateTime.Today;
-                CommandeLines dataUnities = new CommandeLines(id, nameproduit, unities, quantity, Peremption, thisDay.ToString());
+                CommandeLines dataUnities = new CommandeLines(id, nameproduit, unities, quantity, thisDay.ToString());
                 list.Add(dataUnities);
             }
 
             return list;
         }
+
+        
 
     }
 }

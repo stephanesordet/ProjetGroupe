@@ -30,5 +30,12 @@ namespace Gestionnaire_de_stock_version_1._0
             formgererstock.Show();
             this.Hide();
         }
+
+        private void pictureBox1_Click_1(object sender, EventArgs e)
+        {
+            FrmProduitStock formproduitsctok = new FrmProduitStock();
+            formproduitsctok.Show();
+            this.Hide();
+        }
     }
 }

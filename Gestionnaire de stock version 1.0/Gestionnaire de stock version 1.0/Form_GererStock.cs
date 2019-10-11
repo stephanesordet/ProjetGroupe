@@ -37,7 +37,7 @@ namespace Gestionnaire_de_stock_version_1._0
             foreach (CommandeLines value in listSupplier)
             {
 
-                dgvStock.Rows.Add(value.id, value.nameproduit, value.categorie, value.quantity, value.peremption);
+                dgvStock.Rows.Add(value.id, value.nameproduit, value.categorie, value.quantity, value.unities, value.peremption);
                 /* dgvStock.Rows[ligne].Cells[0].Value = value.id;
                   dgvStock.Rows[ligne].Cells[1].Value = value.nameproduit;
                   dgvStock.Rows[ligne].Cells[2].Value = value.categorie;

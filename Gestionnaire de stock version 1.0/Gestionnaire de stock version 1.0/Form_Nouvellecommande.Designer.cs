@@ -43,20 +43,21 @@
             this.cmdFinierCommande = new System.Windows.Forms.Button();
             this.mySqlCommand1 = new MySql.Data.MySqlClient.MySqlCommand();
             this.backgroundWorker2 = new System.ComponentModel.BackgroundWorker();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvcommande = new System.Windows.Forms.DataGridView();
             this.Produit = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Quantité = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Unité = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.button1 = new System.Windows.Forms.Button();
+            this.cmdemail = new System.Windows.Forms.Button();
             this.txtEmail = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.picretourcommander)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvcommande)).BeginInit();
             this.SuspendLayout();
             // 
             // lblcommande
             // 
             this.lblcommande.AutoSize = true;
             this.lblcommande.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblcommande.ForeColor = System.Drawing.Color.Teal;
             this.lblcommande.Location = new System.Drawing.Point(221, 9);
             this.lblcommande.Name = "lblcommande";
             this.lblcommande.Size = new System.Drawing.Size(153, 31);
@@ -131,13 +132,15 @@
             // 
             // cmdValider
             // 
+            this.cmdValider.BackColor = System.Drawing.Color.Teal;
             this.cmdValider.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdValider.Location = new System.Drawing.Point(227, 195);
+            this.cmdValider.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.cmdValider.Location = new System.Drawing.Point(227, 194);
             this.cmdValider.Name = "cmdValider";
-            this.cmdValider.Size = new System.Drawing.Size(126, 31);
+            this.cmdValider.Size = new System.Drawing.Size(142, 36);
             this.cmdValider.TabIndex = 10;
             this.cmdValider.Text = "Valider";
-            this.cmdValider.UseVisualStyleBackColor = true;
+            this.cmdValider.UseVisualStyleBackColor = false;
             this.cmdValider.Click += new System.EventHandler(this.cmdValider_Click);
             // 
             // cboProduit
@@ -158,13 +161,15 @@
             // 
             // cmdFinierCommande
             // 
+            this.cmdFinierCommande.BackColor = System.Drawing.Color.Teal;
             this.cmdFinierCommande.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdFinierCommande.Location = new System.Drawing.Point(121, 710);
+            this.cmdFinierCommande.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.cmdFinierCommande.Location = new System.Drawing.Point(121, 679);
             this.cmdFinierCommande.Name = "cmdFinierCommande";
-            this.cmdFinierCommande.Size = new System.Drawing.Size(300, 30);
+            this.cmdFinierCommande.Size = new System.Drawing.Size(318, 46);
             this.cmdFinierCommande.TabIndex = 13;
             this.cmdFinierCommande.Text = "Finir la commande et envoyer ";
-            this.cmdFinierCommande.UseVisualStyleBackColor = true;
+            this.cmdFinierCommande.UseVisualStyleBackColor = false;
             this.cmdFinierCommande.Click += new System.EventHandler(this.cmdFinierCommande_Click);
             // 
             // mySqlCommand1
@@ -174,20 +179,20 @@
             this.mySqlCommand1.EnableCaching = false;
             this.mySqlCommand1.Transaction = null;
             // 
-            // dataGridView1
+            // dgvcommande
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvcommande.AllowUserToAddRows = false;
+            this.dgvcommande.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
+            this.dgvcommande.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvcommande.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Produit,
             this.Quantité,
             this.Unité});
-            this.dataGridView1.Location = new System.Drawing.Point(66, 274);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(447, 150);
-            this.dataGridView1.TabIndex = 15;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.dgvcommande.Location = new System.Drawing.Point(66, 253);
+            this.dgvcommande.Name = "dgvcommande";
+            this.dgvcommande.Size = new System.Drawing.Size(447, 167);
+            this.dgvcommande.TabIndex = 15;
+            this.dgvcommande.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvcommande_CellContentClick);
             // 
             // Produit
             // 
@@ -208,20 +213,24 @@
             this.Unité.Name = "Unité";
             this.Unité.ReadOnly = true;
             // 
-            // button1
+            // cmdemail
             // 
-            this.button1.Location = new System.Drawing.Point(66, 449);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(102, 23);
-            this.button1.TabIndex = 16;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.cmdemail.BackColor = System.Drawing.Color.Teal;
+            this.cmdemail.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdemail.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.cmdemail.Location = new System.Drawing.Point(66, 426);
+            this.cmdemail.Name = "cmdemail";
+            this.cmdemail.Size = new System.Drawing.Size(150, 30);
+            this.cmdemail.TabIndex = 16;
+            this.cmdemail.TabStop = false;
+            this.cmdemail.Text = "Visualiser le mail";
+            this.cmdemail.UseVisualStyleBackColor = false;
+            this.cmdemail.Click += new System.EventHandler(this.button1_Click);
             // 
             // txtEmail
             // 
             this.txtEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEmail.Location = new System.Drawing.Point(66, 478);
+            this.txtEmail.Location = new System.Drawing.Point(66, 462);
             this.txtEmail.Multiline = true;
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(447, 200);
@@ -231,10 +240,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(567, 766);
+            this.ClientSize = new System.Drawing.Size(567, 737);
             this.Controls.Add(this.txtEmail);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.cmdemail);
+            this.Controls.Add(this.dgvcommande);
             this.Controls.Add(this.cmdFinierCommande);
             this.Controls.Add(this.cmdValider);
             this.Controls.Add(this.lblfournisseur);
@@ -252,7 +261,7 @@
             this.Text = "Nouvellecommande";
             this.Load += new System.EventHandler(this.FrmNouvellecommande_Load);
             ((System.ComponentModel.ISupportInitialize)(this.picretourcommander)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvcommande)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -275,11 +284,11 @@
         private System.Windows.Forms.Button cmdFinierCommande;
         private MySql.Data.MySqlClient.MySqlCommand mySqlCommand1;
         private System.ComponentModel.BackgroundWorker backgroundWorker2;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvcommande;
         private System.Windows.Forms.DataGridViewTextBoxColumn Produit;
         private System.Windows.Forms.DataGridViewTextBoxColumn Quantité;
         private System.Windows.Forms.DataGridViewTextBoxColumn Unité;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button cmdemail;
         private System.Windows.Forms.TextBox txtEmail;
     }
 }

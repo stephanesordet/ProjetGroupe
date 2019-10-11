@@ -35,12 +35,7 @@ namespace Gestionnaire_de_stock_version_1._0
             {
 
                 dgvCommandeEnCours.Rows.Add(value.id, value.nameproduit, value.quantity, value.unities, "En cours", value.orderDate);
-                /* dgvStock.Rows[ligne].Cells[0].Value = value.id;
-                  dgvStock.Rows[ligne].Cells[1].Value = value.nameproduit;
-                  dgvStock.Rows[ligne].Cells[2].Value = value.categorie;
-                  dgvStock.Rows[ligne].Cells[3].Value = value.quantity;
-                  dgvStock.Rows[ligne].Cells[4].Value = value.peremption;
-                  ligne++;*/
+
             }
             MysqlConn.CloseDB();
         }
@@ -51,7 +46,12 @@ namespace Gestionnaire_de_stock_version_1._0
             {
                 if (dgvCommandeEnCours.Rows[e.RowIndex].Cells[4].Selected)
                 {
-                    //UPDATE
+                   int id = (int)dgvCommandeEnCours.Rows[oneCell.RowIndex].Cells[0].Value;
+                    MysqlConn.OpenDB();
+                    MysqlConn.UpdateStatus(id);
+                    MysqlConn.CloseDB();
+                    dgvCommandeEnCours.Rows.RemoveAt(oneCell.RowIndex);
+
                 }
             }
         }
