@@ -11,6 +11,7 @@ using System.Net.Mail;
 using System.Net;
 using System.IO;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace Gestionnaire_de_stock_version_1._0
 {
@@ -134,13 +135,14 @@ namespace Gestionnaire_de_stock_version_1._0
 
         private void cmdFinierCommande_Click(object sender, EventArgs e)
         {
-            Mail newMail;
-            newMail = new Mail("Stephane.sordet@cpnv.ch", "", "", txtEmail.Text);
-            MysqlConn.sendMail(newMail);
 
-
+            //string emailSupp = "SELECT Email FROM suppliers where suppliers.Email = "+supplemail.email+"";
             
-
+            
+            Mail newMail;
+            newMail = new Mail("Stephane.sordet@cpnv.ch", supplier.email, "", txtEmail.Text);
+            MysqlConn.sendMail(newMail);
+           
 
         }
     }

@@ -137,7 +137,7 @@ namespace Gestionnaire_de_stock_version_1._0
         {
             //Le problème que vous rencontrez est que vous démarrez une seconde MySqlCommandtout en lisant les données avec le DataReader. Le connecteur MySQL n'autorise qu'une requête simultanée. Vous devez lire les données dans une structure, puis fermer le lecteur, puis traiter les données. Malheureusement, vous ne pouvez pas traiter les données telles qu'elles sont lues si votre traitement implique d'autres requêtes SQL.
             MySqlCommand cmd = connection.CreateCommand();
-            cmd.CommandText = "SELECT Firstname,Lastname,id FROM suppliers";
+            cmd.CommandText = "SELECT Firstname,Lastname,id,email FROM suppliers";
             List<Supplier> listData = new List<Supplier>();
             MySqlDataReader dataReader1 = cmd.ExecuteReader();
             while (dataReader1.Read())
@@ -145,7 +145,8 @@ namespace Gestionnaire_de_stock_version_1._0
                 string dataFirstanme = dataReader1["Firstname"].ToString();
                 string dataLastnme = dataReader1["Lastname"].ToString();
                 int dataId = (int)dataReader1["id"];
-                Supplier fournisseurs = new Supplier(dataId, dataFirstanme, dataLastnme);
+                string dataemail = dataReader1["email"].ToString();
+                Supplier fournisseurs = new Supplier(dataId, dataFirstanme, dataLastnme, dataemail);
                 listData.Add(fournisseurs);
             }
 
@@ -218,7 +219,8 @@ namespace Gestionnaire_de_stock_version_1._0
             return list;
         }
         public void sendMail(Mail mail)
-        {
+        {       
+       
             SmtpClient test = new SmtpClient("mail.cpnv.ch", 25);
 
             try

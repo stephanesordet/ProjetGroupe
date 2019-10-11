@@ -127,6 +127,7 @@
     <Compile Include="Form_Utilisateur.Designer.cs">
       <DependentUpon>Form_Utilisateur.cs</DependentUpon>
     </Compile>
+    <Compile Include="Mail.cs" />
     <Compile Include="ProdNonFourni.cs">
       <SubType>Form</SubType>
     </Compile>
