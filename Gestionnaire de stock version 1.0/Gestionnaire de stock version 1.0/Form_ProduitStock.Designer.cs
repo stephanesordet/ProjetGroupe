@@ -30,10 +30,10 @@
         {
             this.lblProduitStcok = new System.Windows.Forms.Label();
             this.txtnomproduit = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtQuantite = new System.Windows.Forms.TextBox();
             this.cmbCategorie = new System.Windows.Forms.ComboBox();
             this.cmbUnites = new System.Windows.Forms.ComboBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtDatePeremption = new System.Windows.Forms.TextBox();
             this.cmdValider = new System.Windows.Forms.Button();
             this.lblProduit = new System.Windows.Forms.Label();
             this.lblCategorie = new System.Windows.Forms.Label();
@@ -66,13 +66,13 @@
             this.txtnomproduit.TabIndex = 1;
             this.txtnomproduit.TextChanged += new System.EventHandler(this.txtnomproduit_TextChanged);
             // 
-            // textBox3
+            // txtQuantite
             // 
-            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(176, 203);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(150, 23);
-            this.textBox3.TabIndex = 4;
+            this.txtQuantite.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtQuantite.Location = new System.Drawing.Point(176, 203);
+            this.txtQuantite.Name = "txtQuantite";
+            this.txtQuantite.Size = new System.Drawing.Size(150, 23);
+            this.txtQuantite.TabIndex = 4;
             // 
             // cmbCategorie
             // 
@@ -92,25 +92,26 @@
             this.cmbUnites.Size = new System.Drawing.Size(150, 24);
             this.cmbUnites.TabIndex = 6;
             // 
-            // textBox2
+            // txtDatePeremption
             // 
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(176, 306);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(150, 23);
-            this.textBox2.TabIndex = 8;
+            this.txtDatePeremption.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDatePeremption.Location = new System.Drawing.Point(176, 306);
+            this.txtDatePeremption.Name = "txtDatePeremption";
+            this.txtDatePeremption.Size = new System.Drawing.Size(150, 23);
+            this.txtDatePeremption.TabIndex = 8;
             // 
             // cmdValider
             // 
             this.cmdValider.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.cmdValider.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmdValider.ForeColor = System.Drawing.Color.Snow;
-            this.cmdValider.Location = new System.Drawing.Point(108, 353);
+            this.cmdValider.Location = new System.Drawing.Point(117, 353);
             this.cmdValider.Name = "cmdValider";
             this.cmdValider.Size = new System.Drawing.Size(173, 38);
             this.cmdValider.TabIndex = 9;
             this.cmdValider.Text = "Valider";
             this.cmdValider.UseVisualStyleBackColor = false;
+            this.cmdValider.Click += new System.EventHandler(this.CmdValider_Click);
             // 
             // lblProduit
             // 
@@ -194,11 +195,11 @@
             this.Controls.Add(this.lblCategorie);
             this.Controls.Add(this.lblProduit);
             this.Controls.Add(this.cmdValider);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txtDatePeremption);
             this.Controls.Add(this.picLoupProuduits);
             this.Controls.Add(this.cmbUnites);
             this.Controls.Add(this.cmbCategorie);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.txtQuantite);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.txtnomproduit);
             this.Controls.Add(this.lblProduitStcok);
@@ -218,11 +219,11 @@
         private System.Windows.Forms.Label lblProduitStcok;
         private System.Windows.Forms.TextBox txtnomproduit;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtQuantite;
         private System.Windows.Forms.ComboBox cmbCategorie;
         private System.Windows.Forms.ComboBox cmbUnites;
         private System.Windows.Forms.PictureBox picLoupProuduits;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtDatePeremption;
         private System.Windows.Forms.Button cmdValider;
         private System.Windows.Forms.Label lblProduit;
         private System.Windows.Forms.Label lblCategorie;

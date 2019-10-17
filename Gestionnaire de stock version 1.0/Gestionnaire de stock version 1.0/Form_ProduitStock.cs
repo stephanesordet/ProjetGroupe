@@ -16,6 +16,9 @@ namespace Gestionnaire_de_stock_version_1._0
         public int idproduct;
         List<Categorie> listCategories;
         List<Unities> listUnities;
+        int idproduitforname;
+        int idcategorie = 0;
+        int clikloupe = 0;
         public FrmProduitStock()
         {
             InitializeComponent();
@@ -55,6 +58,7 @@ namespace Gestionnaire_de_stock_version_1._0
             //Si un produit a étè selectionée 
             if (idproduct != 0)
             {
+                clikloupe = 1;
                 //Lire le Produit
                 MysqlConn.OpenDB();
                 //Lire le produit du id selectionne 
@@ -65,6 +69,7 @@ namespace Gestionnaire_de_stock_version_1._0
                     cmbCategorie.Items.Clear();
                     cmbCategorie.Items.Add(value.categoriename);
                     cmbCategorie.SelectedIndex = 0;
+                    idcategorie = value.idcategorie;
                     cmbCategorie.Enabled = false;
                 }
 
@@ -104,6 +109,53 @@ namespace Gestionnaire_de_stock_version_1._0
             FrmStock formstock = new FrmStock();
             formstock.Show();
             this.Hide();
+        }
+
+        private void CmdValider_Click(object sender, EventArgs e)
+        {
+            if (txtnomproduit.Text != "" && cmbCategorie.SelectedItem != null && txtQuantite.Text != "" && cmbUnites.SelectedItem != null)
+            {
+
+                //Verifie si le nom du produit existe deja
+                MysqlConn.OpenDB();
+                List<Products> listIdProducts = MysqlConn.ReadIdProductsForName(txtnomproduit.Text);
+                foreach (Products value in listIdProducts)
+                {
+                    idproduitforname = (int)value.id;
+                }
+                MysqlConn.CloseDB();
+                //Recuperer la unite selectione
+                Unities unitesdata = (Unities)cmbUnites.SelectedItem;
+                int quantityint = int.Parse(txtQuantite.Text);
+
+                //Si le produit existe dans la base de donnee 
+                if (idproduitforname > 0)
+                {
+                    MysqlConn.OpenDB();
+                    MysqlConn.InsertProduisHasCommandeLine(quantityint, idproduitforname, unitesdata.id, txtDatePeremption.Text, 1);
+                    MysqlConn.CloseDB();
+                    MessageBox.Show("Votre produit a été ajouté dans stock");
+                }
+                //Si le produit n'existe pas
+                else
+                {
+                    Categorie categoriedate = (Categorie)cmbCategorie.SelectedItem;
+                    MysqlConn.OpenDB();
+                    //Ajouter le produit dans la base
+                    long idproduitnew = MysqlConn.InsertProduit(txtnomproduit.Text, categoriedate.id);
+                    MysqlConn.CloseDB();
+                    MysqlConn.OpenDB();
+                    //Ajouter en stock le nouveau produit
+                    MysqlConn.InsertProduisHasCommandeLine(quantityint, (int)idproduitnew, unitesdata.id, txtDatePeremption.Text, 1);
+                    MysqlConn.CloseDB();
+                    MessageBox.Show("Votre nouveau produit a été ajouté dans stock et a été sauvergarde, vous pouviez le reutilizer");
+                }
+            }
+
+            else
+            {
+                MessageBox.Show("Remplir tous les champs obligatoire");
+            }
         }
     }
 }

@@ -15,8 +15,8 @@ namespace Gestionnaire_de_stock_version_1._0
     {
 
         ConnectionDB MysqlConn = new ConnectionDB();
-        Image imagedelet = Image.FromFile("P:/Projet (binôme)/Gestionnaire de stock version1.0/Gestionnaire de stock version 1.0/delete (1).png");
-        Image imageedit = Image.FromFile("P:/Projet (binôme)/Gestionnaire de stock version1.0/Gestionnaire de stock version 1.0/edit.png");
+        Image imagedelet = Image.FromFile("L:/Gestionnaire 1.0/Gestionnaire de stock version 1.0/delete (1).png");
+        Image imageedit = Image.FromFile("L:/Gestionnaire 1.0/Gestionnaire de stock version 1.0/edit.png");
         public FrmGererStock()
         {
             InitializeComponent();
@@ -38,12 +38,6 @@ namespace Gestionnaire_de_stock_version_1._0
             {
 
                 dgvStock.Rows.Add(value.id, value.nameproduit, value.categorie, value.quantity, value.unities, value.peremption);
-                /* dgvStock.Rows[ligne].Cells[0].Value = value.id;
-                  dgvStock.Rows[ligne].Cells[1].Value = value.nameproduit;
-                  dgvStock.Rows[ligne].Cells[2].Value = value.categorie;
-                  dgvStock.Rows[ligne].Cells[3].Value = value.quantity;
-                  dgvStock.Rows[ligne].Cells[4].Value = value.peremption;
-                  ligne++;*/
             }
 
             MysqlConn.CloseDB();
@@ -60,6 +54,32 @@ namespace Gestionnaire_de_stock_version_1._0
           
            
 
+        }
+
+        private void DgvStock_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            foreach (DataGridViewCell oneCell in dgvStock.SelectedCells)
+            {
+                if (dgvStock.Rows[e.RowIndex].Cells[6].Selected)
+                {
+                    DialogResult dialogResult = MessageBox.Show("Vous voulez supprimer ce produit définitivement?", "Message de confirmation",  MessageBoxButtons.YesNo);
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        int id = (int)dgvStock.Rows[oneCell.RowIndex].Cells[0].Value;
+                        MysqlConn.OpenDB();
+                        MysqlConn.DeletInStock(id);
+                        MysqlConn.CloseDB();
+                        dgvStock.Rows.RemoveAt(oneCell.RowIndex);
+
+                    }
+                    else if (dialogResult == DialogResult.No)
+                    {
+                        //do something else
+                    }
+                    
+
+                }
+            }
         }
     }
 }
