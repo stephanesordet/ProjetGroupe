@@ -17,6 +17,14 @@ namespace Gestionnaire_de_stock_version_1._0
         ConnectionDB MysqlConn = new ConnectionDB();
         Image imagedelet = Image.FromFile("L:/Gestionnaire 1.0/Gestionnaire de stock version 1.0/delete (1).png");
         Image imageedit = Image.FromFile("L:/Gestionnaire 1.0/Gestionnaire de stock version 1.0/edit.png");
+
+        public bool modiferValide = false;
+        public int idProduitModifer;
+        public int quantiteModifer;
+        public string categorieModifer;
+        public string uniteModifer;
+        public string nomProduitModifer;
+        public string dateModifer; 
         public FrmGererStock()
         {
             InitializeComponent();
@@ -32,9 +40,9 @@ namespace Gestionnaire_de_stock_version_1._0
         private void FrmGererStock_Load(object sender, EventArgs e)
         {
             MysqlConn.OpenDB();
-            List<CommandeLines> listSupplier = MysqlConn.ReadStock();
+            List<CommandeLines> Listcommande = MysqlConn.ReadStock();
             int ligne = 1;
-            foreach (CommandeLines value in listSupplier)
+            foreach (CommandeLines value in Listcommande)
             {
 
                 dgvStock.Rows.Add(value.id, value.nameproduit, value.categorie, value.quantity, value.unities, value.peremption);
@@ -60,9 +68,10 @@ namespace Gestionnaire_de_stock_version_1._0
         {
             foreach (DataGridViewCell oneCell in dgvStock.SelectedCells)
             {
+                //Clic sur supprimer 
                 if (dgvStock.Rows[e.RowIndex].Cells[6].Selected)
                 {
-                    DialogResult dialogResult = MessageBox.Show("Vous voulez supprimer ce produit définitivement?", "Message de confirmation",  MessageBoxButtons.YesNo);
+                    DialogResult dialogResult = MessageBox.Show("Vous voulez supprimer ce produit définitivement?", "Message de confirmation", MessageBoxButtons.YesNo);
                     if (dialogResult == DialogResult.Yes)
                     {
                         int id = (int)dgvStock.Rows[oneCell.RowIndex].Cells[0].Value;
@@ -76,7 +85,27 @@ namespace Gestionnaire_de_stock_version_1._0
                     {
                         //do something else
                     }
-                    
+
+
+                }
+                //Clic sur edit 
+                if (dgvStock.Rows[e.RowIndex].Cells[7].Selected)
+                {
+                    idProduitModifer = (int)dgvStock.Rows[oneCell.RowIndex].Cells[0].Value;
+                    nomProduitModifer = (string)dgvStock.Rows[oneCell.RowIndex].Cells[1].Value;
+                    categorieModifer= (string)dgvStock.Rows[oneCell.RowIndex].Cells[2].Value;
+                    quantiteModifer = (int)dgvStock.Rows[oneCell.RowIndex].Cells[3].Value;
+                    uniteModifer = (string)dgvStock.Rows[oneCell.RowIndex].Cells[4].Value;
+                    dateModifer = (string)dgvStock.Rows[oneCell.RowIndex].Cells[5].Value;
+                    FrmProduitStock formproduitstock = new FrmProduitStock();
+                    formproduitstock.modifierProduit = true;
+                    formproduitstock.modiferIdCommandeLines = idProduitModifer;
+                    formproduitstock.modifierNomProduit = nomProduitModifer;
+                    formproduitstock.modiferCategorie = categorieModifer;
+                    formproduitstock.modiferQuantite = quantiteModifer;
+                    formproduitstock.modiferUnite = uniteModifer;
+                    formproduitstock.modiferDate = dateModifer;
+                    formproduitstock.ShowDialog();
 
                 }
             }

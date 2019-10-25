@@ -38,12 +38,12 @@
             this.lblProduit = new System.Windows.Forms.Label();
             this.lblCategorie = new System.Windows.Forms.Label();
             this.picLoupProuduits = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.picReturne = new System.Windows.Forms.PictureBox();
             this.lblQuantity = new System.Windows.Forms.Label();
             this.lblUnite = new System.Windows.Forms.Label();
             this.lblPeremption = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.picLoupProuduits)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picReturne)).BeginInit();
             this.SuspendLayout();
             // 
             // lblProduitStcok
@@ -144,15 +144,15 @@
             this.picLoupProuduits.TabStop = false;
             this.picLoupProuduits.Click += new System.EventHandler(this.picLoupProuduits_Click);
             // 
-            // pictureBox1
+            // picReturne
             // 
-            this.pictureBox1.Image = global::Gestionnaire_de_stock_version_1._0.Properties.Resources.left_arrow;
-            this.pictureBox1.Location = new System.Drawing.Point(13, 13);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(36, 26);
-            this.pictureBox1.TabIndex = 3;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.picReturne.Image = global::Gestionnaire_de_stock_version_1._0.Properties.Resources.left_arrow;
+            this.picReturne.Location = new System.Drawing.Point(13, 13);
+            this.picReturne.Name = "picReturne";
+            this.picReturne.Size = new System.Drawing.Size(36, 26);
+            this.picReturne.TabIndex = 3;
+            this.picReturne.TabStop = false;
+            this.picReturne.Click += new System.EventHandler(this.PicReturne_Click_1);
             // 
             // lblQuantity
             // 
@@ -200,7 +200,7 @@
             this.Controls.Add(this.cmbUnites);
             this.Controls.Add(this.cmbCategorie);
             this.Controls.Add(this.txtQuantite);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.picReturne);
             this.Controls.Add(this.txtnomproduit);
             this.Controls.Add(this.lblProduitStcok);
             this.Name = "FrmProduitStock";
@@ -208,7 +208,7 @@
             this.Text = "Form_ProduitStock";
             this.Load += new System.EventHandler(this.FrmProduitStock_Load);
             ((System.ComponentModel.ISupportInitialize)(this.picLoupProuduits)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picReturne)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -218,7 +218,7 @@
 
         private System.Windows.Forms.Label lblProduitStcok;
         private System.Windows.Forms.TextBox txtnomproduit;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox picReturne;
         private System.Windows.Forms.TextBox txtQuantite;
         private System.Windows.Forms.ComboBox cmbCategorie;
         private System.Windows.Forms.ComboBox cmbUnites;

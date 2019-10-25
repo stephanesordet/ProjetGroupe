@@ -101,7 +101,6 @@
             this.lblEditFournisseur.Size = new System.Drawing.Size(90, 15);
             this.lblEditFournisseur.TabIndex = 8;
             this.lblEditFournisseur.Text = "Fournisseurs";
-            this.lblEditFournisseur.Click += new System.EventHandler(this.lblModifieFournisseur_Click);
             // 
             // lblAjoutcategorie
             // 

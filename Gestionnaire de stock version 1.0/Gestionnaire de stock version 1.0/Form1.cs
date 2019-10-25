@@ -86,9 +86,6 @@ namespace Gestionnaire_de_stock_version_1._0
             form_categorie.Show();
         }
 
-        private void lblModifieFournisseur_Click(object sender, EventArgs e)
-        {
 
-        }
     }
 }

@@ -147,6 +147,19 @@ namespace Gestionnaire_de_stock_version_1._0
             cmd.ExecuteNonQuery();
         }
 
+        public void UpdateProducts(int idproduit, string nomproduit, int idcategorie)
+        {
+            string commande = "UPDATE Products SET Name='"+nomproduit+"',Categories_id ="+ idcategorie + " WHERE id =" + idproduit + ";";
+            MySqlCommand cmd = new MySqlCommand(commande, connection);
+            cmd.ExecuteNonQuery();
+        }
+        public void UpdateCommandeLines(int id, int quantity, string date,  int idunities)
+        {
+            string commande = "UPDATE CommandeLines SET Quantity="+quantity+",Peremption='"+date+"',Unities_id="+idunities+" WHERE id ="+id+";";
+            MySqlCommand cmd = new MySqlCommand(commande, connection);
+            cmd.ExecuteNonQuery();
+        }
+
         /// <summary>
         /// Lire les Fournisseur
         /// </summary>

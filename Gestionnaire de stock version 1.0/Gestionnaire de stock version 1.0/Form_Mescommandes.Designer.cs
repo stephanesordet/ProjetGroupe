@@ -56,7 +56,7 @@
             this.lblcommandes.AutoSize = true;
             this.lblcommandes.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblcommandes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.lblcommandes.Location = new System.Drawing.Point(207, 24);
+            this.lblcommandes.Location = new System.Drawing.Point(189, 32);
             this.lblcommandes.Name = "lblcommandes";
             this.lblcommandes.Size = new System.Drawing.Size(335, 46);
             this.lblcommandes.TabIndex = 1;
