@@ -18,7 +18,7 @@ namespace Gestionnaire_de_stock_version_1._0
     public partial class FrmNouvellecommande : Form
     {
         ConnectionDB MysqlConn = new ConnectionDB();
-        Image imagedelet = Image.FromFile("P:/Projet (binôme)/Gestionnaire de stock version1.0/Gestionnaire de stock version 1.0/X.png");
+        Image imagedelet = Image.FromFile("L:/Gestionnaire 1.0/Gestionnaire de stock version 1.0/X.png");
         List<Unities> listUnities;
         List<Supplier> listSupplier;
         Supplier supplier;

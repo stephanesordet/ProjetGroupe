@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             this.dgvStock = new System.Windows.Forms.DataGridView();
-            this.lblStock = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Produit = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Categorie = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Quantite = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Unities = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblStock = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStock)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -58,27 +58,7 @@
             this.dgvStock.Name = "dgvStock";
             this.dgvStock.Size = new System.Drawing.Size(818, 430);
             this.dgvStock.TabIndex = 0;
-            // 
-            // lblStock
-            // 
-            this.lblStock.AutoSize = true;
-            this.lblStock.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStock.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.lblStock.Location = new System.Drawing.Point(340, 21);
-            this.lblStock.Name = "lblStock";
-            this.lblStock.Size = new System.Drawing.Size(157, 46);
-            this.lblStock.TabIndex = 1;
-            this.lblStock.Text = "STOCK";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::Gestionnaire_de_stock_version_1._0.Properties.Resources.left_arrow;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(31, 29);
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.dgvStock.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvStock_CellContentClick);
             // 
             // Id
             // 
@@ -117,6 +97,27 @@
             this.Date.HeaderText = "Date de Péremption ";
             this.Date.Name = "Date";
             this.Date.ReadOnly = true;
+            // 
+            // lblStock
+            // 
+            this.lblStock.AutoSize = true;
+            this.lblStock.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStock.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.lblStock.Location = new System.Drawing.Point(340, 21);
+            this.lblStock.Name = "lblStock";
+            this.lblStock.Size = new System.Drawing.Size(157, 46);
+            this.lblStock.TabIndex = 1;
+            this.lblStock.Text = "STOCK";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Gestionnaire_de_stock_version_1._0.Properties.Resources.left_arrow;
+            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(31, 29);
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // FrmGererStock
             // 

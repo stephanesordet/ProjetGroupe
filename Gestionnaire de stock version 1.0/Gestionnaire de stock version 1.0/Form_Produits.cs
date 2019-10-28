@@ -80,7 +80,7 @@ namespace Gestionnaire_de_stock_version_1._0
                                 MysqlConn.OpenDB();
                                 Supplier fournisseur = (Supplier)selecteditem;
                                 MysqlConn.InsertProductsSuppliers(idProduit, fournisseur.id);
-                                MessageBox.Show("Votre produit a était ajouté est associer avec un ou plusieurs fournisseur");
+                                MessageBox.Show("Votre produit a était ajouté et associer avec un ou plusieurs fournisseur");
                                 MysqlConn.CloseDB();
                             }
                         }
