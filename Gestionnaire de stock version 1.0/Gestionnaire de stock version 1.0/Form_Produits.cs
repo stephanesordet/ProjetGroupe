@@ -112,7 +112,7 @@ namespace Gestionnaire_de_stock_version_1._0
         {
             lstFournisseur.SelectionMode = SelectionMode.MultiSimple;
             MysqlConn.OpenDB();
-            List<Supplier> listSupplier = MysqlConn.ReadFournisseur();
+            List<Supplier> listSupplier = MysqlConn.ReadSuplliers();
             foreach (Supplier value in listSupplier)
             {
                 lstFournisseur.Items.Add(value);

@@ -130,7 +130,7 @@ namespace Gestionnaire_de_stock_version_1._0
         /// Lire les Fournisseur
         /// </summary>
         /// <returns></returns>
-        public List<Supplier> ReadFournisseur()
+        public List<Supplier> ReadSuplliers()
         {
             //Le problème que vous rencontrez est que vous démarrez une seconde MySqlCommandtout en lisant les données avec le DataReader. Le connecteur MySQL n'autorise qu'une requête simultanée. Vous devez lire les données dans une structure, puis fermer le lecteur, puis traiter les données. Malheureusement, vous ne pouvez pas traiter les données telles qu'elles sont lues si votre traitement implique d'autres requêtes SQL.
             MySqlCommand cmd = connection.CreateCommand();

@@ -40,7 +40,7 @@ namespace Gestionnaire_de_stock_version_1._0
         {
             MysqlConn.OpenDB();
             //Lire les fournisseur 
-            listSupplier = MysqlConn.ReadFournisseur();
+            listSupplier = MysqlConn.ReadSuplliers();
             foreach (Supplier value in listSupplier)
             {
                 cboFournisseur.Items.Add(value);
