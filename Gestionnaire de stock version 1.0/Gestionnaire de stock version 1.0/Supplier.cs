@@ -31,11 +31,12 @@ namespace Gestionnaire_de_stock_version_1._0
             email = emailC;
            
         }
-        public Supplier(int idC, string firstNameC, string lastNameC)
+        public Supplier(int idC, string firstNameC, string lastNameC, string emailC)
         {
             id = idC;
             firstName = firstNameC;
             lastName = lastNameC;
+            email = emailC;
             
      
 

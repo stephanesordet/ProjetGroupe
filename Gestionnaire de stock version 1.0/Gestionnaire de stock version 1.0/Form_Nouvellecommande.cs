@@ -11,6 +11,7 @@ using System.Net.Mail;
 using System.Net;
 using System.IO;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace Gestionnaire_de_stock_version_1._0
 {
@@ -18,7 +19,7 @@ namespace Gestionnaire_de_stock_version_1._0
     public partial class FrmNouvellecommande : Form
     {
         ConnectionDB MysqlConn = new ConnectionDB();
-        Image imagedelet = Image.FromFile("P:/Projet (binôme)/Gestionnaire de stock version1.0/Gestionnaire de stock version 1.0/X.png");
+        Image imagedelet = Image.FromFile("C:/2ème_année/Projet (binôme)/Gestionnaire de stock version 1.0/X.png");
         List<Unities> listUnities;
         List<Supplier> listSupplier;
         Supplier supplier;
@@ -156,6 +157,14 @@ namespace Gestionnaire_de_stock_version_1._0
                 ligne++;
             }
             MysqlConn.CloseDB();
+
+            //string emailSupp = "SELECT Email FROM suppliers where suppliers.Email = "+supplemail.email+"";
+            
+            
+            Mail newMail;
+            newMail = new Mail("Stephane.sordet@cpnv.ch", supplier.email, "", txtEmail.Text);
+            MysqlConn.sendMail(newMail);
+           
 
             MessageBox.Show("Votre commande a bien été envoyée");
             txtQuantite.Text = "";

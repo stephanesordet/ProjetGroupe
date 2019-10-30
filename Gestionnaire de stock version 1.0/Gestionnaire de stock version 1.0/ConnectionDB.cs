@@ -5,6 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Net;
+using System.Net.Mail;
 
 namespace Gestionnaire_de_stock_version_1._0
 {
@@ -60,6 +62,15 @@ namespace Gestionnaire_de_stock_version_1._0
             cmd.ExecuteNonQuery();
             return cmd.LastInsertedId;
 
+        }
+
+        public long InsertProduitNonFourni(string name, int categorie)
+        {
+            string produit = "INSERT INTO products(Name,Categories_id) VALUES('" + name + "'," + categorie + ");";
+            // Création d'une commande MySQL en fonction de l'objet connection
+            MySqlCommand cmd = new MySqlCommand(produit, connection);
+            cmd.ExecuteNonQuery();
+            return cmd.LastInsertedId;
         }
 
         /// <summary>
@@ -222,7 +233,7 @@ namespace Gestionnaire_de_stock_version_1._0
         public List<Supplier> ReadSuplliers()
         {
             MySqlCommand cmd = connection.CreateCommand();
-            cmd.CommandText = "SELECT Firstname,Lastname,id FROM suppliers";
+            cmd.CommandText = "SELECT Firstname,Lastname,id,email FROM suppliers";
             List<Supplier> listData = new List<Supplier>();
             MySqlDataReader dataReader1 = cmd.ExecuteReader();
             while (dataReader1.Read())
@@ -230,7 +241,8 @@ namespace Gestionnaire_de_stock_version_1._0
                 string dataFirstanme = dataReader1["Firstname"].ToString();
                 string dataLastnme = dataReader1["Lastname"].ToString();
                 int dataId = (int)dataReader1["id"];
-                Supplier fournisseurs = new Supplier(dataId, dataFirstanme, dataLastnme);
+                string dataemail = dataReader1["email"].ToString();
+                Supplier fournisseurs = new Supplier(dataId, dataFirstanme, dataLastnme, dataemail);
                 listData.Add(fournisseurs);
             }
 
@@ -367,6 +379,21 @@ namespace Gestionnaire_de_stock_version_1._0
             }
 
             return list;
+        }
+        public void sendMail(Mail mail)
+        {       
+       
+            SmtpClient test = new SmtpClient("mail.cpnv.ch", 25);
+
+            try
+            {
+                test.Send(mail.sender, mail.recipient, mail.subject, mail.body);
+                MessageBox.Show("Email ok");
+            }
+            catch (Exception c)
+            {
+                MessageBox.Show(c.Message);
+            }
         }
 
         /// <summary>

@@ -37,7 +37,7 @@ namespace Gestionnaire_de_stock_version_1._0
             
 
             //Déclaration de supplier
-            Supplier supplier;
+            Supplier newSupplier;
 
             //Si Email OK
             if (IsValidEmail(txtEmail.Text))
@@ -64,9 +64,10 @@ namespace Gestionnaire_de_stock_version_1._0
                     MessageBox.Show("NPA non valide");
                 }
 
-                supplier = new Supplier(sexe, txtNom.Text, txtPrenom.Text, txtEntreprise.Text, npa, txtVille.Text, txtRue.Text, txtEmail.Text);
+                newSupplier = new Supplier(sexe, txtNom.Text, txtPrenom.Text, txtEntreprise.Text, npa, txtVille.Text, txtRue.Text, txtEmail.Text);
 
-                addSupp.AddSupplier(supplier);
+                addSupp.AddSupplier(newSupplier);
+                MessageBox.Show("Fournisseur ajouté");
             }
             else
             {
