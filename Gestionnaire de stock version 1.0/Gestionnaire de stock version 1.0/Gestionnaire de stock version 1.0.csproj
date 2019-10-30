@@ -66,6 +66,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Categorie.cs" />
+    <Compile Include="CommandeLines.cs" />
     <Compile Include="ConnectionDB.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -97,6 +98,18 @@
     <Compile Include="Form_Fournisseur.Designer.cs">
       <DependentUpon>Form_Fournisseur.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form_GererStock.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_GererStock.Designer.cs">
+      <DependentUpon>Form_GererStock.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_LoupeProduitsStock.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_LoupeProduitsStock.Designer.cs">
+      <DependentUpon>Form_LoupeProduitsStock.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form_Mescommandes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -114,6 +127,12 @@
     </Compile>
     <Compile Include="Form_Produits.Designer.cs">
       <DependentUpon>Form_Produits.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_ProduitStock.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_ProduitStock.Designer.cs">
+      <DependentUpon>Form_ProduitStock.cs</DependentUpon>
     </Compile>
     <Compile Include="Form_Stock.cs">
       <SubType>Form</SubType>
@@ -147,6 +166,12 @@
     <EmbeddedResource Include="Form_Fournisseur.resx">
       <DependentUpon>Form_Fournisseur.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Form_GererStock.resx">
+      <DependentUpon>Form_GererStock.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_LoupeProduitsStock.resx">
+      <DependentUpon>Form_LoupeProduitsStock.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form_Mescommandes.resx">
       <DependentUpon>Form_Mescommandes.cs</DependentUpon>
     </EmbeddedResource>
@@ -155,6 +180,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form_Produits.resx">
       <DependentUpon>Form_Produits.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_ProduitStock.resx">
+      <DependentUpon>Form_ProduitStock.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form_Stock.resx">
       <DependentUpon>Form_Stock.cs</DependentUpon>
@@ -239,6 +267,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\ajouteproduit22.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\loupe.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

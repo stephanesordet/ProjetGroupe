@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.pic_returnemenu = new System.Windows.Forms.PictureBox();
             this.lbljouterfornisseur = new System.Windows.Forms.Label();
             this.txtNom = new System.Windows.Forms.TextBox();
             this.txtPrenom = new System.Windows.Forms.TextBox();
@@ -47,23 +46,15 @@
             this.lblEmail = new System.Windows.Forms.Label();
             this.chkM = new System.Windows.Forms.RadioButton();
             this.chkMme = new System.Windows.Forms.RadioButton();
+            this.pic_returnemenu = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pic_returnemenu)).BeginInit();
             this.SuspendLayout();
-            // 
-            // pic_returnemenu
-            // 
-            this.pic_returnemenu.Image = global::Gestionnaire_de_stock_version_1._0.Properties.Resources.left_arrow;
-            this.pic_returnemenu.Location = new System.Drawing.Point(4, 4);
-            this.pic_returnemenu.Name = "pic_returnemenu";
-            this.pic_returnemenu.Size = new System.Drawing.Size(27, 25);
-            this.pic_returnemenu.TabIndex = 0;
-            this.pic_returnemenu.TabStop = false;
-            this.pic_returnemenu.Click += new System.EventHandler(this.pic_returnemenu_Click);
             // 
             // lbljouterfornisseur
             // 
             this.lbljouterfornisseur.AutoSize = true;
             this.lbljouterfornisseur.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbljouterfornisseur.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.lbljouterfornisseur.Location = new System.Drawing.Point(48, 9);
             this.lbljouterfornisseur.Name = "lbljouterfornisseur";
             this.lbljouterfornisseur.Size = new System.Drawing.Size(271, 31);
@@ -128,13 +119,15 @@
             // 
             // cmdValider
             // 
+            this.cmdValider.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.cmdValider.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdValider.Location = new System.Drawing.Point(84, 480);
+            this.cmdValider.ForeColor = System.Drawing.SystemColors.Control;
+            this.cmdValider.Location = new System.Drawing.Point(88, 481);
             this.cmdValider.Name = "cmdValider";
-            this.cmdValider.Size = new System.Drawing.Size(167, 47);
+            this.cmdValider.Size = new System.Drawing.Size(177, 47);
             this.cmdValider.TabIndex = 9;
             this.cmdValider.Text = "Valider";
-            this.cmdValider.UseVisualStyleBackColor = true;
+            this.cmdValider.UseVisualStyleBackColor = false;
             this.cmdValider.Click += new System.EventHandler(this.cmdvalider_Click);
             // 
             // lblNom
@@ -229,6 +222,16 @@
             this.chkMme.Text = "Madame ";
             this.chkMme.UseVisualStyleBackColor = true;
             // 
+            // pic_returnemenu
+            // 
+            this.pic_returnemenu.Image = global::Gestionnaire_de_stock_version_1._0.Properties.Resources.left_arrow;
+            this.pic_returnemenu.Location = new System.Drawing.Point(4, 4);
+            this.pic_returnemenu.Name = "pic_returnemenu";
+            this.pic_returnemenu.Size = new System.Drawing.Size(27, 25);
+            this.pic_returnemenu.TabIndex = 0;
+            this.pic_returnemenu.TabStop = false;
+            this.pic_returnemenu.Click += new System.EventHandler(this.pic_returnemenu_Click);
+            // 
             // FrmFournisseur
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -256,6 +259,7 @@
             this.Name = "FrmFournisseur";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Fournisseur";
+            this.Load += new System.EventHandler(this.FrmFournisseur_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pic_returnemenu)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -19,13 +19,9 @@ namespace Gestionnaire_de_stock_version_1._0
           
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-        }
-
         private void cmdVallider_Click(object sender, EventArgs e)
         {
+            //Inserer la categorie dans la basse 
             if(txtcategorie.Text != "")
             {
                 MysqlConn.OpenDB();
@@ -36,6 +32,11 @@ namespace Gestionnaire_de_stock_version_1._0
             {
                 MessageBox.Show("Entrez une categorie");
             }
+        }
+
+        private void picReturne_Click(object sender, EventArgs e)
+        {
+            this.Hide();
         }
     }
 }

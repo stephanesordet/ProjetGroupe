@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.picreturnemenu = new System.Windows.Forms.PictureBox();
             this.lblinfoperso = new System.Windows.Forms.Label();
             this.txtNom = new System.Windows.Forms.TextBox();
             this.txtPrenom = new System.Windows.Forms.TextBox();
@@ -45,23 +44,15 @@
             this.lblNpa = new System.Windows.Forms.Label();
             this.lblRue = new System.Windows.Forms.Label();
             this.lblEmail = new System.Windows.Forms.Label();
+            this.picreturnemenu = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.picreturnemenu)).BeginInit();
             this.SuspendLayout();
-            // 
-            // picreturnemenu
-            // 
-            this.picreturnemenu.Image = global::Gestionnaire_de_stock_version_1._0.Properties.Resources.left_arrow;
-            this.picreturnemenu.Location = new System.Drawing.Point(13, 13);
-            this.picreturnemenu.Name = "picreturnemenu";
-            this.picreturnemenu.Size = new System.Drawing.Size(28, 30);
-            this.picreturnemenu.TabIndex = 0;
-            this.picreturnemenu.TabStop = false;
-            this.picreturnemenu.Click += new System.EventHandler(this.picreturnemenu_Click);
             // 
             // lblinfoperso
             // 
             this.lblinfoperso.AutoSize = true;
             this.lblinfoperso.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblinfoperso.ForeColor = System.Drawing.Color.Teal;
             this.lblinfoperso.Location = new System.Drawing.Point(65, 13);
             this.lblinfoperso.Name = "lblinfoperso";
             this.lblinfoperso.Size = new System.Drawing.Size(239, 25);
@@ -126,13 +117,15 @@
             // 
             // cmdValider
             // 
+            this.cmdValider.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.cmdValider.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdValider.Location = new System.Drawing.Point(86, 423);
+            this.cmdValider.ForeColor = System.Drawing.Color.Snow;
+            this.cmdValider.Location = new System.Drawing.Point(90, 421);
             this.cmdValider.Name = "cmdValider";
             this.cmdValider.Size = new System.Drawing.Size(159, 41);
             this.cmdValider.TabIndex = 9;
             this.cmdValider.Text = "Valider";
-            this.cmdValider.UseVisualStyleBackColor = true;
+            this.cmdValider.UseVisualStyleBackColor = false;
             this.cmdValider.Click += new System.EventHandler(this.cmdvalider_Click);
             // 
             // lblNom
@@ -205,10 +198,21 @@
             this.lblEmail.TabIndex = 16;
             this.lblEmail.Text = "Email";
             // 
+            // picreturnemenu
+            // 
+            this.picreturnemenu.Image = global::Gestionnaire_de_stock_version_1._0.Properties.Resources.left_arrow;
+            this.picreturnemenu.Location = new System.Drawing.Point(13, 13);
+            this.picreturnemenu.Name = "picreturnemenu";
+            this.picreturnemenu.Size = new System.Drawing.Size(28, 30);
+            this.picreturnemenu.TabIndex = 0;
+            this.picreturnemenu.TabStop = false;
+            this.picreturnemenu.Click += new System.EventHandler(this.picreturnemenu_Click);
+            // 
             // FrmUtilisateur
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(337, 490);
             this.Controls.Add(this.lblEmail);
             this.Controls.Add(this.lblRue);

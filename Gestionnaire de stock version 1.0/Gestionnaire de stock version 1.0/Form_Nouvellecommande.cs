@@ -22,6 +22,8 @@ namespace Gestionnaire_de_stock_version_1._0
         List<Unities> listUnities;
         List<Supplier> listSupplier;
         Supplier supplier;
+        Unities unitie;
+        Products product;
         public FrmNouvellecommande()
         {
             InitializeComponent();
@@ -37,13 +39,15 @@ namespace Gestionnaire_de_stock_version_1._0
         private void FrmNouvellecommande_Load(object sender, EventArgs e)
         {
             MysqlConn.OpenDB();
-            listSupplier = MysqlConn.ReadFournisseur();
+            //Lire les fournisseur 
+            listSupplier = MysqlConn.ReadSuplliers();
             foreach (Supplier value in listSupplier)
             {
                 cboFournisseur.Items.Add(value);
             }
             MysqlConn.CloseDB();
-
+            
+            //Lire les unites
             MysqlConn.OpenDB();
             listUnities = MysqlConn.ReadUnities();
             foreach (Unities value in listUnities)
@@ -53,11 +57,12 @@ namespace Gestionnaire_de_stock_version_1._0
 
             MysqlConn.CloseDB();
 
+            //Add le image delete
             DataGridViewImageColumn img = new DataGridViewImageColumn();
             img.Image = imagedelet;
             img.Name = "Delet";
             //Add column header
-            dataGridView1.Columns.Add(img);
+            dgvcommande.Columns.Add(img);
             
 
 
@@ -80,31 +85,35 @@ namespace Gestionnaire_de_stock_version_1._0
 
         private void cmdValider_Click(object sender, EventArgs e)
         {
-
+            //Si tous les champs du formulaire sont remplissent
             if (cboFournisseur.SelectedItem != null && cboProduit.SelectedItem != null && cboUnite.SelectedItem != null && txtQuantite.Text != "")
             {
-                Unities unitie = (Unities)cboUnite.SelectedItem;
-                Products product = (Products)cboProduit.SelectedItem;
+                unitie = (Unities)cboUnite.SelectedItem;
+                product = (Products)cboProduit.SelectedItem;
                 string quantite = txtQuantite.Text;
-
-                dataGridView1.Rows.Add(product, quantite, unitie);
+                //Add le produit dans le tableau commande 
+                dgvcommande.Rows.Add(product, quantite, unitie);
                 cboFournisseur.Enabled = false;
             }
             else
             {
-                MessageBox.Show("Veuillez remplir tout les champs");
+                MessageBox.Show("Veuillez remplir tous les champs");
             }
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvcommande_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            foreach (DataGridViewCell oneCell in dataGridView1.SelectedCells)
+            foreach (DataGridViewCell oneCell in dgvcommande.SelectedCells)
             {
-                if (dataGridView1.Rows[e.RowIndex].Cells[3].Selected)
+                //Si l'utilisateur à clique sur le bouton delet
+                if (dgvcommande.Rows[e.RowIndex].Cells[3].Selected)
                 {
-                    dataGridView1.Rows.RemoveAt(oneCell.RowIndex);
+                        //Supprimer la ligne selectionné
+                        dgvcommande.Rows.RemoveAt(oneCell.RowIndex);
+                    
                 }
-                if(dataGridView1.Rows.Count < 2)
+                //Si il existe plus que 1 produit dans le tableau
+                if(dgvcommande.Rows.Count < 2)
                 {
                     cboFournisseur.Enabled = true;
                 }
@@ -119,14 +128,14 @@ namespace Gestionnaire_de_stock_version_1._0
             //txtEmail.Text += supplier.gender.ToString();
             txtEmail.Text += supplier.firstName.ToString() +" " + supplier.lastName.ToString();
             int ligne = 0;
-            for (int i=2; i<=dataGridView1.Rows.Count; i++)
+            for (int i=1; i<=dgvcommande.Rows.Count; i++)
             {
                 txtEmail.Text += "\r\n";
-                txtEmail.Text += dataGridView1.Rows[ligne].Cells[0].Value.ToString();
+                txtEmail.Text += dgvcommande.Rows[i-1].Cells[0].Value.ToString();
                 txtEmail.Text += " ";
-                txtEmail.Text += dataGridView1.Rows[ligne].Cells[1].Value.ToString();
+                txtEmail.Text += dgvcommande.Rows[i-1].Cells[1].Value.ToString();
                 txtEmail.Text += " ";
-                txtEmail.Text += dataGridView1.Rows[ligne].Cells[2].Value.ToString();
+                txtEmail.Text += dgvcommande.Rows[i-1].Cells[2].Value.ToString();
 
                 ligne++;
             }
@@ -134,19 +143,26 @@ namespace Gestionnaire_de_stock_version_1._0
 
         private void cmdFinierCommande_Click(object sender, EventArgs e)
         {
-          
-            
-            
-            /*SmtpClient client = new SmtpClient();
-            client.Port = 582;
-            client.EnableSsl = true;
-            client.Credentials = new NetworkCredential();
-            MailAddress from = new MailAddress("Luana.KIRCHNER-BANNWART@cpnv.ch");
-            MailAddress to = new MailAddress("luanabannwart@gmail.com");
-            MailMessage message = new MailMessage(from,to);
-            message.Body = "TEST";
-            message.Subject = "test";
-            message.Dispose();*/
+            int quantite = int.Parse(txtQuantite.Text);
+            MysqlConn.OpenDB();
+            int ligne = 0;
+            for (int i = 1; i <= dgvcommande.Rows.Count; i++)
+            {
+                Products produitdata = (Products)dgvcommande.Rows[i-1].Cells[0].Value;
+                string quantitedata =  dgvcommande.Rows[i-1].Cells[1].Value.ToString();
+                int quantiteint = int.Parse(quantitedata);
+                Unities unitesdata = (Unities)dgvcommande.Rows[i-1].Cells[2].Value;     
+                MysqlConn.InsertCommandeLine(quantiteint, (int)produitdata.id, (int)unitesdata.id, (int)supplier.id, 0);
+                ligne++;
+            }
+            MysqlConn.CloseDB();
+
+            MessageBox.Show("Votre commande a bien été envoyée");
+            txtQuantite.Text = "";
+            dgvcommande.Rows.Clear();
+            txtEmail.Text = "";
+            cboFournisseur.Enabled = true;
+
 
 
         }

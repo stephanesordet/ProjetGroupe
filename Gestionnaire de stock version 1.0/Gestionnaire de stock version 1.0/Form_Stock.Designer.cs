@@ -30,10 +30,10 @@
         {
             this.lblstock = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.picAjouterproduit = new System.Windows.Forms.PictureBox();
             this.picretournemenu = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picAjouterproduit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picretournemenu)).BeginInit();
             this.SuspendLayout();
             // 
@@ -56,16 +56,18 @@
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox2.TabIndex = 3;
             this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
-            // pictureBox1
+            // picAjouterproduit
             // 
-            this.pictureBox1.Image = global::Gestionnaire_de_stock_version_1._0.Properties.Resources.ajouteproduit22;
-            this.pictureBox1.Location = new System.Drawing.Point(110, 120);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(392, 128);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
+            this.picAjouterproduit.Image = global::Gestionnaire_de_stock_version_1._0.Properties.Resources.ajouteproduit22;
+            this.picAjouterproduit.Location = new System.Drawing.Point(110, 120);
+            this.picAjouterproduit.Name = "picAjouterproduit";
+            this.picAjouterproduit.Size = new System.Drawing.Size(392, 128);
+            this.picAjouterproduit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.picAjouterproduit.TabIndex = 2;
+            this.picAjouterproduit.TabStop = false;
+            this.picAjouterproduit.Click += new System.EventHandler(this.PicAjouterproduit_Click);
             // 
             // picretournemenu
             // 
@@ -83,14 +85,15 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(592, 486);
             this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.picAjouterproduit);
             this.Controls.Add(this.picretournemenu);
             this.Controls.Add(this.lblstock);
             this.Name = "FrmStock";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Stock";
+            this.Load += new System.EventHandler(this.FrmStock_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picAjouterproduit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picretournemenu)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -101,7 +104,7 @@
 
         private System.Windows.Forms.Label lblstock;
         private System.Windows.Forms.PictureBox picretournemenu;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox picAjouterproduit;
         private System.Windows.Forms.PictureBox pictureBox2;
     }
 }

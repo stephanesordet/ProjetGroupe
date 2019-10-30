@@ -73,11 +73,12 @@
             // 
             this.lblComande.AutoSize = true;
             this.lblComande.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblComande.Location = new System.Drawing.Point(208, 13);
+            this.lblComande.Location = new System.Drawing.Point(191, 13);
             this.lblComande.Name = "lblComande";
-            this.lblComande.Size = new System.Drawing.Size(165, 39);
+            this.lblComande.Size = new System.Drawing.Size(193, 39);
             this.lblComande.TabIndex = 3;
-            this.lblComande.Text = "Comande";
+            this.lblComande.Text = "Commande";
+            this.lblComande.Click += new System.EventHandler(this.lblComande_Click);
             // 
             // FrmCommande
             // 
