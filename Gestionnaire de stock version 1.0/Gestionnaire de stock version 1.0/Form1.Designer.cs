@@ -54,9 +54,9 @@
             this.lblNomappli.ForeColor = System.Drawing.SystemColors.ControlText;
             this.lblNomappli.Location = new System.Drawing.Point(230, 12);
             this.lblNomappli.Name = "lblNomappli";
-            this.lblNomappli.Size = new System.Drawing.Size(271, 63);
+            this.lblNomappli.Size = new System.Drawing.Size(243, 63);
             this.lblNomappli.TabIndex = 4;
-            this.lblNomappli.Text = "Nom appli";
+            this.lblNomappli.Text = "StockEat";
             // 
             // lblInfo
             // 
