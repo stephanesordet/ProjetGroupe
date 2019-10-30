@@ -15,6 +15,7 @@ namespace Gestionnaire_de_stock_version_1._0
         FrmProduitStock formproduit;
         ConnectionDB MysqlConn = new ConnectionDB();
         public int idproduit;
+        List<Categorie> listCategories;
         public FrmLoupeProduitStcok()
         {
             InitializeComponent();
@@ -31,15 +32,31 @@ namespace Gestionnaire_de_stock_version_1._0
             }
             
         }
-
-        private void FrmLoupeProduitStcok_Load(object sender, EventArgs e)
+        private void Readproducts()
         {
-            //Lire les Produits
             MysqlConn.OpenDB();
             List<Products> lisproduits = MysqlConn.ReadProducts();
             foreach (Products value in lisproduits)
             {
                 cboProduits.Items.Add(value);
+            }
+
+            MysqlConn.CloseDB();
+        }
+
+        private void FrmLoupeProduitStcok_Load(object sender, EventArgs e)
+        {
+            //Lire les Produits
+            Readproducts();
+            
+            // Read list categorie
+            MysqlConn.OpenDB();
+
+            cboCategorie.Items.Add("Tous les produits");
+            listCategories = MysqlConn.ReadCategories();
+            foreach (Categorie value in listCategories)
+            {
+                cboCategorie.Items.Add(value);
             }
 
             MysqlConn.CloseDB();
@@ -50,5 +67,30 @@ namespace Gestionnaire_de_stock_version_1._0
         {
             this.Hide();
         }
+
+        private void cboCategorie_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cboProduits.Items.Clear();
+            if (cboCategorie.SelectedItem == "Tous les produits")
+            {
+                Readproducts();
+            }
+            else
+            {
+                Categorie categoriesselectione = (Categorie)cboCategorie.SelectedItem;
+
+                cboProduits.Items.Clear();
+
+                MysqlConn.OpenDB();
+                List<Products> lisproduitsforcategorie = MysqlConn.ReadProductsForCategories(categoriesselectione.name);
+                foreach (Products value in lisproduitsforcategorie)
+                {
+                    cboProduits.Items.Add(value);
+                }
+
+                MysqlConn.CloseDB();
+            }
+        }
+
     }
 }

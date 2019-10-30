@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28307.106
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gestionnaire de stock version 1.0", "Gestionnaire de stock version 1.0\Gestionnaire de stock version 1.0.csproj", "{83E35CEF-060D-46D6-8610-9672509DA01E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gestionnaire de stock version 1.0Tests", "Gestionnaire de stock version 1.0Tests\Gestionnaire de stock version 1.0Tests.csproj", "{67F1D007-91CB-477B-9515-B18E77ACF9F1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{83E35CEF-060D-46D6-8610-9672509DA01E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{83E35CEF-060D-46D6-8610-9672509DA01E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{83E35CEF-060D-46D6-8610-9672509DA01E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67F1D007-91CB-477B-9515-B18E77ACF9F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67F1D007-91CB-477B-9515-B18E77ACF9F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67F1D007-91CB-477B-9515-B18E77ACF9F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67F1D007-91CB-477B-9515-B18E77ACF9F1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

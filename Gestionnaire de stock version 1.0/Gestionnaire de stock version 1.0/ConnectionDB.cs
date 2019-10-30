@@ -271,6 +271,27 @@ namespace Gestionnaire_de_stock_version_1._0
             return listData;
         }
         /// <summary>
+        /// Lire les produits^dans la table Products par rapport à sa catégorie
+        /// </summary>
+        /// <param name="categorie">Catégorie désiré</param>
+        /// <returns></returns>
+        public List<Products> ReadProductsForCategories(string categorie)
+        {
+            MySqlCommand cmd = connection.CreateCommand();
+            cmd.CommandText = "SELECT Products.Name,Products.id FROM Products INNER JOIN categories ON products.Categories_id = categories.id WHERE categories.name ='" + categorie + "';";
+            List<Products> listData = new List<Products>();
+            MySqlDataReader dataReader1 = cmd.ExecuteReader();
+            while (dataReader1.Read())
+            {
+                string dataname = dataReader1["name"].ToString();
+                int dataId = (int)dataReader1["id"];
+                Products products = new Products(dataId, dataname);
+                listData.Add(products);
+            }
+
+            return listData;
+        }
+        /// <summary>
         /// Lire le Id du produit par rapport à son nom, dans la table Products
         /// </summary>
         /// <param name="name">Nom du produit désiré</param>

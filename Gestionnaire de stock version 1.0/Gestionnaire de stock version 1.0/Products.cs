@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Gestionnaire_de_stock_version_1._0
 {
-    class Products
+    public class Products
     {
         public int id;
         public string name;

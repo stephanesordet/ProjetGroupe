@@ -55,8 +55,6 @@ namespace Gestionnaire_de_stock_version_1._0
                             MysqlConn.CloseDB();
                         }
                         MessageBox.Show("Votre produit a été associé avec un ou plusieurs fournisseurs");
-                        txtNom.Text = "";
-                        cmbCategorie.SelectedIndex = 0;
                     }
                     else
                     {
@@ -98,7 +96,9 @@ namespace Gestionnaire_de_stock_version_1._0
                     {
                         MessageBox.Show("Sélectionner de nouveau une catégorie");
                     }
-                }  
+                }
+                txtNom.Text = "";
+                Lirecategorie();
             }
             else
             {
@@ -118,15 +118,22 @@ namespace Gestionnaire_de_stock_version_1._0
             }
             MysqlConn.CloseDB();
             //Read list categorie 
+            Lirecategorie();
+
+        }
+
+        private void Lirecategorie()
+        {
+            
+            cmbCategorie.Items.Clear();
             MysqlConn.OpenDB();
             listCategories = MysqlConn.ReadCategories();
-                foreach (Categorie value in listCategories)
-                {
-                    cmbCategorie.Items.Add(value);
-                }
+            foreach (Categorie value in listCategories)
+            {
+                cmbCategorie.Items.Add(value);
+            }
 
-                MysqlConn.CloseDB();
-
+            MysqlConn.CloseDB();
         }
 
         private void txtNom_TextChanged(object sender, EventArgs e)
@@ -138,15 +145,7 @@ namespace Gestionnaire_de_stock_version_1._0
             else
             {
                 cmbCategorie.Enabled = true;
-                cmbCategorie.Items.Clear();
-                MysqlConn.OpenDB();
-                listCategories = MysqlConn.ReadCategories();
-                foreach (Categorie value in listCategories)
-                {
-                    cmbCategorie.Items.Add(value);
-                }
-
-                MysqlConn.CloseDB();
+                Lirecategorie();
             }
         }
 

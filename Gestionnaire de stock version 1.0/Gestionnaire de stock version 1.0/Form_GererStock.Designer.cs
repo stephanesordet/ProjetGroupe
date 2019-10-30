@@ -56,7 +56,7 @@
             this.dgvStock.GridColor = System.Drawing.SystemColors.Control;
             this.dgvStock.Location = new System.Drawing.Point(23, 92);
             this.dgvStock.Name = "dgvStock";
-            this.dgvStock.Size = new System.Drawing.Size(818, 430);
+            this.dgvStock.Size = new System.Drawing.Size(829, 430);
             this.dgvStock.TabIndex = 0;
             this.dgvStock.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvStock_CellContentClick);
             // 
@@ -103,7 +103,7 @@
             this.lblStock.AutoSize = true;
             this.lblStock.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblStock.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.lblStock.Location = new System.Drawing.Point(340, 21);
+            this.lblStock.Location = new System.Drawing.Point(347, 21);
             this.lblStock.Name = "lblStock";
             this.lblStock.Size = new System.Drawing.Size(157, 46);
             this.lblStock.TabIndex = 1;
@@ -123,7 +123,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(857, 534);
+            this.ClientSize = new System.Drawing.Size(864, 534);
             this.Controls.Add(this.picReturne);
             this.Controls.Add(this.lblStock);
             this.Controls.Add(this.dgvStock);

@@ -37,17 +37,23 @@ namespace Gestionnaire_de_stock_version_1._0
             this.Hide();
         }
 
-        private void FrmGererStock_Load(object sender, EventArgs e)
+        private void Actualizer()
         {
+            dgvStock.Rows.Clear();
             MysqlConn.OpenDB();
             List<CommandeLines> Listcommande = MysqlConn.ReadStock();
-            int ligne = 1;
             foreach (CommandeLines value in Listcommande)
             {
                 dgvStock.Rows.Add(value.id, value.nameproduit, value.categorie, value.quantity, value.unities, value.peremption);
             }
-
             MysqlConn.CloseDB();
+
+        }
+
+        private void FrmGererStock_Load(object sender, EventArgs e)
+        {
+            Actualizer();
+            
             DataGridViewImageColumn imgdelet = new DataGridViewImageColumn();
             imgdelet.Image = imagedelet;
             imgdelet.Name = "Delet";
@@ -105,7 +111,7 @@ namespace Gestionnaire_de_stock_version_1._0
                     formproduitstock.modiferUnite = uniteModifer;
                     formproduitstock.modiferDate = dateModifer;
                     formproduitstock.ShowDialog();
-
+                    Actualizer();
                 }
             }
         }
