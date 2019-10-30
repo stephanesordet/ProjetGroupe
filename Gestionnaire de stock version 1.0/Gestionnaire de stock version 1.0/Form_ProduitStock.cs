@@ -181,6 +181,7 @@ namespace Gestionnaire_de_stock_version_1._0
                     MysqlConn.OpenDB();
                     MysqlConn.UpdateCommandeLines(modiferIdCommandeLines, int.Parse(txtQuantite.Text), txtDatePeremption.Text, unitesdata.id);
                     MysqlConn.CloseDB();
+                    this.Hide();
                 }
                 else
                 {
@@ -202,7 +203,7 @@ namespace Gestionnaire_de_stock_version_1._0
                         MysqlConn.OpenDB();
                         MysqlConn.InsertProduisHasCommandeLine(quantityint, idproduitforname, unitesdata.id, txtDatePeremption.Text, 1);
                         MysqlConn.CloseDB();
-                        MessageBox.Show("Votre produit a été ajouté dans stock");
+                        MessageBox.Show("Votre produit a été ajouté dans le stock");
                     }
                     //Si le produit n'existe pas
                     else
@@ -216,7 +217,7 @@ namespace Gestionnaire_de_stock_version_1._0
                         //Ajouter en stock le nouveau produit
                         MysqlConn.InsertProduisHasCommandeLine(quantityint, (int)idproduitnew, unitesdata.id, txtDatePeremption.Text, 1);
                         MysqlConn.CloseDB();
-                        MessageBox.Show("Votre nouveau produit a été ajouté dans stock et a été sauvergarde, vous pouviez le reutilizer");
+                        MessageBox.Show("Votre nouveau produit a été ajouté dans le stock et a été sauvegardé. Vous pouvez le reutiliser pour l'associer avec un ou plusieurs fournisseurs");
                     }
                 }
             }
@@ -224,7 +225,7 @@ namespace Gestionnaire_de_stock_version_1._0
 
             else
             {
-                MessageBox.Show("Remplir tous les champs obligatoire");
+                MessageBox.Show("Remplir tous les champs obligatoires");
             }
         }
 

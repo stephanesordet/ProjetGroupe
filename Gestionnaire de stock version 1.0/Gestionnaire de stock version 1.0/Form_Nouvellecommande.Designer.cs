@@ -44,11 +44,11 @@
             this.mySqlCommand1 = new MySql.Data.MySqlClient.MySqlCommand();
             this.backgroundWorker2 = new System.ComponentModel.BackgroundWorker();
             this.dgvcommande = new System.Windows.Forms.DataGridView();
+            this.cmdemail = new System.Windows.Forms.Button();
+            this.txtEmail = new System.Windows.Forms.TextBox();
             this.Produit = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Quantité = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Unité = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cmdemail = new System.Windows.Forms.Button();
-            this.txtEmail = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.picretourcommander)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvcommande)).BeginInit();
             this.SuspendLayout();
@@ -194,25 +194,6 @@
             this.dgvcommande.TabIndex = 15;
             this.dgvcommande.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvcommande_CellContentClick);
             // 
-            // Produit
-            // 
-            this.Produit.HeaderText = "Produit";
-            this.Produit.Name = "Produit";
-            this.Produit.ReadOnly = true;
-            this.Produit.Width = 120;
-            // 
-            // Quantité
-            // 
-            this.Quantité.HeaderText = "Quantié";
-            this.Quantité.Name = "Quantité";
-            this.Quantité.ReadOnly = true;
-            // 
-            // Unité
-            // 
-            this.Unité.HeaderText = "Unité";
-            this.Unité.Name = "Unité";
-            this.Unité.ReadOnly = true;
-            // 
             // cmdemail
             // 
             this.cmdemail.BackColor = System.Drawing.Color.Teal;
@@ -235,6 +216,25 @@
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(447, 200);
             this.txtEmail.TabIndex = 17;
+            // 
+            // Produit
+            // 
+            this.Produit.HeaderText = "Produit";
+            this.Produit.Name = "Produit";
+            this.Produit.ReadOnly = true;
+            this.Produit.Width = 120;
+            // 
+            // Quantité
+            // 
+            this.Quantité.HeaderText = "Quantité";
+            this.Quantité.Name = "Quantité";
+            this.Quantité.ReadOnly = true;
+            // 
+            // Unité
+            // 
+            this.Unité.HeaderText = "Unité";
+            this.Unité.Name = "Unité";
+            this.Unité.ReadOnly = true;
             // 
             // FrmNouvellecommande
             // 
@@ -285,10 +285,10 @@
         private MySql.Data.MySqlClient.MySqlCommand mySqlCommand1;
         private System.ComponentModel.BackgroundWorker backgroundWorker2;
         private System.Windows.Forms.DataGridView dgvcommande;
+        private System.Windows.Forms.Button cmdemail;
+        private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.DataGridViewTextBoxColumn Produit;
         private System.Windows.Forms.DataGridViewTextBoxColumn Quantité;
         private System.Windows.Forms.DataGridViewTextBoxColumn Unité;
-        private System.Windows.Forms.Button cmdemail;
-        private System.Windows.Forms.TextBox txtEmail;
     }
 }

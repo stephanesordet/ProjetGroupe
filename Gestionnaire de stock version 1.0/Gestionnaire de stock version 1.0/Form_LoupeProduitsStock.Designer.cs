@@ -30,8 +30,8 @@
         {
             this.cboProduits = new System.Windows.Forms.ListBox();
             this.cmdValidder = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.picReturne = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.picReturne)).BeginInit();
             this.SuspendLayout();
             // 
             // cboProduits
@@ -44,35 +44,40 @@
             // 
             // cmdValidder
             // 
+            this.cmdValidder.BackColor = System.Drawing.Color.MediumAquamarine;
+            this.cmdValidder.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdValidder.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.cmdValidder.Location = new System.Drawing.Point(47, 362);
             this.cmdValidder.Name = "cmdValidder";
             this.cmdValidder.Size = new System.Drawing.Size(186, 34);
             this.cmdValidder.TabIndex = 1;
             this.cmdValidder.Text = "Valider";
-            this.cmdValidder.UseVisualStyleBackColor = true;
+            this.cmdValidder.UseVisualStyleBackColor = false;
             this.cmdValidder.Click += new System.EventHandler(this.cmdValidder_Click);
             // 
-            // pictureBox1
+            // picReturne
             // 
-            this.pictureBox1.Image = global::Gestionnaire_de_stock_version_1._0.Properties.Resources.left_arrow;
-            this.pictureBox1.Location = new System.Drawing.Point(13, 13);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(32, 34);
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
+            this.picReturne.Image = global::Gestionnaire_de_stock_version_1._0.Properties.Resources.left_arrow;
+            this.picReturne.Location = new System.Drawing.Point(13, 13);
+            this.picReturne.Name = "picReturne";
+            this.picReturne.Size = new System.Drawing.Size(32, 34);
+            this.picReturne.TabIndex = 2;
+            this.picReturne.TabStop = false;
+            this.picReturne.Click += new System.EventHandler(this.picReturne_Click);
             // 
             // FrmLoupeProduitStcok
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(271, 424);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.picReturne);
             this.Controls.Add(this.cmdValidder);
             this.Controls.Add(this.cboProduits);
             this.Name = "FrmLoupeProduitStcok";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form_LoupeProduitsStock";
             this.Load += new System.EventHandler(this.FrmLoupeProduitStcok_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picReturne)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -81,6 +86,6 @@
 
         private System.Windows.Forms.ListBox cboProduits;
         private System.Windows.Forms.Button cmdValidder;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox picReturne;
     }
 }

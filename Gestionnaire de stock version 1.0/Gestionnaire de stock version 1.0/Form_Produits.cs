@@ -52,18 +52,19 @@ namespace Gestionnaire_de_stock_version_1._0
                             MysqlConn.OpenDB();
                             Supplier fournisseur = (Supplier)selecteditem;
                             MysqlConn.InsertProductsSuppliers(idproduitforname, fournisseur.id);
-                            MessageBox.Show("Votre produit a était associer avec un ou plusieurs fournisseur");
                             MysqlConn.CloseDB();
                         }
+                        MessageBox.Show("Votre produit a été associé avec un ou plusieurs fournisseurs");
+                        txtNom.Text = "";
+                        cmbCategorie.SelectedIndex = 0;
                     }
                     else
                     {
-                        MessageBox.Show("Votre produit existe dejà, vous devez l'associer avec un ou plusieurs fournisseur ");
+                        MessageBox.Show("Votre produit existe déjà, vous devez l'associer avec un ou plusieurs fournisseurs ");
                     }
 
                 }
                 //Si le produit n'existe pas sur la base de donnee 
-              
                 else
                 {
                     if (cmbCategorie.SelectedItem != null)
@@ -80,7 +81,7 @@ namespace Gestionnaire_de_stock_version_1._0
                                 MysqlConn.OpenDB();
                                 Supplier fournisseur = (Supplier)selecteditem;
                                 MysqlConn.InsertProductsSuppliers(idProduit, fournisseur.id);
-                                MessageBox.Show("Votre produit a était ajouté et associer avec un ou plusieurs fournisseur");
+                                MessageBox.Show("Votre produit a été ajouté et associé avec un ou plusieurs fournisseurs");
                                 MysqlConn.CloseDB();
                             }
                         }
@@ -89,18 +90,16 @@ namespace Gestionnaire_de_stock_version_1._0
                         {
                             MysqlConn.OpenDB();
                             MysqlConn.InsertProduit(txtNom.Text, categories.id);
-                            MessageBox.Show("Votre produit a était ajouté mais pas associer avec un fournisseur");
+                            MessageBox.Show("Votre produit a été ajouté mais n'a pas été associé avec un fournisseurs");
                             MysqlConn.CloseDB();
                         }
                     }
                     else
                     {
-                        MessageBox.Show("Selectioner de nouveau une categorie");
+                        MessageBox.Show("Sélectionner de nouveau une catégorie");
                     }
-                }
-                
+                }  
             }
-
             else
             {
                 MessageBox.Show("Entrer un nom de produit");

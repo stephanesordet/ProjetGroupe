@@ -53,9 +53,9 @@
             this.lblProduitStcok.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.lblProduitStcok.Location = new System.Drawing.Point(81, 31);
             this.lblProduitStcok.Name = "lblProduitStcok";
-            this.lblProduitStcok.Size = new System.Drawing.Size(268, 25);
+            this.lblProduitStcok.Size = new System.Drawing.Size(288, 25);
             this.lblProduitStcok.TabIndex = 0;
-            this.lblProduitStcok.Text = "Ajouter un produit dans Stcok";
+            this.lblProduitStcok.Text = "Ajouter un produit dans le Stock";
             // 
             // txtnomproduit
             // 
@@ -131,7 +131,7 @@
             this.lblCategorie.Name = "lblCategorie";
             this.lblCategorie.Size = new System.Drawing.Size(88, 20);
             this.lblCategorie.TabIndex = 11;
-            this.lblCategorie.Text = "Categorie *";
+            this.lblCategorie.Text = "Catégorie *";
             // 
             // picLoupProuduits
             // 
@@ -162,7 +162,7 @@
             this.lblQuantity.Name = "lblQuantity";
             this.lblQuantity.Size = new System.Drawing.Size(80, 20);
             this.lblQuantity.TabIndex = 12;
-            this.lblQuantity.Text = "Quantite *";
+            this.lblQuantity.Text = "Quantité *";
             // 
             // lblUnite
             // 

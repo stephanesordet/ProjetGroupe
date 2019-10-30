@@ -18,31 +18,39 @@ namespace Gestionnaire_de_stock_version_1._0
             InitConnexion();
         }
 
-        // Méthode pour initialiser la connexion
+        /// <summary>
+        /// initialiser la connexion
+        /// </summary>
         private void InitConnexion()
         {
             // Création de la chaîne de connexion
 
             // string connectionString = "SERVER=10.229.33.3; DATABASE=Gestionnaire; UID=Stephane; PASSWORD=Pa$$w0rd";
-            string connectionString = "SERVER=127.0.0.1; DATABASE=Gestionnaire; UID=root; PASSWORD=LuanaKBL2612";
+            string connectionString = "SERVER=10.229.33.3; DATABASE=Gestionnaire; UID=Stephane; PASSWORD=Pa$$w0rd";
             connection = new MySqlConnection(connectionString);
 
         }
-        //créer un objet fournisseur qui sera crée quand on appuye sur valider--> l'objet sera mis en parametre de Addsupplier
+
+        /// <summary>
+        /// Ouvrir la connexion Mysql
+        /// </summary>
         public void OpenDB()
         {
             connection.Open();
         }
+        /// <summary>
+        /// Fermer la conexions à Mysql 
+        /// </summary>
         public void CloseDB()
         {
             connection.Close();
         }
 
         /// <summary>
-        /// Insertion des produits
+        /// Insertion des produits dans la table Products
         /// </summary>
-        /// <param name="name"></param>
-        /// <param name="categorie"></param>
+        /// <param name="name">Nom du produit à inserer</param>
+        /// <param name="categorie">Catégorie du produit</param>
         /// <returns></returns>
         public long InsertProduit(string name, int categorie)
         {
@@ -54,6 +62,10 @@ namespace Gestionnaire_de_stock_version_1._0
 
         }
 
+        /// <summary>
+        /// Changer le status de 0 à 1 dans la table CommandeLines
+        /// </summary>
+        /// <param name="id">Id de la commande</param>
         public void UpdateStatus(int id)
         {
             string updatestatus = "UPDATE CommandeLines SET Status = 1 WHERE id =" + id + ";";
@@ -62,9 +74,9 @@ namespace Gestionnaire_de_stock_version_1._0
         }
 
         /// <summary>
-        /// Insert categories
+        /// Insérer categories dans la table Categories
         /// </summary>
-        /// <param name="name"></param>
+        /// <param name="name">Nom de la catégorie</param>
         public void InsertCategorie(string name)
         {
             string commande = "INSERT INTO Categories(Name) VALUES('" + name + "');";
@@ -73,10 +85,10 @@ namespace Gestionnaire_de_stock_version_1._0
         }
 
         /// <summary>
-        /// Insertions des fournisseurs
+        /// Relier un produit à un fournisseur dans la table Products_has_Suppliers
         /// </summary>
-        /// <param name="idproducts"></param>
-        /// <param name="idsuppliers"></param>
+        /// <param name="idproducts">Id du produit</param>
+        /// <param name="idsuppliers">Id du fournisseur</param>
         public void InsertProductsSuppliers(long idproducts, long idsuppliers)
         {
             string commande = "INSERT INTO Products_has_Suppliers(Products_id,Suppliers_id) VALUES(" + idproducts + "," + idsuppliers + ");";
@@ -125,14 +137,23 @@ namespace Gestionnaire_de_stock_version_1._0
                 // Possibilité de créer une méthode avec un booléan en retour pour savoir si le contact à été ajouté correctement.
             }
         }
-
+        /// <summary>
+        /// Insérer un produit dans le stock, table CommandeLines 
+        /// </summary>
+        /// <param name="quantity">Quantité du produit</param>
+        /// <param name="productsid">Nom du produit</param>
+        /// <param name="unitiesid">Unite selectioné</param>
+        /// <param name="peremption">Date de peremption</param>
+        /// <param name="status">Satus = 1</param>
         public void InsertProduisHasCommandeLine(int quantity, int productsid, int unitiesid, string peremption, int status)
         {
             string commande;
+            //Si l'utilisateur a entrée une date de peremption 
             if (peremption != "")
             {
                 commande = "INSERT INTO commandelines(Quantity,Products_id,Unities_id,Peremption,Status) VALUES(" + quantity + "," + productsid + "," + unitiesid + ",'" + peremption + "'," + status + ");";
             }
+            //Si l'utilisateur n'a pas entrée une date de peremption 
             else
             {
                commande = "INSERT INTO commandelines(Quantity,Products_id,Unities_id,Status) VALUES(" + quantity + "," + productsid + "," + unitiesid + "," + status + ");";
@@ -140,6 +161,27 @@ namespace Gestionnaire_de_stock_version_1._0
             MySqlCommand cmd = new MySqlCommand(commande, connection);
             cmd.ExecuteNonQuery();
         }
+
+        /// <summary>
+        /// Realiser une commande. Inserer le donne dans la table CommandeLines
+        /// </summary>
+        /// <param name="quantity">Quantié désiré par le client</param>
+        /// <param name="productsid">Id du produit désiré</param>
+        /// <param name="unitiesid">Id de l'unite selectioné</param>
+        /// <param name="suppliersid">Id du fonisseur désiré</param>
+        /// <param name="status">Status de la commande</param>
+        public void InsertCommandeLine(int quantity, int productsid, int unitiesid, int suppliersid, int status)
+        {
+            string thisDay = System.DateTime.Now.ToString("dd/MM/yyyy");
+            string commande = "INSERT INTO commandelines(Quantity,OrderDate,Products_id,Unities_id,Suppliers_id,Status) VALUES(" + quantity + ",'" + thisDay + "'," + productsid + "," + unitiesid + "," + suppliersid + "," + status + ");";
+            MySqlCommand cmd = new MySqlCommand(commande, connection);
+            cmd.ExecuteNonQuery();
+        }
+
+        /// <summary>
+        /// Supprimer dans la table CommandeLines
+        /// </summary>
+        /// <param name="idproduit">Id du produit</param>
         public void DeletInStock(int idproduit)
         {
             string commande = "Delete From commandelines WHERE commandelines.id =" + idproduit + ";";
@@ -147,12 +189,25 @@ namespace Gestionnaire_de_stock_version_1._0
             cmd.ExecuteNonQuery();
         }
 
+        /// <summary>
+        /// Mise à jour du produit, table Products 
+        /// </summary>
+        /// <param name="idproduit">Id du produit</param>
+        /// <param name="nomproduit">Nom du produit</param>
+        /// <param name="idcategorie">Categorie du produit</param>
         public void UpdateProducts(int idproduit, string nomproduit, int idcategorie)
         {
             string commande = "UPDATE Products SET Name='"+nomproduit+"',Categories_id ="+ idcategorie + " WHERE id =" + idproduit + ";";
             MySqlCommand cmd = new MySqlCommand(commande, connection);
             cmd.ExecuteNonQuery();
         }
+        /// <summary>
+        /// Mise à jour de la table CommandeLines
+        /// </summary>
+        /// <param name="id">Id</param>
+        /// <param name="quantity">Quantité</param>
+        /// <param name="date">Date de peremption</param>
+        /// <param name="idunities">Unités</param>
         public void UpdateCommandeLines(int id, int quantity, string date,  int idunities)
         {
             string commande = "UPDATE CommandeLines SET Quantity="+quantity+",Peremption='"+date+"',Unities_id="+idunities+" WHERE id ="+id+";";
@@ -161,12 +216,11 @@ namespace Gestionnaire_de_stock_version_1._0
         }
 
         /// <summary>
-        /// Lire les Fournisseur
+        /// Lire les fournisseur dans la table Suppliers
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Retune la liste de tous les fournisseurs</returns>
         public List<Supplier> ReadSuplliers()
         {
-            //Le problème que vous rencontrez est que vous démarrez une seconde MySqlCommandtout en lisant les données avec le DataReader. Le connecteur MySQL n'autorise qu'une requête simultanée. Vous devez lire les données dans une structure, puis fermer le lecteur, puis traiter les données. Malheureusement, vous ne pouvez pas traiter les données telles qu'elles sont lues si votre traitement implique d'autres requêtes SQL.
             MySqlCommand cmd = connection.CreateCommand();
             cmd.CommandText = "SELECT Firstname,Lastname,id FROM suppliers";
             List<Supplier> listData = new List<Supplier>();
@@ -184,7 +238,10 @@ namespace Gestionnaire_de_stock_version_1._0
 
 
         }
-
+        /// <summary>
+        /// Lire les produits^dans la table Products
+        /// </summary>
+        /// <returns>Retune la liste de tous les prodtuis</returns>
         public List<Products> ReadProducts()
         {
             MySqlCommand cmd = connection.CreateCommand();
@@ -201,7 +258,11 @@ namespace Gestionnaire_de_stock_version_1._0
 
             return listData;
         }
-
+        /// <summary>
+        /// Lire le Id du produit par rapport à son nom, dans la table Products
+        /// </summary>
+        /// <param name="name">Nom du produit désiré</param>
+        /// <returns>Retune la liste de tous les produits</returns>
         public List<Products> ReadIdProductsForName(string name)
         {
             MySqlCommand cmd = connection.CreateCommand();
@@ -219,6 +280,11 @@ namespace Gestionnaire_de_stock_version_1._0
             return listData;
 
         }
+        /// <summary>
+        /// Lire le nom du produit par rapport à son Id, dans la table Products
+        /// </summary>
+        /// <param name="id">Id du produit désiré</param>
+        /// <returns>Retune la liste de tous les produits</returns>
         public List<Products> ReadProductsForId(int id)
         {
             MySqlCommand cmd = connection.CreateCommand();
@@ -240,10 +306,10 @@ namespace Gestionnaire_de_stock_version_1._0
 
 
         /// <summary>
-        /// Lire les produits d'un fournisseur 
+        /// Lire les produits relier à des fournisseurs, dans la table Products_has_Suppliers 
         /// </summary>
-        /// <param name="idsuppliers"></param>
-        /// <returns></returns>
+        /// <param name="idsuppliers">Id du fournisseur désiré</param>
+        /// <returns>Retune la liste de tous les produits</returns>
         public List<Products> ReadProductsHasSuppliers(int idsuppliers)
         {
             MySqlCommand cmd = connection.CreateCommand();
@@ -262,9 +328,9 @@ namespace Gestionnaire_de_stock_version_1._0
         }
 
         /// <summary>
-        /// Lire les categories 
+        /// Lire les categories dans la table Categories
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Retune la liste de tous les categories</returns>
         public List<Categorie> ReadCategories()
         {
             MySqlCommand cmd = connection.CreateCommand();
@@ -283,9 +349,9 @@ namespace Gestionnaire_de_stock_version_1._0
         }
 
         /// <summary>
-        /// Lire les Unités 
+        /// Lire les Unités dans la table Unities 
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Retune la liste de tous les unites</returns>
         public List<Unities> ReadUnities()
         {
             MySqlCommand cmd = connection.CreateCommand();
@@ -303,14 +369,10 @@ namespace Gestionnaire_de_stock_version_1._0
             return list;
         }
 
-        public void InsertCommandeLine(int quantity, int productsid, int unitiesid, int suppliersid, int status )
-        {
-            string thisDay = System.DateTime.Now.ToString("dd/MM/yyyy");
-            string commande = "INSERT INTO commandelines(Quantity,OrderDate,Products_id,Unities_id,Suppliers_id,Status) VALUES("+quantity+",'"+ thisDay+"',"+ productsid+","+unitiesid+","+suppliersid+","+status+");";
-            MySqlCommand cmd = new MySqlCommand(commande, connection);
-            cmd.ExecuteNonQuery();
-        }
-       
+        /// <summary>
+        /// Lire les produis consideré comme stock, status = 1, dans la table CommandeLines
+        /// </summary>
+        /// <returns>Retune la liste de tous les produits</returns>
         public List<CommandeLines> ReadStock()
         {
             MySqlCommand cmd = connection.CreateCommand();
@@ -331,7 +393,10 @@ namespace Gestionnaire_de_stock_version_1._0
 
             return list;
         }
-
+        /// <summary>
+        /// Lire les produits consideré comme commande en cours, status = 0, dans la table CommandeLines
+        /// </summary>
+        /// <returns>Retune la liste de tous les produits</returns>
         public List<CommandeLines> ReadCommandes()
         {
             MySqlCommand cmd = connection.CreateCommand();

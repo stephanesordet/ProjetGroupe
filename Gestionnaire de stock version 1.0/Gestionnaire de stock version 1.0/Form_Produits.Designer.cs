@@ -37,9 +37,9 @@
             this.lblFournisseur = new System.Windows.Forms.Label();
             this.cmbCategorie = new System.Windows.Forms.ComboBox();
             this.Picretournemenu = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.picLoupe = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.Picretournemenu)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picLoupe)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -131,23 +131,23 @@
             this.Picretournemenu.TabStop = false;
             this.Picretournemenu.Click += new System.EventHandler(this.Picretournemenu_Click);
             // 
-            // pictureBox1
+            // picLoupe
             // 
-            this.pictureBox1.Image = global::Gestionnaire_de_stock_version_1._0.Properties.Resources.loupe;
-            this.pictureBox1.Location = new System.Drawing.Point(302, 72);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(32, 32);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox1.TabIndex = 10;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.picLoupe.Image = global::Gestionnaire_de_stock_version_1._0.Properties.Resources.loupe;
+            this.picLoupe.Location = new System.Drawing.Point(302, 72);
+            this.picLoupe.Name = "picLoupe";
+            this.picLoupe.Size = new System.Drawing.Size(32, 32);
+            this.picLoupe.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.picLoupe.TabIndex = 10;
+            this.picLoupe.TabStop = false;
+            this.picLoupe.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // FrmProduits
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(361, 450);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.picLoupe);
             this.Controls.Add(this.cmbCategorie);
             this.Controls.Add(this.lblFournisseur);
             this.Controls.Add(this.lblCategorie);
@@ -162,7 +162,7 @@
             this.Text = "Produits";
             this.Load += new System.EventHandler(this.FrmProduits_Load);
             ((System.ComponentModel.ISupportInitialize)(this.Picretournemenu)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picLoupe)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -179,6 +179,6 @@
         private System.Windows.Forms.Label lblCategorie;
         private System.Windows.Forms.Label lblFournisseur;
         private System.Windows.Forms.ComboBox cmbCategorie;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox picLoupe;
     }
 }

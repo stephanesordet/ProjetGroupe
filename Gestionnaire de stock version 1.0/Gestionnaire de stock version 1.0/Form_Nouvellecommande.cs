@@ -18,7 +18,7 @@ namespace Gestionnaire_de_stock_version_1._0
     public partial class FrmNouvellecommande : Form
     {
         ConnectionDB MysqlConn = new ConnectionDB();
-        Image imagedelet = Image.FromFile("L:/Gestionnaire 1.0/Gestionnaire de stock version 1.0/X.png");
+        Image imagedelet = Image.FromFile("P:/Projet (binôme)/Gestionnaire de stock version1.0/Gestionnaire de stock version 1.0/X.png");
         List<Unities> listUnities;
         List<Supplier> listSupplier;
         Supplier supplier;
@@ -57,6 +57,7 @@ namespace Gestionnaire_de_stock_version_1._0
 
             MysqlConn.CloseDB();
 
+            //Add le image delete
             DataGridViewImageColumn img = new DataGridViewImageColumn();
             img.Image = imagedelet;
             img.Name = "Delet";
@@ -84,19 +85,19 @@ namespace Gestionnaire_de_stock_version_1._0
 
         private void cmdValider_Click(object sender, EventArgs e)
         {
-
+            //Si tous les champs du formulaire sont remplissent
             if (cboFournisseur.SelectedItem != null && cboProduit.SelectedItem != null && cboUnite.SelectedItem != null && txtQuantite.Text != "")
             {
                 unitie = (Unities)cboUnite.SelectedItem;
                 product = (Products)cboProduit.SelectedItem;
                 string quantite = txtQuantite.Text;
-
+                //Add le produit dans le tableau commande 
                 dgvcommande.Rows.Add(product, quantite, unitie);
                 cboFournisseur.Enabled = false;
             }
             else
             {
-                MessageBox.Show("Veuillez remplir tout les champs");
+                MessageBox.Show("Veuillez remplir tous les champs");
             }
         }
 
@@ -104,12 +105,14 @@ namespace Gestionnaire_de_stock_version_1._0
         {
             foreach (DataGridViewCell oneCell in dgvcommande.SelectedCells)
             {
+                //Si l'utilisateur à clique sur le bouton delet
                 if (dgvcommande.Rows[e.RowIndex].Cells[3].Selected)
                 {
-                   
+                        //Supprimer la ligne selectionné
                         dgvcommande.Rows.RemoveAt(oneCell.RowIndex);
                     
                 }
+                //Si il existe plus que 1 produit dans le tableau
                 if(dgvcommande.Rows.Count < 2)
                 {
                     cboFournisseur.Enabled = true;
@@ -154,7 +157,7 @@ namespace Gestionnaire_de_stock_version_1._0
             }
             MysqlConn.CloseDB();
 
-            MessageBox.Show("votre commande a bien été envoyée");
+            MessageBox.Show("Votre commande a bien été envoyée");
             txtQuantite.Text = "";
             dgvcommande.Rows.Clear();
             txtEmail.Text = "";

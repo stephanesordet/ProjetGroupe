@@ -37,5 +37,10 @@ namespace Gestionnaire_de_stock_version_1._0
             form_Mescommandes.Show();
             this.Hide();
         }
+
+        private void lblComande_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

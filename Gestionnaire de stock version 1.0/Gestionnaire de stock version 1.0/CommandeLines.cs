@@ -17,7 +17,7 @@ namespace Gestionnaire_de_stock_version_1._0
         public string unities;
         public int status;
 
-        //Commander un produit 
+        //Produit en stock
         public CommandeLines(int idC, string nameproduitC, string categorieC, int quantityC, string unitiesC, string peremptionC)
         {
             id = idC;
@@ -27,6 +27,7 @@ namespace Gestionnaire_de_stock_version_1._0
             quantity = quantityC;
             peremption = peremptionC;
         }
+        //Commande un produit
         public CommandeLines(int idC, string nameproduitC, string unitiesC, int quantityC, string orderDateC)
         {
             id = idC;

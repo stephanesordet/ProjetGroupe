@@ -94,7 +94,7 @@
             // 
             // Quantite
             // 
-            this.Quantite.HeaderText = "Quantité demandé ";
+            this.Quantite.HeaderText = "Quantité demandée ";
             this.Quantite.Name = "Quantite";
             this.Quantite.ReadOnly = true;
             // 
@@ -113,7 +113,7 @@
             // 
             // Datecommande
             // 
-            this.Datecommande.HeaderText = "Date commande ";
+            this.Datecommande.HeaderText = "Date de commande ";
             this.Datecommande.Name = "Datecommande";
             this.Datecommande.ReadOnly = true;
             // 
