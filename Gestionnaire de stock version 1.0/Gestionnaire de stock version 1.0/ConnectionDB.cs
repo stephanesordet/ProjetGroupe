@@ -148,6 +148,43 @@ namespace Gestionnaire_de_stock_version_1._0
                 // Possibilité de créer une méthode avec un booléan en retour pour savoir si le contact à été ajouté correctement.
             }
         }
+        public void AddUser(User user)
+        {
+            try
+            {
+                // Ouverture de la connexion SQL
+                connection.Open();
+
+                // Création d'une commande SQL en fonction de l'objet connection
+                MySqlCommand cmd = connection.CreateCommand();
+
+                // Requête SQL
+                cmd.CommandText = "INSERT INTO restaurants (LastName, FirstName, NameRestaurant, City, NPA, Street, Email) VALUES (@LastName, @FirstName, @NameRestaurant, @City, @NPA, @Street, @Email)";
+
+                // utilisation de l'objet contact passé en paramètre
+
+                cmd.Parameters.AddWithValue("@Lastname", user.LastName);
+                cmd.Parameters.AddWithValue("@Name", user.FirstName);
+                cmd.Parameters.AddWithValue("@NameRestaurant", user.NameRestaurant);
+                cmd.Parameters.AddWithValue("@City", user.City);
+                cmd.Parameters.AddWithValue("@NPA", user.Npa);
+                cmd.Parameters.AddWithValue("@Street", user.Street);
+                cmd.Parameters.AddWithValue("@Email", user.Email);
+
+                // Exécution de la commande SQL
+                cmd.ExecuteNonQuery();
+
+                // Fermeture de la connexion
+                connection.Close();
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.ToString());
+                // Gestion des erreurs :
+                // Possibilité de créer un Logger pour les exceptions SQL reçus
+                // Possibilité de créer une méthode avec un booléan en retour pour savoir si le contact à été ajouté correctement.
+            }
+        }
         /// <summary>
         /// Insérer un produit dans le stock, table CommandeLines 
         /// </summary>
