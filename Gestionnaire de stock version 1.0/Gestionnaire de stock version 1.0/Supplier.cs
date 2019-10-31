@@ -9,41 +9,51 @@ namespace Gestionnaire_de_stock_version_1._0
     public class Supplier
     {
 
-        public int id;
-        public string gender;
-        public string firstName;
-        public string lastName;
-        public string company;
-        public string city;
-        public int npa;
-        public string street;
-        public string email;
+        private int id;
+        private string gender;
+        private string firstName;
+        private string lastName;
+        private string company;
+        private string city;
+        private int npa;
+        private string street;
+        private string email;
+
+        public int Id { get => id; set => id = value; }
+        public string Gender { get => gender; set => gender = value; }
+        public string FirstName { get => firstName; set => firstName = value; }
+        public string LastName { get => lastName; set => lastName = value; }
+        public string Company { get => company; set => company = value; }
+        public string City { get => city; set => city = value; }
+        public int Npa { get => npa; set => npa = value; }
+        public string Street { get => street; set => street = value; }
+        public string Email { get => email; set => email = value; }
 
         public Supplier(string genderC, string firstNameC, string lastNameC, string companyC, int npaC, string cityC, string streetC, string emailC)
         {
-            gender = genderC;
-            firstName = firstNameC;
-            lastName = lastNameC;
-            company = companyC;
-            npa = npaC;
-            city = cityC;
-            street = streetC;
-            email = emailC;
+            Gender = genderC;
+            FirstName = firstNameC;
+            LastName = lastNameC;
+            Company = companyC;
+            Npa = npaC;
+            City = cityC;
+            Street = streetC;
+            Email = emailC;
            
         }
         public Supplier(int idC, string firstNameC, string lastNameC, string emailC)
         {
-            id = idC;
-            firstName = firstNameC;
-            lastName = lastNameC;
-            email = emailC;
+            Id = idC;
+            FirstName = firstNameC;
+            LastName = lastNameC;
+            Email = emailC;
             
      
 
         }
         public override string ToString()
         {
-            return firstName+" "+lastName;
+            return FirstName+" "+LastName;
         }
 
     }

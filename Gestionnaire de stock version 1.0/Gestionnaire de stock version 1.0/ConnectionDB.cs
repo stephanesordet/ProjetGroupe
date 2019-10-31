@@ -54,7 +54,7 @@ namespace Gestionnaire_de_stock_version_1._0
         /// <param name="name">Nom du produit à inserer</param>
         /// <param name="categorie">Catégorie du produit</param>
         /// <returns></returns>
-        public long InsertProduit(string name, int categorie)
+        public long InsertProducts(string name, int categorie)
         {
             string produit = "INSERT INTO products(Name,Categories_id) VALUES('" + name + "'," + categorie + ");";
             // Création d'une commande MySQL en fonction de l'objet connection
@@ -79,7 +79,7 @@ namespace Gestionnaire_de_stock_version_1._0
         /// <param name="id">Id de la commande</param>
         public void UpdateStatus(int id)
         {
-            string updatestatus = "UPDATE CommandeLines SET Status = 1 WHERE id =" + id + ";";
+            string updatestatus = "UPDATE CommandeLines SET Status = 2 WHERE id =" + id + ";";
             MySqlCommand cmd = new MySqlCommand(updatestatus, connection);
             cmd.ExecuteNonQuery();
         }
@@ -126,13 +126,13 @@ namespace Gestionnaire_de_stock_version_1._0
 
                 // utilisation de l'objet contact passé en paramètre
                 
-                cmd.Parameters.AddWithValue("@Firstname",supplier.firstName );
-                cmd.Parameters.AddWithValue("@Lastname", supplier.lastName);
-                cmd.Parameters.AddWithValue("@Company", supplier.company);
-                cmd.Parameters.AddWithValue("@City", supplier.city);
-                cmd.Parameters.AddWithValue("@NPA", supplier.npa);
-                cmd.Parameters.AddWithValue("@Street", supplier.street);
-                cmd.Parameters.AddWithValue("@Email", supplier.email);
+                cmd.Parameters.AddWithValue("@Firstname",supplier.FirstName );
+                cmd.Parameters.AddWithValue("@Lastname", supplier.LastName);
+                cmd.Parameters.AddWithValue("@Company", supplier.Company);
+                cmd.Parameters.AddWithValue("@City", supplier.City);
+                cmd.Parameters.AddWithValue("@NPA", supplier.Npa);
+                cmd.Parameters.AddWithValue("@Street", supplier.Street);
+                cmd.Parameters.AddWithValue("@Email", supplier.Email);
 
                 // Exécution de la commande SQL
                 cmd.ExecuteNonQuery();
@@ -195,7 +195,7 @@ namespace Gestionnaire_de_stock_version_1._0
         /// <param name="idproduit">Id du produit</param>
         public void DeletInStock(int idproduit)
         {
-            string commande = "Delete From commandelines WHERE commandelines.id =" + idproduit + ";";
+            string commande = "Delete From commandelines WHERE commandelines.id =" + idproduit + " AND commandelines.status = 1;";
             MySqlCommand cmd = new MySqlCommand(commande, connection);
             cmd.ExecuteNonQuery();
         }
@@ -273,7 +273,7 @@ namespace Gestionnaire_de_stock_version_1._0
         /// <summary>
         /// Lire les produits^dans la table Products par rapport à sa catégorie
         /// </summary>
-        /// <param name="categorie">Catégorie désiré</param>
+        /// <param name="categorie">Catégorie d</param>
         /// <returns></returns>
         public List<Products> ReadProductsForCategories(string categorie)
         {
@@ -408,7 +408,7 @@ namespace Gestionnaire_de_stock_version_1._0
 
             try
             {
-                test.Send(mail.sender, mail.recipient, mail.subject, mail.body);
+                test.Send(mail.Sender, mail.Recipient, mail.Subject, mail.Body);
                 MessageBox.Show("Email ok");
             }
             catch (Exception c)
@@ -424,7 +424,7 @@ namespace Gestionnaire_de_stock_version_1._0
         public List<CommandeLines> ReadStock()
         {
             MySqlCommand cmd = connection.CreateCommand();
-            cmd.CommandText = "SELECT commandelines.id, products.name AS Produit, categories.name AS categorie, unities.Name AS Unitie, commandelines.Quantity, commandelines.Peremption FROM commandelines inner JOIN products ON commandelines.Products_id = products.id LEFT JOIN suppliers ON commandelines.Suppliers_id = suppliers.id INNER JOIN categories ON products.Categories_id = categories.id INNER JOIN unities ON commandelines.Unities_id = unities.id WHERE commandelines.Status = 1";
+            cmd.CommandText = "SELECT commandelines.id, products.name AS Produit, categories.name AS categorie, unities.Name AS Unitie, commandelines.Quantity, commandelines.Peremption FROM commandelines inner JOIN products ON commandelines.Products_id = products.id LEFT JOIN suppliers ON commandelines.Suppliers_id = suppliers.id INNER JOIN categories ON products.Categories_id = categories.id INNER JOIN unities ON commandelines.Unities_id = unities.id WHERE commandelines.Status = 1 OR 2";
             List<CommandeLines> list = new List<CommandeLines>();
             MySqlDataReader dataReader = cmd.ExecuteReader();
             while (dataReader.Read())
@@ -448,7 +448,7 @@ namespace Gestionnaire_de_stock_version_1._0
         public List<CommandeLines> ReadCommandes()
         {
             MySqlCommand cmd = connection.CreateCommand();
-            cmd.CommandText = "SELECT commandelines.id, commandelines.OrderDate, products.name AS Produit, unities.Name AS Unitie, categories.name AS categorie, commandelines.Quantity, commandelines.Peremption FROM commandelines inner JOIN products ON commandelines.Products_id = products.id inner JOIN suppliers ON commandelines.Suppliers_id = suppliers.id INNER JOIN categories ON products.Categories_id = categories.id INNER JOIN unities ON commandelines.Unities_id = unities.id WHERE commandelines.Status = 0";
+            cmd.CommandText = "SELECT commandelines.id, commandelines.OrderDate, products.name AS Produit, unities.Name AS Unitie, categories.name AS categorie, commandelines.status AS status, commandelines.Quantity, commandelines.Peremption FROM commandelines inner JOIN products ON commandelines.Products_id = products.id inner JOIN suppliers ON commandelines.Suppliers_id = suppliers.id INNER JOIN categories ON products.Categories_id = categories.id INNER JOIN unities ON commandelines.Unities_id = unities.id WHERE commandelines.Status = 0  OR commandelines.Status = 2";
             List<CommandeLines> list = new List<CommandeLines>();
             MySqlDataReader dataReader = cmd.ExecuteReader();
             while (dataReader.Read())
@@ -458,7 +458,8 @@ namespace Gestionnaire_de_stock_version_1._0
                 string unities = dataReader["Unitie"].ToString();
                 int quantity = (int)dataReader["Quantity"];
                 string orderday = dataReader["OrderDate"].ToString();
-                CommandeLines dataUnities = new CommandeLines(id, nameproduit, unities, quantity, orderday);
+                int status = (int)dataReader["status"];
+                CommandeLines dataUnities = new CommandeLines(id, nameproduit, unities, quantity, orderday, status);
                 list.Add(dataUnities);
             }
 

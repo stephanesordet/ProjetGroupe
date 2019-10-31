@@ -74,7 +74,7 @@ namespace Gestionnaire_de_stock_version_1._0
             cboProduit.Items.Clear();
             MysqlConn.OpenDB();
             supplier = (Supplier)cboFournisseur.SelectedItem;
-            List<Products> ListProducts = MysqlConn.ReadProductsHasSuppliers(supplier.id);
+            List<Products> ListProducts = MysqlConn.ReadProductsHasSuppliers(supplier.Id);
             foreach (Products value in ListProducts)
             {
                 cboProduit.Items.Add(value);
@@ -127,7 +127,7 @@ namespace Gestionnaire_de_stock_version_1._0
             txtEmail.Text = "";
             txtEmail.Text += "Bonjour ";
             //txtEmail.Text += supplier.gender.ToString();
-            txtEmail.Text += supplier.firstName.ToString() +" " + supplier.lastName.ToString();
+            txtEmail.Text += supplier.FirstName.ToString() +" " + supplier.LastName.ToString();
             int ligne = 0;
             for (int i=1; i<=dgvcommande.Rows.Count; i++)
             {
@@ -153,7 +153,7 @@ namespace Gestionnaire_de_stock_version_1._0
                 string quantitedata =  dgvcommande.Rows[i-1].Cells[1].Value.ToString();
                 int quantiteint = int.Parse(quantitedata);
                 Unities unitesdata = (Unities)dgvcommande.Rows[i-1].Cells[2].Value;     
-                MysqlConn.InsertCommandeLine(quantiteint, (int)produitdata.id, (int)unitesdata.id, (int)supplier.id, 0);
+                MysqlConn.InsertCommandeLine(quantiteint, (int)produitdata.Id, (int)unitesdata.Id, (int)supplier.Id, 0);
                 ligne++;
             }
             MysqlConn.CloseDB();
@@ -162,7 +162,7 @@ namespace Gestionnaire_de_stock_version_1._0
             
             
             Mail newMail;
-            newMail = new Mail("Stephane.sordet@cpnv.ch", supplier.email, "", txtEmail.Text);
+            newMail = new Mail("Stephane.sordet@cpnv.ch", supplier.Email, "", txtEmail.Text);
             MysqlConn.sendMail(newMail);
            
 

@@ -38,7 +38,7 @@ namespace Gestionnaire_de_stock_version_1._0
                 List<Products> listIdProducts = MysqlConn.ReadIdProductsForName(txtNom.Text);
                 foreach (Products value in listIdProducts)
                 {
-                    idproduitforname = (int)value.id;
+                    idproduitforname = (int)value.Id;
                 }
                 MysqlConn.CloseDB();
                 
@@ -51,7 +51,7 @@ namespace Gestionnaire_de_stock_version_1._0
                         {
                             MysqlConn.OpenDB();
                             Supplier fournisseur = (Supplier)selecteditem;
-                            MysqlConn.InsertProductsSuppliers(idproduitforname, fournisseur.id);
+                            MysqlConn.InsertProductsSuppliers(idproduitforname, fournisseur.Id);
                             MysqlConn.CloseDB();
                         }
                         MessageBox.Show("Votre produit a été associé avec un ou plusieurs fournisseurs");
@@ -65,20 +65,20 @@ namespace Gestionnaire_de_stock_version_1._0
                 //Si le produit n'existe pas sur la base de donnee 
                 else
                 {
-                    if (cmbCategorie.SelectedItem != null)
+                    if (cboCategorie.SelectedItem != null)
                     {
-                        Categorie categories = (Categorie)cmbCategorie.SelectedItem;
+                        Categorie categories = (Categorie)cboCategorie.SelectedItem;
                         //L'utilisateur a l'option de ajouter un produit et l'associer avec un ou plusieurs fournisseur 
                         if (lstFournisseur.SelectedItem != null)
                         {
                             MysqlConn.OpenDB();
-                            long idProduit = MysqlConn.InsertProduit(txtNom.Text, categories.id);
+                            long idProduit = MysqlConn.InsertProducts(txtNom.Text, categories.Id);
                             MysqlConn.CloseDB();
                             foreach (Supplier selecteditem in lstFournisseur.SelectedItems)
                             {
                                 MysqlConn.OpenDB();
                                 Supplier fournisseur = (Supplier)selecteditem;
-                                MysqlConn.InsertProductsSuppliers(idProduit, fournisseur.id);
+                                MysqlConn.InsertProductsSuppliers(idProduit, fournisseur.Id);
                                 MessageBox.Show("Votre produit a été ajouté et associé avec un ou plusieurs fournisseurs");
                                 MysqlConn.CloseDB();
                             }
@@ -87,7 +87,7 @@ namespace Gestionnaire_de_stock_version_1._0
                         else
                         {
                             MysqlConn.OpenDB();
-                            MysqlConn.InsertProduit(txtNom.Text, categories.id);
+                            MysqlConn.InsertProducts(txtNom.Text, categories.Id);
                             MessageBox.Show("Votre produit a été ajouté mais n'a pas été associé avec un fournisseurs");
                             MysqlConn.CloseDB();
                         }
@@ -125,12 +125,12 @@ namespace Gestionnaire_de_stock_version_1._0
         private void Lirecategorie()
         {
             
-            cmbCategorie.Items.Clear();
+            cboCategorie.Items.Clear();
             MysqlConn.OpenDB();
             listCategories = MysqlConn.ReadCategories();
             foreach (Categorie value in listCategories)
             {
-                cmbCategorie.Items.Add(value);
+                cboCategorie.Items.Add(value);
             }
 
             MysqlConn.CloseDB();
@@ -144,7 +144,7 @@ namespace Gestionnaire_de_stock_version_1._0
             }
             else
             {
-                cmbCategorie.Enabled = true;
+                cboCategorie.Enabled = true;
                 Lirecategorie();
             }
         }
@@ -165,11 +165,11 @@ namespace Gestionnaire_de_stock_version_1._0
                 List<Products> lisproduits = MysqlConn.ReadProductsForId(idproduct);
                 foreach (Products value in lisproduits)
                 {
-                    txtNom.Text = value.name.ToString();
-                    cmbCategorie.Items.Clear();
-                    cmbCategorie.Items.Add(value.categoriename);
-                    cmbCategorie.SelectedIndex = 0;
-                    cmbCategorie.Enabled = false;
+                    txtNom.Text = value.Name.ToString();
+                    cboCategorie.Items.Clear();
+                    cboCategorie.Items.Add(value.Categoriename);
+                    cboCategorie.SelectedIndex = 0;
+                    cboCategorie.Enabled = false;
                 }
                
                 MysqlConn.CloseDB();

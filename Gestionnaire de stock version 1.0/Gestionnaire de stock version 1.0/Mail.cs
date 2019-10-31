@@ -8,17 +8,22 @@ namespace Gestionnaire_de_stock_version_1._0
 {
     class Mail
     {
-        public string sender;
-        public string recipient;
-        public string subject;
-        public string body;
+        private string sender;
+        private string recipient;
+        private string subject;
+        private string body;
+
+        public string Sender { get => sender; set => sender = value; }
+        public string Recipient { get => recipient; set => recipient = value; }
+        public string Subject { get => subject; set => subject = value; }
+        public string Body { get => body; set => body = value; }
 
         public Mail(string senderC, string recipientC, string subjectC, string bodyC)
         {
-            sender = senderC;
-            recipient = recipientC;
-            subject = subjectC;
-            body = bodyC;
+            Sender = senderC;
+            Recipient = recipientC;
+            Subject = subjectC;
+            Body = bodyC;
         }
     }
    

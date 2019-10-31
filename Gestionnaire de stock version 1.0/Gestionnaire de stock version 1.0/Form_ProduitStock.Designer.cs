@@ -31,8 +31,8 @@
             this.lblProduitStcok = new System.Windows.Forms.Label();
             this.txtnomproduit = new System.Windows.Forms.TextBox();
             this.txtQuantite = new System.Windows.Forms.TextBox();
-            this.cmbCategorie = new System.Windows.Forms.ComboBox();
-            this.cmbUnites = new System.Windows.Forms.ComboBox();
+            this.cboCategorie = new System.Windows.Forms.ComboBox();
+            this.cboUnites = new System.Windows.Forms.ComboBox();
             this.txtDatePeremption = new System.Windows.Forms.TextBox();
             this.cmdValider = new System.Windows.Forms.Button();
             this.lblProduit = new System.Windows.Forms.Label();
@@ -74,23 +74,23 @@
             this.txtQuantite.Size = new System.Drawing.Size(150, 23);
             this.txtQuantite.TabIndex = 4;
             // 
-            // cmbCategorie
+            // cboCategorie
             // 
-            this.cmbCategorie.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbCategorie.FormattingEnabled = true;
-            this.cmbCategorie.Location = new System.Drawing.Point(176, 152);
-            this.cmbCategorie.Name = "cmbCategorie";
-            this.cmbCategorie.Size = new System.Drawing.Size(150, 24);
-            this.cmbCategorie.TabIndex = 5;
+            this.cboCategorie.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboCategorie.FormattingEnabled = true;
+            this.cboCategorie.Location = new System.Drawing.Point(176, 152);
+            this.cboCategorie.Name = "cboCategorie";
+            this.cboCategorie.Size = new System.Drawing.Size(150, 24);
+            this.cboCategorie.TabIndex = 5;
             // 
-            // cmbUnites
+            // cboUnites
             // 
-            this.cmbUnites.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbUnites.FormattingEnabled = true;
-            this.cmbUnites.Location = new System.Drawing.Point(176, 252);
-            this.cmbUnites.Name = "cmbUnites";
-            this.cmbUnites.Size = new System.Drawing.Size(150, 24);
-            this.cmbUnites.TabIndex = 6;
+            this.cboUnites.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboUnites.FormattingEnabled = true;
+            this.cboUnites.Location = new System.Drawing.Point(176, 252);
+            this.cboUnites.Name = "cboUnites";
+            this.cboUnites.Size = new System.Drawing.Size(150, 24);
+            this.cboUnites.TabIndex = 6;
             // 
             // txtDatePeremption
             // 
@@ -197,8 +197,8 @@
             this.Controls.Add(this.cmdValider);
             this.Controls.Add(this.txtDatePeremption);
             this.Controls.Add(this.picLoupProuduits);
-            this.Controls.Add(this.cmbUnites);
-            this.Controls.Add(this.cmbCategorie);
+            this.Controls.Add(this.cboUnites);
+            this.Controls.Add(this.cboCategorie);
             this.Controls.Add(this.txtQuantite);
             this.Controls.Add(this.picReturne);
             this.Controls.Add(this.txtnomproduit);
@@ -220,8 +220,8 @@
         private System.Windows.Forms.TextBox txtnomproduit;
         private System.Windows.Forms.PictureBox picReturne;
         private System.Windows.Forms.TextBox txtQuantite;
-        private System.Windows.Forms.ComboBox cmbCategorie;
-        private System.Windows.Forms.ComboBox cmbUnites;
+        private System.Windows.Forms.ComboBox cboCategorie;
+        private System.Windows.Forms.ComboBox cboUnites;
         private System.Windows.Forms.PictureBox picLoupProuduits;
         private System.Windows.Forms.TextBox txtDatePeremption;
         private System.Windows.Forms.Button cmdValider;

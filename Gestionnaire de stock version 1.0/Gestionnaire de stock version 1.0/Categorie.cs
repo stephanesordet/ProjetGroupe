@@ -8,8 +8,8 @@ namespace Gestionnaire_de_stock_version_1._0
 {
     class Categorie
     {
-        public int id;
-        public string name;
+        private int id;
+        private string name;
 
         public Categorie(int idC, string namec)
         {
@@ -20,6 +20,28 @@ namespace Gestionnaire_de_stock_version_1._0
         public override string ToString()
         {
             return name;
+        }
+        public string Name
+        {
+            get
+            {
+                return name;
+            }
+            set
+            {
+                name = value;
+            }
+        }
+        public int Id
+        {
+            get
+            {
+                return id;
+            }
+            set
+            {
+                id = value;
+            }
         }
     }
 }

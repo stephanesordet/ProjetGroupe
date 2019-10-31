@@ -19,6 +19,7 @@ namespace Gestionnaire_de_stock_version_1._0
 
         private void pic_returnemenu_Click(object sender, EventArgs e)
         {
+            //Retuerne au menu
             FrmMenu form1 = new FrmMenu();
             form1.Show();
             this.Hide();
@@ -26,6 +27,7 @@ namespace Gestionnaire_de_stock_version_1._0
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
+            // Faire une commande
             FrmNouvellecommande form_nouvellecommande = new FrmNouvellecommande();
             form_nouvellecommande.Show();
             this.Hide();
@@ -33,14 +35,12 @@ namespace Gestionnaire_de_stock_version_1._0
 
         private void picmescommandes_Click(object sender, EventArgs e)
         {
+            //Voir le tableau des produits commander
             FrmMescommandes form_Mescommandes = new FrmMescommandes();
             form_Mescommandes.Show();
             this.Hide();
         }
 
-        private void lblComande_Click(object sender, EventArgs e)
-        {
 
-        }
     }
 }

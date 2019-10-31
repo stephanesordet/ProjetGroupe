@@ -36,7 +36,7 @@ namespace Gestionnaire_de_stock_version_1._0
             formstock.Show();
             this.Hide();
         }
-
+  
         private void Actualizer()
         {
             dgvStock.Rows.Clear();
@@ -44,7 +44,7 @@ namespace Gestionnaire_de_stock_version_1._0
             List<CommandeLines> Listcommande = MysqlConn.ReadStock();
             foreach (CommandeLines value in Listcommande)
             {
-                dgvStock.Rows.Add(value.id, value.nameproduit, value.categorie, value.quantity, value.unities, value.peremption);
+                dgvStock.Rows.Add(value.Id, value.Nameproduit, value.Categorie, value.Quantity, value.Unities, value.Peremption);
             }
             MysqlConn.CloseDB();
 
@@ -73,6 +73,20 @@ namespace Gestionnaire_de_stock_version_1._0
         {
             foreach (DataGridViewCell oneCell in dgvStock.SelectedCells)
             {
+                //Clic sur edit 
+                if (dgvStock.Rows[e.RowIndex].Cells[7].Selected)
+                {
+                    FrmProduitStock formproduitstock = new FrmProduitStock();
+                    formproduitstock.modifierProduit = true;
+                    formproduitstock.modiferIdCommandeLines = (int)dgvStock.Rows[oneCell.RowIndex].Cells[0].Value;
+                    formproduitstock.modifierNomProduit = (string)dgvStock.Rows[oneCell.RowIndex].Cells[1].Value;
+                    formproduitstock.modiferCategorie = (string)dgvStock.Rows[oneCell.RowIndex].Cells[2].Value;
+                    formproduitstock.modiferQuantite = (int)dgvStock.Rows[oneCell.RowIndex].Cells[3].Value;
+                    formproduitstock.modiferUnite = (string)dgvStock.Rows[oneCell.RowIndex].Cells[4].Value;
+                    formproduitstock.modiferDate = (string)dgvStock.Rows[oneCell.RowIndex].Cells[5].Value;
+                    formproduitstock.ShowDialog();
+                    Actualizer();
+                }
                 //Clic sur supprimer 
                 if (dgvStock.Rows[e.RowIndex].Cells[6].Selected)
                 {
@@ -93,26 +107,7 @@ namespace Gestionnaire_de_stock_version_1._0
 
 
                 }
-                //Clic sur edit 
-                if (dgvStock.Rows[e.RowIndex].Cells[7].Selected)
-                {
-                    idProduitModifer = (int)dgvStock.Rows[oneCell.RowIndex].Cells[0].Value;
-                    nomProduitModifer = (string)dgvStock.Rows[oneCell.RowIndex].Cells[1].Value;
-                    categorieModifer= (string)dgvStock.Rows[oneCell.RowIndex].Cells[2].Value;
-                    quantiteModifer = (int)dgvStock.Rows[oneCell.RowIndex].Cells[3].Value;
-                    uniteModifer = (string)dgvStock.Rows[oneCell.RowIndex].Cells[4].Value;
-                    dateModifer = (string)dgvStock.Rows[oneCell.RowIndex].Cells[5].Value;
-                    FrmProduitStock formproduitstock = new FrmProduitStock();
-                    formproduitstock.modifierProduit = true;
-                    formproduitstock.modiferIdCommandeLines = idProduitModifer;
-                    formproduitstock.modifierNomProduit = nomProduitModifer;
-                    formproduitstock.modiferCategorie = categorieModifer;
-                    formproduitstock.modiferQuantite = quantiteModifer;
-                    formproduitstock.modiferUnite = uniteModifer;
-                    formproduitstock.modiferDate = dateModifer;
-                    formproduitstock.ShowDialog();
-                    Actualizer();
-                }
+                
             }
         }
     }

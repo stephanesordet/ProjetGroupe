@@ -27,7 +27,7 @@ namespace Gestionnaire_de_stock_version_1._0
             if (cboProduits.SelectedIndex != -1)
             {
                 Products produit = (Products)cboProduits.SelectedItem;
-                idproduit = (int)produit.id;
+                idproduit = (int)produit.Id;
                 this.Hide();
             }
             
@@ -82,7 +82,7 @@ namespace Gestionnaire_de_stock_version_1._0
                 cboProduits.Items.Clear();
 
                 MysqlConn.OpenDB();
-                List<Products> lisproduitsforcategorie = MysqlConn.ReadProductsForCategories(categoriesselectione.name);
+                List<Products> lisproduitsforcategorie = MysqlConn.ReadProductsForCategories(categoriesselectione.Name);
                 foreach (Products value in lisproduitsforcategorie)
                 {
                     cboProduits.Items.Add(value);

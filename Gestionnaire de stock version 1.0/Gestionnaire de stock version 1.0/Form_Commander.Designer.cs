@@ -78,7 +78,7 @@
             this.lblComande.Size = new System.Drawing.Size(193, 39);
             this.lblComande.TabIndex = 3;
             this.lblComande.Text = "Commande";
-            this.lblComande.Click += new System.EventHandler(this.lblComande_Click);
+
             // 
             // FrmCommande
             // 

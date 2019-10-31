@@ -25,19 +25,30 @@ namespace Gestionnaire_de_stock_version_1._0
             form_commander.Show();
             this.Hide();
         }
-
-        private void FrmMescommandes_Load(object sender, EventArgs e)
+        private void Actualizer()
         {
+            dgvCommandeEnCours.Rows.Clear();
             MysqlConn.OpenDB();
             listSupplier = MysqlConn.ReadCommandes();
-            int ligne = 1;
             foreach (CommandeLines value in listSupplier)
             {
-
-                dgvCommandeEnCours.Rows.Add(value.id, value.nameproduit, value.quantity, value.unities, "En cours", value.orderDate);
+                //Si la commande est pas arriver, status = 0
+                if (value.Status == 0)
+                {
+                    dgvCommandeEnCours.Rows.Add(value.Id, value.Nameproduit, value.Quantity, value.Unities, "En cours", value.OrderDate);
+                }
+                //Si la commande est arriver, status = 2
+                else
+                {
+                    dgvCommandeEnCours.Rows.Add(value.Id, value.Nameproduit, value.Quantity, value.Unities, "Commande arrivée", value.OrderDate);
+                }
 
             }
             MysqlConn.CloseDB();
+        }
+        private void FrmMescommandes_Load(object sender, EventArgs e)
+        {
+            Actualizer();
         }
 
         private void dgvCommandeEnCours_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -46,12 +57,18 @@ namespace Gestionnaire_de_stock_version_1._0
             {
                 if (dgvCommandeEnCours.Rows[e.RowIndex].Cells[4].Selected)
                 {
-                   int id = (int)dgvCommandeEnCours.Rows[oneCell.RowIndex].Cells[0].Value;
-                    MysqlConn.OpenDB();
-                    MysqlConn.UpdateStatus(id);
-                    MysqlConn.CloseDB();
-                    dgvCommandeEnCours.Rows.RemoveAt(oneCell.RowIndex);
+                    string statusdonne = (string)dgvCommandeEnCours.Rows[oneCell.RowIndex].Cells[4].Value;
 
+                    if (statusdonne == "En cours")
+                    {
+                        int id = (int)dgvCommandeEnCours.Rows[oneCell.RowIndex].Cells[0].Value;
+                        MysqlConn.OpenDB();
+                        MysqlConn.UpdateStatus(id);
+                        MysqlConn.CloseDB();
+                        Actualizer();
+
+
+                    }
                 }
             }
         }

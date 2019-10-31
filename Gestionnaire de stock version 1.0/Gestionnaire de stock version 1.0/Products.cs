@@ -8,10 +8,10 @@ namespace Gestionnaire_de_stock_version_1._0
 {
     public class Products
     {
-        public int id;
-        public string name;
-        public string categoriename;
-        public int idcategorie;
+        private int id;
+        private string name;
+        private string categoriename;
+        private int idcategorie;
 
         public Products(int idC, string namec)
         {
@@ -26,6 +26,50 @@ namespace Gestionnaire_de_stock_version_1._0
             idcategorie = idcategorieC;
         }
 
+        public int Id
+        {
+            get
+            {
+                return id;
+            }
+            set
+            {
+                id = value;
+            }
+        }
+        public string Name
+        {
+            get
+            {
+                return name;
+            }
+            set
+            {
+                name = value;
+            }
+        }
+        public string Categoriename
+        {
+            get
+            {
+                return categoriename;
+            }
+            set
+            {
+                categoriename = value;
+            }
+        }
+        public int Idcategorie
+        {
+            get
+            {
+                return idcategorie;
+            }
+            set
+            {
+                idcategorie = value;
+            }
+        }
 
         public override string ToString()
         {
