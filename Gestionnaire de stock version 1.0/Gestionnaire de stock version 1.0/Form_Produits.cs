@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -32,73 +33,82 @@ namespace Gestionnaire_de_stock_version_1._0
         {
             if (txtNom.Text != "")
             {
-                MysqlConn.OpenDB();
-                idproduitforname = 0;
-                //Verifier si le nom du produit existe deja 
-                List<Products> listIdProducts = MysqlConn.ReadIdProductsForName(txtNom.Text);
-                foreach (Products value in listIdProducts)
+                Controller controlle = new Controller();
+                int returne = controlle.characterController(txtNom.Text);
+                if (returne == 1)
                 {
-                    idproduitforname = (int)value.Id;
+                    MessageBox.Show("ERREUR");
                 }
-                MysqlConn.CloseDB();
-                
-                //Si le produit existe dans la base de donnee 
-                if (idproduitforname > 0)
-                {
-                    if (lstFournisseur.SelectedItem != null)
-                    {
-                        foreach (Supplier selecteditem in lstFournisseur.SelectedItems)
-                        {
-                            MysqlConn.OpenDB();
-                            Supplier fournisseur = (Supplier)selecteditem;
-                            MysqlConn.InsertProductsSuppliers(idproduitforname, fournisseur.Id);
-                            MysqlConn.CloseDB();
-                        }
-                        MessageBox.Show("Votre produit a été associé avec un ou plusieurs fournisseurs");
-                    }
-                    else
-                    {
-                        MessageBox.Show("Votre produit existe déjà, vous devez l'associer avec un ou plusieurs fournisseurs ");
-                    }
-
-                }
-                //Si le produit n'existe pas sur la base de donnee 
                 else
                 {
-                    if (cboCategorie.SelectedItem != null)
+                    MysqlConn.OpenDB();
+                    idproduitforname = 0;
+                    //Verifier si le nom du produit existe deja 
+                    List<Products> listIdProducts = MysqlConn.ReadIdProductsForName(txtNom.Text);
+                    foreach (Products value in listIdProducts)
                     {
-                        Categorie categories = (Categorie)cboCategorie.SelectedItem;
-                        //L'utilisateur a l'option de ajouter un produit et l'associer avec un ou plusieurs fournisseur 
+                        idproduitforname = (int)value.Id;
+                    }
+                    MysqlConn.CloseDB();
+
+                    //Si le produit existe dans la base de donnee 
+                    if (idproduitforname > 0)
+                    {
                         if (lstFournisseur.SelectedItem != null)
                         {
-                            MysqlConn.OpenDB();
-                            long idProduit = MysqlConn.InsertProducts(txtNom.Text, categories.Id);
-                            MysqlConn.CloseDB();
                             foreach (Supplier selecteditem in lstFournisseur.SelectedItems)
                             {
                                 MysqlConn.OpenDB();
                                 Supplier fournisseur = (Supplier)selecteditem;
-                                MysqlConn.InsertProductsSuppliers(idProduit, fournisseur.Id);
-                                MessageBox.Show("Votre produit a été ajouté et associé avec un ou plusieurs fournisseurs");
+                                MysqlConn.InsertProductsSuppliers(idproduitforname, fournisseur.Id);
+                                MysqlConn.CloseDB();
+                            }
+                            MessageBox.Show("Votre produit a été associé avec un ou plusieurs fournisseurs");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Votre produit existe déjà, vous devez l'associer avec un ou plusieurs fournisseurs ");
+                        }
+
+                    }
+                    //Si le produit n'existe pas sur la base de donnee 
+                    else
+                    {
+                        if (cboCategorie.SelectedItem != null)
+                        {
+                            Categorie categories = (Categorie)cboCategorie.SelectedItem;
+                            //L'utilisateur a l'option de ajouter un produit et l'associer avec un ou plusieurs fournisseur 
+                            if (lstFournisseur.SelectedItem != null)
+                            {
+                                MysqlConn.OpenDB();
+                                long idProduit = MysqlConn.InsertProducts(txtNom.Text, categories.Id);
+                                MysqlConn.CloseDB();
+                                foreach (Supplier selecteditem in lstFournisseur.SelectedItems)
+                                {
+                                    MysqlConn.OpenDB();
+                                    Supplier fournisseur = (Supplier)selecteditem;
+                                    MysqlConn.InsertProductsSuppliers(idProduit, fournisseur.Id);
+                                    MessageBox.Show("Votre produit a été ajouté et associé avec un ou plusieurs fournisseurs");
+                                    MysqlConn.CloseDB();
+                                }
+                            }
+                            //Ajouter un produit sans l'associer à un fournisseur  
+                            else
+                            {
+                                MysqlConn.OpenDB();
+                                MysqlConn.InsertProducts(txtNom.Text, categories.Id);
+                                MessageBox.Show("Votre produit a été ajouté mais n'a pas été associé avec un fournisseurs");
                                 MysqlConn.CloseDB();
                             }
                         }
-                        //Ajouter un produit sans l'associer à un fournisseur  
                         else
                         {
-                            MysqlConn.OpenDB();
-                            MysqlConn.InsertProducts(txtNom.Text, categories.Id);
-                            MessageBox.Show("Votre produit a été ajouté mais n'a pas été associé avec un fournisseurs");
-                            MysqlConn.CloseDB();
+                            MessageBox.Show("Sélectionner de nouveau une catégorie");
                         }
                     }
-                    else
-                    {
-                        MessageBox.Show("Sélectionner de nouveau une catégorie");
-                    }
+                    txtNom.Text = "";
+                    Lirecategorie();
                 }
-                txtNom.Text = "";
-                Lirecategorie();
             }
             else
             {
@@ -146,7 +156,12 @@ namespace Gestionnaire_de_stock_version_1._0
             {
                 cboCategorie.Enabled = true;
                 Lirecategorie();
+
             }
+        }
+        private void txtNom_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsLetter(e.KeyChar) && !char.IsDigit(e.KeyChar);
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
