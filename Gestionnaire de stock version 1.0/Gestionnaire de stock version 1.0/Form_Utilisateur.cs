@@ -26,7 +26,51 @@ namespace Gestionnaire_de_stock_version_1._0
 
         private void cmdvalider_Click(object sender, EventArgs e)
         {
+            ConnectionDB addUser = new ConnectionDB();
 
+            int npa = 0;
+
+
+            //Déclaration de user
+            User newUser;
+
+            if (IsValidEmail(txtEmail.Text))
+            {
+                try
+                {
+                    //Conversion de NPA en int
+                    int.TryParse(txtNpa.Text, out npa);
+
+
+                }
+                catch
+                {
+                    MessageBox.Show("NPA non valide");
+                }
+
+                newUser = new User(txtNom.Text, txtPrenom.Text, txtRestaurant.Text, txtVille.Text, npa, txtRue.Text, txtEmail.Text);
+
+                addUser.AddUser(newUser);
+                
+                MessageBox.Show("Utilisateur ajouté");
+            }
+            else
+            {
+                MessageBox.Show("Email invalide");
+
+            }
+        }
+        bool IsValidEmail(string email)
+        {
+            try
+            {
+                var addr = new System.Net.Mail.MailAddress(email);
+                return addr.Address == email;
+            }
+            catch
+            {
+                return false;
+            }
         }
     }
 }
