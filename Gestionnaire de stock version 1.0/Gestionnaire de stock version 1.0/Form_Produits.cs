@@ -33,11 +33,11 @@ namespace Gestionnaire_de_stock_version_1._0
         {
             if (txtNom.Text != "")
             {
-                Controller controlle = new Controller();
-                int returne = controlle.characterController(txtNom.Text);
-                if (returne == 1)
+
+                int returneCaract = Controller.characterController(txtNom.Text);
+                if (returneCaract == 1)
                 {
-                    MessageBox.Show("ERREUR");
+                    MessageBox.Show("Erreur! Vous avez entrée un caractér special");
                 }
                 else
                 {

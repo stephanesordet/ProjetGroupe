@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace Gestionnaire_de_stock_version_1._0
 {
     public class Controller
     {
-        public int characterController(string nom)
+        public static int characterController(string nom)
         {
             if(nom.IndexOf("'") > 0)
             {
@@ -16,7 +17,7 @@ namespace Gestionnaire_de_stock_version_1._0
             }
             if (nom.IndexOf("@") > 0)
             {
-                return 1;
+                return 11;
             }
             if (nom.IndexOf("%") > 0)
             {
@@ -28,13 +29,33 @@ namespace Gestionnaire_de_stock_version_1._0
             }
             
         }
-        public int numberControl(int numero)
+        public static bool numberController(string Nombre)
         {
-            return;
+            try
+            {
+                int.Parse(Nombre);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
-        public int stringControl(int numero)
+        public static bool DateController(string date)
         {
-            return;
+            if (date == "")
+            {
+                return true;
+            }
+            else
+            {
+                string motif = @"^\(?([0-9]{2})\)?[.]?([0-9]{2})[.]?([0-9]{4})$";
+                bool returnin = Regex.IsMatch(date, motif);
+                return Regex.IsMatch(date, motif);
+            }
+
         }
     }
+ 
+  
 }

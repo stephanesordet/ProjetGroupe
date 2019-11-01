@@ -89,12 +89,20 @@ namespace Gestionnaire_de_stock_version_1._0
             //Si tous les champs du formulaire sont remplissent
             if (cboFournisseur.SelectedItem != null && cboProduit.SelectedItem != null && cboUnite.SelectedItem != null && txtQuantite.Text != "")
             {
-                unitie = (Unities)cboUnite.SelectedItem;
-                product = (Products)cboProduit.SelectedItem;
-                string quantite = txtQuantite.Text;
-                //Add le produit dans le tableau commande 
-                dgvcommande.Rows.Add(product, quantite, unitie);
-                cboFournisseur.Enabled = false;
+                bool returneint = Controller.numberController(txtQuantite.Text);
+                if (returneint == false)
+                {
+                    MessageBox.Show("Erreur! entrer une numero pour la quantité");
+                }
+                else
+                {
+                    unitie = (Unities)cboUnite.SelectedItem;
+                    product = (Products)cboProduit.SelectedItem;
+                    string quantite = txtQuantite.Text;
+                    //Add le produit dans le tableau commande 
+                    dgvcommande.Rows.Add(product, quantite, unitie);
+                    cboFournisseur.Enabled = false;
+                }
             }
             else
             {

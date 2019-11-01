@@ -164,62 +164,84 @@ namespace Gestionnaire_de_stock_version_1._0
         {
             if (txtnomproduit.Text != "" && cboCategorie.SelectedItem != null && txtQuantite.Text != "" && cboUnites.SelectedItem != null)
             {
-
-                //Modification d'un produit 
-                if (modifierProduit == true)
+                int returnCarac = Controller.characterController(txtnomproduit.Text);
+                bool returnInt = Controller.numberController(txtQuantite.Text);
+                bool returnDate = Controller.DateController(txtDatePeremption.Text);
+                if (returnCarac == 1)
                 {
-                    //Recuperer la unite selectione
-                    Unities unitesdata = (Unities)cboUnites.SelectedItem;
-                    Categorie categoriedate = (Categorie)cboCategorie.SelectedItem;
-                    //Si il a modifier le nom du produit 
-                    if (txtnomproduit.Text != modifierNomProduit || valuechangecmb != categoriedate.Name.ToString())
-                    {
-                        MysqlConn.OpenDB();
-                        MysqlConn.UpdateProducts(modifierIdProduit, txtnomproduit.Text, categoriedate.Id);
-                        MysqlConn.CloseDB();
-                    }
-                    MysqlConn.OpenDB();
-                    MysqlConn.UpdateCommandeLines(modiferIdCommandeLines, int.Parse(txtQuantite.Text), txtDatePeremption.Text, unitesdata.Id);
-                    MysqlConn.CloseDB();
-                    this.Hide();
+                    MessageBox.Show("Erreur! Vous avez entrée un caractér special");
                 }
-                else
+                if (returnInt == false)
                 {
-                    //Verifie si le nom du produit existe deja
-                    MysqlConn.OpenDB();
-                    List<Products> listIdProducts = MysqlConn.ReadIdProductsForName(txtnomproduit.Text);
-                    foreach (Products value in listIdProducts)
-                    {
-                        idproduitforname = (int)value.Id;
-                    }
-                    MysqlConn.CloseDB();
-                    //Recuperer la unite selectione
-                    Unities unitesdata = (Unities)cboUnites.SelectedItem;
-                    int quantityint = int.Parse(txtQuantite.Text);
+                    MessageBox.Show("Erreur! Entrer un numero pour la quantité");
+                }
+                if(returnDate == false)
+                {
+                    MessageBox.Show("Erreur! Entrer le bon format pour la date xx.xx.xxxx");
+                }
+                if(returnInt == true && returnCarac == 0 && returnDate==true)
+                {
 
-                    //Si le produit existe dans la base de donnee 
-                    if (idproduitforname > 0)
+                    //Modification d'un produit 
+                    if (modifierProduit == true)
                     {
+                        //Recuperer la unite selectione
+                        Unities unitesdata = (Unities)cboUnites.SelectedItem;
+                        Categorie categoriedate = (Categorie)cboCategorie.SelectedItem;
+                        //Si il a modifier le nom du produit 
+                        if (txtnomproduit.Text != modifierNomProduit || valuechangecmb != categoriedate.Name.ToString())
+                        {
+                            MysqlConn.OpenDB();
+                            MysqlConn.UpdateProducts(modifierIdProduit, txtnomproduit.Text, categoriedate.Id);
+                            MysqlConn.CloseDB();
+                        }
                         MysqlConn.OpenDB();
-                        MysqlConn.InsertProduisHasCommandeLine(quantityint, idproduitforname, unitesdata.Id, txtDatePeremption.Text, 1);
+                        MysqlConn.UpdateCommandeLines(modiferIdCommandeLines, int.Parse(txtQuantite.Text), txtDatePeremption.Text, unitesdata.Id);
                         MysqlConn.CloseDB();
-                        MessageBox.Show("Votre produit a été ajouté dans le stock");
+                        this.Hide();
                     }
-                    //Si le produit n'existe pas
                     else
                     {
-                        Categorie categoriedate = (Categorie)cboCategorie.SelectedItem;
+                        //Verifie si le nom du produit existe deja
                         MysqlConn.OpenDB();
-                        //Ajouter le produit dans la base
-                        long idproduitnew = MysqlConn.InsertProducts(txtnomproduit.Text, categoriedate.Id);
+                        List<Products> listIdProducts = MysqlConn.ReadIdProductsForName(txtnomproduit.Text);
+                        foreach (Products value in listIdProducts)
+                        {
+                            idproduitforname = (int)value.Id;
+                        }
                         MysqlConn.CloseDB();
-                        MysqlConn.OpenDB();
-                        //Ajouter en stock le nouveau produit
-                        MysqlConn.InsertProduisHasCommandeLine(quantityint, (int)idproduitnew, unitesdata.Id, txtDatePeremption.Text, 1);
-                        MysqlConn.CloseDB();
-                        MessageBox.Show("Votre nouveau produit a été ajouté dans le stock et a été sauvegardé. Vous pouvez le reutiliser pour l'associer avec un ou plusieurs fournisseurs");
+                        //Recuperer la unite selectione
+                        Unities unitesdata = (Unities)cboUnites.SelectedItem;
+                        int quantityint = int.Parse(txtQuantite.Text);
+
+                        //Si le produit existe dans la base de donnee 
+                        if (idproduitforname > 0)
+                        {
+                            MysqlConn.OpenDB();
+                            MysqlConn.InsertProduisHasCommandeLine(quantityint, idproduitforname, unitesdata.Id, txtDatePeremption.Text, 1);
+                            MysqlConn.CloseDB();
+                            MessageBox.Show("Votre produit a été ajouté dans le stock");
+                        }
+                        //Si le produit n'existe pas
+                        else
+                        {
+                            Categorie categoriedate = (Categorie)cboCategorie.SelectedItem;
+                            MysqlConn.OpenDB();
+                            //Ajouter le produit dans la base
+                            long idproduitnew = MysqlConn.InsertProducts(txtnomproduit.Text, categoriedate.Id);
+                            MysqlConn.CloseDB();
+                            MysqlConn.OpenDB();
+                            //Ajouter en stock le nouveau produit
+                            MysqlConn.InsertProduisHasCommandeLine(quantityint, (int)idproduitnew, unitesdata.Id, txtDatePeremption.Text, 1);
+                            MysqlConn.CloseDB();
+                            MessageBox.Show("Votre nouveau produit a été ajouté dans le stock et a été sauvegardé. Vous pouvez le reutiliser pour l'associer avec un ou plusieurs fournisseurs");
+                        }
                     }
                 }
+                //Vide le formulaire 
+                txtDatePeremption.Text = "";
+                txtnomproduit.Text = "";
+                txtQuantite.Text = "";
             }
 
 

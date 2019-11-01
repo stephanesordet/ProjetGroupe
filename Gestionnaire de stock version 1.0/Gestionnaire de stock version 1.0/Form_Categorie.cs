@@ -24,9 +24,17 @@ namespace Gestionnaire_de_stock_version_1._0
             //Inserer la categorie dans la basse 
             if(txtcategorie.Text != "")
             {
-                MysqlConn.OpenDB();
-                MysqlConn.InsertCategorie(txtcategorie.Text);
-                MysqlConn.CloseDB();
+                int returnCarac = Controller.characterController(txtcategorie.Text);
+                if (returnCarac == 1)
+                {
+                    MessageBox.Show("Erreur! Vous avez entrée un caractér special");
+                }
+                else
+                {
+                    MysqlConn.OpenDB();
+                    MysqlConn.InsertCategorie(txtcategorie.Text);
+                    MysqlConn.CloseDB();
+                }
             }
             else
             {
