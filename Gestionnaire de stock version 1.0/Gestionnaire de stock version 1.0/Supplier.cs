@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Gestionnaire_de_stock_version_1._0
-{
+{//Création de la classe Supplier
     class Supplier
     {
 
@@ -19,6 +19,7 @@ namespace Gestionnaire_de_stock_version_1._0
         public string street;
         public string email;
 
+        //Constructeur pour créer un nouveau Supplier 
         public Supplier(string genderC, string firstNameC, string lastNameC, string companyC, int npaC, string cityC, string streetC, string emailC)
         {
             gender = genderC;
@@ -31,6 +32,7 @@ namespace Gestionnaire_de_stock_version_1._0
             email = emailC;
            
         }
+        //Construceur pour récupérer les infos du Supplier 
         public Supplier(string genderC, int idC, string firstNameC, string lastNameC, string emailC)
         {
             gender = genderC;
