@@ -123,17 +123,55 @@ namespace Gestionnaire_de_stock_version_1._0
                 MySqlCommand cmd = connection.CreateCommand();
 
                 // Requête SQL
-                cmd.CommandText = "INSERT INTO suppliers (Firstname, Lastname, Company, City, NPA, Street, Email) VALUES (@Firstname, @Lastname, @Company, @City, @NPA, @Street, @Email)";
+                cmd.CommandText = "INSERT INTO suppliers (Sexe, Firstname, Lastname, Company, City, NPA, Street, Email) VALUES (@Sexe, @Firstname, @Lastname, @Company, @City, @NPA, @Street, @Email)";
 
                 // utilisation de l'objet contact passé en paramètre
-                
-                cmd.Parameters.AddWithValue("@Firstname",supplier.FirstName );
-                cmd.Parameters.AddWithValue("@Lastname", supplier.LastName);
-                cmd.Parameters.AddWithValue("@Company", supplier.Company);
-                cmd.Parameters.AddWithValue("@City", supplier.City);
-                cmd.Parameters.AddWithValue("@NPA", supplier.Npa);
-                cmd.Parameters.AddWithValue("@Street", supplier.Street);
-                cmd.Parameters.AddWithValue("@Email", supplier.Email);
+
+                cmd.Parameters.AddWithValue("@Sexe", supplier.gender);
+                cmd.Parameters.AddWithValue("@Firstname",supplier.firstName );
+                cmd.Parameters.AddWithValue("@Lastname", supplier.lastName);
+                cmd.Parameters.AddWithValue("@Company", supplier.company);
+                cmd.Parameters.AddWithValue("@City", supplier.city);
+                cmd.Parameters.AddWithValue("@NPA", supplier.npa);
+                cmd.Parameters.AddWithValue("@Street", supplier.street);
+                cmd.Parameters.AddWithValue("@Email", supplier.email);
+
+                // Exécution de la commande SQL
+                cmd.ExecuteNonQuery();
+
+                // Fermeture de la connexion
+                connection.Close();
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.ToString());
+                // Gestion des erreurs :
+                // Possibilité de créer un Logger pour les exceptions SQL reçus
+                // Possibilité de créer une méthode avec un booléan en retour pour savoir si le contact à été ajouté correctement.
+            }
+        }
+        public void AddUser(User user)
+        {
+            try
+            {
+                // Ouverture de la connexion SQL
+                connection.Open();
+
+                // Création d'une commande SQL en fonction de l'objet connection
+                MySqlCommand cmd = connection.CreateCommand();
+
+                // Requête SQL
+                cmd.CommandText = "INSERT INTO restaurants (LastName, FirstName, NameRestaurant, City, NPA, Street, Email) VALUES (@LastName, @FirstName, @NameRestaurant, @City, @NPA, @Street, @Email)";
+
+                // utilisation de l'objet contact passé en paramètre
+
+                cmd.Parameters.AddWithValue("@Lastname", user.LastName);
+                cmd.Parameters.AddWithValue("@Name", user.FirstName);
+                cmd.Parameters.AddWithValue("@NameRestaurant", user.NameRestaurant);
+                cmd.Parameters.AddWithValue("@City", user.City);
+                cmd.Parameters.AddWithValue("@NPA", user.Npa);
+                cmd.Parameters.AddWithValue("@Street", user.Street);
+                cmd.Parameters.AddWithValue("@Email", user.Email);
 
                 // Exécution de la commande SQL
                 cmd.ExecuteNonQuery();
@@ -234,16 +272,17 @@ namespace Gestionnaire_de_stock_version_1._0
         public List<Supplier> ReadSuplliers()
         {
             MySqlCommand cmd = connection.CreateCommand();
-            cmd.CommandText = "SELECT Firstname,Lastname,id,email FROM suppliers";
+            cmd.CommandText = "SELECT Sexe,Firstname,Lastname,id,email FROM suppliers";
             List<Supplier> listData = new List<Supplier>();
             MySqlDataReader dataReader1 = cmd.ExecuteReader();
             while (dataReader1.Read())
-            {               
+            {
+                string dataSexe = dataReader1["Sexe"].ToString();
                 string dataFirstanme = dataReader1["Firstname"].ToString();
                 string dataLastnme = dataReader1["Lastname"].ToString();
                 int dataId = (int)dataReader1["id"];
                 string dataemail = dataReader1["email"].ToString();
-                Supplier fournisseurs = new Supplier(dataId, dataFirstanme, dataLastnme, dataemail);
+                Supplier fournisseurs = new Supplier(dataSexe, dataId, dataFirstanme, dataLastnme, dataemail);
                 listData.Add(fournisseurs);
             }
 

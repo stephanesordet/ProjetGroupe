@@ -15,8 +15,8 @@ namespace Gestionnaire_de_stock_version_1._0
     {
 
         ConnectionDB MysqlConn = new ConnectionDB();
-        Image imagedelet = Image.FromFile("P:/Projet (binôme)/Gestionnaire de stock version1.0/Gestionnaire de stock version 1.0/delete (1).png");
-        Image imageedit = Image.FromFile("P:/Projet (binôme)/Gestionnaire de stock version1.0/Gestionnaire de stock version 1.0/edit.png");
+        Image imagedelet = Image.FromFile("C:/2ème_année/Projet (binôme)/Gestionnaire de stock version 1.0/delete (1).png");
+        Image imageedit = Image.FromFile("C:/2ème_année/Projet (binôme)/Gestionnaire de stock version 1.0/edit.png");
 
         public bool modiferValide = false;
         public int idProduitModifer;
