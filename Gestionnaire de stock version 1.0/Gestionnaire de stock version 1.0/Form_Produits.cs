@@ -33,7 +33,7 @@ namespace Gestionnaire_de_stock_version_1._0
         {
             if (txtNom.Text != "")
             {
-
+                //Controler le text box
                 int returneCaract = Controller.characterController(txtNom.Text);
                 if (returneCaract == 1)
                 {
@@ -67,7 +67,7 @@ namespace Gestionnaire_de_stock_version_1._0
                         }
                         else
                         {
-                            MessageBox.Show("Votre produit existe déjà, vous devez l'associer avec un ou plusieurs fournisseurs ");
+                            MessageBox.Show("Votre produit existe déjà, vous pouvez l'associer avec un ou plusieurs fournisseurs ");
                         }
 
                     }
@@ -81,8 +81,10 @@ namespace Gestionnaire_de_stock_version_1._0
                             if (lstFournisseur.SelectedItem != null)
                             {
                                 MysqlConn.OpenDB();
+                                //Recuperer le Id du nouveau produit 
                                 long idProduit = MysqlConn.InsertProducts(txtNom.Text, categories.Id);
                                 MysqlConn.CloseDB();
+                                //parcourir les fournisseurs sélectionnés
                                 foreach (Supplier selecteditem in lstFournisseur.SelectedItems)
                                 {
                                     MysqlConn.OpenDB();
@@ -103,11 +105,13 @@ namespace Gestionnaire_de_stock_version_1._0
                         }
                         else
                         {
-                            MessageBox.Show("Sélectionner de nouveau une catégorie");
+                            MessageBox.Show("Sélectionner une catégorie");
                         }
                     }
+                    //Vider le formulaire
                     txtNom.Text = "";
-                    Lirecategorie();
+                    cboCategorie.Text = "";
+                    ReadCategorie();
                 }
             }
             else
@@ -119,22 +123,23 @@ namespace Gestionnaire_de_stock_version_1._0
 
         private void FrmProduits_Load(object sender, EventArgs e)
         {
+            //Selectionner plusieurs fournisseurs
             lstFournisseur.SelectionMode = SelectionMode.MultiSimple;
             MysqlConn.OpenDB();
+            //Lire la list des fournisseurs 
             List<Supplier> listSupplier = MysqlConn.ReadSuplliers();
             foreach (Supplier value in listSupplier)
             {
                 lstFournisseur.Items.Add(value);
             }
             MysqlConn.CloseDB();
-            //Read list categorie 
-            Lirecategorie();
+            ReadCategorie();
 
         }
 
-        private void Lirecategorie()
+        private void ReadCategorie()
         {
-            
+            //Read list categorie
             cboCategorie.Items.Clear();
             MysqlConn.OpenDB();
             listCategories = MysqlConn.ReadCategories();
@@ -152,16 +157,12 @@ namespace Gestionnaire_de_stock_version_1._0
             {
 
             }
+            //Si l'utilisateur a effacé le nom du produit 
             else
             {
                 cboCategorie.Enabled = true;
-                Lirecategorie();
-
+                ReadCategorie();
             }
-        }
-        private void txtNom_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            e.Handled = !char.IsLetter(e.KeyChar) && !char.IsDigit(e.KeyChar);
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)

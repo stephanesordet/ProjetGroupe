@@ -18,9 +18,8 @@ namespace Gestionnaire_de_stock_version_1._0
         List<Unities> listUnities;
         int idproduitforname;
         int idcategorie = 0;
-        int clikloupe = 0;
         
-        //Recuperer les informations du produit selectionne pour modifer 
+        //Recuperer les informations du produit selectionne dans stock pour le modifer 
         public bool modifierProduit = false;
         public int modifierIdProduit;
         public int modiferIdCommandeLines;
@@ -35,20 +34,23 @@ namespace Gestionnaire_de_stock_version_1._0
         {
             InitializeComponent();
         }
-
-
-        private void FrmProduitStock_Load(object sender, EventArgs e)
+        private void readCategorie()
         {
-            MysqlConn.OpenDB();
             //Lire les categories
+            cboCategorie.Items.Clear();
+            MysqlConn.OpenDB();
             listCategories = MysqlConn.ReadCategories();
             foreach (Categorie value in listCategories)
             {
-                //Add categories
                 cboCategorie.Items.Add(value);
             }
 
             MysqlConn.CloseDB();
+        }
+
+        private void FrmProduitStock_Load(object sender, EventArgs e)
+        {
+            readCategorie();
             //Lire les unites
             MysqlConn.OpenDB();
             listUnities = MysqlConn.ReadUnities();
@@ -62,7 +64,7 @@ namespace Gestionnaire_de_stock_version_1._0
             //Pour un produit modifiable 
             if(modifierProduit == true)
             {
-                lblProduitStcok.Text = "     MODIFER LE PRODUIT";
+                lblProduitStcok.Text = "   MODIFER LE PRODUIT";
                 picLoupProuduits.Visible = false;
                 txtnomproduit.Text = modifierNomProduit;
 
@@ -77,7 +79,8 @@ namespace Gestionnaire_de_stock_version_1._0
             
                 
                 txtDatePeremption.Text = modiferDate;
-                //Selectioner la categorie 
+               
+                //Chercher la categorie à modier dans la combo Box 
                 foreach (object item in cboCategorie.Items)
                 {
                     if(item.ToString() == modiferCategorie)
@@ -87,19 +90,16 @@ namespace Gestionnaire_de_stock_version_1._0
                     }
 
                 }
-                //Selectioner la unite
+                //Chercher l'unite à modier dans la combo Box 
                 foreach (object item in cboUnites.Items)
                 {
                     if (item.ToString() == modiferUnite)
                     {
                         cboUnites.SelectedItem = item;
                     }
-
                 }
                 txtQuantite.Text = modiferQuantite.ToString();
                 picReturne.Visible = false;
-
-                
             }
         }
 
@@ -113,7 +113,6 @@ namespace Gestionnaire_de_stock_version_1._0
             //Si un produit a étè selectionée 
             if (idproduct != 0)
             {
-                clikloupe = 1;
                 //Lire le Produit
                 MysqlConn.OpenDB();
                 //Lire le produit du id selectionne 
@@ -122,6 +121,7 @@ namespace Gestionnaire_de_stock_version_1._0
                 {
                     txtnomproduit.Text = value.Name.ToString();
                     cboCategorie.Items.Clear();
+                    //Afficher dans la cbocategorie la categorie du produit
                     cboCategorie.Items.Add(value.Categoriename);
                     cboCategorie.SelectedIndex = 0;
                     idcategorie = value.Idcategorie;
@@ -144,18 +144,11 @@ namespace Gestionnaire_de_stock_version_1._0
             {
 
             }
+            //Si l'utilisateur à efface le nom du produit 
             else
             {
                 cboCategorie.Enabled = true;
-                cboCategorie.Items.Clear();
-                MysqlConn.OpenDB();
-                List<Categorie> listCategories = MysqlConn.ReadCategories();
-                foreach (Categorie value in listCategories)
-                {
-                    cboCategorie.Items.Add(value);
-                }
-
-                MysqlConn.CloseDB();
+                readCategorie();
             }
         }
 
@@ -164,9 +157,11 @@ namespace Gestionnaire_de_stock_version_1._0
         {
             if (txtnomproduit.Text != "" && cboCategorie.SelectedItem != null && txtQuantite.Text != "" && cboUnites.SelectedItem != null)
             {
+                //Controler les text Box 
                 int returnCarac = Controller.characterController(txtnomproduit.Text);
                 bool returnInt = Controller.numberController(txtQuantite.Text);
                 bool returnDate = Controller.DateController(txtDatePeremption.Text);
+
                 if (returnCarac == 1)
                 {
                     MessageBox.Show("Erreur! Vous avez entrée un caractér special");
@@ -179,16 +174,17 @@ namespace Gestionnaire_de_stock_version_1._0
                 {
                     MessageBox.Show("Erreur! Entrer le bon format pour la date xx.xx.xxxx");
                 }
+
                 if(returnInt == true && returnCarac == 0 && returnDate==true)
                 {
 
-                    //Modification d'un produit 
+                    //-------------------------Modification d'un produit depuis stock------------------------------ 
                     if (modifierProduit == true)
                     {
-                        //Recuperer la unite selectione
+                        //Recuperer l'unite selectione
                         Unities unitesdata = (Unities)cboUnites.SelectedItem;
                         Categorie categoriedate = (Categorie)cboCategorie.SelectedItem;
-                        //Si il a modifier le nom du produit 
+                        //Si l'utilisateur a modifiée le nom du produit 
                         if (txtnomproduit.Text != modifierNomProduit || valuechangecmb != categoriedate.Name.ToString())
                         {
                             MysqlConn.OpenDB();
@@ -198,8 +194,10 @@ namespace Gestionnaire_de_stock_version_1._0
                         MysqlConn.OpenDB();
                         MysqlConn.UpdateCommandeLines(modiferIdCommandeLines, int.Parse(txtQuantite.Text), txtDatePeremption.Text, unitesdata.Id);
                         MysqlConn.CloseDB();
+                        //Fermer le formulaire 
                         this.Hide();
                     }
+                    //---------------------------Add um produit dans stock---------------------------------------------------
                     else
                     {
                         //Verifie si le nom du produit existe deja
@@ -210,7 +208,7 @@ namespace Gestionnaire_de_stock_version_1._0
                             idproduitforname = (int)value.Id;
                         }
                         MysqlConn.CloseDB();
-                        //Recuperer la unite selectione
+                        //Recuperer l'unite selectione
                         Unities unitesdata = (Unities)cboUnites.SelectedItem;
                         int quantityint = int.Parse(txtQuantite.Text);
 
@@ -237,20 +235,20 @@ namespace Gestionnaire_de_stock_version_1._0
                             MessageBox.Show("Votre nouveau produit a été ajouté dans le stock et a été sauvegardé. Vous pouvez le reutiliser pour l'associer avec un ou plusieurs fournisseurs");
                         }
                     }
+                    //Vide le formulaire 
+                    txtDatePeremption.Text = "";
+                    txtnomproduit.Text = "";
+                    txtQuantite.Text = "";
+                    cboCategorie.Text = "";
                 }
-                //Vide le formulaire 
-                txtDatePeremption.Text = "";
-                txtnomproduit.Text = "";
-                txtQuantite.Text = "";
+               
             }
-
-
+            //Si il a des champs pas remplir  
             else
             {
                 MessageBox.Show("Remplir tous les champs obligatoires");
             }
         }
-
         private void PicReturne_Click_1(object sender, EventArgs e)
         {
             FrmStock formstock = new FrmStock();

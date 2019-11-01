@@ -79,7 +79,8 @@ namespace Gestionnaire_de_stock_version_1._0
         /// <param name="id">Id de la commande</param>
         public void UpdateStatus(int id)
         {
-            string updatestatus = "UPDATE CommandeLines SET Status = 2 WHERE id =" + id + ";";
+            string thisDay = System.DateTime.Now.ToString("dd/MM/yyyy");
+            string updatestatus = "UPDATE CommandeLines SET Status = 2, ArrivalDate = '"+thisDay+"' WHERE id =" + id + ";";
             MySqlCommand cmd = new MySqlCommand(updatestatus, connection);
             cmd.ExecuteNonQuery();
         }
@@ -448,7 +449,7 @@ namespace Gestionnaire_de_stock_version_1._0
         public List<CommandeLines> ReadCommandes()
         {
             MySqlCommand cmd = connection.CreateCommand();
-            cmd.CommandText = "SELECT commandelines.id, commandelines.OrderDate, products.name AS Produit, unities.Name AS Unitie, categories.name AS categorie, commandelines.status AS status, commandelines.Quantity, commandelines.Peremption FROM commandelines inner JOIN products ON commandelines.Products_id = products.id inner JOIN suppliers ON commandelines.Suppliers_id = suppliers.id INNER JOIN categories ON products.Categories_id = categories.id INNER JOIN unities ON commandelines.Unities_id = unities.id WHERE commandelines.Status = 0  OR commandelines.Status = 2 ORDER BY DATE(commandelines.OrderDate);";
+            cmd.CommandText = "SELECT commandelines.id, commandelines.OrderDate,commandelines.ArrivalDate, products.name AS Produit, unities.Name AS Unitie, categories.name AS categorie, commandelines.status AS status, commandelines.Quantity, commandelines.Peremption FROM commandelines inner JOIN products ON commandelines.Products_id = products.id inner JOIN suppliers ON commandelines.Suppliers_id = suppliers.id INNER JOIN categories ON products.Categories_id = categories.id INNER JOIN unities ON commandelines.Unities_id = unities.id WHERE commandelines.Status = 0  OR commandelines.Status = 2 ORDER BY DATE(commandelines.OrderDate);";
             List<CommandeLines> list = new List<CommandeLines>();
             MySqlDataReader dataReader = cmd.ExecuteReader();
             while (dataReader.Read())
@@ -459,7 +460,8 @@ namespace Gestionnaire_de_stock_version_1._0
                 int quantity = (int)dataReader["Quantity"];
                 string orderday = dataReader["OrderDate"].ToString();
                 int status = (int)dataReader["status"];
-                CommandeLines dataUnities = new CommandeLines(id, nameproduit, unities, quantity, orderday, status);
+                string arrivaldate = dataReader["ArrivalDate"].ToString();
+                CommandeLines dataUnities = new CommandeLines(id, nameproduit, unities, quantity, orderday, status, arrivaldate);
                 list.Add(dataUnities);
             }
 

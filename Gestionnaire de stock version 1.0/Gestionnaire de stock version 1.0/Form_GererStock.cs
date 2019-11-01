@@ -49,7 +49,6 @@ namespace Gestionnaire_de_stock_version_1._0
             MysqlConn.CloseDB();
 
         }
-
         private void FrmGererStock_Load(object sender, EventArgs e)
         {
             Actualizer();
@@ -65,10 +64,7 @@ namespace Gestionnaire_de_stock_version_1._0
             //Add column header
             dgvStock.Columns.Add(imgedit);
           
-           
-
         }
-
         private void DgvStock_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             foreach (DataGridViewCell oneCell in dgvStock.SelectedCells)
@@ -77,6 +73,7 @@ namespace Gestionnaire_de_stock_version_1._0
                 if (dgvStock.Rows[e.RowIndex].Cells[7].Selected)
                 {
                     FrmProduitStock formproduitstock = new FrmProduitStock();
+                    //Envoyer les informations du produit selectionnée dans le formulaire produitStock
                     formproduitstock.modifierProduit = true;
                     formproduitstock.modiferIdCommandeLines = (int)dgvStock.Rows[oneCell.RowIndex].Cells[0].Value;
                     formproduitstock.modifierNomProduit = (string)dgvStock.Rows[oneCell.RowIndex].Cells[1].Value;
@@ -104,10 +101,7 @@ namespace Gestionnaire_de_stock_version_1._0
                     {
                         //do something else
                     }
-
-
                 }
-                
             }
         }
     }

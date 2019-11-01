@@ -40,7 +40,7 @@ namespace Gestionnaire_de_stock_version_1._0
                 //Si la commande est arriver, status = 2
                 else
                 {
-                    dgvCommandeEnCours.Rows.Add(value.Id, value.Nameproduit, value.Quantity, value.Unities, "Commande arrivée", value.OrderDate);
+                    dgvCommandeEnCours.Rows.Add(value.Id, value.Nameproduit, value.Quantity, value.Unities, "Commande arrivée", value.OrderDate, value.Arrivaldate);
                 }
 
             }

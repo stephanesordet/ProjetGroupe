@@ -30,7 +30,7 @@ namespace Gestionnaire_de_stock_version_1._0
             InitializeComponent();
         }
 
-        private void picretourcommander_Click(object sender, EventArgs e)
+        private void picRetourcommander_Click(object sender, EventArgs e)
         {
             FrmCommande forme_commander = new FrmCommande();
             forme_commander.Show();
@@ -62,7 +62,6 @@ namespace Gestionnaire_de_stock_version_1._0
             DataGridViewImageColumn img = new DataGridViewImageColumn();
             img.Image = imagedelet;
             img.Name = "Delet";
-            //Add column header
             dgvcommande.Columns.Add(img);
             
 
@@ -71,17 +70,17 @@ namespace Gestionnaire_de_stock_version_1._0
 
         private void cboFournisseur_SelectedIndexChanged(object sender, EventArgs e)
         {
+            //Si l'utilisateur a change le fournisseur 
             cboProduit.Items.Clear();
             MysqlConn.OpenDB();
+            //Lire les produits du fornisseur selectionée
             supplier = (Supplier)cboFournisseur.SelectedItem;
             List<Products> ListProducts = MysqlConn.ReadProductsHasSuppliers(supplier.Id);
             foreach (Products value in ListProducts)
             {
                 cboProduit.Items.Add(value);
             }
-
             MysqlConn.CloseDB();
-            
         }
 
         private void cmdValider_Click(object sender, EventArgs e)
@@ -89,6 +88,7 @@ namespace Gestionnaire_de_stock_version_1._0
             //Si tous les champs du formulaire sont remplissent
             if (cboFournisseur.SelectedItem != null && cboProduit.SelectedItem != null && cboUnite.SelectedItem != null && txtQuantite.Text != "")
             {
+                //Controler les text Box
                 bool returneint = Controller.numberController(txtQuantite.Text);
                 if (returneint == false)
                 {
@@ -96,7 +96,9 @@ namespace Gestionnaire_de_stock_version_1._0
                 }
                 else
                 {
+                    //Recuperer l'unite selectionée
                     unitie = (Unities)cboUnite.SelectedItem;
+                    //Recuperer le produit selectionée
                     product = (Products)cboProduit.SelectedItem;
                     string quantite = txtQuantite.Text;
                     //Add le produit dans le tableau commande 
@@ -155,6 +157,7 @@ namespace Gestionnaire_de_stock_version_1._0
             int quantite = int.Parse(txtQuantite.Text);
             MysqlConn.OpenDB();
             int ligne = 0;
+            //Recuperer les lignes du tableau commandes
             for (int i = 1; i <= dgvcommande.Rows.Count; i++)
             {
                 Products produitdata = (Products)dgvcommande.Rows[i-1].Cells[0].Value;
@@ -179,6 +182,8 @@ namespace Gestionnaire_de_stock_version_1._0
             dgvcommande.Rows.Clear();
             txtEmail.Text = "";
             cboFournisseur.Enabled = true;
+            cboFournisseur.Text = "";
+            cboUnite.Text = "";
 
 
 

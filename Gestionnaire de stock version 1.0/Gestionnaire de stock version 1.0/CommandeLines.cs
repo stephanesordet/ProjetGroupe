@@ -16,6 +16,7 @@ namespace Gestionnaire_de_stock_version_1._0
         private string orderDate;
         private string unities;
         private int status;
+        private string arrivaldate;
 
         //Produit en stock
         public CommandeLines(int idC, string nameproduitC, string categorieC, int quantityC, string unitiesC, string peremptionC)
@@ -28,7 +29,7 @@ namespace Gestionnaire_de_stock_version_1._0
             peremption = peremptionC;
         }
         //Commande un produit
-        public CommandeLines(int idC, string nameproduitC, string unitiesC, int quantityC, string orderDateC, int statusC)
+        public CommandeLines(int idC, string nameproduitC, string unitiesC, int quantityC, string orderDateC, int statusC, string arrivaldateC)
         {
             id = idC;
             nameproduit = nameproduitC;
@@ -36,6 +37,7 @@ namespace Gestionnaire_de_stock_version_1._0
             quantity = quantityC;
             orderDate = orderDateC;
             status = statusC;
+            arrivaldate = arrivaldateC;
         }
         public int Id
         {
@@ -46,6 +48,17 @@ namespace Gestionnaire_de_stock_version_1._0
             set
             {
                 id = value;
+            }
+        }
+        public string Arrivaldate
+        {
+            get
+            {
+                return arrivaldate;
+            }
+            set
+            {
+                arrivaldate = value;
             }
         }
         public string Nameproduit

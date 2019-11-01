@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.cboProduits = new System.Windows.Forms.ListBox();
+            this.lstProduits = new System.Windows.Forms.ListBox();
             this.cmdValidder = new System.Windows.Forms.Button();
             this.picReturne = new System.Windows.Forms.PictureBox();
             this.cboCategorie = new System.Windows.Forms.ComboBox();
@@ -39,11 +39,11 @@
             // 
             // cboProduits
             // 
-            this.cboProduits.FormattingEnabled = true;
-            this.cboProduits.Location = new System.Drawing.Point(47, 129);
-            this.cboProduits.Name = "cboProduits";
-            this.cboProduits.Size = new System.Drawing.Size(209, 277);
-            this.cboProduits.TabIndex = 0;
+            this.lstProduits.FormattingEnabled = true;
+            this.lstProduits.Location = new System.Drawing.Point(47, 129);
+            this.lstProduits.Name = "cboProduits";
+            this.lstProduits.Size = new System.Drawing.Size(209, 277);
+            this.lstProduits.TabIndex = 0;
             // 
             // cmdValidder
             // 
@@ -108,7 +108,7 @@
             this.Controls.Add(this.cboCategorie);
             this.Controls.Add(this.picReturne);
             this.Controls.Add(this.cmdValidder);
-            this.Controls.Add(this.cboProduits);
+            this.Controls.Add(this.lstProduits);
             this.Name = "FrmLoupeProduitStcok";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form_LoupeProduitsStock";
@@ -121,7 +121,7 @@
 
         #endregion
 
-        private System.Windows.Forms.ListBox cboProduits;
+        private System.Windows.Forms.ListBox lstProduits;
         private System.Windows.Forms.Button cmdValidder;
         private System.Windows.Forms.PictureBox picReturne;
         private System.Windows.Forms.ComboBox cboCategorie;
