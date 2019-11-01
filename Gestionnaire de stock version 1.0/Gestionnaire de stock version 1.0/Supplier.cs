@@ -31,8 +31,9 @@ namespace Gestionnaire_de_stock_version_1._0
             email = emailC;
            
         }
-        public Supplier(int idC, string firstNameC, string lastNameC, string emailC)
+        public Supplier(string genderC, int idC, string firstNameC, string lastNameC, string emailC)
         {
+            gender = genderC;
             id = idC;
             firstName = firstNameC;
             lastName = lastNameC;
@@ -43,7 +44,7 @@ namespace Gestionnaire_de_stock_version_1._0
         }
         public override string ToString()
         {
-            return firstName+" "+lastName;
+            return gender+" "+lastName;
         }
 
     }

@@ -23,6 +23,7 @@ namespace Gestionnaire_de_stock_version_1._0
         List<Unities> listUnities;
         List<Supplier> listSupplier;
         Supplier supplier;
+        User user;
         Unities unitie;
         Products product;
         public FrmNouvellecommande()
@@ -126,11 +127,12 @@ namespace Gestionnaire_de_stock_version_1._0
         {
             txtEmail.Text = "";
             txtEmail.Text += "Bonjour ";
-            //txtEmail.Text += supplier.gender.ToString();
-            txtEmail.Text += supplier.firstName.ToString() +" " + supplier.lastName.ToString();
+        
+            txtEmail.Text += supplier.gender.ToString() +" " + supplier.lastName.ToString() + " voici la commande.";
             int ligne = 0;
             for (int i=1; i<=dgvcommande.Rows.Count; i++)
             {
+                txtEmail.Text += "\r\n";
                 txtEmail.Text += "\r\n";
                 txtEmail.Text += dgvcommande.Rows[i-1].Cells[0].Value.ToString();
                 txtEmail.Text += " ";
@@ -157,22 +159,20 @@ namespace Gestionnaire_de_stock_version_1._0
                 ligne++;
             }
             MysqlConn.CloseDB();
-
-            //string emailSupp = "SELECT Email FROM suppliers where suppliers.Email = "+supplemail.email+"";
             
-            
+            //Déclaration de l'objet newMail
             Mail newMail;
+
             newMail = new Mail("Stephane.sordet@cpnv.ch", supplier.email, "", txtEmail.Text);
+            //Envoie de l'email
             MysqlConn.sendMail(newMail);
            
 
-            MessageBox.Show("Votre commande a bien été envoyée");
+            MessageBox.Show("Votre commande à bien été envoyée");
             txtQuantite.Text = "";
             dgvcommande.Rows.Clear();
             txtEmail.Text = "";
             cboFournisseur.Enabled = true;
-
-
 
         }
     }
