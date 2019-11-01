@@ -8,14 +8,15 @@ namespace Gestionnaire_de_stock_version_1._0
 {
     class CommandeLines
     {
-        public int id;
-        public string nameproduit;
-        public string categorie;
-        public int quantity;
-        public string peremption;
-        public string orderDate;
-        public string unities;
-        public int status;
+        private int id;
+        private string nameproduit;
+        private string categorie;
+        private int quantity;
+        private string peremption;
+        private string orderDate;
+        private string unities;
+        private int status;
+        private string arrivaldate;
 
         //Produit en stock
         public CommandeLines(int idC, string nameproduitC, string categorieC, int quantityC, string unitiesC, string peremptionC)
@@ -28,15 +29,116 @@ namespace Gestionnaire_de_stock_version_1._0
             peremption = peremptionC;
         }
         //Commande un produit
-        public CommandeLines(int idC, string nameproduitC, string unitiesC, int quantityC, string orderDateC)
+        public CommandeLines(int idC, string nameproduitC, string unitiesC, int quantityC, string orderDateC, int statusC, string arrivaldateC)
         {
             id = idC;
             nameproduit = nameproduitC;
             unities = unitiesC;
             quantity = quantityC;
             orderDate = orderDateC;
+            status = statusC;
+            arrivaldate = arrivaldateC;
+        }
+        public int Id
+        {
+            get
+            {
+                return id;
+            }
+            set
+            {
+                id = value;
+            }
+        }
+        public string Arrivaldate
+        {
+            get
+            {
+                return arrivaldate;
+            }
+            set
+            {
+                arrivaldate = value;
+            }
+        }
+        public string Nameproduit
+        {
+            get
+            {
+                return nameproduit;
+            }
+            set
+            {
+                nameproduit = value;
+            }
+        }
+        public string Categorie
+        {
+            get
+            {
+                return categorie;
+            }
+            set
+            {
+                categorie = value;
+            }
+        }
+        public int Quantity
+        {
+            get
+            {
+                return quantity;
+            }
+            set
+            {
+                quantity = value;
+            }
+        }
+        public string Peremption
+        {
+            get
+            {
+                return peremption;
+            }
+            set
+            {
+                peremption = value;
+            }
+        }
+        public string OrderDate
+        {
+            get
+            {
+                return orderDate;
+            }
+            set
+            {
+                orderDate = value;
+            }
         }
 
+        public string Unities
+        {
+            get
+            {
+                return unities;
+            }
+            set
+            {
+                unities = value;
+            }
+        }
+        public int Status
+        {
+            get
+            {
+                return status;
+            }
+            set
+            {
+                status = value;
+            }
+        }
 
     }
 }

@@ -8,18 +8,21 @@ namespace Gestionnaire_de_stock_version_1._0
 {
     class Unities
     {
-        public int id;
-        public string name;
+        private int id;
+        private string name;
+
+        public int Id { get => id; set => id = value; }
+        public string Name { get => name; set => name = value; }
 
         public Unities(int idC, string nameC)
         {
-            id = idC;
-            name = nameC;
+            Id = idC;
+            Name = nameC;
         }
 
         public override string ToString()
         {
-            return name;
+            return Name;
         }
     }
 }

@@ -15,6 +15,7 @@ namespace Gestionnaire_de_stock_version_1._0
         FrmProduitStock formproduit;
         ConnectionDB MysqlConn = new ConnectionDB();
         public int idproduit;
+        List<Categorie> listCategories;
         public FrmLoupeProduitStcok()
         {
             InitializeComponent();
@@ -22,33 +23,73 @@ namespace Gestionnaire_de_stock_version_1._0
 
         private void cmdValidder_Click(object sender, EventArgs e)
         {
-            formproduit = new FrmProduitStock();
-            if (cboProduits.SelectedIndex != -1)
+            if (lstProduits.SelectedIndex != -1)
             {
-                Products produit = (Products)cboProduits.SelectedItem;
-                idproduit = (int)produit.id;
-                this.Hide();
+                formproduit = new FrmProduitStock();
+                if (lstProduits.SelectedIndex != -1)
+                {
+                    //Recuperer le Id du produit selectionnée
+                    Products produit = (Products)lstProduits.SelectedItem;
+                    idproduit = (int)produit.Id;
+                    this.Hide();
+                }
             }
-            
+            else
+            {
+                MessageBox.Show("Selectionner un produit");
+            }
+        }
+        private void Readproducts()
+        {
+            MysqlConn.OpenDB();
+            List<Products> lisproduits = MysqlConn.ReadProducts();
+            foreach (Products value in lisproduits)
+            {
+                lstProduits.Items.Add(value);
+            }
+
+            MysqlConn.CloseDB();
         }
 
         private void FrmLoupeProduitStcok_Load(object sender, EventArgs e)
         {
             //Lire les Produits
+            Readproducts();
+            
+            // Read list categorie
             MysqlConn.OpenDB();
-            List<Products> lisproduits = MysqlConn.ReadProducts();
-            foreach (Products value in lisproduits)
+            cboCategorie.Items.Add("Tous les produits");
+            listCategories = MysqlConn.ReadCategories();
+            foreach (Categorie value in listCategories)
             {
-                cboProduits.Items.Add(value);
+                cboCategorie.Items.Add(value);
             }
-
             MysqlConn.CloseDB();
-
         }
-
         private void picReturne_Click(object sender, EventArgs e)
         {
             this.Hide();
         }
+        private void cboCategorie_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            lstProduits.Items.Clear();
+            if (cboCategorie.SelectedItem.ToString() == "Tous les produits")
+            {
+                Readproducts();
+            }
+            else
+            {
+                //Recuperer la categorie selectionnée
+                Categorie categoriesselectione = (Categorie)cboCategorie.SelectedItem;
+                MysqlConn.OpenDB();
+                List<Products> lisproduitsforcategorie = MysqlConn.ReadProductsForCategories(categoriesselectione.Name);
+                foreach (Products value in lisproduitsforcategorie)
+                {
+                    lstProduits.Items.Add(value);
+                }
+                MysqlConn.CloseDB();
+            }
+        }
+
     }
 }

@@ -72,7 +72,7 @@
             this.picretourcommander.Size = new System.Drawing.Size(34, 33);
             this.picretourcommander.TabIndex = 1;
             this.picretourcommander.TabStop = false;
-            this.picretourcommander.Click += new System.EventHandler(this.picretourcommander_Click);
+            this.picretourcommander.Click += new System.EventHandler(this.picRetourcommander_Click);
             // 
             // cboFournisseur
             // 

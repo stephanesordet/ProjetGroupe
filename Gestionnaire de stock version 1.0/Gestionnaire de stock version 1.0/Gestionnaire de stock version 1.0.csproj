@@ -68,6 +68,7 @@
     <Compile Include="Categorie.cs" />
     <Compile Include="CommandeLines.cs" />
     <Compile Include="ConnectionDB.cs" />
+    <Compile Include="Controller.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -85,12 +86,6 @@
     </Compile>
     <Compile Include="Form_Commander.Designer.cs">
       <DependentUpon>Form_Commander.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Form_Email.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form_Email.Designer.cs">
-      <DependentUpon>Form_Email.cs</DependentUpon>
     </Compile>
     <Compile Include="Form_Fournisseur.cs">
       <SubType>Form</SubType>
@@ -167,9 +162,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form_Commander.resx">
       <DependentUpon>Form_Commander.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Form_Email.resx">
-      <DependentUpon>Form_Email.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form_Fournisseur.resx">
       <DependentUpon>Form_Fournisseur.cs</DependentUpon>

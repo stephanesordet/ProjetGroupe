@@ -54,7 +54,7 @@ namespace Gestionnaire_de_stock_version_1._0
         /// <param name="name">Nom du produit à inserer</param>
         /// <param name="categorie">Catégorie du produit</param>
         /// <returns></returns>
-        public long InsertProduit(string name, int categorie)
+        public long InsertProducts(string name, int categorie)
         {
             string produit = "INSERT INTO products(Name,Categories_id) VALUES('" + name + "'," + categorie + ");";
             // Création d'une commande MySQL en fonction de l'objet connection
@@ -79,7 +79,8 @@ namespace Gestionnaire_de_stock_version_1._0
         /// <param name="id">Id de la commande</param>
         public void UpdateStatus(int id)
         {
-            string updatestatus = "UPDATE CommandeLines SET Status = 1 WHERE id =" + id + ";";
+            string thisDay = System.DateTime.Now.ToString("dd/MM/yyyy");
+            string updatestatus = "UPDATE CommandeLines SET Status = 2, ArrivalDate = '"+thisDay+"' WHERE id =" + id + ";";
             MySqlCommand cmd = new MySqlCommand(updatestatus, connection);
             cmd.ExecuteNonQuery();
         }
@@ -233,7 +234,7 @@ namespace Gestionnaire_de_stock_version_1._0
         /// <param name="idproduit">Id du produit</param>
         public void DeletInStock(int idproduit)
         {
-            string commande = "Delete From commandelines WHERE commandelines.id =" + idproduit + ";";
+            string commande = "Delete From commandelines WHERE commandelines.id =" + idproduit + " AND commandelines.status = 1;";
             MySqlCommand cmd = new MySqlCommand(commande, connection);
             cmd.ExecuteNonQuery();
         }
@@ -297,6 +298,27 @@ namespace Gestionnaire_de_stock_version_1._0
         {
             MySqlCommand cmd = connection.CreateCommand();
             cmd.CommandText = "SELECT Name,id FROM Products";
+            List<Products> listData = new List<Products>();
+            MySqlDataReader dataReader1 = cmd.ExecuteReader();
+            while (dataReader1.Read())
+            {
+                string dataname = dataReader1["name"].ToString();
+                int dataId = (int)dataReader1["id"];
+                Products products = new Products(dataId, dataname);
+                listData.Add(products);
+            }
+
+            return listData;
+        }
+        /// <summary>
+        /// Lire les produits^dans la table Products par rapport à sa catégorie
+        /// </summary>
+        /// <param name="categorie">Catégorie d</param>
+        /// <returns></returns>
+        public List<Products> ReadProductsForCategories(string categorie)
+        {
+            MySqlCommand cmd = connection.CreateCommand();
+            cmd.CommandText = "SELECT Products.Name,Products.id FROM Products INNER JOIN categories ON products.Categories_id = categories.id WHERE categories.name ='" + categorie + "';";
             List<Products> listData = new List<Products>();
             MySqlDataReader dataReader1 = cmd.ExecuteReader();
             while (dataReader1.Read())
@@ -426,7 +448,7 @@ namespace Gestionnaire_de_stock_version_1._0
 
             try
             {
-                test.Send(mail.sender, mail.recipient, mail.subject, mail.body);
+                test.Send(mail.Sender, mail.Recipient, mail.Subject, mail.Body);
                 MessageBox.Show("Email ok");
             }
             catch (Exception c)
@@ -442,7 +464,7 @@ namespace Gestionnaire_de_stock_version_1._0
         public List<CommandeLines> ReadStock()
         {
             MySqlCommand cmd = connection.CreateCommand();
-            cmd.CommandText = "SELECT commandelines.id, products.name AS Produit, categories.name AS categorie, unities.Name AS Unitie, commandelines.Quantity, commandelines.Peremption FROM commandelines inner JOIN products ON commandelines.Products_id = products.id LEFT JOIN suppliers ON commandelines.Suppliers_id = suppliers.id INNER JOIN categories ON products.Categories_id = categories.id INNER JOIN unities ON commandelines.Unities_id = unities.id WHERE commandelines.Status = 1";
+            cmd.CommandText = "SELECT commandelines.id, products.name AS Produit, categories.name AS categorie, unities.Name AS Unitie, commandelines.Quantity, commandelines.Peremption FROM commandelines inner JOIN products ON commandelines.Products_id = products.id LEFT JOIN suppliers ON commandelines.Suppliers_id = suppliers.id INNER JOIN categories ON products.Categories_id = categories.id INNER JOIN unities ON commandelines.Unities_id = unities.id WHERE commandelines.Status = 1 OR 2";
             List<CommandeLines> list = new List<CommandeLines>();
             MySqlDataReader dataReader = cmd.ExecuteReader();
             while (dataReader.Read())
@@ -466,7 +488,7 @@ namespace Gestionnaire_de_stock_version_1._0
         public List<CommandeLines> ReadCommandes()
         {
             MySqlCommand cmd = connection.CreateCommand();
-            cmd.CommandText = "SELECT commandelines.id, commandelines.OrderDate, products.name AS Produit, unities.Name AS Unitie, categories.name AS categorie, commandelines.Quantity, commandelines.Peremption FROM commandelines inner JOIN products ON commandelines.Products_id = products.id inner JOIN suppliers ON commandelines.Suppliers_id = suppliers.id INNER JOIN categories ON products.Categories_id = categories.id INNER JOIN unities ON commandelines.Unities_id = unities.id WHERE commandelines.Status = 0";
+            cmd.CommandText = "SELECT commandelines.id, commandelines.OrderDate,commandelines.ArrivalDate, products.name AS Produit, unities.Name AS Unitie, categories.name AS categorie, commandelines.status AS status, commandelines.Quantity, commandelines.Peremption FROM commandelines inner JOIN products ON commandelines.Products_id = products.id inner JOIN suppliers ON commandelines.Suppliers_id = suppliers.id INNER JOIN categories ON products.Categories_id = categories.id INNER JOIN unities ON commandelines.Unities_id = unities.id WHERE commandelines.Status = 0  OR commandelines.Status = 2 ORDER BY DATE(commandelines.OrderDate);";
             List<CommandeLines> list = new List<CommandeLines>();
             MySqlDataReader dataReader = cmd.ExecuteReader();
             while (dataReader.Read())
@@ -476,7 +498,9 @@ namespace Gestionnaire_de_stock_version_1._0
                 string unities = dataReader["Unitie"].ToString();
                 int quantity = (int)dataReader["Quantity"];
                 string orderday = dataReader["OrderDate"].ToString();
-                CommandeLines dataUnities = new CommandeLines(id, nameproduit, unities, quantity, orderday);
+                int status = (int)dataReader["status"];
+                string arrivaldate = dataReader["ArrivalDate"].ToString();
+                CommandeLines dataUnities = new CommandeLines(id, nameproduit, unities, quantity, orderday, status, arrivaldate);
                 list.Add(dataUnities);
             }
 

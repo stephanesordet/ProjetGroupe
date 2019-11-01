@@ -35,7 +35,7 @@
             this.lblNom = new System.Windows.Forms.Label();
             this.lblCategorie = new System.Windows.Forms.Label();
             this.lblFournisseur = new System.Windows.Forms.Label();
-            this.cmbCategorie = new System.Windows.Forms.ComboBox();
+            this.cboCategorie = new System.Windows.Forms.ComboBox();
             this.Picretournemenu = new System.Windows.Forms.PictureBox();
             this.picLoupe = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.Picretournemenu)).BeginInit();
@@ -113,13 +113,13 @@
             this.lblFournisseur.TabIndex = 8;
             this.lblFournisseur.Text = "Fournisseur";
             // 
-            // cmbCategorie
+            // cboCategorie
             // 
-            this.cmbCategorie.FormattingEnabled = true;
-            this.cmbCategorie.Location = new System.Drawing.Point(134, 125);
-            this.cmbCategorie.Name = "cmbCategorie";
-            this.cmbCategorie.Size = new System.Drawing.Size(150, 21);
-            this.cmbCategorie.TabIndex = 9;
+            this.cboCategorie.FormattingEnabled = true;
+            this.cboCategorie.Location = new System.Drawing.Point(134, 125);
+            this.cboCategorie.Name = "cboCategorie";
+            this.cboCategorie.Size = new System.Drawing.Size(150, 21);
+            this.cboCategorie.TabIndex = 9;
             // 
             // Picretournemenu
             // 
@@ -148,7 +148,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(361, 450);
             this.Controls.Add(this.picLoupe);
-            this.Controls.Add(this.cmbCategorie);
+            this.Controls.Add(this.cboCategorie);
             this.Controls.Add(this.lblFournisseur);
             this.Controls.Add(this.lblCategorie);
             this.Controls.Add(this.lblNom);
@@ -178,7 +178,7 @@
         private System.Windows.Forms.Label lblNom;
         private System.Windows.Forms.Label lblCategorie;
         private System.Windows.Forms.Label lblFournisseur;
-        private System.Windows.Forms.ComboBox cmbCategorie;
+        private System.Windows.Forms.ComboBox cboCategorie;
         private System.Windows.Forms.PictureBox picLoupe;
     }
 }

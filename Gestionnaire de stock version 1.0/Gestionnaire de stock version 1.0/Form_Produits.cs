@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -32,73 +33,86 @@ namespace Gestionnaire_de_stock_version_1._0
         {
             if (txtNom.Text != "")
             {
-                MysqlConn.OpenDB();
-                idproduitforname = 0;
-                //Verifier si le nom du produit existe deja 
-                List<Products> listIdProducts = MysqlConn.ReadIdProductsForName(txtNom.Text);
-                foreach (Products value in listIdProducts)
+                //Controler le text box
+                int returneCaract = Controller.characterController(txtNom.Text);
+                if (returneCaract == 1)
                 {
-                    idproduitforname = (int)value.id;
+                    MessageBox.Show("Erreur! Vous avez entrée un caractér special");
                 }
-                MysqlConn.CloseDB();
-                
-                //Si le produit existe dans la base de donnee 
-                if (idproduitforname > 0)
-                {
-                    if (lstFournisseur.SelectedItem != null)
-                    {
-                        foreach (Supplier selecteditem in lstFournisseur.SelectedItems)
-                        {
-                            MysqlConn.OpenDB();
-                            Supplier fournisseur = (Supplier)selecteditem;
-                            MysqlConn.InsertProductsSuppliers(idproduitforname, fournisseur.id);
-                            MysqlConn.CloseDB();
-                        }
-                        MessageBox.Show("Votre produit a été associé avec un ou plusieurs fournisseurs");
-                        txtNom.Text = "";
-                        cmbCategorie.SelectedIndex = 0;
-                    }
-                    else
-                    {
-                        MessageBox.Show("Votre produit existe déjà, vous devez l'associer avec un ou plusieurs fournisseurs ");
-                    }
-
-                }
-                //Si le produit n'existe pas sur la base de donnee 
                 else
                 {
-                    if (cmbCategorie.SelectedItem != null)
+                    MysqlConn.OpenDB();
+                    idproduitforname = 0;
+                    //Verifier si le nom du produit existe deja 
+                    List<Products> listIdProducts = MysqlConn.ReadIdProductsForName(txtNom.Text);
+                    foreach (Products value in listIdProducts)
                     {
-                        Categorie categories = (Categorie)cmbCategorie.SelectedItem;
-                        //L'utilisateur a l'option de ajouter un produit et l'associer avec un ou plusieurs fournisseur 
+                        idproduitforname = (int)value.Id;
+                    }
+                    MysqlConn.CloseDB();
+
+                    //Si le produit existe dans la base de donnee 
+                    if (idproduitforname > 0)
+                    {
                         if (lstFournisseur.SelectedItem != null)
                         {
-                            MysqlConn.OpenDB();
-                            long idProduit = MysqlConn.InsertProduit(txtNom.Text, categories.id);
-                            MysqlConn.CloseDB();
                             foreach (Supplier selecteditem in lstFournisseur.SelectedItems)
                             {
                                 MysqlConn.OpenDB();
                                 Supplier fournisseur = (Supplier)selecteditem;
-                                MysqlConn.InsertProductsSuppliers(idProduit, fournisseur.id);
-                                MessageBox.Show("Votre produit a été ajouté et associé avec un ou plusieurs fournisseurs");
+                                MysqlConn.InsertProductsSuppliers(idproduitforname, fournisseur.Id);
+                                MysqlConn.CloseDB();
+                            }
+                            MessageBox.Show("Votre produit a été associé avec un ou plusieurs fournisseurs");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Votre produit existe déjà, vous pouvez l'associer avec un ou plusieurs fournisseurs ");
+                        }
+
+                    }
+                    //Si le produit n'existe pas sur la base de donnee 
+                    else
+                    {
+                        if (cboCategorie.SelectedItem != null)
+                        {
+                            Categorie categories = (Categorie)cboCategorie.SelectedItem;
+                            //L'utilisateur a l'option de ajouter un produit et l'associer avec un ou plusieurs fournisseur 
+                            if (lstFournisseur.SelectedItem != null)
+                            {
+                                MysqlConn.OpenDB();
+                                //Recuperer le Id du nouveau produit 
+                                long idProduit = MysqlConn.InsertProducts(txtNom.Text, categories.Id);
+                                MysqlConn.CloseDB();
+                                //parcourir les fournisseurs sélectionnés
+                                foreach (Supplier selecteditem in lstFournisseur.SelectedItems)
+                                {
+                                    MysqlConn.OpenDB();
+                                    Supplier fournisseur = (Supplier)selecteditem;
+                                    MysqlConn.InsertProductsSuppliers(idProduit, fournisseur.Id);
+                                    MessageBox.Show("Votre produit a été ajouté et associé avec un ou plusieurs fournisseurs");
+                                    MysqlConn.CloseDB();
+                                }
+                            }
+                            //Ajouter un produit sans l'associer à un fournisseur  
+                            else
+                            {
+                                MysqlConn.OpenDB();
+                                MysqlConn.InsertProducts(txtNom.Text, categories.Id);
+                                MessageBox.Show("Votre produit a été ajouté mais n'a pas été associé avec un fournisseurs");
                                 MysqlConn.CloseDB();
                             }
                         }
-                        //Ajouter un produit sans l'associer à un fournisseur  
                         else
                         {
-                            MysqlConn.OpenDB();
-                            MysqlConn.InsertProduit(txtNom.Text, categories.id);
-                            MessageBox.Show("Votre produit a été ajouté mais n'a pas été associé avec un fournisseurs");
-                            MysqlConn.CloseDB();
+                            MessageBox.Show("Sélectionner une catégorie");
                         }
                     }
-                    else
-                    {
-                        MessageBox.Show("Sélectionner de nouveau une catégorie");
-                    }
-                }  
+                    //Vider le formulaire
+                    txtNom.Text = "";
+                    cboCategorie.Text = "";
+                    ReadCategorie();
+                }
             }
             else
             {
@@ -109,24 +123,32 @@ namespace Gestionnaire_de_stock_version_1._0
 
         private void FrmProduits_Load(object sender, EventArgs e)
         {
+            //Selectionner plusieurs fournisseurs
             lstFournisseur.SelectionMode = SelectionMode.MultiSimple;
             MysqlConn.OpenDB();
+            //Lire la list des fournisseurs 
             List<Supplier> listSupplier = MysqlConn.ReadSuplliers();
             foreach (Supplier value in listSupplier)
             {
                 lstFournisseur.Items.Add(value);
             }
             MysqlConn.CloseDB();
-            //Read list categorie 
+            ReadCategorie();
+
+        }
+
+        private void ReadCategorie()
+        {
+            //Read list categorie
+            cboCategorie.Items.Clear();
             MysqlConn.OpenDB();
             listCategories = MysqlConn.ReadCategories();
-                foreach (Categorie value in listCategories)
-                {
-                    cmbCategorie.Items.Add(value);
-                }
+            foreach (Categorie value in listCategories)
+            {
+                cboCategorie.Items.Add(value);
+            }
 
-                MysqlConn.CloseDB();
-
+            MysqlConn.CloseDB();
         }
 
         private void txtNom_TextChanged(object sender, EventArgs e)
@@ -135,18 +157,11 @@ namespace Gestionnaire_de_stock_version_1._0
             {
 
             }
+            //Si l'utilisateur a effacé le nom du produit 
             else
             {
-                cmbCategorie.Enabled = true;
-                cmbCategorie.Items.Clear();
-                MysqlConn.OpenDB();
-                listCategories = MysqlConn.ReadCategories();
-                foreach (Categorie value in listCategories)
-                {
-                    cmbCategorie.Items.Add(value);
-                }
-
-                MysqlConn.CloseDB();
+                cboCategorie.Enabled = true;
+                ReadCategorie();
             }
         }
 
@@ -166,11 +181,11 @@ namespace Gestionnaire_de_stock_version_1._0
                 List<Products> lisproduits = MysqlConn.ReadProductsForId(idproduct);
                 foreach (Products value in lisproduits)
                 {
-                    txtNom.Text = value.name.ToString();
-                    cmbCategorie.Items.Clear();
-                    cmbCategorie.Items.Add(value.categoriename);
-                    cmbCategorie.SelectedIndex = 0;
-                    cmbCategorie.Enabled = false;
+                    txtNom.Text = value.Name.ToString();
+                    cboCategorie.Items.Clear();
+                    cboCategorie.Items.Add(value.Categoriename);
+                    cboCategorie.SelectedIndex = 0;
+                    cboCategorie.Enabled = false;
                 }
                
                 MysqlConn.CloseDB();

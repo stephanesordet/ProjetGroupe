@@ -37,6 +37,7 @@
             this.Unite = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Etatcommande = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Datecommande = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DateArrive = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.picretournemenu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCommandeEnCours)).BeginInit();
             this.SuspendLayout();
@@ -56,7 +57,7 @@
             this.lblcommandes.AutoSize = true;
             this.lblcommandes.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblcommandes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.lblcommandes.Location = new System.Drawing.Point(189, 32);
+            this.lblcommandes.Location = new System.Drawing.Point(212, 13);
             this.lblcommandes.Name = "lblcommandes";
             this.lblcommandes.Size = new System.Drawing.Size(335, 46);
             this.lblcommandes.TabIndex = 1;
@@ -72,10 +73,11 @@
             this.Quantite,
             this.Unite,
             this.Etatcommande,
-            this.Datecommande});
-            this.dgvCommandeEnCours.Location = new System.Drawing.Point(13, 108);
+            this.Datecommande,
+            this.DateArrive});
+            this.dgvCommandeEnCours.Location = new System.Drawing.Point(23, 86);
             this.dgvCommandeEnCours.Name = "dgvCommandeEnCours";
-            this.dgvCommandeEnCours.Size = new System.Drawing.Size(689, 474);
+            this.dgvCommandeEnCours.Size = new System.Drawing.Size(719, 474);
             this.dgvCommandeEnCours.TabIndex = 2;
             this.dgvCommandeEnCours.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCommandeEnCours_CellContentClick);
             // 
@@ -117,11 +119,17 @@
             this.Datecommande.Name = "Datecommande";
             this.Datecommande.ReadOnly = true;
             // 
+            // DateArrive
+            // 
+            this.DateArrive.HeaderText = "Date Arrivé";
+            this.DateArrive.Name = "DateArrive";
+            this.DateArrive.ReadOnly = true;
+            // 
             // FrmMescommandes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(712, 594);
+            this.ClientSize = new System.Drawing.Size(765, 594);
             this.Controls.Add(this.dgvCommandeEnCours);
             this.Controls.Add(this.lblcommandes);
             this.Controls.Add(this.picretournemenu);
@@ -147,5 +155,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Unite;
         private System.Windows.Forms.DataGridViewTextBoxColumn Etatcommande;
         private System.Windows.Forms.DataGridViewTextBoxColumn Datecommande;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DateArrive;
     }
 }

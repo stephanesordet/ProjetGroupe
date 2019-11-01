@@ -17,25 +17,19 @@ namespace Gestionnaire_de_stock_version_1._0
             InitializeComponent();
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
+        private void picRetourneMenu_Click(object sender, EventArgs e)
         {
             FrmMenu form1 = new FrmMenu();
             form1.Show();
             this.Hide();
         }
 
-        private void pictureBox2_Click(object sender, EventArgs e)
+        private void picGererStock_Click(object sender, EventArgs e)
         {
             FrmGererStock formgererstock = new FrmGererStock();
             formgererstock.Show();
             this.Hide();
         }
-
-        private void FrmStock_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void PicAjouterproduit_Click(object sender, EventArgs e)
         {
             FrmProduitStock formproduitsctok = new FrmProduitStock();

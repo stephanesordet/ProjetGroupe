@@ -9,27 +9,27 @@ namespace Gestionnaire_de_stock_version_1._0
     class Supplier
     {
 
-        public int id;
-        public string gender;
-        public string firstName;
-        public string lastName;
-        public string company;
-        public string city;
-        public int npa;
-        public string street;
-        public string email;
+        private int id;
+        private string gender;
+        private string firstName;
+        private string lastName;
+        private string company;
+        private string city;
+        private int npa;
+        private string street;
+        private string email;
 
         //Constructeur pour créer un nouveau Supplier 
         public Supplier(string genderC, string firstNameC, string lastNameC, string companyC, int npaC, string cityC, string streetC, string emailC)
         {
-            gender = genderC;
-            firstName = firstNameC;
-            lastName = lastNameC;
-            company = companyC;
-            npa = npaC;
-            city = cityC;
-            street = streetC;
-            email = emailC;
+            Gender = genderC;
+            FirstName = firstNameC;
+            LastName = lastNameC;
+            Company = companyC;
+            Npa = npaC;
+            City = cityC;
+            Street = streetC;
+            Email = emailC;
            
         }
         //Construceur pour récupérer les infos du Supplier 
