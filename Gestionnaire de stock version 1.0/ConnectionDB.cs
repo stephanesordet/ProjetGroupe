@@ -26,9 +26,7 @@ namespace Gestionnaire_de_stock_version_1._0
         private void InitConnexion()
         {
             // Création de la chaîne de connexion
-
-            // string connectionString = "SERVER=10.229.33.3; DATABASE=Gestionnaire; UID=Stephane; PASSWORD=Pa$$w0rd";
-            string connectionString = "SERVER=10.229.33.3; DATABASE=Gestionnaire; UID=Luana; PASSWORD=Pa$$$w0rd";
+            string connectionString = "SERVER=127.0.0.1; DATABASE=Gestionnaire; UID=AdminGestionnaire; PASSWORD=Pa$$w0rd";
             connection = new MySqlConnection(connectionString);
           
         }
@@ -44,7 +42,7 @@ namespace Gestionnaire_de_stock_version_1._0
             }
             catch
             {
-                MessageBox.Show("Erreur de connexion");
+                MessageBox.Show("Connexion à la base de données impossible. Si le problème persiste, contactez le support.");
                 Environment.Exit(0);
             }
         }

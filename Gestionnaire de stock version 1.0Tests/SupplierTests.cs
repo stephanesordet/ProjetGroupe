@@ -21,7 +21,7 @@ namespace Gestionnaire_de_stock_version_1._0.Tests
         [TestMethod()]
         public void ToStringTest()
         {
-            suppliertest = new Supplier(5, "Luana", "Kirchner", "luana@cpnv.ch");
+            suppliertest = new Supplier("Madame",5, "Luana", "Kirchner", "luana@cpnv.ch");
             //Arrange - Création des données nécessaires
             string valueExpected = "Luana";
             valueExpected += " ";
