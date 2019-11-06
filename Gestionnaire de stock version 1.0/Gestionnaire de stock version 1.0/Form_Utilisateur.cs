@@ -12,6 +12,8 @@ namespace Gestionnaire_de_stock_version_1._0
 {
     public partial class FrmUtilisateur : Form
     {
+        int idUser = 0;
+        ConnectionDB MysqlConn = new ConnectionDB();
         public FrmUtilisateur()
         {
             InitializeComponent();
@@ -40,19 +42,25 @@ namespace Gestionnaire_de_stock_version_1._0
                 {
                     //Conversion de NPA en int
                     int.TryParse(txtNpa.Text, out npa);
-
-
                 }
                 catch
                 {
                     MessageBox.Show("NPA non valide");
                 }
 
-                newUser = new User(txtNom.Text, txtPrenom.Text, txtRestaurant.Text, txtVille.Text, npa, txtRue.Text, txtEmail.Text);
-
-                addUser.AddUser(newUser);
-                
-                MessageBox.Show("Utilisateur ajouté");
+                if (idUser != 0)
+                {
+                    addUser.OpenDB();
+                    addUser.UpdateUser(idUser, txtNom.Text, txtPrenom.Text, txtRestaurant.Text, txtVille.Text, npa, txtRue.Text, txtEmail.Text);
+                    addUser.CloseDB();
+                    MessageBox.Show("Données actualisées");
+                }
+                else
+                {
+                    newUser = new User(txtNom.Text, txtPrenom.Text, txtRestaurant.Text, txtVille.Text, npa, txtRue.Text, txtEmail.Text);
+                    addUser.AddUser(newUser);
+                    MessageBox.Show("Utilisateur ajouté");
+                }
             }
             else
             {
@@ -71,6 +79,35 @@ namespace Gestionnaire_de_stock_version_1._0
             {
                 return false;
             }
+        }
+
+        private void FrmUtilisateur_Load(object sender, EventArgs e)
+        {
+            
+            MysqlConn.OpenDB();
+            //Lire la list des fournisseurs 
+            List<User> listSupplier = MysqlConn.ReadUser();
+            foreach (User value in listSupplier)
+            {
+               idUser = value.Id;
+            }
+            MysqlConn.CloseDB();
+
+            if (idUser > 0)
+            {
+                foreach (User value in listSupplier)
+                {
+                    txtNom.Text = value.FirstName;
+                    txtPrenom.Text = value.LastName;
+                    txtRestaurant.Text = value.NameRestaurant;
+                    txtVille.Text = value.City;
+                    txtNpa.Text = value.Npa.ToString();
+                    txtNom.Text = value.FirstName;
+                    txtRue.Text = value.Street;
+                    txtEmail.Text = value.Email;
+                }
+            }
+
         }
     }
 }

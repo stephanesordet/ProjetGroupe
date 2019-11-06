@@ -17,8 +17,21 @@ namespace Gestionnaire_de_stock_version_1._0
         private string street;
         private string email;
 
+        public User(int idC,string lastNameC, string firstNameC, string nameRestaurantC, string cityC, int npaC, string streetC, string emailC)
+        {
+            id = idC;
+            LastName = lastNameC;
+            FirstName = firstNameC;
+            NameRestaurant = nameRestaurantC;
+            Npa = npaC;
+            City = cityC;
+            Street = streetC;
+            Email = emailC;
+
+        }
         public User(string lastNameC, string firstNameC, string nameRestaurantC, string cityC, int npaC, string streetC, string emailC)
         {
+   
             LastName = lastNameC;
             FirstName = firstNameC;
             NameRestaurant = nameRestaurantC;

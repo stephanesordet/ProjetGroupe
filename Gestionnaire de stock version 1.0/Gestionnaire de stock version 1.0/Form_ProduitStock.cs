@@ -172,7 +172,7 @@ namespace Gestionnaire_de_stock_version_1._0
                 }
                 if(returnDate == false)
                 {
-                    MessageBox.Show("Erreur! Entrer le bon format pour la date xx.xx.xxxx");
+                    MessageBox.Show("Erreur! Entrer le bon format pour la date AAAA.MM.JJ");
                 }
 
                 if(returnInt == true && returnCarac == 0 && returnDate==true)
