@@ -45,7 +45,7 @@ namespace Gestionnaire_de_stock_version_1._0
             catch
             {
                 MessageBox.Show("Erreur de connexion");
-                Application.Exit();
+                Environment.Exit(0);
             }
         }
         /// <summary>
