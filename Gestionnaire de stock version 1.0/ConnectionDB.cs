@@ -28,7 +28,7 @@ namespace Gestionnaire_de_stock_version_1._0
             // Création de la chaîne de connexion
 
             // string connectionString = "SERVER=10.229.33.3; DATABASE=Gestionnaire; UID=Stephane; PASSWORD=Pa$$w0rd";
-            string connectionString = "SERVER=10.229.33.3; DATABASE=Gestionnaire; UID=Luana; PASSWORD=Pa$$$w0rd";
+            string connectionString = "SERVER=10.229.33.3; DATABASE=Gestionnaire; UID=Luana; PASSWORD=Pa$$w0rd";
             connection = new MySqlConnection(connectionString);
           
         }
