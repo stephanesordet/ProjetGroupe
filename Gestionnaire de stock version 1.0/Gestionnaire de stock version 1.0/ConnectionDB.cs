@@ -127,14 +127,14 @@ namespace Gestionnaire_de_stock_version_1._0
 
                 // utilisation de l'objet contact passé en paramètre
 
-                cmd.Parameters.AddWithValue("@Sexe", supplier.gender);
-                cmd.Parameters.AddWithValue("@Firstname",supplier.firstName );
-                cmd.Parameters.AddWithValue("@Lastname", supplier.lastName);
-                cmd.Parameters.AddWithValue("@Company", supplier.company);
-                cmd.Parameters.AddWithValue("@City", supplier.city);
-                cmd.Parameters.AddWithValue("@NPA", supplier.npa);
-                cmd.Parameters.AddWithValue("@Street", supplier.street);
-                cmd.Parameters.AddWithValue("@Email", supplier.email);
+                cmd.Parameters.AddWithValue("@Sexe", supplier.Gender);
+                cmd.Parameters.AddWithValue("@Firstname",supplier.FirstName );
+                cmd.Parameters.AddWithValue("@Lastname", supplier.LastName);
+                cmd.Parameters.AddWithValue("@Company", supplier.Company);
+                cmd.Parameters.AddWithValue("@City", supplier.City);
+                cmd.Parameters.AddWithValue("@NPA", supplier.Npa);
+                cmd.Parameters.AddWithValue("@Street", supplier.Street);
+                cmd.Parameters.AddWithValue("@Email", supplier.Email);
 
                 // Exécution de la commande SQL
                 cmd.ExecuteNonQuery();

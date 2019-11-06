@@ -138,7 +138,7 @@ namespace Gestionnaire_de_stock_version_1._0
             txtEmail.Text = "";
             txtEmail.Text += "Bonjour ";
         
-            txtEmail.Text += supplier.gender.ToString() +" " + supplier.lastName.ToString() + " voici la commande.";
+            txtEmail.Text += supplier.Gender.ToString() +" " + supplier.LastName.ToString() + " voici la commande.";
             int ligne = 0;
             for (int i=1; i<=dgvcommande.Rows.Count; i++)
             {
@@ -174,7 +174,7 @@ namespace Gestionnaire_de_stock_version_1._0
             //Déclaration de l'objet newMail
             Mail newMail;
 
-            newMail = new Mail("Stephane.sordet@cpnv.ch", supplier.email, "", txtEmail.Text);
+            newMail = new Mail("Stephane.sordet@cpnv.ch", supplier.Email, "", txtEmail.Text);
             //Envoie de l'email
             MysqlConn.sendMail(newMail);
            
