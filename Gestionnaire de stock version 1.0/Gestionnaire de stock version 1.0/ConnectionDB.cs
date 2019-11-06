@@ -28,9 +28,9 @@ namespace Gestionnaire_de_stock_version_1._0
             // Création de la chaîne de connexion
 
             // string connectionString = "SERVER=10.229.33.3; DATABASE=Gestionnaire; UID=Stephane; PASSWORD=Pa$$w0rd";
-            string connectionString = "SERVER=10.229.33.3; DATABASE=Gestionnaire; UID=Luana; PASSWORD=Pa$$w0rd";
+            string connectionString = "SERVER=10.229.33.3; DATABASE=Gestionnaire; UID=Luana; PASSWORD=Pa$$$w0rd";
             connection = new MySqlConnection(connectionString);
-
+          
         }
 
         /// <summary>
@@ -38,7 +38,15 @@ namespace Gestionnaire_de_stock_version_1._0
         /// </summary>
         public void OpenDB()
         {
-            connection.Open();
+            try
+            {
+                connection.Open();
+            }
+            catch
+            {
+                MessageBox.Show("Erreur de connexion");
+                Application.Exit();
+            }
         }
         /// <summary>
         /// Fermer la conexions à Mysql 
@@ -151,6 +159,10 @@ namespace Gestionnaire_de_stock_version_1._0
                 // Possibilité de créer une méthode avec un booléan en retour pour savoir si le contact à été ajouté correctement.
             }
         }
+        /// <summary>
+        /// Insertion des utilisateurs
+        /// </summary>
+        /// <param name="user">Données d'utilisateur</param>
         public void AddUser(User user)
         {
             try
@@ -188,6 +200,17 @@ namespace Gestionnaire_de_stock_version_1._0
                 // Possibilité de créer une méthode avec un booléan en retour pour savoir si le contact à été ajouté correctement.
             }
         }
+        /// <summary>
+        /// Atualizer les informations d'un utilisateur
+        /// </summary>
+        /// <param name="id">id d'utilisateur</param>
+        /// <param name="firstName">Prénom</param>
+        /// <param name="lastName">Nom</param>
+        /// <param name="nameRestaurant">Nom du restaurant</param>
+        /// <param name="city">Ville</param>
+        /// <param name="npa">Npa</param>
+        /// <param name="street">Rue</param>
+        /// <param name="email">Email</param>
         public void UpdateUser(int id, string firstName, string lastName, string nameRestaurant, string city, int npa, string street, string email)
         {
 
@@ -242,7 +265,7 @@ namespace Gestionnaire_de_stock_version_1._0
         /// <param name="idproduit">Id du produit</param>
         public void DeletInStock(int idproduit)
         {
-            string commande = "Delete From commandelines WHERE commandelines.id =" + idproduit + " AND commandelines.status = 1;";
+            string commande = "Delete From commandelines WHERE commandelines.id =" + idproduit + " AND commandelines.status = 1 OR 2;";
             MySqlCommand cmd = new MySqlCommand(commande, connection);
             cmd.ExecuteNonQuery();
         }
@@ -448,7 +471,10 @@ namespace Gestionnaire_de_stock_version_1._0
             }
 
             return list;
-        }
+        }/// <summary>
+        /// Envoyer un email
+        /// </summary>
+        /// <param name="mail"></param>
         public void sendMail(Mail mail)
         {       
        
@@ -532,6 +558,10 @@ namespace Gestionnaire_de_stock_version_1._0
 
             return list;
         }
+        /// <summary>
+        /// Lire le données d'utilisateur 
+        /// </summary>
+        /// <returns>La list des inforamtions d'utilisateur</returns>
         public List<User> ReadUser()
         {
             MySqlCommand cmd = connection.CreateCommand();

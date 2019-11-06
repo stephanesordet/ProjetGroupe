@@ -138,7 +138,7 @@ namespace Gestionnaire_de_stock_version_1._0
         }
 
         private void txtnomproduit_TextChanged(object sender, EventArgs e)
-        {
+       {
             
             if(txtnomproduit.Text != "")
             {
@@ -240,6 +240,7 @@ namespace Gestionnaire_de_stock_version_1._0
                     txtnomproduit.Text = "";
                     txtQuantite.Text = "";
                     cboCategorie.Text = "";
+                    idproduitforname = 0;
                 }
                
             }
