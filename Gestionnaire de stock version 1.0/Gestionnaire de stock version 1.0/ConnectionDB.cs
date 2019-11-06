@@ -28,9 +28,9 @@ namespace Gestionnaire_de_stock_version_1._0
             // Création de la chaîne de connexion
 
             // string connectionString = "SERVER=10.229.33.3; DATABASE=Gestionnaire; UID=Stephane; PASSWORD=Pa$$w0rd";
-            string connectionString = "SERVER=10.229.33.3; DATABASE=Gestionnaire; UID=Stephane; PASSWORD=Pa$$w0rd";
+            string connectionString = "SERVER=10.229.33.3; DATABASE=Gestionnaire; UID=Luana; PASSWORD=Pa$$$w0rd";
             connection = new MySqlConnection(connectionString);
-
+          
         }
 
         /// <summary>
@@ -38,7 +38,15 @@ namespace Gestionnaire_de_stock_version_1._0
         /// </summary>
         public void OpenDB()
         {
-            connection.Open();
+            try
+            {
+                connection.Open();
+            }
+            catch
+            {
+                MessageBox.Show("Erreur de connexion");
+                Application.Exit();
+            }
         }
         /// <summary>
         /// Fermer la conexions à Mysql 
@@ -70,6 +78,7 @@ namespace Gestionnaire_de_stock_version_1._0
             // Création d'une commande MySQL en fonction de l'objet connection
             MySqlCommand cmd = new MySqlCommand(produit, connection);
             cmd.ExecuteNonQuery();
+            cmd.ExecuteNonQuery();
             return cmd.LastInsertedId;
         }
 
@@ -79,7 +88,7 @@ namespace Gestionnaire_de_stock_version_1._0
         /// <param name="id">Id de la commande</param>
         public void UpdateStatus(int id)
         {
-            string thisDay = System.DateTime.Now.ToString("dd/MM/yyyy");
+            string thisDay = System.DateTime.Now.ToString("yyyy/MM/dd");
             string updatestatus = "UPDATE CommandeLines SET Status = 2, ArrivalDate = '"+thisDay+"' WHERE id =" + id + ";";
             MySqlCommand cmd = new MySqlCommand(updatestatus, connection);
             cmd.ExecuteNonQuery();
@@ -150,6 +159,10 @@ namespace Gestionnaire_de_stock_version_1._0
                 // Possibilité de créer une méthode avec un booléan en retour pour savoir si le contact à été ajouté correctement.
             }
         }
+        /// <summary>
+        /// Insertion des utilisateurs
+        /// </summary>
+        /// <param name="user">Données d'utilisateur</param>
         public void AddUser(User user)
         {
             try
@@ -166,7 +179,7 @@ namespace Gestionnaire_de_stock_version_1._0
                 // utilisation de l'objet contact passé en paramètre
 
                 cmd.Parameters.AddWithValue("@Lastname", user.LastName);
-                cmd.Parameters.AddWithValue("@Name", user.FirstName);
+                cmd.Parameters.AddWithValue("@FirstName", user.FirstName);
                 cmd.Parameters.AddWithValue("@NameRestaurant", user.NameRestaurant);
                 cmd.Parameters.AddWithValue("@City", user.City);
                 cmd.Parameters.AddWithValue("@NPA", user.Npa);
@@ -186,6 +199,24 @@ namespace Gestionnaire_de_stock_version_1._0
                 // Possibilité de créer un Logger pour les exceptions SQL reçus
                 // Possibilité de créer une méthode avec un booléan en retour pour savoir si le contact à été ajouté correctement.
             }
+        }
+        /// <summary>
+        /// Atualizer les informations d'un utilisateur
+        /// </summary>
+        /// <param name="id">id d'utilisateur</param>
+        /// <param name="firstName">Prénom</param>
+        /// <param name="lastName">Nom</param>
+        /// <param name="nameRestaurant">Nom du restaurant</param>
+        /// <param name="city">Ville</param>
+        /// <param name="npa">Npa</param>
+        /// <param name="street">Rue</param>
+        /// <param name="email">Email</param>
+        public void UpdateUser(int id, string firstName, string lastName, string nameRestaurant, string city, int npa, string street, string email)
+        {
+
+            string updatestatus = "UPDATE restaurants SET restaurants.LastName = '"+lastName+"', restaurants.FirstName = '"+firstName+"', restaurants.NameRestaurant = '"+nameRestaurant+"', restaurants.City = '"+city+"', restaurants.NPA = "+npa+", restaurants.Street = '"+street+ "',restaurants.email = '" + email + "' WHERE id = "+id+";";
+            MySqlCommand cmd = new MySqlCommand(updatestatus, connection);
+            cmd.ExecuteNonQuery();
         }
         /// <summary>
         /// Insérer un produit dans le stock, table CommandeLines 
@@ -222,7 +253,7 @@ namespace Gestionnaire_de_stock_version_1._0
         /// <param name="status">Status de la commande</param>
         public void InsertCommandeLine(int quantity, int productsid, int unitiesid, int suppliersid, int status)
         {
-            string thisDay = System.DateTime.Now.ToString("dd/MM/yyyy");
+            string thisDay = System.DateTime.Now.ToString("yyyy/MM/dd");
             string commande = "INSERT INTO commandelines(Quantity,OrderDate,Products_id,Unities_id,Suppliers_id,Status) VALUES(" + quantity + ",'" + thisDay + "'," + productsid + "," + unitiesid + "," + suppliersid + "," + status + ");";
             MySqlCommand cmd = new MySqlCommand(commande, connection);
             cmd.ExecuteNonQuery();
@@ -234,7 +265,7 @@ namespace Gestionnaire_de_stock_version_1._0
         /// <param name="idproduit">Id du produit</param>
         public void DeletInStock(int idproduit)
         {
-            string commande = "Delete From commandelines WHERE commandelines.id =" + idproduit + " AND commandelines.status = 1;";
+            string commande = "Delete From commandelines WHERE commandelines.id =" + idproduit + " AND commandelines.status = 1 OR 2;";
             MySqlCommand cmd = new MySqlCommand(commande, connection);
             cmd.ExecuteNonQuery();
         }
@@ -440,7 +471,10 @@ namespace Gestionnaire_de_stock_version_1._0
             }
 
             return list;
-        }
+        }/// <summary>
+        /// Envoyer un email
+        /// </summary>
+        /// <param name="mail"></param>
         public void sendMail(Mail mail)
         {       
        
@@ -449,7 +483,6 @@ namespace Gestionnaire_de_stock_version_1._0
             try
             {
                 test.Send(mail.Sender, mail.Recipient, mail.Subject, mail.Body);
-                MessageBox.Show("Email ok");
             }
             catch (Exception c)
             {
@@ -475,10 +508,18 @@ namespace Gestionnaire_de_stock_version_1._0
                 string unities = dataReader["Unitie"].ToString();
                 int quantity = (int)dataReader["Quantity"];
                 string Peremption = dataReader["Peremption"].ToString();
+
+                //S'il le jour existe 
+                if (Peremption != "")
+                {
+                    //Transformer la date 
+                    Peremption = DateTime.Parse(Peremption).ToString("yyyy/MM/dd");
+                }
                 CommandeLines dataUnities = new CommandeLines(id, nameproduit, namecategorie, quantity, unities, Peremption);
                 list.Add(dataUnities);
+                
             }
-
+            //string thisDay = System.DateTime.Now.ToString("yyyy/MM/dd");
             return list;
         }
         /// <summary>
@@ -488,7 +529,7 @@ namespace Gestionnaire_de_stock_version_1._0
         public List<CommandeLines> ReadCommandes()
         {
             MySqlCommand cmd = connection.CreateCommand();
-            cmd.CommandText = "SELECT commandelines.id, commandelines.OrderDate,commandelines.ArrivalDate, products.name AS Produit, unities.Name AS Unitie, categories.name AS categorie, commandelines.status AS status, commandelines.Quantity, commandelines.Peremption FROM commandelines inner JOIN products ON commandelines.Products_id = products.id inner JOIN suppliers ON commandelines.Suppliers_id = suppliers.id INNER JOIN categories ON products.Categories_id = categories.id INNER JOIN unities ON commandelines.Unities_id = unities.id WHERE commandelines.Status = 0  OR commandelines.Status = 2 ORDER BY DATE(commandelines.OrderDate);";
+            cmd.CommandText = "SELECT commandelines.id, commandelines.OrderDate,commandelines.ArrivalDate, products.name AS Produit, unities.Name AS Unitie, categories.name AS categorie, commandelines.status AS status, commandelines.Quantity, commandelines.Peremption FROM commandelines inner JOIN products ON commandelines.Products_id = products.id inner JOIN suppliers ON commandelines.Suppliers_id = suppliers.id INNER JOIN categories ON products.Categories_id = categories.id INNER JOIN unities ON commandelines.Unities_id = unities.id WHERE commandelines.Status = 0  OR commandelines.Status = 2 ORDER BY DATE(commandelines.OrderDate) desc;";
             List<CommandeLines> list = new List<CommandeLines>();
             MySqlDataReader dataReader = cmd.ExecuteReader();
             while (dataReader.Read())
@@ -499,14 +540,50 @@ namespace Gestionnaire_de_stock_version_1._0
                 int quantity = (int)dataReader["Quantity"];
                 string orderday = dataReader["OrderDate"].ToString();
                 int status = (int)dataReader["status"];
-                string arrivaldate = dataReader["ArrivalDate"].ToString();
-                CommandeLines dataUnities = new CommandeLines(id, nameproduit, unities, quantity, orderday, status, arrivaldate);
+                string datearrival = dataReader["ArrivalDate"].ToString();
+
+                //Transformer la date 
+                string formatDateOrderDay = DateTime.Parse(orderday).ToString("yyyy/MM/dd");
+
+                //S'il le jour existe
+                if (datearrival != "")
+                {
+                    //Transformer la date 
+                    datearrival = DateTime.Parse(datearrival).ToString("yyyy/MM/dd");
+                }
+                
+                CommandeLines dataUnities = new CommandeLines(id, nameproduit, unities, quantity, formatDateOrderDay, status, datearrival);
                 list.Add(dataUnities);
             }
 
             return list;
         }
+        /// <summary>
+        /// Lire le données d'utilisateur 
+        /// </summary>
+        /// <returns>La list des inforamtions d'utilisateur</returns>
+        public List<User> ReadUser()
+        {
+            MySqlCommand cmd = connection.CreateCommand();
+            cmd.CommandText = "SELECT * From restaurants;";
+            List<User> listUser = new List<User>();
+            MySqlDataReader dataReader = cmd.ExecuteReader();
+            while (dataReader.Read())
+            {
+                int id = (int)dataReader["id"];
+                string lastNameC = dataReader["LastName"].ToString();
+                string firstNameC = dataReader["FirstName"].ToString();
+                string nameRestaurantC = dataReader["NameRestaurant"].ToString();
+                string cityC = dataReader["City"].ToString();
+                int npaC = (int)dataReader["Npa"];
+                string streetC = dataReader["Street"].ToString();
+                string emailC = dataReader["Email"].ToString();
 
+                User dataUnities = new User(id,lastNameC,firstNameC,nameRestaurantC,cityC,npaC,streetC,emailC);
+                listUser.Add(dataUnities);
+            }
+            return listUser;
+        }
         
 
     }

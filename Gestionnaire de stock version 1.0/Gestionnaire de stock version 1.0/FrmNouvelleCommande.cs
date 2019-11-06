@@ -19,11 +19,10 @@ namespace Gestionnaire_de_stock_version_1._0
     public partial class FrmNouvellecommande : Form
     {
         ConnectionDB MysqlConn = new ConnectionDB();
-        Image imagedelet = Image.FromFile("P:/Projet (binôme)/Gestionnaire de stock version1.0/Gestionnaire de stock version 1.0/X.png");
+        Image imagedelet = Image.FromFile(Application.StartupPath + "/Images/X.png");
         List<Unities> listUnities;
         List<Supplier> listSupplier;
         Supplier supplier;
-        User user;
         Unities unitie;
         Products product;
         public FrmNouvellecommande()
@@ -173,8 +172,17 @@ namespace Gestionnaire_de_stock_version_1._0
             
             //Déclaration de l'objet newMail
             Mail newMail;
+            string emailutilisateur = "";
+            MysqlConn.OpenDB();
+            //Lire la list des fournisseurs 
+            List<User> listSupplier = MysqlConn.ReadUser();
+            foreach (User value in listSupplier)
+            {
+                emailutilisateur = value.Email;
+            }
+            MysqlConn.CloseDB();
 
-            newMail = new Mail("Stephane.sordet@cpnv.ch", supplier.Email, "", txtEmail.Text);
+            newMail = new Mail(emailutilisateur, supplier.Email, "", txtEmail.Text);
             //Envoie de l'email
             MysqlConn.sendMail(newMail);
            

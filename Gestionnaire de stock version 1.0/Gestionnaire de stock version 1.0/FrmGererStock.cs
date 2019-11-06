@@ -15,8 +15,8 @@ namespace Gestionnaire_de_stock_version_1._0
     {
 
         ConnectionDB MysqlConn = new ConnectionDB();
-        Image imagedelet = Image.FromFile("C:/2ème_année/Projet (binôme)/Gestionnaire de stock version 1.0/delete (1).png");
-        Image imageedit = Image.FromFile("C:/2ème_année/Projet (binôme)/Gestionnaire de stock version 1.0/edit.png");
+        Image imagedelet = Image.FromFile(Application.StartupPath + "/Images/delete (1).png");
+        Image imageedit = Image.FromFile(Application.StartupPath + "/Images/edit.png");
 
         public bool modiferValide = false;
         public int idProduitModifer;
@@ -47,7 +47,7 @@ namespace Gestionnaire_de_stock_version_1._0
                 dgvStock.Rows.Add(value.Id, value.Nameproduit, value.Categorie, value.Quantity, value.Unities, value.Peremption);
             }
             MysqlConn.CloseDB();
-
+           
         }
         private void FrmGererStock_Load(object sender, EventArgs e)
         {

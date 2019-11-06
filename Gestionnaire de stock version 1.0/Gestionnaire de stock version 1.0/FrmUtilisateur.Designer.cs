@@ -234,6 +234,7 @@
             this.Name = "FrmUtilisateur";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Informations personelles";
+            this.Load += new System.EventHandler(this.FrmUtilisateur_Load);
             ((System.ComponentModel.ISupportInitialize)(this.picreturnemenu)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

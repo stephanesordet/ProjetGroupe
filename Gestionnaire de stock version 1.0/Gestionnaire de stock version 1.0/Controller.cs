@@ -49,7 +49,7 @@ namespace Gestionnaire_de_stock_version_1._0
             }
             else
             {
-                string motif = @"^\(?([0-9]{2})\)?[.]?([0-9]{2})[.]?([0-9]{4})$";
+                string motif = @"^\(?([0-9]{4})\)?[.]?([0-9]{2})[.]?([0-9]{2})$";
                 bool returnin = Regex.IsMatch(date, motif);
                 return Regex.IsMatch(date, motif);
             }
