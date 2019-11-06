@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lbljouterfornisseur = new System.Windows.Forms.Label();
+            this.lbljouterfournisseur = new System.Windows.Forms.Label();
             this.txtNom = new System.Windows.Forms.TextBox();
             this.txtPrenom = new System.Windows.Forms.TextBox();
             this.txtEntreprise = new System.Windows.Forms.TextBox();
@@ -50,16 +50,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.pic_returnemenu)).BeginInit();
             this.SuspendLayout();
             // 
-            // lbljouterfornisseur
+            // lbljouterfournisseur
             // 
-            this.lbljouterfornisseur.AutoSize = true;
-            this.lbljouterfornisseur.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbljouterfornisseur.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.lbljouterfornisseur.Location = new System.Drawing.Point(48, 9);
-            this.lbljouterfornisseur.Name = "lbljouterfornisseur";
-            this.lbljouterfornisseur.Size = new System.Drawing.Size(271, 31);
-            this.lbljouterfornisseur.TabIndex = 1;
-            this.lbljouterfornisseur.Text = "Ajouter un fornisseur ";
+            this.lbljouterfournisseur.AutoSize = true;
+            this.lbljouterfournisseur.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbljouterfournisseur.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.lbljouterfournisseur.Location = new System.Drawing.Point(48, 9);
+            this.lbljouterfournisseur.Name = "lbljouterfournisseur";
+            this.lbljouterfournisseur.Size = new System.Drawing.Size(286, 31);
+            this.lbljouterfournisseur.TabIndex = 1;
+            this.lbljouterfournisseur.Text = "Ajouter un fournisseur ";
             // 
             // txtNom
             // 
@@ -254,7 +254,7 @@
             this.Controls.Add(this.txtEntreprise);
             this.Controls.Add(this.txtPrenom);
             this.Controls.Add(this.txtNom);
-            this.Controls.Add(this.lbljouterfornisseur);
+            this.Controls.Add(this.lbljouterfournisseur);
             this.Controls.Add(this.pic_returnemenu);
             this.Name = "FrmFournisseur";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -269,7 +269,7 @@
         #endregion
 
         private System.Windows.Forms.PictureBox pic_returnemenu;
-        private System.Windows.Forms.Label lbljouterfornisseur;
+        private System.Windows.Forms.Label lbljouterfournisseur;
         private System.Windows.Forms.TextBox txtNom;
         private System.Windows.Forms.TextBox txtPrenom;
         private System.Windows.Forms.TextBox txtEntreprise;

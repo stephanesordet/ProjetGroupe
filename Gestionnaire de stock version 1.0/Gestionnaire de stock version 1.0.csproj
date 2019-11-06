@@ -142,12 +142,6 @@
       <DependentUpon>FrmUtilisateur.cs</DependentUpon>
     </Compile>
     <Compile Include="Mail.cs" />
-    <Compile Include="ProdNonFourni.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ProdNonFourni.Designer.cs">
-      <DependentUpon>ProdNonFourni.cs</DependentUpon>
-    </Compile>
     <Compile Include="Products.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -189,9 +183,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmUtilisateur.resx">
       <DependentUpon>FrmUtilisateur.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ProdNonFourni.resx">
-      <DependentUpon>ProdNonFourni.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

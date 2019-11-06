@@ -25,7 +25,7 @@ namespace Gestionnaire_de_stock_version_1._0
         /// </summary>
         private void InitConnexion()
         {
-            // Création de la chaîne de connexion
+            // Création de la chaîne de connexion 
             string connectionString = "SERVER=127.0.0.1; DATABASE=Gestionnaire; UID=AdminGestionnaire; PASSWORD=Pa$$w0rd";
             connection = new MySqlConnection(connectionString);
           

@@ -1,0 +1,57 @@
+P:\Projet (binôme)\Gestionnaire de stock version1.0\Gestionnaire de stock version 1.0\Gestionnaire de stock version 1.0\obj\Debug\Gestionnaire de stock version 1.0.csprojAssemblyReference.cache
+P:\Projet (binôme)\Gestionnaire de stock version1.0\Gestionnaire de stock version 1.0\Gestionnaire de stock version 1.0\obj\Debug\Gestionnaire_de_stock_version_1._0.FrmMenu.resources
+P:\Projet (binôme)\Gestionnaire de stock version1.0\Gestionnaire de stock version 1.0\Gestionnaire de stock version 1.0\obj\Debug\Gestionnaire_de_stock_version_1._0.Properties.Resources.resources
+P:\Projet (binôme)\Gestionnaire de stock version1.0\Gestionnaire de stock version 1.0\Gestionnaire de stock version 1.0\obj\Debug\Gestionnaire de stock version 1.0.csproj.GenerateResource.cache
+P:\Projet (binôme)\Gestionnaire de stock version1.0\Gestionnaire de stock version 1.0\Gestionnaire de stock version 1.0\obj\Debug\Gestionnaire de stock version 1.0.csproj.CoreCompileInputs.cache
+P:\Projet (binôme)\Gestionnaire de stock version1.0\Gestionnaire de stock version 1.0\Gestionnaire de stock version 1.0\bin\Debug\Gestionnaire de stock version 1.0.exe.config
+P:\Projet (binôme)\Gestionnaire de stock version1.0\Gestionnaire de stock version 1.0\Gestionnaire de stock version 1.0\bin\Debug\Gestionnaire de stock version 1.0.exe
+P:\Projet (binôme)\Gestionnaire de stock version1.0\Gestionnaire de stock version 1.0\Gestionnaire de stock version 1.0\bin\Debug\Gestionnaire de stock version 1.0.pdb
+P:\Projet (binôme)\Gestionnaire de stock version1.0\Gestionnaire de stock version 1.0\Gestionnaire de stock version 1.0\obj\Debug\Gestionnaire de stock version 1.0.exe
+P:\Projet (binôme)\Gestionnaire de stock version1.0\Gestionnaire de stock version 1.0\Gestionnaire de stock version 1.0\obj\Debug\Gestionnaire de stock version 1.0.pdb
+P:\Projet (binôme)\Gestionnaire de stock version1.0\Gestionnaire de stock version 1.0\Gestionnaire de stock version 1.0\obj\Debug\Gestionnaire_de_stock_version_1._0.FrmUtilisateur.resources
+P:\Projet (binôme)\Gestionnaire de stock version1.0\Gestionnaire de stock version 1.0\Gestionnaire de stock version 1.0\obj\Debug\Gestionnaire_de_stock_version_1._0.FrmStock.resources
+P:\Projet (binôme)\Gestionnaire de stock version1.0\Gestionnaire de stock version 1.0\Gestionnaire de stock version 1.0\obj\Debug\Gestionnaire_de_stock_version_1._0.FrmFournisseur.resources
+P:\Projet (binôme)\Gestionnaire de stock version1.0\Gestionnaire de stock version 1.0\Gestionnaire de stock version 1.0\obj\Debug\Gestionnaire_de_stock_version_1._0.FrmMescommandes.resources
+P:\Projet (binôme)\Gestionnaire de stock version1.0\Gestionnaire de stock version 1.0\Gestionnaire de stock version 1.0\obj\Debug\Gestionnaire_de_stock_version_1._0.FrmNouvellecommande.resources
+P:\Projet (binôme)\Gestionnaire de stock version1.0\Gestionnaire de stock version 1.0\Gestionnaire de stock version 1.0\obj\Debug\Gestionnaire_de_stock_version_1._0.FrmProduits.resources
+P:\Projet (binôme)\Gestionnaire de stock version1.0\Gestionnaire de stock version 1.0\Gestionnaire de stock version 1.0\bin\Debug\BouncyCastle.Crypto.dll
+P:\Projet (binôme)\Gestionnaire de stock version1.0\Gestionnaire de stock version 1.0\Gestionnaire de stock version 1.0\bin\Debug\Google.Protobuf.dll
+P:\Projet (binôme)\Gestionnaire de stock version1.0\Gestionnaire de stock version 1.0\Gestionnaire de stock version 1.0\bin\Debug\MySql.Data.dll
+P:\Projet (binôme)\Gestionnaire de stock version1.0\Gestionnaire de stock version 1.0\Gestionnaire de stock version 1.0\bin\Debug\Renci.SshNet.dll
+P:\Projet (binôme)\Gestionnaire de stock version1.0\Gestionnaire de stock version 1.0\Gestionnaire de stock version 1.0\bin\Debug\Google.Protobuf.xml
+P:\Projet (binôme)\Gestionnaire de stock version1.0\Gestionnaire de stock version 1.0\Gestionnaire de stock version 1.0\bin\Debug\MySql.Data.xml
+P:\Projet (binôme)\Gestionnaire de stock version1.0\Gestionnaire de stock version 1.0\Gestionnaire de stock version 1.0\bin\Debug\Renci.SshNet.xml
+P:\Projet (binôme)\Gestionnaire de stock version1.0\Gestionnaire de stock version 1.0\Gestionnaire de stock version 1.0\obj\Debug\Gestionnaire de stock version 1.0.csproj.CopyComplete
+N:\PERSO\ELEVE\SC\INFO\si-ca2a\Luana.KIRCHNER-BANNWART\Projet (binôme)\Gestionnaire de stock version1.0\Gestionnaire de stock version 1.0\Gestionnaire de stock version 1.0\bin\Debug\Gestionnaire de stock version 1.0.exe.config
+N:\PERSO\ELEVE\SC\INFO\si-ca2a\Luana.KIRCHNER-BANNWART\Projet (binôme)\Gestionnaire de stock version1.0\Gestionnaire de stock version 1.0\Gestionnaire de stock version 1.0\bin\Debug\Gestionnaire de stock version 1.0.exe
+N:\PERSO\ELEVE\SC\INFO\si-ca2a\Luana.KIRCHNER-BANNWART\Projet (binôme)\Gestionnaire de stock version1.0\Gestionnaire de stock version 1.0\Gestionnaire de stock version 1.0\bin\Debug\Gestionnaire de stock version 1.0.pdb
+N:\PERSO\ELEVE\SC\INFO\si-ca2a\Luana.KIRCHNER-BANNWART\Projet (binôme)\Gestionnaire de stock version1.0\Gestionnaire de stock version 1.0\Gestionnaire de stock version 1.0\bin\Debug\BouncyCastle.Crypto.dll
+N:\PERSO\ELEVE\SC\INFO\si-ca2a\Luana.KIRCHNER-BANNWART\Projet (binôme)\Gestionnaire de stock version1.0\Gestionnaire de stock version 1.0\Gestionnaire de stock version 1.0\bin\Debug\Google.Protobuf.dll
+N:\PERSO\ELEVE\SC\INFO\si-ca2a\Luana.KIRCHNER-BANNWART\Projet (binôme)\Gestionnaire de stock version1.0\Gestionnaire de stock version 1.0\Gestionnaire de stock version 1.0\bin\Debug\MySql.Data.dll
+N:\PERSO\ELEVE\SC\INFO\si-ca2a\Luana.KIRCHNER-BANNWART\Projet (binôme)\Gestionnaire de stock version1.0\Gestionnaire de stock version 1.0\Gestionnaire de stock version 1.0\bin\Debug\Renci.SshNet.dll
+N:\PERSO\ELEVE\SC\INFO\si-ca2a\Luana.KIRCHNER-BANNWART\Projet (binôme)\Gestionnaire de stock version1.0\Gestionnaire de stock version 1.0\Gestionnaire de stock version 1.0\bin\Debug\Google.Protobuf.xml
+N:\PERSO\ELEVE\SC\INFO\si-ca2a\Luana.KIRCHNER-BANNWART\Projet (binôme)\Gestionnaire de stock version1.0\Gestionnaire de stock version 1.0\Gestionnaire de stock version 1.0\bin\Debug\MySql.Data.xml
+N:\PERSO\ELEVE\SC\INFO\si-ca2a\Luana.KIRCHNER-BANNWART\Projet (binôme)\Gestionnaire de stock version1.0\Gestionnaire de stock version 1.0\Gestionnaire de stock version 1.0\bin\Debug\Renci.SshNet.xml
+N:\PERSO\ELEVE\SC\INFO\si-ca2a\Luana.KIRCHNER-BANNWART\Projet (binôme)\Gestionnaire de stock version1.0\Gestionnaire de stock version 1.0\Gestionnaire de stock version 1.0\obj\Debug\Gestionnaire de stock version 1.0.csprojAssemblyReference.cache
+N:\PERSO\ELEVE\SC\INFO\si-ca2a\Luana.KIRCHNER-BANNWART\Projet (binôme)\Gestionnaire de stock version1.0\Gestionnaire de stock version 1.0\Gestionnaire de stock version 1.0\obj\Debug\Gestionnaire_de_stock_version_1._0.FrmMenu.resources
+N:\PERSO\ELEVE\SC\INFO\si-ca2a\Luana.KIRCHNER-BANNWART\Projet (binôme)\Gestionnaire de stock version1.0\Gestionnaire de stock version 1.0\Gestionnaire de stock version 1.0\obj\Debug\Gestionnaire_de_stock_version_1._0.FrmFournisseur.resources
+N:\PERSO\ELEVE\SC\INFO\si-ca2a\Luana.KIRCHNER-BANNWART\Projet (binôme)\Gestionnaire de stock version1.0\Gestionnaire de stock version 1.0\Gestionnaire de stock version 1.0\obj\Debug\Gestionnaire_de_stock_version_1._0.FrmMescommandes.resources
+N:\PERSO\ELEVE\SC\INFO\si-ca2a\Luana.KIRCHNER-BANNWART\Projet (binôme)\Gestionnaire de stock version1.0\Gestionnaire de stock version 1.0\Gestionnaire de stock version 1.0\obj\Debug\Gestionnaire_de_stock_version_1._0.FrmNouvellecommande.resources
+N:\PERSO\ELEVE\SC\INFO\si-ca2a\Luana.KIRCHNER-BANNWART\Projet (binôme)\Gestionnaire de stock version1.0\Gestionnaire de stock version 1.0\Gestionnaire de stock version 1.0\obj\Debug\Gestionnaire_de_stock_version_1._0.FrmProduits.resources
+N:\PERSO\ELEVE\SC\INFO\si-ca2a\Luana.KIRCHNER-BANNWART\Projet (binôme)\Gestionnaire de stock version1.0\Gestionnaire de stock version 1.0\Gestionnaire de stock version 1.0\obj\Debug\Gestionnaire_de_stock_version_1._0.FrmStock.resources
+N:\PERSO\ELEVE\SC\INFO\si-ca2a\Luana.KIRCHNER-BANNWART\Projet (binôme)\Gestionnaire de stock version1.0\Gestionnaire de stock version 1.0\Gestionnaire de stock version 1.0\obj\Debug\Gestionnaire_de_stock_version_1._0.FrmUtilisateur.resources
+N:\PERSO\ELEVE\SC\INFO\si-ca2a\Luana.KIRCHNER-BANNWART\Projet (binôme)\Gestionnaire de stock version1.0\Gestionnaire de stock version 1.0\Gestionnaire de stock version 1.0\obj\Debug\Gestionnaire_de_stock_version_1._0.Properties.Resources.resources
+N:\PERSO\ELEVE\SC\INFO\si-ca2a\Luana.KIRCHNER-BANNWART\Projet (binôme)\Gestionnaire de stock version1.0\Gestionnaire de stock version 1.0\Gestionnaire de stock version 1.0\obj\Debug\Gestionnaire de stock version 1.0.csproj.GenerateResource.cache
+N:\PERSO\ELEVE\SC\INFO\si-ca2a\Luana.KIRCHNER-BANNWART\Projet (binôme)\Gestionnaire de stock version1.0\Gestionnaire de stock version 1.0\Gestionnaire de stock version 1.0\obj\Debug\Gestionnaire de stock version 1.0.csproj.CoreCompileInputs.cache
+N:\PERSO\ELEVE\SC\INFO\si-ca2a\Luana.KIRCHNER-BANNWART\Projet (binôme)\Gestionnaire de stock version1.0\Gestionnaire de stock version 1.0\Gestionnaire de stock version 1.0\obj\Debug\Gestionnaire de stock version 1.0.csproj.CopyComplete
+N:\PERSO\ELEVE\SC\INFO\si-ca2a\Luana.KIRCHNER-BANNWART\Projet (binôme)\Gestionnaire de stock version1.0\Gestionnaire de stock version 1.0\Gestionnaire de stock version 1.0\obj\Debug\Gestionnaire de stock version 1.0.exe
+N:\PERSO\ELEVE\SC\INFO\si-ca2a\Luana.KIRCHNER-BANNWART\Projet (binôme)\Gestionnaire de stock version1.0\Gestionnaire de stock version 1.0\Gestionnaire de stock version 1.0\obj\Debug\Gestionnaire de stock version 1.0.pdb
+N:\PERSO\ELEVE\SC\INFO\si-ca2a\Luana.KIRCHNER-BANNWART\Projet (binôme)\Gestionnaire de stock version1.0\Gestionnaire de stock version 1.0\Gestionnaire de stock version 1.0\obj\Debug\Gestionnaire_de_stock_version_1._0.FrmCommande.resources
+N:\PERSO\ELEVE\SC\INFO\si-ca2a\Luana.KIRCHNER-BANNWART\Projet (binôme)\Gestionnaire de stock version1.0\Gestionnaire de stock version 1.0\Gestionnaire de stock version 1.0\obj\Debug\Gestionnaire_de_stock_version_1._0.frmCategorie.resources
+P:\Projet (binôme)\Gestionnaire de stock version1.0\Gestionnaire de stock version 1.0\Gestionnaire de stock version 1.0\obj\Debug\Gestionnaire_de_stock_version_1._0.frmCategorie.resources
+P:\Projet (binôme)\Gestionnaire de stock version1.0\Gestionnaire de stock version 1.0\Gestionnaire de stock version 1.0\obj\Debug\Gestionnaire_de_stock_version_1._0.FrmCommande.resources
+P:\Projet (binôme)\Gestionnaire de stock version1.0\Gestionnaire de stock version 1.0\Gestionnaire de stock version 1.0\obj\Debug\Gestionnaire_de_stock_version_1._0.FrmGererStock.resources
+P:\Projet (binôme)\Gestionnaire de stock version1.0\Gestionnaire de stock version 1.0\Gestionnaire de stock version 1.0\obj\Debug\Gestionnaire_de_stock_version_1._0.FrmLoupeProduitStcok.resources
+P:\Projet (binôme)\Gestionnaire de stock version1.0\Gestionnaire de stock version 1.0\Gestionnaire de stock version 1.0\obj\Debug\Gestionnaire_de_stock_version_1._0.FrmProduitStock.resources
+P:\Projet (binôme)\Gestionnaire de stock version1.0\Gestionnaire de stock version 1.0\Gestionnaire de stock version 1.0\obj\Debug\Gestionnaire_de_stock_version_1._0.ProdNonFourni.resources
+P:\Projet (binôme)\Gestionnaire de stock version1.0\Gestionnaire de stock version 1.0\Gestionnaire de stock version 1.0\bin\Debug\Google.Protobuf.pdb
