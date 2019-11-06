@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Gestionnaire_de_stock_version_1._0
 {//Création de la classe Supplier
-    class Supplier
+    public class Supplier
     {
 
         private int id;

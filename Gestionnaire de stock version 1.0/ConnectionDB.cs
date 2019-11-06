@@ -43,7 +43,7 @@ namespace Gestionnaire_de_stock_version_1._0
             catch
             {
                 MessageBox.Show("Connexion à la base de données impossible. Si le problème persiste, contactez le support.");
-                Application.Exit();
+                Environment.Exit(0);
             }
         }
         /// <summary>
