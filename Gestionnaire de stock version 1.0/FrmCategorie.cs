@@ -1,4 +1,13 @@
-﻿using System;
+﻿/**
+ * \file      frmCategorie.cs
+ * \author    L. Kirchner Bannwart and S.Sordet 
+ * \version   1.0
+ * \date      September 11. 2019
+ * \brief     Form to enter data about the categories.
+ *
+ * \details   This form enables to enter data about the categories (name).
+ */
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -48,5 +57,9 @@ namespace Gestionnaire_de_stock_version_1._0
             this.Hide();
         }
 
+        private void frmCategorie_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

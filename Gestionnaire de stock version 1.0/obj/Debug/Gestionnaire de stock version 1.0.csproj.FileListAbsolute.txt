@@ -11,7 +11,6 @@ P:\Projet (binôme)\Gestionnaire de stock version1.0\Gestionnaire de stock versi
 P:\Projet (binôme)\Gestionnaire de stock version1.0\Gestionnaire de stock version 1.0\obj\Debug\Gestionnaire_de_stock_version_1._0.FrmProduitStock.resources
 P:\Projet (binôme)\Gestionnaire de stock version1.0\Gestionnaire de stock version 1.0\obj\Debug\Gestionnaire_de_stock_version_1._0.FrmStock.resources
 P:\Projet (binôme)\Gestionnaire de stock version1.0\Gestionnaire de stock version 1.0\obj\Debug\Gestionnaire_de_stock_version_1._0.FrmUtilisateur.resources
-P:\Projet (binôme)\Gestionnaire de stock version1.0\Gestionnaire de stock version 1.0\obj\Debug\Gestionnaire_de_stock_version_1._0.ProdNonFourni.resources
 P:\Projet (binôme)\Gestionnaire de stock version1.0\Gestionnaire de stock version 1.0\obj\Debug\Gestionnaire_de_stock_version_1._0.Properties.Resources.resources
 P:\Projet (binôme)\Gestionnaire de stock version1.0\Gestionnaire de stock version 1.0\obj\Debug\Gestionnaire de stock version 1.0.csproj.GenerateResource.cache
 P:\Projet (binôme)\Gestionnaire de stock version1.0\Gestionnaire de stock version 1.0\obj\Debug\Gestionnaire de stock version 1.0.csproj.CoreCompileInputs.cache

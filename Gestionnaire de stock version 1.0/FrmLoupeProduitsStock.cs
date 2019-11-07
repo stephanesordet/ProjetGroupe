@@ -1,4 +1,13 @@
-﻿using System;
+﻿/**
+ * \file      frmLoupeProduitsStock.cs
+ * \author    L. Kirchner Bannwart and S.Sordet 
+ * \version   1.0
+ * \date      Oct 25. 2019
+ * \brief     Form to display the products.
+ *
+ * \details   This form to display the products(product name, categorie,). 
+ */
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,7 +21,7 @@ namespace Gestionnaire_de_stock_version_1._0
 {
     public partial class FrmLoupeProduitStcok : Form
     {
-        FrmProduitStock formproduit;
+        frmProduitStock formproduit;
         ConnectionDB MysqlConn = new ConnectionDB();
         public int idproduit;
         List<Categorie> listCategories;
@@ -25,7 +34,7 @@ namespace Gestionnaire_de_stock_version_1._0
         {
             if (lstProduits.SelectedIndex != -1)
             {
-                formproduit = new FrmProduitStock();
+                formproduit = new frmProduitStock();
                 if (lstProduits.SelectedIndex != -1)
                 {
                     //Recuperer le Id du produit selectionnée

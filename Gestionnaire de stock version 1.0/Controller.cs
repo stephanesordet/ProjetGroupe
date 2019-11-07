@@ -1,4 +1,13 @@
-﻿using System;
+﻿/**
+ * \file      Controller.cs
+ * \author    L. Kirchner Bannwart and S. Sordet 
+ * \version   1.0
+ * \date      Novembre 07. 2019
+ * \brief     methods about a controller a product has.
+ *
+ * \details   this class contains all methods a categorie can have. 
+ */
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;

@@ -1,4 +1,13 @@
-﻿using System;
+﻿/**
+ * \file      frmCommande.cs
+ * \author    L. Kirchner Bannwart and S.Sordet 
+ * \version   1.0
+ * \date      Sep 11. 2019
+ * \brief     Form to display the menu to orders.
+ *
+ * \details   This form displays the menu to orders. 
+ */
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -20,7 +29,7 @@ namespace Gestionnaire_de_stock_version_1._0
         private void pic_returnemenu_Click(object sender, EventArgs e)
         {
             //Retuerne au menu
-            FrmMenu form1 = new FrmMenu();
+            frmMenu form1 = new frmMenu();
             form1.Show();
             this.Hide();
         }

@@ -1,6 +1,6 @@
 ﻿namespace Gestionnaire_de_stock_version_1._0
 {
-    partial class FrmMenu
+    partial class frmMenu
     {
         /// <summary>
         /// Variable nécessaire au concepteur.

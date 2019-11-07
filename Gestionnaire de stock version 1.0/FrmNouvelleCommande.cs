@@ -1,4 +1,13 @@
-﻿using System;
+﻿/**
+ * \file      frmNouvelleCommande.cs
+ * \author    L. Kirchner Bannwart and S.Sordet 
+ * \version   1.0
+ * \date      September 11. 2019
+ * \brief     Form to enter data about the orders.
+ *
+ * \details   This form enables to enter data about the orders (suppliers name, products name, unitie, quantity). 
+ */
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;

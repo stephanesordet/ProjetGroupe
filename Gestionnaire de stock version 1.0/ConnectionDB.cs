@@ -1,4 +1,13 @@
-﻿using MySql.Data.MySqlClient;
+﻿/**
+ * \file      ConnectionDB.cs
+ * \author    L. Kirchner Bannwart and S. Sordet 
+ * \version   1.0
+ * \date      Sep 26. 2019
+ * \brief     Information and methods about a connection data base.
+ *
+ * \details   this class contains all methods for connection and queries to data base Mysql. 
+ */
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -67,7 +76,6 @@ namespace Gestionnaire_de_stock_version_1._0
             MySqlCommand cmd = new MySqlCommand(produit, connection);
             cmd.ExecuteNonQuery();
             return cmd.LastInsertedId;
-
         }
 
         public long InsertProduitNonFourni(string name, int categorie)

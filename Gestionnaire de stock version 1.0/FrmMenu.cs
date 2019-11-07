@@ -1,4 +1,13 @@
-﻿using System;
+﻿/**
+ * \file      frmMenu.cs
+ * \author    L. Kirchner Bannwart and S.Sordet 
+ * \version   1.0
+ * \date      Sep 11. 2019
+ * \brief     Form to display the menu.
+ *
+ * \details   This form displays the menu. 
+ */
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,10 +19,10 @@ using System.Windows.Forms;
 
 namespace Gestionnaire_de_stock_version_1._0
 {
-    public partial class FrmMenu : Form
+    public partial class frmMenu : Form
     {
        
-        public FrmMenu()
+        public frmMenu()
         {
             InitializeComponent();
             Inicialisation();
@@ -40,21 +49,21 @@ namespace Gestionnaire_de_stock_version_1._0
 
         private void picStock_Click(object sender, EventArgs e)
         {
-            FrmStock form_stock = new FrmStock();
+            frmStock form_stock = new frmStock();
             form_stock.Show();
             this.Hide();
         }
 
         private void picProduits_Click(object sender, EventArgs e)
         {
-            FrmProduits form_produits = new FrmProduits();
+            frmProduits form_produits = new frmProduits();
             form_produits.Show();
             this.Hide();
         }
 
         private void picFournisseur_Click(object sender, EventArgs e)
         {
-            FrmFournisseur form_fournisseur = new FrmFournisseur();
+            frmFournisseur form_fournisseur = new frmFournisseur();
             form_fournisseur.Show();
             this.Hide();
         }
@@ -62,7 +71,7 @@ namespace Gestionnaire_de_stock_version_1._0
 
         private void label1_Click(object sender, EventArgs e)
         {
-            FrmUtilisateur form_utilisateur = new FrmUtilisateur();
+            frmUtilisateur form_utilisateur = new frmUtilisateur();
             form_utilisateur.Show();
             this.Hide();
         }

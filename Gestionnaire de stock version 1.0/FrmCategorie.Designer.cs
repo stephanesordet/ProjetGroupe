@@ -98,6 +98,7 @@
             this.Name = "frmCategorie";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Categorie ";
+            this.Load += new System.EventHandler(this.frmCategorie_Load);
             ((System.ComponentModel.ISupportInitialize)(this.picReturne)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -1,4 +1,13 @@
-﻿using System;
+﻿/**
+ * \file      frmProduitStock.cs
+ * \author    L. Kirchner Bannwart and S.Sordet 
+ * \version   1.0
+ * \date      Oct 17. 2019
+ * \brief     Form to enter data about the products.
+ *
+ * \details   This form allows you to enter product data to add to stock (name, categorie, quantity, Peremption, unities). 
+ */
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,7 +19,7 @@ using System.Windows.Forms;
 
 namespace Gestionnaire_de_stock_version_1._0
 {
-    public partial class FrmProduitStock : Form
+    public partial class frmProduitStock : Form
     {
         ConnectionDB MysqlConn = new ConnectionDB();
         public int idproduct;
@@ -30,7 +39,7 @@ namespace Gestionnaire_de_stock_version_1._0
         public string modiferCategorie;
         string valuechangecmb;
 
-        public FrmProduitStock()
+        public frmProduitStock()
         {
             InitializeComponent();
         }
@@ -252,7 +261,7 @@ namespace Gestionnaire_de_stock_version_1._0
         }
         private void PicReturne_Click_1(object sender, EventArgs e)
         {
-            FrmStock formstock = new FrmStock();
+            frmStock formstock = new frmStock();
             formstock.Show();
             this.Hide();
         }

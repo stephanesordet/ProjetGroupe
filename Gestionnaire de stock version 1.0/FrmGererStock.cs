@@ -1,4 +1,13 @@
-﻿using System;
+﻿/**
+ * \file      frmGererStock.cs
+ * \author    L. Kirchner Bannwart and S.Sordet 
+ * \version   1.0
+ * \date      Oct 8. 2019
+ * \brief     Form to display the stock.
+ *
+ * \details   This form displays the stock (product name, categorie, unities, quantiy, peremption). 
+ */
+using System;
 using MySql.Data.MySqlClient;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,7 +20,7 @@ using System.Windows.Forms;
 
 namespace Gestionnaire_de_stock_version_1._0
 {
-    public partial class FrmGererStock : Form
+    public partial class frmGererStock : Form
     {
 
         ConnectionDB MysqlConn = new ConnectionDB();
@@ -25,14 +34,14 @@ namespace Gestionnaire_de_stock_version_1._0
         public string uniteModifer;
         public string nomProduitModifer;
         public string dateModifer; 
-        public FrmGererStock()
+        public frmGererStock()
         {
             InitializeComponent();
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            FrmStock formstock = new FrmStock();
+            frmStock formstock = new frmStock();
             formstock.Show();
             this.Hide();
         }
@@ -72,7 +81,7 @@ namespace Gestionnaire_de_stock_version_1._0
                 //Clic sur edit 
                 if (dgvStock.Rows[e.RowIndex].Cells[7].Selected)
                 {
-                    FrmProduitStock formproduitstock = new FrmProduitStock();
+                    frmProduitStock formproduitstock = new frmProduitStock();
                     //Envoyer les informations du produit selectionnée dans le formulaire produitStock
                     formproduitstock.modifierProduit = true;
                     formproduitstock.modiferIdCommandeLines = (int)dgvStock.Rows[oneCell.RowIndex].Cells[0].Value;

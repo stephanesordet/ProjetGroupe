@@ -1,4 +1,13 @@
-﻿using System;
+﻿/**
+ * \file      frmUtilisateur.cs
+ * \author    L. Kirchner Bannwart and S.Sordet 
+ * \version   1.0
+ * \date      September 11. 2019
+ * \brief     Form to enter data about the user.
+ *
+ * \details   This form enables to enter data about the user (name, firstname, namerest, city, npa, street, email). 
+ */
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,18 +19,18 @@ using System.Windows.Forms;
 
 namespace Gestionnaire_de_stock_version_1._0
 {
-    public partial class FrmUtilisateur : Form
+    public partial class frmUtilisateur : Form
     {
         int idUser = 0;
         ConnectionDB MysqlConn = new ConnectionDB();
-        public FrmUtilisateur()
+        public frmUtilisateur()
         {
             InitializeComponent();
         }
 
         private void picreturnemenu_Click(object sender, EventArgs e)
         {
-            FrmMenu form1 = new FrmMenu();
+            frmMenu form1 = new frmMenu();
             form1.Show();
             this.Hide();
         }

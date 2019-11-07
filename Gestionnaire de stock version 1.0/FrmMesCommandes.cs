@@ -1,4 +1,13 @@
-﻿using System;
+﻿/**
+ * \file      frmMesCommandes.cs
+ * \author    L. Kirchner Bannwart and S.Sordet 
+ * \version   1.0
+ * \date      Oct 8. 2019
+ * \brief     Form to display orders.
+ *
+ * \details   This form displays the commands (product name,Quantiy, Order Date, Arrival Date). 
+ */
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;

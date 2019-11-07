@@ -1,6 +1,6 @@
 ﻿namespace Gestionnaire_de_stock_version_1._0
 {
-    partial class FrmProduits
+    partial class frmProduits
     {
         /// <summary>
         /// Required designer variable.

@@ -1,4 +1,13 @@
-﻿using System;
+﻿/**
+ * \file      frmProduits.cs
+ * \author    L. Kirchner Bannwart and S.Sordet 
+ * \version   1.0
+ * \date      September 11. 2019
+ * \brief     Form to enter data about the products.
+ *
+ * \details   This form enables to enter data about the product (name, categorie, suppliers). 
+ */
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -11,20 +20,20 @@ using System.Windows.Forms;
 
 namespace Gestionnaire_de_stock_version_1._0
 {
-    public partial class FrmProduits : Form
+    public partial class frmProduits : Form
     {
         ConnectionDB MysqlConn = new ConnectionDB();
         int idproduct;
         List<Categorie> listCategories;
         int idproduitforname;
-        public FrmProduits()
+        public frmProduits()
         {
             InitializeComponent();
         }
 
         private void Picretournemenu_Click(object sender, EventArgs e)
         {
-            FrmMenu form1 = new FrmMenu();
+            frmMenu form1 = new frmMenu();
             form1.Show();
             this.Hide();
         }

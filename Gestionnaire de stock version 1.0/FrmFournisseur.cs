@@ -1,4 +1,13 @@
-﻿using System;
+﻿/**
+ * \file      frmFournisseur.cs
+ * \author    L. Kirchner Bannwart and S.Sordet 
+ * \version   1.0
+ * \date      September 11. 2019
+ * \brief     Form to enter data about the supplier.
+ *
+ * \details   This form enables to enter data about the supplier (name, firstname, city, npa, street, email).. 
+ */
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,17 +21,17 @@ using System.Text.RegularExpressions;
 
 namespace Gestionnaire_de_stock_version_1._0
 {
-    public partial class FrmFournisseur : Form
+    public partial class frmFournisseur : Form
     {
         
-        public FrmFournisseur()
+        public frmFournisseur()
         {
             InitializeComponent();
         }
 
         private void pic_returnemenu_Click(object sender, EventArgs e)
         {
-            FrmMenu form1 = new FrmMenu();
+            frmMenu form1 = new frmMenu();
             form1.Show();
             this.Hide();
         }

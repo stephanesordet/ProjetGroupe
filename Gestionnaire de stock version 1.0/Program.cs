@@ -23,7 +23,7 @@ namespace Gestionnaire_de_stock_version_1._0
             //tes
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmMenu());
+            Application.Run(new frmMenu());
 
         }
 
