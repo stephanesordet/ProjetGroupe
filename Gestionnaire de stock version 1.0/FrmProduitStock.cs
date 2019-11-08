@@ -28,7 +28,7 @@ namespace Gestionnaire_de_stock_version_1._0
         int idproduitforname;
         int idcategorie = 0;
         
-        //Recuperer les informations du produit selectionne dans stock pour le modifer 
+        //Recuperer les informations du produit selectionnée dans stock pour le modifer 
         public bool modifierProduit = false;
         public int modifierIdProduit;
         public int modiferIdCommandeLines;
