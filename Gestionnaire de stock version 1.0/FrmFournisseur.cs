@@ -5,7 +5,7 @@
  * \date      September 11. 2019
  * \brief     Form to enter data about the supplier.
  *
- * \details   This form enables to enter data about the supplier (name, firstname, city, npa, street, email).. 
+ * \details   This form enables to enter data about the supplier (name, firstname, city, npa, street, email).
  */
 using System;
 using System.Collections.Generic;

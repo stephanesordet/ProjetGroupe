@@ -37,11 +37,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.picReturne)).BeginInit();
             this.SuspendLayout();
             // 
-            // cboProduits
+            // lstProduits
             // 
             this.lstProduits.FormattingEnabled = true;
             this.lstProduits.Location = new System.Drawing.Point(47, 129);
-            this.lstProduits.Name = "cboProduits";
+            this.lstProduits.Name = "lstProduits";
             this.lstProduits.Size = new System.Drawing.Size(209, 277);
             this.lstProduits.TabIndex = 0;
             // 
@@ -111,7 +111,7 @@
             this.Controls.Add(this.lstProduits);
             this.Name = "FrmLoupeProduitStcok";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form_LoupeProduitsStock";
+            this.Text = "FrmLoupeProduitStcok";
             this.Load += new System.EventHandler(this.FrmLoupeProduitStcok_Load);
             ((System.ComponentModel.ISupportInitialize)(this.picReturne)).EndInit();
             this.ResumeLayout(false);

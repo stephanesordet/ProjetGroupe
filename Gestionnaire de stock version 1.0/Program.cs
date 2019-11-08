@@ -1,15 +1,16 @@
-﻿using MySql.Data.MySqlClient;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-/// <summary>
+﻿/// <summary>
 /// Authors: Luana Kirchner Bannwart and Stéphane Sordet
 /// Version: 1.0
 /// Date : 11.09.2019
 /// Project : Gestionnaire de stock
 /// </summary>
+using MySql.Data.MySqlClient;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
 namespace Gestionnaire_de_stock_version_1._0
 {
     static class Program

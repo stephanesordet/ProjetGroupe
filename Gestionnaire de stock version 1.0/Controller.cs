@@ -5,7 +5,7 @@
  * \date      Novembre 07. 2019
  * \brief     methods about a controller a product has.
  *
- * \details   this class contains all methods a categorie can have. 
+ * \details   this class contains all methods a controller can have in a form. 
  */
 using System;
 using System.Collections.Generic;

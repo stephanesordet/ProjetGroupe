@@ -244,12 +244,13 @@ namespace Gestionnaire_de_stock_version_1._0
                             MessageBox.Show("Votre nouveau produit a été ajouté dans le stock et a été sauvegardé. Vous pouvez le reutiliser pour l'associer avec un ou plusieurs fournisseurs");
                         }
                     }
-                    //Vide le formulaire 
+                    //-------------Vide le formulaire------------ 
                     txtDatePeremption.Text = "";
                     txtnomproduit.Text = "";
                     txtQuantite.Text = "";
                     cboCategorie.Text = "";
                     idproduitforname = 0;
+                    cboUnites.Text = "";
                 }
                
             }
